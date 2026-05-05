@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**375/438 signatures resolved across 16 module(s).**
+**378/441 signatures resolved across 16 module(s).**
 
 ## `animationsystem.dll`
 
@@ -68,6 +68,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CFogController` | `stringref` | `0x7FFABEFEEFD0` | `0x27EFD0` | `"CFogController"` |
 | `CGameSceneNode` | `stringref` | `0x7FFABEF138F0` | `0x1A38F0` | `"CGameSceneNode"` |
 | `CGameSceneNode_BuildBoneMergeWork` | `raw` | `0x7FFABF6AFA40` | `0x93FA40` | `40 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 48 8D 6C 24 50 80 A1 06 01 00 00 FB 4C 8B F9 80` |
+| `CGameSceneNode_PerformBatchedInvalidatePhysicsRecursive` | `raw` | `0x7FFABF6AE660` | `0x93E660` | `40 57 48 81 EC 90 00 00 00 84 C9 74 4D BF 01 00 00 00 F0 0F C1 3D ? ? ? ? FF C7 83 FF 01 0F 85 63 05 00 00 48 8D 0D ? ? ? ? 48 8D 15` |
 | `CGameSceneNode_StartHierarchicalAttachment` | `raw` | `0x7FFABF6FC5E0` | `0x98C5E0` | `48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 30 48 8B F9 8B` |
 | `CGameTrace_TraceShape_Client` | `raw` | `0x7FFABF6FEAA0` | `0x98EAA0` | `48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55 41 56 48 8D AC 24 10 E0 FF FF B8 F0 20 00 00` |
 | `CGlowProperty` | `stringref` | `0x7FFABF0511A0` | `0x2E11A0` | `"CGlowProperty"` |
@@ -384,6 +385,8 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | Name | Resolve | VA | RVA | Pattern |
 | --- | --- | --- | --- | --- |
 | `GetParticleManager` | `riprel` | `0x7FFAEC769590` | `0x579590` | `48 8B 05 ? ? ? ? C3 ? ? ? ? ? ? ? ? 48 83 EC 28 8B 0D` |
+| `Particles::CParticleSystemMgr_CreateParticleCollection` | `raw` | `0x7FFAEC290DD0` | `0xA0DD0` | `4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 56 41 57 48 81 EC 80 00 00 00 49 C7 43 B0 ? ? 00 00 48 8D 05 ? ? ? ? 49 89 43 A8` |
+| `Particles::CParticleSystemMgr_FindParticleSystem` | `raw` | `0x7FFAEC290BC0` | `0xA0BC0` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 40 01 00 00 48 8D 05 ? ? ? ? 48 C7 44 24 28 ? ? 00 00 48 89 44 24 20` |
 | `Particles::DrawArray` | `raw` | `0x7FFAEC2120B0` | `0x220B0` | `40 55 53 56 57 48 8D 6C 24` |
 | `Particles::FindKeyVar` | `raw` | `0x7FFAEC22A650` | `0x3A650` | `48 89 5C 24 ? 57 48 81 EC ? ? ? ? 33 C0 8B DA` |
 | `Particles::SetMaterialShaderType` | `raw` | `0x7FFAEC28D8D0` | `0x9D8D0` | `48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 81 EC ? ? ? ? 4C 63 32` |

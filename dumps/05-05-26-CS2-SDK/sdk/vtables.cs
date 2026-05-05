@@ -4666,10 +4666,10 @@ public static class VTables
             public const nint method_12                                        =   12; // particles.dll + 0xA0B80
             public const nint method_13                                        =   13; // particles.dll + 0x9EA90
             public const nint method_14                                        =   14; // particles.dll + 0x9EAA0
-            public const nint method_15                                        =   15; // particles.dll + 0xA0BC0
+            public const nint Particles__CParticleSystemMgr_FindParticleSystem =   15; // particles.dll + 0xA0BC0
             public const nint method_16                                        =   16; // particles.dll + 0x999A0
             public const nint method_17                                        =   17; // particles.dll + 0xA0F10
-            public const nint method_18                                        =   18; // particles.dll + 0xA0DD0
+            public const nint Particles__CParticleSystemMgr_CreateParticleCollection =   18; // particles.dll + 0xA0DD0
             public const nint method_19                                        =   19; // particles.dll + 0xA17A0
             public const nint method_20                                        =   20; // particles.dll + 0x21640
             public const nint method_21                                        =   21; // particles.dll + 0x21640

@@ -66,6 +66,7 @@ public static class Signatures
         public const string CFogController = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 8B 8A 56";
         public const string CGameSceneNode = "41 56 48 83 EC 30 4C 8B F2 85 C9 74 25 83 F9 06 74 09 33 C0 48 83 C4 30 41 5E C3 48 8B 02 49 8B CE 48 8D 54 24 58 FF 10 48 8B 00 48 83 C4 30 41";
         public const string CGameSceneNode_BuildBoneMergeWork = "40 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 48 8D 6C 24 50 80 A1 06";
+        public const string CGameSceneNode_PerformBatchedInvalidatePhysicsRecursive = "40 57 48 81 EC 90 00 00 00 84 C9 74 4D BF 01 00";
         public const string CGameSceneNode_StartHierarchicalAttachment = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 30 48 8B F9 8B";
         public const string CGameTrace_TraceShape_Client = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
         public const string CGlowProperty = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 8D 05 ? ? ? ? C7 44 24 30 00 00 00 80 89 4C 24 28 4C 8D 05 ? ? ? ? 48 89 44 24 48 48 8D 4C 24";
@@ -368,6 +369,8 @@ public static class Signatures
     public static class particles
     {
         public const string GetParticleManager = "48 8B 05 ? ? ? ? C3 ? ? ? ? ? ? ? ? 48 83 EC 28 8B 0D";
+        public const string Particles__CParticleSystemMgr_CreateParticleCollection = "4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 56 41 57";
+        public const string Particles__CParticleSystemMgr_FindParticleSystem = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 40";
         public const string Particles__DrawArray = "40 55 53 56 57 48 8D 6C 24 F8 48 81 EC 08 01 00";
         public const string Particles__FindKeyVar = "48 89 5C 24 08 57 48 81 EC C0 00 00 00 33 C0 8B";
         public const string Particles__SetMaterialShaderType = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 54 41 56 41 57 48 81";

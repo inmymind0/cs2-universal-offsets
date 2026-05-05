@@ -4588,10 +4588,10 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_12                                        =   12; // particles.dll + 0xA0B80
             inline constexpr std::ptrdiff_t method_13                                        =   13; // particles.dll + 0x9EA90
             inline constexpr std::ptrdiff_t method_14                                        =   14; // particles.dll + 0x9EAA0
-            inline constexpr std::ptrdiff_t method_15                                        =   15; // particles.dll + 0xA0BC0
+            inline constexpr std::ptrdiff_t Particles__CParticleSystemMgr_FindParticleSystem =   15; // particles.dll + 0xA0BC0
             inline constexpr std::ptrdiff_t method_16                                        =   16; // particles.dll + 0x999A0
             inline constexpr std::ptrdiff_t method_17                                        =   17; // particles.dll + 0xA0F10
-            inline constexpr std::ptrdiff_t method_18                                        =   18; // particles.dll + 0xA0DD0
+            inline constexpr std::ptrdiff_t Particles__CParticleSystemMgr_CreateParticleCollection =   18; // particles.dll + 0xA0DD0
             inline constexpr std::ptrdiff_t method_19                                        =   19; // particles.dll + 0xA17A0
             inline constexpr std::ptrdiff_t method_20                                        =   20; // particles.dll + 0x21640
             inline constexpr std::ptrdiff_t method_21                                        =   21; // particles.dll + 0x21640
