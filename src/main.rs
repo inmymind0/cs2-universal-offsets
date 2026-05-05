@@ -1,4 +1,4 @@
-﻿// cs2-universal-dumper
+// cs2-universal-dumper
 // --------------------
 // One binary, two passes:
 //   * offsets    (external offset/interface/schema/button dumper)
@@ -12,10 +12,10 @@
 //         logs/cs2-sdk.log                    full TRACE-level run log
 //         signatures/
 //             signatures.json   (hand-formatted, one entry per line)
-//             signatures.hpp    (C++ namespace per module — patterns +
+//             signatures.hpp    (C++ namespace per module � patterns +
 //                                 fn-ptr typedefs)
-//             signatures.hpp    (C++ namespace per module — patterns)
-//             signatures.rs     (Rust module per module — patterns)
+//             signatures.hpp    (C++ namespace per module � patterns)
+//             signatures.rs     (Rust module per module � patterns)
 //             SIGNATURES.md     (human-readable table)
 //             diff.json         (delta vs. previous session, when found)
 //         sdk/
@@ -57,7 +57,7 @@ mod source2;
 mod ui;
 
 #[derive(Debug, Parser)]
-#[command(author, version, about = "CS2 Universal Dumper â€” offsets + signatures in one run")]
+#[command(author, version, about = "CS2 Universal Dumper — offsets + signatures in one run")]
 struct Args {
     #[arg(short, long)]
     connector: Option<String>,
@@ -71,8 +71,8 @@ struct Args {
     #[arg(short, long, default_value_t = 4)]
     indent_size: usize,
 
-    /// Parent directory for the dated session folder.
-    #[arg(short, long, default_value = "dumps")]
+    /// Output directory for SDK files (no dated subfolders).
+    #[arg(short, long, default_value = "output")]
     output: PathBuf,
 
     #[arg(short, long, default_value = "cs2.exe")]
@@ -110,8 +110,7 @@ fn main() -> Result<()> {
     ui::sound(ui::Cue::Start);
 
     let now = Local::now();
-    let session_name = format!("{}-CS2-SDK", now.format("%d-%m-%y"));
-    let session_dir = args.output.join(&session_name);
+    let session_dir = args.output.clone();
     let sdk_dir = session_dir.join("sdk");
     let sigs_dir = session_dir.join("signatures");
     let logs_dir = session_dir.join("logs");
@@ -124,8 +123,7 @@ fn main() -> Result<()> {
 
     ui::section("Session");
     ui::kv("Timestamp", &now.format("%Y-%m-%d %H:%M:%S").to_string());
-    ui::kv("Session", &session_name);
-    ui::kv("Root", &session_dir.display().to_string());
+    ui::kv("Output", &session_dir.display().to_string());
     ui::kv("Process", &args.process_name);
     ui::kv("File types", &args.file_types.join(","));
     ui::kv("Offsets", if args.skip_offsets { "skipped" } else { "enabled" });
@@ -189,7 +187,7 @@ fn main() -> Result<()> {
 
                 // Emit the cheat-developer-friendly SDK extras (typed schema
                 // classes, netvars split-out, interface accessor stubs,
-                // single-include amalgamation). Pure-additive — the original
+                // single-include amalgamation). Pure-additive � the original
                 // outputs above are untouched.
                 if let Err(e) = out.dump_sdk_extras(build_number) {
                     ui::warn(&format!("sdk extras emitter failed: {}", e));
@@ -237,15 +235,8 @@ fn main() -> Result<()> {
         ui::section("Signatures (PE/section aware)");
         ui::sound(ui::Cue::Step);
 
-        // Build the warm-start cache.  Explicit `--cache` wins; otherwise
-        // we look for the newest sibling session folder.
-        let cache_path = args.cache.clone().or_else(|| {
-            if args.no_cache {
-                None
-            } else {
-                find_previous_signatures_json(&args.output, &session_name)
-            }
-        });
+        // Build the warm-start cache.  Explicit `--cache` wins.
+        let cache_path = args.cache.clone();
         let cache = match &cache_path {
             Some(p) => match SignatureCache::load(p) {
                 Ok(c) => {
@@ -333,7 +324,7 @@ fn main() -> Result<()> {
                 .filter(|m| oracle.contains_key(&(m.module.clone(), m.rva)))
                 .count();
             ui::ok(&format!(
-                "vtables emitted (vtables.{{json,hpp}}) — {} slots labelled from signatures",
+                "vtables emitted (vtables.{{json,hpp}}) � {} slots labelled from signatures",
                 labelled
             ));
         }
@@ -346,11 +337,10 @@ fn main() -> Result<()> {
         .unwrap_or(json!(null));
 
     // Module fingerprints (PE timestamp + image size) for the major
-    // CS2 modules — lets consumers detect a build mismatch instantly.
+    // CS2 modules � lets consumers detect a build mismatch instantly.
     let module_fingerprints = collect_module_fingerprints(&mut process);
 
     let manifest = json!({
-        "session": session_name,
         "generated_at": now.to_rfc3339(),
         "process": args.process_name,
         "build_number": build_number,
@@ -378,7 +368,7 @@ fn main() -> Result<()> {
 
     // --- summary -----------------------------------------------------------
     ui::section("Summary");
-    ui::kv("Session dir", &session_dir.display().to_string());
+    ui::kv("Output dir", &session_dir.display().to_string());
     if !args.skip_offsets {
         ui::kv("Offsets", if offsets_ok { "ok" } else { "FAIL" });
     }
@@ -395,24 +385,12 @@ fn main() -> Result<()> {
     ui::divider();
     let all_ok = offsets_ok && sigs_ok;
     if all_ok {
-        // Mirror this session into <output>/latest/ so URLs of the form
-        // raw.githubusercontent.com/.../dumps/latest/signatures/signatures.hpp
-        // always resolve to the most recent successful dump.
-        if let Err(e) = mirror_to_latest(&args.output, &session_dir) {
-            ui::warn(&format!("latest/ mirror failed: {}", e));
-        } else {
-            ui::ok(&format!(
-                "latest/ mirror updated -> {}",
-                args.output.join("latest").display()
-            ));
-        }
-
         ui::sound(ui::Cue::Success);
         ui::step("All stages completed successfully.");
         Ok(())
     } else {
         ui::sound(ui::Cue::Failure);
-        ui::err("One or more stages failed â€” see logs/cs2-sdk.log.");
+        ui::err("One or more stages failed — see logs/cs2-sdk.log.");
         std::process::exit(1);
     }
 }
@@ -449,67 +427,6 @@ fn build_os(args: &Args) -> Result<OsInstanceArcBox<'static>> {
     }
 }
 
-/// Locate the newest sibling session folder under `output` (skipping the
-/// one we're currently writing) and return the path to its
-/// `signatures/signatures.json` if it exists.
-/// Used to enable warm-cache + diff behaviour without any explicit flag.
-fn find_previous_signatures_json(output: &Path, current_session: &str) -> Option<PathBuf> {
-    let mut candidates: Vec<(std::time::SystemTime, PathBuf)> = Vec::new();
-    let entries = fs::read_dir(output).ok()?;
-    for entry in entries.flatten() {
-        let name = entry.file_name();
-        let Some(name) = name.to_str() else { continue };
-        if name == current_session || !name.ends_with("-CS2-SDK") {
-            continue;
-        }
-        let sigs = entry.path().join("signatures").join("signatures.json");
-        if !sigs.exists() {
-            continue;
-        }
-        let mtime = entry
-            .metadata()
-            .and_then(|m| m.modified())
-            .unwrap_or(std::time::UNIX_EPOCH);
-        candidates.push((mtime, sigs));
-    }
-    candidates.sort_by(|a, b| b.0.cmp(&a.0));
-    candidates.into_iter().next().map(|(_, p)| p)
-}
-
-/// Mirror `session_dir` into `<output>/latest/`, replacing any existing
-/// content. The `latest/` folder is what consumers point their
-/// `raw.githubusercontent.com/.../dumps/latest/...` URLs at, so it
-/// always reflects the most recent successful dump.
-///
-/// We avoid an external `robocopy` dependency by walking the tree
-/// ourselves; this also keeps behaviour identical on dev machines that
-/// don't have robocopy on PATH.
-fn mirror_to_latest(output_root: &Path, session_dir: &Path) -> Result<()> {
-    let dest = output_root.join("latest");
-    if dest.exists() {
-        fs::remove_dir_all(&dest)
-            .with_context(|| format!("failed to clear {}", dest.display()))?;
-    }
-    copy_tree(session_dir, &dest)?;
-    Ok(())
-}
-
-fn copy_tree(src: &Path, dst: &Path) -> Result<()> {
-    fs::create_dir_all(dst)?;
-    for entry in fs::read_dir(src)? {
-        let entry = entry?;
-        let from = entry.path();
-        let to = dst.join(entry.file_name());
-        let ft = entry.file_type()?;
-        if ft.is_dir() {
-            copy_tree(&from, &to)?;
-        } else if ft.is_file() {
-            fs::copy(&from, &to)?;
-        }
-    }
-    Ok(())
-}
-
 fn init_logging(logs_dir: &Path, verbose: u8) -> Result<()> {
     let term_level = match verbose {
         0 => LevelFilter::Warn,
@@ -542,7 +459,7 @@ fn init_logging(logs_dir: &Path, verbose: u8) -> Result<()> {
 /// build, without having to re-run the full dumper.
 ///
 /// We don't use `pelite::PeView::from_bytes` here because we only read
-/// the first 4 KiB of headers from the live process — `PeView` requires
+/// the first 4 KiB of headers from the live process � `PeView` requires
 /// a complete image and would reject the truncated buffer.  The PE
 /// header layout is fixed, so a hand-rolled parse is safe and avoids
 /// the round-trip cost of dragging in a whole image just for one u32.
@@ -620,7 +537,7 @@ fn collect_module_fingerprints<P: Process + MemoryView>(
 }
 
 /// Pretty-print only successfully-resolved signatures, one hit per line.
-/// Unfound entries are dropped entirely — they have no usable address.
+/// Unfound entries are dropped entirely � they have no usable address.
 fn format_found_signatures(report: &signatures::SignatureReport) -> String {
     let found: Vec<&signatures::SignatureHit> =
         report.hits.iter().filter(|h| h.found).collect();
