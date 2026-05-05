@@ -1934,7 +1934,7 @@
         {
           "index": 4,
           "module": "client.dll",
-          "name": "method_4",
+          "name": "CSource2Client_Shutdown",
           "rva": "0xAE5B90"
         },
         {

@@ -3312,4 +3312,77 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         extra_off: 0,
     },
 
+    // CNetworkGameClient::ProcessTick â€” engine2!sub_18006AAF0. Refs the
+    // log "CNetworkGameClient::ProcessTick( -1 ), ignoring during demo
+    // playback". Per-tick client-side network frame driver: dispatches
+    // the tick to the simulation, applies prediction, and orders demo
+    // recording. Anchor for tick-rate / fake-lag observability and a
+    // safe pre-prediction insertion point for client mods.
+    Signature {
+        name: "CNetworkGameClient_ProcessTick",
+        module: "engine2.dll",
+        needle: "48 89 5C 24 20 55 57 41 57 48 81 EC F0 00 00 00 8B 7A 50 45 33 FF 44 38 3D ? ? ? ? 48 8B EA",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CNetworkGameClientBase::ForceDemoRecordingFullUpdateAfterNextDeltaPacket
+    // â€” engine2!sub_1800292B0. Refs unique log "CDemoRecorder::
+    // StartRecording( %s ) calling ForceDemoRecordingFullUpdate
+    // AfterNextDeltaPacket to await next delta update before forcing a
+    // full update". Sets the flag that makes the next demo segment
+    // contain a full snapshot. Useful for demo tools that need clean
+    // restart points and for forcing a deterministic resync after a
+    // mid-match attach.
+    Signature {
+        name: "CNetworkGameClientBase_ForceDemoRecordingFullUpdateAfterNextDeltaPacket",
+        module: "engine2.dll",
+        needle: "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D ? ? ? ? 48 8B FA 48 8B F1 48 85 DB",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // C_BaseEntity::SaveData â€” client!sub_180A71820. Refs the unique
+    // formats "SaveData   :%32.32s [orig]" and "SaveData   :%32.32s
+    // [%4d]" used by the cl_predictioncopy_print machinery. Captures a
+    // per-field snapshot of an entity's predicted state before the
+    // engine runs the next prediction phase. Hook target for prediction
+    // observability, replay/rewind tools, and prediction-divergence
+    // forensics.
+    Signature {
+        name: "C_BaseEntity_SaveData",
+        module: "client.dll",
+        needle: "48 8B C4 55 56 57 41 56 41 57 48 8D A8 E8 FD FF FF 48 81 EC F0 02 00 00 48 83 B9 A0 05 00 00 00",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // C_BaseEntity::RestoreData â€” client!sub_180A71610. Refs the unique
+    // formats "RestoreData:%32.32s [orig]" and "RestoreData:%32.32s
+    // [%4d]". Mirror of SaveData: copies a previously stashed
+    // prediction snapshot back into an entity, called when prediction
+    // is rewound or when a server packet arrives mid-prediction. Pair
+    // with C_BaseEntity_SaveData for end-to-end prediction tracing.
+    Signature {
+        name: "C_BaseEntity_RestoreData",
+        module: "client.dll",
+        needle: "40 55 53 56 41 54 41 57 48 8D AC 24 20 FF FF FF 48 81 EC E0 01 00 00 48 8B D9 45 8B E1 48 8B 89",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CSource2Client::Shutdown â€” client!sub_180AE5B90. The function
+    // referenced by the unique log "CSource2Client::Shutdown\n". Top-
+    // level teardown for the client: unregisters game systems, closes
+    // panel UI, releases prediction state, and tears down all client-
+    // side managers. Hook this to gracefully unload an internal cheat
+    // when the client unloads/restarts without leaking game state.
+    Signature {
+        name: "CSource2Client_Shutdown",
+        module: "client.dll",
+        needle: "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 81 EC 40 02 00 00 8B 0D ? ? ? ? BA 02 00 00",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
 ];

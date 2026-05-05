@@ -361,7 +361,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0xACDA40
             inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0xAE0E80
             inline constexpr std::ptrdiff_t method_3                                         =    3; // client.dll + 0xAD6940
-            inline constexpr std::ptrdiff_t method_4                                         =    4; // client.dll + 0xAE5B90
+            inline constexpr std::ptrdiff_t CSource2Client_Shutdown                          =    4; // client.dll + 0xAE5B90
             inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0xADFC80
             inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0xAD3A10
             inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0xAD5900

@@ -91,13 +91,15 @@ pub mod client {
     pub const CSkeletonInstance_SetMaterialGroup: &str = "3B 91 C4 03 00 00 74 24 89 91 C4 03 00 00 48 8B";
     pub const CSkeletonInstance_SetMeshGroupMask: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 8B 00 49 8B";
     pub const CSmokeGrenadeProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 FB 95 09";
+    pub const CSource2Client_Shutdown: &str = "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 81 EC 40";
     pub const CTonemapController2: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 CB FD 58";
     pub const CUtlVector_CompositeMaterialInput_AddToTail: &str = "41 B9 88 02 00 00 8B 57 14 81 E2 FF FF FF 3F 8D 71 01 44 8B";
     pub const C_AttributeContainer: &str = "41 56 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 C7 02";
     pub const C_BaseEntity: &str = "48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
     pub const C_BaseEntity_CheckPredictionForceReLatch: &str = "48 8B C4 48 89 50 10 53 55 56 48 81 EC 00 01 00";
     pub const C_BaseEntity_ProcessInterpolatedList: &str = "4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 54 41 57";
-    pub const C_BaseEntity_TakeDamageOld: &str = "40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20";
+    pub const C_BaseEntity_RestoreData: &str = "40 55 53 56 41 54 41 57 48 8D AC 24 20 FF FF FF";
+    pub const C_BaseEntity_SaveData: &str = "48 8B C4 55 56 57 41 56 41 57 48 8D A8 E8 FD FF";
     pub const C_BaseModelEntity: &str = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 D2 7F";
     pub const C_BasePlayerPawn: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
     pub const C_C4: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
@@ -309,6 +311,8 @@ pub mod engine2 {
     pub const CCommand_Tokenize: &str = "48 89 6C 24 20 4C 89 44 24 18 56 57 41 54 41 56";
     pub const CGameClient_ClientCommand: &str = "48 8B C4 4C 89 40 18 4C 89 48 20 55 53 57 48 8D";
     pub const CHLTVClient_ExecuteStringCommand: &str = "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA";
+    pub const CNetworkGameClientBase_ForceDemoRecordingFullUpdateAfterNextDeltaPacket: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D FA 0D";
+    pub const CNetworkGameClient_ProcessTick: &str = "48 89 5C 24 20 55 57 41 57 48 81 EC F0 00 00 00";
     pub const CServerSideClient_ExecuteStringCommand: &str = "40 55 53 56 48 8D AC 24 50 FA FF FF 48 81 EC B0";
     pub const CSplitScreenSlot: &str = "48 83 EC 58 4C 8B D2 45 85 C0 0F 85 ? ? ? ?";
     pub const Cvar_RegisterConCommand: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 89";

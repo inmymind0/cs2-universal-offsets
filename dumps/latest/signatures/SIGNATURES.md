@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**402/449 signatures resolved across 16 module(s).**
+**406/453 signatures resolved across 16 module(s).**
 
 ## `animationsystem.dll`
 
@@ -97,13 +97,15 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CSkeletonInstance_SetMaterialGroup` | `raw` | `0x7FFABF79C830` | `0xA2C830` | `3B 91 C4 03 00 00 74 24 89 91 C4 03 00 00 48 8B 81 28 02 00 00 48 85 C0 74 12` |
 | `CSkeletonInstance_SetMeshGroupMask` | `raw` | `0x7FFABF795480` | `0xA25480` | `48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 8B 00 49 8B F8 48 8B F2 48 8B D9 48 39 81 C8 01` |
 | `CSmokeGrenadeProjectile` | `stringref` | `0x7FFABF4BE460` | `0x74E460` | `"CSmokeGrenadeProjectile"` |
+| `CSource2Client_Shutdown` | `raw` | `0x7FFABF855B90` | `0xAE5B90` | `48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 81 EC 40 02 00 00 8B 0D ? ? ? ? BA 02 00 00` |
 | `CTonemapController2` | `stringref` | `0x7FFABEFC7C90` | `0x257C90` | `"CTonemapController2"` |
 | `CUtlVector_CompositeMaterialInput_AddToTail` | `raw` | `0x7FFABF4F9C50` | `0x789CA2` | `41 B9 88 02 00 00 8B 57 14 81 E2 FF FF FF 3F 8D 71 01 44 8B C6 FF 15` |
 | `C_AttributeContainer` | `stringref` | `0x7FFABF988BB0` | `0xC18BB0` | `"C_AttributeContainer"` |
 | `C_BaseEntity` | `stringref` | `0x7FFABEDBE260` | `0x4E260` | `"C_BaseEntity"` |
 | `C_BaseEntity_CheckPredictionForceReLatch` | `raw` | `0x7FFABF8B7910` | `0xB47910` | `48 8B C4 48 89 50 10 53 55 56 48 81 EC 00 01 00 00 0F 29 78 98 48 8B F2 8B 91 04 01 00 00` |
 | `C_BaseEntity_ProcessInterpolatedList` | `raw` | `0x7FFABF7DBDD0` | `0xA6BDD0` | `4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 54 41 57 48 83 EC 60 49 C7 43 B0 E1 07 00 00` |
-| `C_BaseEntity_TakeDamageOld` | `raw` | `0x7FFABEF93D20` | `0x223D20` | `40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20 01 00 00 4D 8B E0 48 8B FA 48 8B F1` |
+| `C_BaseEntity_RestoreData` | `raw` | `0x7FFABF7E1610` | `0xA71610` | `40 55 53 56 41 54 41 57 48 8D AC 24 20 FF FF FF 48 81 EC E0 01 00 00 48 8B D9 45 8B E1 48 8B 89` |
+| `C_BaseEntity_SaveData` | `raw` | `0x7FFABF7E1820` | `0xA71820` | `48 8B C4 55 56 57 41 56 41 57 48 8D A8 E8 FD FF FF 48 81 EC F0 02 00 00 48 83 B9 A0 05 00 00 00` |
 | `C_BaseModelEntity` | `stringref` | `0x7FFABEEC8010` | `0x158010` | `"C_BaseModelEntity"` |
 | `C_BasePlayerPawn` | `stringref` | `0x7FFABEDDDA20` | `0x6DA20` | `"C_BasePlayerPawn"` |
 | `C_C4` | `stringref` | `0x7FFABEE0A420` | `0x9A420` | `"C_C4"` |
@@ -317,6 +319,8 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CCommand_Tokenize` | `raw` | `0x7FFB13ACD710` | `0x3FD710` | `48 89 6C 24 20 4C 89 44 24 18 56 57 41 54 41 56 41 57 48 83 EC 70 48 8B F2 49 8B E8 8B 51 08 4C` |
 | `CGameClient_ClientCommand` | `raw` | `0x7FFB13771240` | `0xA1240` | `48 8B C4 4C 89 40 18 4C 89 48 20 55 53 57 48 8D 68 A1 48 81 EC C0 00 00 00 33 FF 48 63 DA 48 39` |
 | `CHLTVClient_ExecuteStringCommand` | `raw` | `0x7FFB137F0D70` | `0x120D70` | `40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA 48 8B 4A 48 48 83 E1 FC 48 83 79 18 0F 76 03 48` |
+| `CNetworkGameClientBase_ForceDemoRecordingFullUpdateAfterNextDeltaPacket` | `raw` | `0x7FFB136F92B0` | `0x292B0` | `48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D ? ? ? ? 48 8B FA 48 8B F1 48 85 DB` |
+| `CNetworkGameClient_ProcessTick` | `raw` | `0x7FFB1373AAF0` | `0x6AAF0` | `48 89 5C 24 20 55 57 41 57 48 81 EC F0 00 00 00 8B 7A 50 45 33 FF 44 38 3D ? ? ? ? 48 8B EA` |
 | `CServerSideClient_ExecuteStringCommand` | `raw` | `0x7FFB1378E120` | `0xBE120` | `40 55 53 56 48 8D AC 24 50 FA FF FF 48 81 EC B0 06 00 00 48 8B D9 48 8B F2 48 8B 4A 48` |
 | `CSplitScreenSlot` | `stringref` | `0x7FFB1391A250` | `0x24A250` | `"CSplitScreenSlot"` |
 | `Cvar_RegisterConCommand` | `raw` | `0x7FFB13ACD270` | `0x3FD270` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 ? ? ? ? 48 8B D9 65 48` |
