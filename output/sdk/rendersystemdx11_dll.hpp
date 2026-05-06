@@ -4,7 +4,7 @@
 // classes:       8
 // enums:         8
 // build_number:  14158
-// generated_at:  2026-05-05T19:39:21.767072300+00:00
+// generated_at:  2026-05-06T13:12:46.596619600+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -105,22 +105,11 @@ namespace cs2::sdk::rendersystemdx11 {
         RENDER_SLOT_PER_INSTANCE = 0x1,
     };
 
-    // VsInputSignatureElement_t
-    //   fields: 4
-    class VsInputSignatureElement_t {
+    // SheetSequenceIntegerId_t
+    //   fields: 1
+    class SheetSequenceIntegerId_t {
     public:
-        SCHEMA_FIELD(char                            , m_pName                                         , 0x0) // char[64]
-        SCHEMA_FIELD(char                            , m_pSemantic                                     , 0x40) // char[64]
-        SCHEMA_FIELD(char                            , m_pD3DSemanticName                              , 0x80) // char[64]
-        SCHEMA_FIELD(std::int32_t                    , m_nD3DSemanticIndex                             , 0xC0) // int32
-    };
-
-    // VsInputSignature_t
-    //   fields: 2
-    class VsInputSignature_t {
-    public:
-        SCHEMA_FIELD(CUtlVector<VsInputSignatureElement_t>, m_elems                                         , 0x0) // CUtlVector<VsInputSignatureElement_t>
-        SCHEMA_FIELD(CUtlVector<VsInputSignatureElement_t>, m_depth_elems                                   , 0x18) // CUtlVector<VsInputSignatureElement_t>
+        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
     };
 
     // RsDepthStencilStateDesc_t
@@ -133,11 +122,14 @@ namespace cs2::sdk::rendersystemdx11 {
         SCHEMA_FIELD(RsStencilStateDesc_t            , m_stencilState                                  , 0x2) // RsStencilStateDesc_t
     };
 
-    // SheetSequenceIntegerId_t
-    //   fields: 1
-    class SheetSequenceIntegerId_t {
+    // VsInputSignatureElement_t
+    //   fields: 4
+    class VsInputSignatureElement_t {
     public:
-        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
+        SCHEMA_FIELD(char                            , m_pName                                         , 0x0) // char[64]
+        SCHEMA_FIELD(char                            , m_pSemantic                                     , 0x40) // char[64]
+        SCHEMA_FIELD(char                            , m_pD3DSemanticName                              , 0x80) // char[64]
+        SCHEMA_FIELD(std::int32_t                    , m_nD3DSemanticIndex                             , 0xC0) // int32
     };
 
     // RsStencilStateDesc_t
@@ -172,6 +164,14 @@ namespace cs2::sdk::rendersystemdx11 {
         SCHEMA_FIELD(std::uint32_t                   , m_blendOpAlphaBits                              , 0x18) // uint32
         SCHEMA_FIELD(std::uint8_t                    , m_blendEnableBits                               , 0x1C) // uint8
         SCHEMA_FIELD(std::uint8_t                    , m_srgbWriteEnableBits                           , 0x1D) // uint8
+    };
+
+    // VsInputSignature_t
+    //   fields: 2
+    class VsInputSignature_t {
+    public:
+        SCHEMA_FIELD(CUtlVector<VsInputSignatureElement_t>, m_elems                                         , 0x0) // CUtlVector<VsInputSignatureElement_t>
+        SCHEMA_FIELD(CUtlVector<VsInputSignatureElement_t>, m_depth_elems                                   , 0x18) // CUtlVector<VsInputSignatureElement_t>
     };
 
     // RenderInputLayoutField_t

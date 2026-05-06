@@ -1646,6 +1646,27 @@ fn render_one_module(
         writeln!(s, "    }};\n").ok();
     }
 
+    // Add manual CEconItem class for server.dll (not in schema)
+    if ns == "server" {
+        writeln!(s, "    // CEconItem").ok();
+        writeln!(s, "    //   Manual addition - server-side inventory item").ok();
+        writeln!(s, "    //   fields: 11").ok();
+        writeln!(s, "    class CEconItem {{").ok();
+        writeln!(s, "    public:").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint64_t                   , m_ulID                                          , 0x10) // uint64").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint64_t                   , m_ulOriginalID                                  , 0x18) // uint64").ok();
+        writeln!(s, "        SCHEMA_FIELD(void*                           , m_pCustomData                                   , 0x20) // void*").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint32_t                   , m_unAccountID                                   , 0x28) // uint32").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint32_t                   , m_unInventory                                   , 0x2C) // uint32").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_unDefIndex                                    , 0x30) // uint16").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_nQuality                                      , 0x32) // uint16").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_nRarity                                       , 0x32) // uint16").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_iItemSet                                      , 0x34) // uint16").ok();
+        writeln!(s, "        SCHEMA_FIELD(bool                            , m_bSOUpdateFrame                                , 0x38) // bool").ok();
+        writeln!(s, "        SCHEMA_FIELD(std::uint32_t                   , m_unFlags                                       , 0x3C) // uint32").ok();
+        writeln!(s, "    }};\n").ok();
+    }
+
     writeln!(s, "}} // namespace cs2::sdk::{}", ns).ok();
     s
 }

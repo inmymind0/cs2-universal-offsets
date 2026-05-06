@@ -1,20 +1,4 @@
 {
-    values = {
-        [[C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\HostX64\x64\link.exe]],
-        {
-            "-nologo",
-            "-machine:x64",
-            "/opt:ref",
-            "/opt:icf",
-            "dxgi.lib",
-            "d3d11.lib",
-            "d3dcompiler.lib",
-            "user32.lib",
-            "Psapi.lib",
-            "gdi32.lib",
-            "Advapi32.lib"
-        }
-    },
     files = {
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\cheat\cheat.cpp.obj]],
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\cheat\hooks\AggregateSceneObjectArray.cpp.obj]],
@@ -24,8 +8,6 @@
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\cheat\menu\menu.cpp.obj]],
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\cheat\test\test_bhop.cpp.obj]],
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\cheat\test\test_chams.cpp.obj]],
-        [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\cheat\test\test_gloves_simple.cpp.obj]],
-        [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\cheat\test\test_inventory_changer.cpp.obj]],
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\cheat\test\test_skinchanger.cpp.obj]],
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\entry.cpp.obj]],
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\src\utils\io.cpp.obj]],
@@ -64,5 +46,21 @@
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\vendor\zydis\src\String.c.obj]],
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\vendor\zydis\src\Utils.c.obj]],
         [[vendor\cs2-universal-offsets\build\.objs\p2c\windows\x64\release\vendor\zydis\src\Zydis.c.obj]]
+    },
+    values = {
+        [[C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\HostX64\x64\link.exe]],
+        {
+            "-nologo",
+            "-machine:x64",
+            "/opt:ref",
+            "/opt:icf",
+            "dxgi.lib",
+            "d3d11.lib",
+            "d3dcompiler.lib",
+            "user32.lib",
+            "Psapi.lib",
+            "gdi32.lib",
+            "Advapi32.lib"
+        }
     }
 }

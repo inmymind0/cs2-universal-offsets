@@ -102,7 +102,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature {
         name: "CBaseModelEntity::SetBodyGroup",
         module: "client.dll",
-        needle: "85 D2 0F 88 ? ? ? ? 53 55 56 48 83 EC 70 41 8B F0 8B DA 48 8B E9",
+        needle: "85 D2 0F 88 ? ? ? ? 55 53 56 41 56 48 8B EC 48 83 EC 78",
         resolve: NONE,
         extra_off: 0,
         prototype: "",
@@ -156,6 +156,30 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         resolve: NONE,
         extra_off: 0,
         prototype: "__int64 __fastcall sub_181004F60(__int64 a1, __int64 a2, _DWORD *a3)",
+    },
+    Signature {
+        name: "CEconItemCreateInstance",
+        module: "client.dll",
+        needle: "48 83 EC 28 B9 48 00 00 00 E8",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "uintptr_t __cdecl CEconItemCreateInstance()",
+    },
+    Signature {
+        name: "SOCreated",
+        module: "client.dll",
+        needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B FA 48 8B F1",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "void __fastcall SOCreated(uintptr_t, uint64_t, uintptr_t, int)",
+    },
+    Signature {
+        name: "GetItemViewByID",
+        module: "client.dll",
+        needle: "48 89 54 24 ? 53 48 83 EC ? 48 8B D9 48 85 D2 75 ? 33 C0 48 83 C4 ? 5B C3 48 83 C1 38 48 8D",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "uintptr_t __fastcall GetItemViewByID(uintptr_t, uint64_t)",
     },
 
     // ---------- scenesystem.dll ---------------------------------------
@@ -625,7 +649,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CBufferStringInit",                    module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 48 8D 79", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_1817E29D0(__int64 a1, const char *a2)" },
     Signature { name: "DispatchEffect",                       module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 48 8B DA 48 8D 4C 24", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18035A570(__int64 a1, __int64 a2)" },
     Signature { name: "LoadFileForMe",                        module: "client.dll", needle: "40 55 57 41 56 48 83 EC 20 4C", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_18091BF40(__int64 a1)" },
-    Signature { name: "UpdateSubClass",                       module: "client.dll", needle: "48 8B 41 10 48 8B D9 8B 50 30", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1801FA930(_QWORD *a1)" },
+    Signature { name: "UpdateSubClass",                       module: "client.dll", needle: "4C 8B DC 53 48 81 EC ? ? ? ? 48 8B 41 10 48 8B D9 8B 50 30 C1 EA 04", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1801FA930(_QWORD *a1)" },
     Signature { name: "CreateNewSubtickMoveStep",             module: "client.dll", needle: "E8 ? ? ? ? 48 8B D0 48 8B CE E8 ? ? ? ? 48 8B C8", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1804B1D80(__int64 a1)" },
     Signature { name: "SetCollisionBounds",                   module: "client.dll", needle: "48 83 EC ? F2 0F 10 02 8B 42 08", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180803980(__int64 a1, __int64 *a2)" },
     Signature { name: "CalculateInterpolation",               module: "client.dll", needle: "E8 ? ? ? ? 8B 45 ? 3B 45 60 75 04 32 D2 EB 09 BA 01 00 00 00 41 0F 4C D5 C0 EA 07 84 D2 0F 85 87", resolve: REL32_1, extra_off: 0, prototype: "int *__fastcall sub_1814C7E70(__int64 a1, int *a2)" },

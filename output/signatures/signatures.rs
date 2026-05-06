@@ -38,6 +38,7 @@ pub mod client {
     pub const CBaseEntity_ChangeModel: &str = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D ED";
     /// `unsigned __int64 __fastcall sub_180223D20(__int64 a1, __int64 a2, __int64 **a3)`
     pub const CBaseEntity_TakeDamageOld: &str = "40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20";
+    pub const CBaseModelEntity__SetBodyGroup: &str = "85 D2 0F 88 ? ? ? ? 55 53 56 41 56 48 8B EC";
     /// `void __fastcall sub_1808D9E70(__int64 a1, int a2, int a3)`
     pub const CBaseModelEntity_SetBodygroup: &str = "85 D2 0F 88 ? ? ? ? 55 53 56 41 56 48 8B EC";
     /// `__int64 sub_1801BC160()`
@@ -102,6 +103,8 @@ pub mod client {
     pub const CCompositeMaterialManager_AddPanoramaPanelRenderRequest_Caller: &str = "41 2B C4 41 89 07 48 85 F6 74 7E 49 8B 5F 08 49";
     /// `__int64 sub_18074E1E0()`
     pub const CDecoyProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 7B 98 09";
+    /// `uintptr_t __cdecl CEconItemCreateInstance()`
+    pub const CEconItemCreateInstance: &str = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
     /// `__int64 __fastcall sub_18104CEA0(__int64 a1, unsigned __int8 *a2)`
     pub const CEconItemSchema__GetAttributeDefinitionByName: &str = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48";
     /// `__int64 __fastcall sub_1810A8A60(__int64 *a1)`
@@ -324,6 +327,8 @@ pub mod client {
     pub const GetInt2_Event: &str = "48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 FA 41 8B F0 4C 8B F1 45 85 C0 74 79 8B 41 10 48 89 5C 24 30 8B 19 41 03 D8 4C 89 7C 24 38";
     /// `__int64 *sub_1807C6430()`
     pub const GetInventoryManager: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 0F B6 81 6B";
+    /// `uintptr_t __fastcall GetItemViewByID(uintptr_t, uint64_t)`
+    pub const GetItemViewByID: &str = "48 89 54 24 10 53 48 83 EC 50 48 8B D9 48 85 D2";
     /// `__int64 __fastcall sub_1808E1070(int a1)`
     pub const GetLocalControllerById: &str = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 36 A5";
     /// `__int64 __fastcall sub_1808E1070(int a1)`
@@ -427,6 +432,8 @@ pub mod client {
     pub const RunCommand: &str = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
     /// `void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)`
     pub const RunCommand_processor: &str = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
+    /// `void __fastcall SOCreated(uintptr_t, uint64_t, uintptr_t, int)`
+    pub const SOCreated: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B FA 48 8B F1 41 83 F9 01 75 7F 48 8B 5C 24 60 48 85 DB 74 75 48 85 D2 74 70 49 8B C8 E8 AE 48";
     /// `__int64 __fastcall sub_18085D530(__int64 a1, __int64 a2)`
     pub const Scope_callsite: &str = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
     /// `__int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)`
@@ -502,7 +509,7 @@ pub mod client {
     /// `__int64 __fastcall sub_18025A850(__int64 a1)`
     pub const UpdateSkybox: &str = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 8E F1";
     /// `void __fastcall sub_1801FA930(_QWORD *a1)`
-    pub const UpdateSubClass: &str = "48 8B 41 10 48 8B D9 8B 50 30 C1 EA 04 F6 C2 01";
+    pub const UpdateSubClass: &str = "4C 8B DC 53 48 81 EC 90 01 00 00 48 8B 41 10 48";
     /// `float *__fastcall sub_1807AFDA0(float *a1)`
     pub const UpdateTurningInAccuracy: &str = "40 56 48 81 EC 80 00 00 00 48 8B F1 BA FF FF FF";
     pub const VPhys2World_ptr: &str = "4C 8B 25 ? ? ? ? 24";

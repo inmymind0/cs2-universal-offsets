@@ -12,8 +12,6 @@
         [[src\cheat\menu\menu.cpp]],
         [[src\cheat\test\test_bhop.cpp]],
         [[src\cheat\test\test_chams.cpp]],
-        [[src\cheat\test\test_gloves_simple.cpp]],
-        [[src\cheat\test\test_inventory_changer.cpp]],
         [[src\cheat\test\test_skinchanger.cpp]],
         [[src\entry.cpp]],
         [[src\utils\io.cpp]],

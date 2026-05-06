@@ -29,6 +29,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view CAttributeStringInit = "48 8B C2 48 83 C8 02 45 84 C0 48 0F 44 C2 48 89 41 08 48 8D 05 1F B4 3A";
         inline constexpr std::string_view CBaseEntity_ChangeModel = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D ED";
         inline constexpr std::string_view CBaseEntity_TakeDamageOld = "40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20";
+        inline constexpr std::string_view CBaseModelEntity__SetBodyGroup = "85 D2 0F 88 ? ? ? ? 55 53 56 41 56 48 8B EC";
         inline constexpr std::string_view CBaseModelEntity_SetBodygroup = "85 D2 0F 88 ? ? ? ? 55 53 56 41 56 48 8B EC";
         inline constexpr std::string_view CBodyComponent = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 6C 24 48 4C 89 64 24 30 4C 89 74 24 28 4C 89 7C";
         inline constexpr std::string_view CBodyComponentSkeletonInstance = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 0D 36 15";
@@ -61,6 +62,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view CCollisionProperty = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 89 5C 24 60 48 8D 05 47 1C 81";
         inline constexpr std::string_view CCompositeMaterialManager_AddPanoramaPanelRenderRequest_Caller = "41 2B C4 41 89 07 48 85 F6 74 7E 49 8B 5F 08 49";
         inline constexpr std::string_view CDecoyProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 7B 98 09";
+        inline constexpr std::string_view CEconItemCreateInstance = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
         inline constexpr std::string_view CEconItemSchema__GetAttributeDefinitionByName = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48";
         inline constexpr std::string_view CEconItemView__GetCustomPaintKitIndex = "48 89 5C 24 08 57 48 83 EC 40 8B 15 ? ? ? ? 48 8B F9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 22 1B 31 01 0F 8F";
         inline constexpr std::string_view CFlashbangProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 6B 76 80";
@@ -177,6 +179,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view GetInstanceS = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 91 ? ? ? ? B8";
         inline constexpr std::string_view GetInt2_Event = "48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 FA 41 8B F0 4C 8B F1 45 85 C0 74 79 8B 41 10 48 89 5C 24 30 8B 19 41 03 D8 4C 89 7C 24 38";
         inline constexpr std::string_view GetInventoryManager = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 0F B6 81 6B";
+        inline constexpr std::string_view GetItemViewByID = "48 89 54 24 10 53 48 83 EC 50 48 8B D9 48 85 D2";
         inline constexpr std::string_view GetLocalControllerById = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 36 A5";
         inline constexpr std::string_view GetLocalPawn = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 36 A5";
         inline constexpr std::string_view GetLocalPlayer_dispatcher = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 74 24 50 4C 89 74 24 28 4C 89 7C 24 20 E8 4E 66";
@@ -231,6 +234,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view ReportHit = "40 53 48 83 EC 20 48 8D 05 ? ? ? ? 48 8D 59 08 48 89 01 F6 03 01 74 08 48 8B CB E8 AF FB EA";
         inline constexpr std::string_view RunCommand = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
         inline constexpr std::string_view RunCommand_processor = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
+        inline constexpr std::string_view SOCreated = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B FA 48 8B F1 41 83 F9 01 75 7F 48 8B 5C 24 60 48 85 DB 74 75 48 85 D2 74 70 49 8B C8 E8 AE 48";
         inline constexpr std::string_view Scope_callsite = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
         inline constexpr std::string_view SendChatMessage = "4C 89 44 24 18 4C 89 4C 24 20 53 B8 40 10 00 00";
         inline constexpr std::string_view Sensitivity_ptr = "48 8D 0D ? ? ? ? 66 0F 6E CD";
@@ -269,7 +273,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view UpdateGlobalVars = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
         inline constexpr std::string_view UpdatePostProcessing = "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80";
         inline constexpr std::string_view UpdateSkybox = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 8E F1";
-        inline constexpr std::string_view UpdateSubClass = "48 8B 41 10 48 8B D9 8B 50 30 C1 EA 04 F6 C2 01";
+        inline constexpr std::string_view UpdateSubClass = "4C 8B DC 53 48 81 EC 90 01 00 00 48 8B 41 10 48";
         inline constexpr std::string_view UpdateTurningInAccuracy = "40 56 48 81 EC 80 00 00 00 48 8B F1 BA FF FF FF";
         inline constexpr std::string_view VPhys2World_ptr = "4C 8B 25 ? ? ? ? 24";
         inline constexpr std::string_view ViewModelHideZoomed = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 86 01";
@@ -494,6 +498,7 @@ namespace cs2::fn {
         using CBaseEntity_ChangeModel_t = void(__fastcall*)(void*, ...);
         // unsigned __int64 __fastcall sub_180223D20(__int64 a1, __int64 a2, __int64 **a3)
         using CBaseEntity_TakeDamageOld_t = void(__fastcall*)(void*, ...);
+        using CBaseModelEntity__SetBodyGroup_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1808D9E70(__int64 a1, int a2, int a3)
         using CBaseModelEntity_SetBodygroup_t = void(__fastcall*)(void*, ...);
         // __int64 sub_1801BC160()
@@ -558,6 +563,8 @@ namespace cs2::fn {
         using CCompositeMaterialManager_AddPanoramaPanelRenderRequest_Caller_t = void(__fastcall*)(void*, ...);
         // __int64 sub_18074E1E0()
         using CDecoyProjectile_t = void(__fastcall*)(void*, ...);
+        // uintptr_t __cdecl CEconItemCreateInstance()
+        using CEconItemCreateInstance_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18104CEA0(__int64 a1, unsigned __int8 *a2)
         using CEconItemSchema__GetAttributeDefinitionByName_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1810A8A60(__int64 *a1)
@@ -780,6 +787,8 @@ namespace cs2::fn {
         using GetInt2_Event_t = void(__fastcall*)(void*, ...);
         // __int64 *sub_1807C6430()
         using GetInventoryManager_t = void(__fastcall*)(void*, ...);
+        // uintptr_t __fastcall GetItemViewByID(uintptr_t, uint64_t)
+        using GetItemViewByID_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808E1070(int a1)
         using GetLocalControllerById_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808E1070(int a1)
@@ -883,6 +892,8 @@ namespace cs2::fn {
         using RunCommand_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)
         using RunCommand_processor_t = void(__fastcall*)(void*, ...);
+        // void __fastcall SOCreated(uintptr_t, uint64_t, uintptr_t, int)
+        using SOCreated_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18085D530(__int64 a1, __int64 a2)
         using Scope_callsite_t = void(__fastcall*)(void*, ...);
         // __int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)
