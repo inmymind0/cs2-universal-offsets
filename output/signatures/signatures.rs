@@ -32,9 +32,9 @@ pub mod client {
     /// `__int64 __fastcall sub_180EAEC20(__int64 a1, __int64 a2)`
     pub const CAttributeStringFill: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 33 F6 0F 57 C0 0F";
     /// `_QWORD *__fastcall sub_1805F86B0(_QWORD *a1, __int64 a2, char a3)`
-    pub const CAttributeStringInit: &str = "48 8B C2 48 83 C8 02 45 84 C0 48 0F 44 C2 48 89 41 08 48 8D 05 1F B4 3A";
+    pub const CAttributeStringInit: &str = "48 8B C2 48 83 C8 02 45 84 C0 48 0F 44 C2 48 89 41 08 48 8D 05 A7 A2 3A";
     /// `__int64 __fastcall sub_1808DB1C0(__int64 a1, __int64 a2)`
-    pub const CBaseEntity_ChangeModel: &str = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D ED";
+    pub const CBaseEntity_ChangeModel: &str = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D 6D";
     /// `unsigned __int64 __fastcall sub_180223D20(__int64 a1, __int64 a2, __int64 **a3)`
     pub const CBaseEntity_TakeDamageOld: &str = "40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20";
     pub const CBaseModelEntity__SetBodyGroup: &str = "85 D2 0F 88 ? ? ? ? 55 53 56 41 56 48 8B EC";
@@ -43,15 +43,13 @@ pub mod client {
     /// `__int64 sub_1801BC160()`
     pub const CBodyComponent: &str = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 6C 24 48 4C 89 64 24 30 4C 89 74 24 28 4C 89 7C";
     /// `__int64 (__fastcall ***sub_1801C3040())()`
-    pub const CBodyComponentSkeletonInstance: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 0D 36 15";
+    pub const CBodyComponentSkeletonInstance: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 0D F6 04";
     /// `char __fastcall sub_1817E29D0(__int64 a1, const char *a2)`
     pub const CBufferStringInit: &str = "48 89 5C 24 10 57 48 83 EC 30 8B 41 04 48 8D 79";
-    /// `double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)`
-    pub const CCSGOInput__CreateMove: &str = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
     /// `_QWORD *sub_18007E160()`
-    pub const CCSGameRules: &str = "4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D 6B B2 21";
+    pub const CCSGameRules: &str = "4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D AB A1 21";
     /// `__int64 sub_1806E9500()`
-    pub const CCSGameRulesProxy: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 5B E5 0F";
+    pub const CCSGameRulesProxy: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 DB E7 0F";
     /// `char __fastcall sub_1807C2150(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4)`
     pub const CCSInventoryManager__EquipItemInLoadout: &str = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 89 54 24 10 57 41 54 41 55 41 56 41 57 48 83 EC 70";
     /// `__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)`
@@ -67,51 +65,51 @@ pub mod client {
     /// `__int64 *__fastcall sub_1807C3D70(__int64 a1, unsigned int a2, unsigned int a3)`
     pub const CCSPlayerInventory__GetItemInLoadout: &str = "40 55 48 83 EC 30 49 63 E8 ? ? ? ? 87 94 01";
     /// `__int64 sub_180BB0E40()`
-    pub const CCSPlayerPawn: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 1B 6C C3";
+    pub const CCSPlayerPawn: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 5B 70 C3";
     /// `void *__fastcall sub_180813BA0(__int64 a1)`
-    pub const CCSPlayer_BulletServices: &str = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 DE 98";
+    pub const CCSPlayer_BulletServices: &str = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 1E 89";
     /// `__int64 sub_18080FCB0()`
-    pub const CCSPlayer_CameraServices: &str = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 CB 48 D3";
+    pub const CCSPlayer_CameraServices: &str = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 9B 39 D3";
     /// `void *__fastcall sub_180813BA0(__int64 a1)`
-    pub const CCSPlayer_HostageServices: &str = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 DE 98";
+    pub const CCSPlayer_HostageServices: &str = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 1E 89";
     /// `void *__fastcall sub_180850B00(__int64 a1)`
-    pub const CCSPlayer_ItemServices: &str = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 AE 0D";
+    pub const CCSPlayer_ItemServices: &str = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 C6 02";
     /// `__int64 *sub_18083DE80()`
-    pub const CCSPlayer_MovementServices: &str = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 63 44 AC 01 0F 8F 36";
+    pub const CCSPlayer_MovementServices: &str = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 93 39 AC 01 0F 8F D3";
     /// `void __fastcall sub_180ACF410(__int64 a1, __int64 a2, __int64 a3)`
     pub const CCSPlayer_MovementServices_CheckJumpButton: &str = "4C 89 44 24 18 55 56 41 56 48 8D AC 24 70 EC FF";
     /// `void *__fastcall sub_180850ED0(__int64 a1)`
-    pub const CCSPlayer_PingServices: &str = "48 89 5C 24 18 55 48 8B EC 48 83 EC 60 8B 15 AD";
+    pub const CCSPlayer_PingServices: &str = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 46 11";
     /// `void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)`
     pub const CCSPlayer_RunCommand_Context: &str = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
     /// `__int64 sub_1808821D0()`
-    pub const CCSPlayer_UseServices: &str = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 AB 23 CC";
+    pub const CCSPlayer_UseServices: &str = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 7B 19 CC";
     /// `__int64 *sub_180877460()`
-    pub const CCSPlayer_WaterServices: &str = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 5B D4 A8 01 0F 8F 43";
+    pub const CCSPlayer_WaterServices: &str = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 8B C9 A8 01 0F 8F 43";
     /// `__int64 *sub_180877810()`
-    pub const CCSPlayer_WeaponServices: &str = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 53 E6 A8 01 0F 8F C4";
+    pub const CCSPlayer_WeaponServices: &str = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 83 DB A8 01 0F 8F C4";
     /// `__int64 sub_18077F3D0()`
-    pub const CCSWeaponBase: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 8B 86 06";
+    pub const CCSWeaponBase: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 DB 88 06";
     /// `__int64 sub_18077F470()`
-    pub const CCSWeaponBaseGun: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 EB 85 06";
+    pub const CCSWeaponBaseGun: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 3B 88 06";
     /// `const char *sub_18075A2B0()`
     pub const CCSWeaponBaseVData: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8B 81 88";
     /// `__int64 __fastcall sub_1802E0F90(int a1, __int64 a2, __int64 a3, __int64 a4)`
-    pub const CCollisionProperty: &str = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 89 5C 24 60 48 8D 05 47 1C 81";
+    pub const CCollisionProperty: &str = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 89 5C 24 60 48 8D 05 87 1A 81";
     /// `__int64 __fastcall sub_1813BB640(__int64 a1, const char *a2, __int64 a3, __int64 a4)`
     pub const CCompositeMaterialManager_AddPanoramaPanelRenderRequest_Caller: &str = "41 2B C4 41 89 07 48 85 F6 74 7E 49 8B 5F 08 49";
     /// `__int64 sub_18074E1E0()`
-    pub const CDecoyProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 7B 98 09";
+    pub const CDecoyProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 CB 9A 09";
     /// `uintptr_t __cdecl CEconItemCreateInstance()`
     pub const CEconItemCreateInstance: &str = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
     /// `__int64 __fastcall sub_18104CEA0(__int64 a1, unsigned __int8 *a2)`
     pub const CEconItemSchema__GetAttributeDefinitionByName: &str = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48";
     /// `__int64 __fastcall sub_1810A8A60(__int64 *a1)`
-    pub const CEconItemView__GetCustomPaintKitIndex: &str = "48 89 5C 24 08 57 48 83 EC 40 8B 15 ? ? ? ? 48 8B F9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 22 1B 31 01 0F 8F";
+    pub const CEconItemView__GetCustomPaintKitIndex: &str = "48 89 5C 24 08 57 48 83 EC 40 8B 15 ? ? ? ? 48 8B F9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 B2 05 31 01 0F 8F";
     /// `__int64 sub_180FE03F0()`
-    pub const CFlashbangProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 6B 76 80";
+    pub const CFlashbangProjectile: &str = "56 3D 01 E8 ? ? ? ? 83 3D C0 56 3D 01 FF 75";
     /// `__int64 sub_18027EFD0()`
-    pub const CFogController: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 8B 8A 56";
+    pub const CFogController: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 0B 8D 56";
     /// `__int64 __fastcall sub_180968640(__int64 a1, __int64 a2, int a3)`
     pub const CGameEntitySystem__OnAddEntity: &str = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 0D FF 81 90";
     /// `__int64 __fastcall sub_180968EA0(__int64 a1, _QWORD *a2, int a3)`
@@ -129,23 +127,21 @@ pub mod client {
     /// `__int64 __fastcall sub_1802E11A0(int a1, __int64 a2, __int64 a3, __int64 a4)`
     pub const CGlowProperty: &str = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 8D 05 ? ? ? ? C7 44 24 30 00 00 00 80 89 4C 24 28 4C 8D 05 ? ? ? ? 48 89 44 24 48 48 8D 4C 24";
     /// `__int64 __fastcall sub_180B0CD90(__int64 a1)`
-    pub const CGlowProperty_OnGlowTypeChanged: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 32 F8";
+    pub const CGlowProperty_OnGlowTypeChanged: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 F2 E9";
     /// `__int64 sub_180FE0490()`
-    pub const CHEGrenadeProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 CB 75 80";
+    pub const CHEGrenadeProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 0B 73 80";
     /// `__int64 sub_18074E3C0()`
-    pub const CMolotovProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 9B 96 09";
+    pub const CMolotovProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 EB 98 09";
     /// `char __fastcall sub_18105A690(__int64 a1, __int64 a2, char *a3, __int64 a4)`
     pub const CPaintKitDefinitions_FindOrCreateByName: &str = "48 89 5C 24 08 48 89 6C 24 18 56 57 41 56 48 81 EC 50 01 00";
     /// `char __fastcall sub_18102C760(__int64 a1, KeyValues *a2, _DWORD *a3)`
     pub const CPaintKitDefinitions_LoadDefaultKit: &str = "48 89 6C 24 20 56 57 41 54 41 55 41 57 48 81 EC";
     /// `__int64 sub_1802A3D60()`
-    pub const CPostProcessingVolume: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 FB 3C 54";
+    pub const CPostProcessingVolume: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 7B 3F 54";
     /// `CKeyValues_Data *__fastcall sub_1813BCA50(__int64 a1, const char *a2)`
     pub const CS2ItemEditor_BuildTemplateMaterialFromFile: &str = "48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18";
     /// `void __fastcall sub_1814E8140(__int64 a1)`
     pub const CSBaseGunFireData_fn: &str = "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48";
-    /// `double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)`
-    pub const CSGOInput_CreateMove: &str = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
     /// `__int64 __fastcall sub_1801A3A20(int a1, __int64 a2)`
     pub const CSkeletonInstance: &str = "40 57 48 83 EC 20 48 8B FA 85 C9 74 23 83 F9 06 74 08 33 C0 48 83 C4 20 5F C3 48 8B 02 48 8B CF 48 8D 54 24 48 FF 10 48 8B 00 48 83 C4 20 5F C3";
     /// `__int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)`
@@ -163,11 +159,11 @@ pub mod client {
     /// `void __fastcall sub_180A25480(__int64 a1, __int64 a2, _QWORD *a3)`
     pub const CSkeletonInstance_SetMeshGroupMask: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 8B 00 49 8B";
     /// `__int64 sub_18074E460()`
-    pub const CSmokeGrenadeProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 FB 95 09";
+    pub const CSmokeGrenadeProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 4B 98 09";
     /// `__int64 sub_180AE5B90()`
     pub const CSource2Client_Shutdown: &str = "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 81 EC 40";
     /// `__int64 sub_180257C90()`
-    pub const CTonemapController2: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 CB FD 58";
+    pub const CTonemapController2: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 4B 00 59";
     /// `__int64 __fastcall sub_180789C50(int *a1, __int64 a2)`
     pub const CUtlVector_CompositeMaterialInput_AddToTail: &str = "41 B9 88 02 00 00 8B 57 14 81 E2 FF FF FF 3F 8D 71 01 44 8B";
     /// `__int64 __fastcall sub_180C18BB0(int a1, _QWORD *a2)`
@@ -183,15 +179,13 @@ pub mod client {
     /// `void __fastcall sub_180A71820(_QWORD *a1, const char *a2, __int64 a3, int a4, int a5, unsigned int a6, __int64 a7)`
     pub const C_BaseEntity_SaveData: &str = "48 8B C4 55 56 57 41 56 41 57 48 8D A8 E8 FD FF";
     /// `__int64 __fastcall sub_180158010(int a1, _QWORD *a2)`
-    pub const C_BaseModelEntity: &str = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 D2 7F";
+    pub const C_BaseModelEntity: &str = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 02 7E";
     /// `__int64 (__fastcall *sub_18006DA20())()`
     pub const C_BasePlayerPawn: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
-    /// `__int64 (__fastcall *sub_18009A420())()`
-    pub const C_C4: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
     /// `__int64 __fastcall sub_1806C2430(int a1, _QWORD *a2)`
     pub const C_CSPlayerPawn: &str = "40 56 48 83 EC 40 48 8B F2 83 F9 06 0F 87 85 01";
     /// `__int64 *sub_180BD7140()`
-    pub const C_CSPlayerPawnBase: &str = "40 53 48 83 EC 20 65 48 8B 04 25 58 00 00 00 8B 0D 3B D4 96";
+    pub const C_CSPlayerPawnBase: &str = "40 53 48 83 EC 20 65 48 8B 04 25 58 00 00 00 8B 0D 4B C5 96";
     /// `_QWORD *__fastcall sub_180742170(int a1, _QWORD *a2)`
     pub const C_CSWeaponBase: &str = "40 56 48 83 EC 40 48 8B F2 85 C9 74 27 83 F9 06 74 08 33 C0 48 83 C4 40 5E C3 48 8B 02 48 8B CE 48 8D 54 24 68 FF 90 70 01 00 00 48 8B 00 48 83";
     /// `__int64 __fastcall sub_180795180(__int64 a1)`
@@ -217,7 +211,6 @@ pub mod client {
     /// `__int64 (__fastcall *sub_180095A10())()`
     pub const C_SmokeGrenadeProjectile: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
     pub const CacheParticleEffect: &str = "4C 8B DC 53 48 81 EC 90 00 00 00 F2 0F 10 05 65";
-    pub const CalcSpread: &str = "48 8B C4 48 89 58 08 48 89 68 18 48 89 70 20 57 41 54 41 55 41 56 41 57 48 81 EC E0";
     /// `void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)`
     pub const CalcViewmodel: &str = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
     /// `__int64 __fastcall sub_1807A24F0(__int64 a1, __int64 a2)`
@@ -230,8 +223,6 @@ pub mod client {
     pub const CalculateWorldSpaceBones: &str = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 58 42";
     /// `__int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)`
     pub const ClearHUDWeaponIcon: &str = "4C 8B DC 55 57 48 83 EC 48 48 63 41 68 48 8B F9";
-    /// `void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)`
-    pub const ClientModeCSNormal_OnEvent: &str = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
     /// `__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)`
     pub const Client_DispatchSpawn: &str = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
     /// `__int64 __fastcall sub_180B91260(__int64 a1, __int64 a2, __int64 a3)`
@@ -247,17 +238,15 @@ pub mod client {
     /// `__int64 __fastcall sub_181510EA0(__int64 a1, unsigned int a2)`
     pub const CreateBaseTypeCache: &str = "40 53 48 83 EC 20 4C 8B 49 18 44 8B D2 4C 63 41";
     /// `__int64 __fastcall sub_181604AB0(__int64 a1, int a2, __int64 a3, __int64 a4)`
-    pub const CreateEntityByClassName: &str = "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 55 0B 30";
+    pub const CreateEntityByClassName: &str = "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 D5 08 30";
     /// `__int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2)`
     pub const CreateInterface: &str = "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9";
     /// `__int64 __fastcall sub_1804B1D80(__int64 a1)`
-    pub const CreateNewSubtickMoveStep: &str = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 E2 DA";
+    pub const CreateNewSubtickMoveStep: &str = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 22 D9";
     /// `__int64 __fastcall sub_180987020(int a1, int a2, int a3, __int64 a4, int a5)`
-    pub const CreateParticleEffect: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D 21";
+    pub const CreateParticleEffect: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D 01";
     /// `__int64 sub_180FF7770()`
     pub const CreateSOSubclassEconItem: &str = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
-    /// `void __fastcall sub_18081FB40(__int64 a1, _QWORD *a2, __int64 a3)`
-    pub const DamageFeedbackEmitter: &str = "48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC";
     /// `void __fastcall sub_1809463E0(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)`
     pub const DestroyParticle: &str = "83 FA FF 0F 84 ? ? ? ? 41 54 41 56 41 57 48";
     /// `__int64 __fastcall sub_18035A570(__int64 a1, __int64 a2)`
@@ -265,7 +254,7 @@ pub mod client {
     /// `__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)`
     pub const DispatchSpawn_caller: &str = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
     /// `bool __fastcall sub_1807B0BF0(_QWORD *a1)`
-    pub const DrawCrosshair: &str = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 AE AC";
+    pub const DrawCrosshair: &str = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 1E AC";
     /// `void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)`
     pub const DrawLegs: &str = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
     /// `unsigned __int8 __fastcall sub_180A66CF0(__int64 a1, unsigned int a2)`
@@ -274,12 +263,10 @@ pub mod client {
     pub const DrawScopeOverlay: &str = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
     /// `__int64 __fastcall sub_180C7B290(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)`
     pub const DrawSmokeVertex: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B 9C 24 88 00 00 00 4D 8B F8 48 8B FA 48 8B";
-    /// `__int64 __fastcall sub_180B63B10(__int64 a1, int a2, int a3, __int64 a4)`
-    pub const EmitSoundByHandle: &str = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
     /// `void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)`
     pub const FX_FireBullets: &str = "48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54";
     /// `_QWORD **__fastcall sub_180DC1D50(__int64 a1, unsigned __int8 a2)`
-    pub const FindHudElement: &str = "48 8D 15 ? ? ? ? 45 33 C0 B9 01 00 00 00 FF 15 23 2C B4";
+    pub const FindHudElement: &str = "48 8D 15 ? ? ? ? 45 33 C0 B9 01 00 00 00 FF 15 F3 26 B4";
     /// `__int64 __fastcall sub_180DC3E70(const char *a1)`
     pub const FindHudElement_panorama: &str = "4C 8B DC 53 48 83 EC 50 48 8B 05 ? ? ? ? 48";
     /// `__int64 __fastcall sub_18181F080(__int64 a1, int *a2, __int64 a3, __int64 a4)`
@@ -321,11 +308,11 @@ pub mod client {
     /// `uintptr_t __fastcall GetItemViewByID(uintptr_t, uint64_t)`
     pub const GetItemViewByID: &str = "48 89 54 24 10 53 48 83 EC 50 48 8B D9 48 85 D2";
     /// `__int64 __fastcall sub_1808E1070(int a1)`
-    pub const GetLocalControllerById: &str = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 36 A5";
+    pub const GetLocalControllerById: &str = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 56 96";
     /// `__int64 __fastcall sub_1808E1070(int a1)`
-    pub const GetLocalPawn: &str = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 36 A5";
+    pub const GetLocalPawn: &str = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 56 96";
     /// `__int64 sub_180379200()`
-    pub const GetLocalPlayer_dispatcher: &str = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 74 24 50 4C 89 74 24 28 4C 89 7C 24 20 E8 4E 66";
+    pub const GetLocalPlayer_dispatcher: &str = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 74 24 50 4C 89 74 24 28 4C 89 7C 24 20 E8 8E 64";
     /// `double __fastcall sub_180169C50(__int64 a1, __int64 a2, __int64 a3)`
     pub const GetMatrixForView: &str = "40 53 48 83 EC 60 0F 29 74 24 50 0F 57 DB F3 0F";
     /// `__int64 sub_180F00910()`
@@ -343,15 +330,11 @@ pub mod client {
     /// `__int64 __fastcall sub_180806F50(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4)`
     pub const GetTraceInfo: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 48 8B E9 0F";
     /// `__int64 __fastcall sub_1808BDC90(__int64 a1)`
-    pub const GetUserCmdManager: &str = "41 56 41 57 48 83 EC 48 48 8D 54 24 68 E8 CE A1";
+    pub const GetUserCmdManager: &str = "41 56 41 57 48 83 EC 48 48 8D 54 24 68 E8 5E A9";
     /// `__int64 *__fastcall sub_180AD5CA0(__int64 a1, int a2)`
     pub const GetViewAngles: &str = "4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3 8B";
     /// `__m128 __fastcall sub_180796600(__int64 a1)`
-    pub const GetWeaponInAccuracyRecoveryTime: &str = "48 89 5C 24 08 57 48 83 EC 30 48 8B D9 E8 9E 52";
-    /// `float __fastcall sub_18080CEF0(__int64 a1)`
-    pub const GetWorldFovResolver: &str = "40 53 48 83 EC 50 48 8B D9 E8 ? ? ? ? 48 85";
-    /// `_BYTE *__fastcall sub_180A8B5A0(__int64 a1)`
-    pub const GlobalLightUpdateState: &str = "40 57 48 81 EC C0 00 00 00 48 8B F9 BA FF FF FF";
+    pub const GetWeaponInAccuracyRecoveryTime: &str = "48 89 5C 24 08 57 48 83 EC 30 48 8B D9 E8 0E 52";
     /// `void __fastcall sub_180BC1460(int *a1)`
     pub const GloveApply_PerTick: &str = "40 55 56 57 48 8D AC 24 30 FD FF FF 48 81 EC D0";
     /// `__int64 sub_180B0ACD0()`
@@ -365,19 +348,17 @@ pub mod client {
     /// `__int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)`
     pub const HudChatPrintf: &str = "4C 89 44 24 18 4C 89 4C 24 20 53 B8 40 10 00 00";
     /// `__int64 __fastcall sub_1813D90B0(int a1, __int64 a2)`
-    pub const InfoForResourceTypeCCompositeMaterialKit_TypeManager: &str = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 32 6F";
+    pub const InfoForResourceTypeCCompositeMaterialKit_TypeManager: &str = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 02 68";
     /// `__int64 __fastcall sub_1813D9600(int a1, __int64 a2)`
-    pub const InfoForResourceTypeCCompositeMaterial_TypeManager: &str = "40 55 41 56 48 83 EC 68 48 8B EA 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 E2 69";
+    pub const InfoForResourceTypeCCompositeMaterial_TypeManager: &str = "40 55 41 56 48 83 EC 68 48 8B EA 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 B2 62";
     /// `__int64 __fastcall sub_18032BBF0(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5)`
     pub const InitFilter: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF 24 C9 C7";
     /// `__int64 __fastcall sub_180840660(__int64 a1, _DWORD *a2, __int64 a3, char a4)`
     pub const InitPlayerMovementTraceFilter: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF C7 41 34";
     /// `__int64 __fastcall sub_1815FC2A0(__int64 a1)`
-    pub const InitTraceInfo: &str = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D 6F CC EE";
+    pub const InitTraceInfo: &str = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D AF B9 EE";
     /// `__int64 __fastcall sub_180B0C300(__int64 a1)`
     pub const IsGlowing: &str = "0F B6 41 51 C3 CC CC CC CC CC CC CC CC CC CC CC";
-    /// `__int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)`
-    pub const KillFeedbackEmitter: &str = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00";
     /// `__int64 __fastcall sub_1808D0100(__int64 a1)`
     pub const LevelInit: &str = "40 55 56 41 56 48 8D 6C 24 90 48 81 EC 70 01 00";
     /// `void __fastcall sub_18091BF40(__int64 a1)`
@@ -394,7 +375,7 @@ pub mod client {
     pub const NoSpread1: &str = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
     pub const PanelConstructorPointer: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F1 48 8B FA B9 20 00";
     /// `__int64 __fastcall sub_1801F4D90(__int64 a1)`
-    pub const ParticleCollection: &str = "48 89 5C 24 08 57 48 83 EC 20 0F 28 05 AF 37 2E";
+    pub const ParticleCollection: &str = "48 89 5C 24 08 57 48 83 EC 20 0F 28 05 7F 27 2E";
     /// `__int64 __fastcall sub_1808D7310(__int64 a1)`
     pub const PhysicsRunThink_Ctrl: &str = "48 89 5C 24 20 57 48 81 EC D0 06 00 00 48 8B 01";
     /// `char __fastcall sub_180B0ED50(__int64 a1)`
@@ -413,8 +394,6 @@ pub mod client {
     pub const RegenerateWeaponSkin_v2: &str = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
     /// `__int64 sub_1807B0D40()`
     pub const RegenerateWeaponSkins: &str = "48 83 EC 48 E8 ? ? ? ? 48 85 C0 0F 84 7F 00";
-    /// `_BYTE *__fastcall sub_1810ECA50(__int64 a1, __int64 **a2, char a3, char a4)`
-    pub const RenderDecals: &str = "44 88 4C 24 20 55 53 57 41 54 41 55 48 8D 6C 24";
     /// `char __fastcall sub_180602290(_QWORD *a1)`
     pub const ReportHit: &str = "40 53 48 83 EC 20 48 8D 05 ? ? ? ? 48 8D 59 08 48 89 01 F6 03 01 74 08 48 8B CB E8 AF FB EA";
     /// `void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)`
@@ -434,13 +413,13 @@ pub mod client {
     /// `__int64 __fastcall sub_180803980(__int64 a1, __int64 *a2)`
     pub const SetCollisionBounds: &str = "48 83 EC 38 F2 0F 10 02 8B 42 08 48 8D 54 24 20";
     /// `__int64 __fastcall sub_181004F60(__int64 a1, __int64 a2, _DWORD *a3)`
-    pub const SetDynamicAttributeValue: &str = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? CD 12 01";
+    pub const SetDynamicAttributeValue: &str = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? B7 12 01";
     /// `__int64 __fastcall sub_181004F60(__int64 a1, __int64 a2, _DWORD *a3)`
-    pub const SetDynamicAttributeValue_raw: &str = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? CD 12 01";
+    pub const SetDynamicAttributeValue_raw: &str = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? B7 12 01";
     /// `__int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)`
     pub const SetMeshGroupMask: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 99 50 01";
     /// `__int64 __fastcall sub_1808DB1C0(__int64 a1, __int64 a2)`
-    pub const SetModel: &str = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D ED";
+    pub const SetModel: &str = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D 6D";
     /// `char __fastcall sub_180F1DD90(__int64 a1, __int64 a2)`
     pub const SetPlayerReady: &str = "40 53 48 83 EC 20 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF";
     pub const SetSelectedIndexFunctionPointer: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B F1 8B DA";
@@ -482,7 +461,7 @@ pub mod client {
     /// `__int64 __fastcall sub_18032BBF0(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5)`
     pub const TraceInitFilter: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF 24 C9 C7";
     /// `__int64 __fastcall sub_1815FC2A0(__int64 a1)`
-    pub const TraceInitInfo: &str = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D 6F CC EE";
+    pub const TraceInitInfo: &str = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D AF B9 EE";
     /// `__int64 __fastcall sub_180B70E30(__int64 a1, __int64 *a2, __int64 *a3)`
     pub const TracePlayerBBox: &str = "48 89 5C 24 18 55 57 41 54 41 55 41 56 48 8D 6C";
     /// `bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)`
@@ -496,14 +475,13 @@ pub mod client {
     /// `void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)`
     pub const UpdatePostProcessing: &str = "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80";
     /// `__int64 __fastcall sub_18025A850(__int64 a1)`
-    pub const UpdateSkybox: &str = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 8E F1";
+    pub const UpdateSkybox: &str = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 FE F0";
     /// `void __fastcall sub_1801FA930(_QWORD *a1)`
     pub const UpdateSubClass: &str = "4C 8B DC 53 48 81 EC 90 01 00 00 48 8B 41 10 48";
     /// `float *__fastcall sub_1807AFDA0(float *a1)`
     pub const UpdateTurningInAccuracy: &str = "40 56 48 81 EC 80 00 00 00 48 8B F1 BA FF FF FF";
     /// `__int64 __fastcall sub_1807A0460(__int64 a1, __int64 a2, __int64 **a3)`
-    pub const ViewModelHideZoomed: &str = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 86 01";
-    pub const WriteSubtickFromEntry: &str = "48 89 5C 24 18 55 57 41 56 48 8D 6C 24 C9 48 81";
+    pub const ViewModelHideZoomed: &str = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 36 F1";
     /// `void __fastcall sub_180ACC120(__int64 *a1, int a2, char a3)`
     pub const create_move_v2: &str = "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18 89";
     /// `__int64 __fastcall sub_180C7B380(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6)`
@@ -525,9 +503,9 @@ pub mod client {
     /// `__int64 __fastcall sub_180AFA990(__int64 a1, __int64 a2)`
     pub const level_init_v2: &str = "40 55 56 41 56 48 8D 6C 24 B9 48 81 EC E0 00 00 00 48 8B 0D";
     /// `__int64 sub_180AFAC10()`
-    pub const level_shutdown: &str = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 15 66 C4";
+    pub const level_shutdown: &str = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 15 26 C6";
     /// `void __fastcall sub_180218070(__int64 a1, unsigned int a2)`
-    pub const mark_interp_latch_flags_dirty: &str = "40 53 56 57 48 83 EC 40 80 3D A1 97 10 02 00 8B";
+    pub const mark_interp_latch_flags_dirty: &str = "40 53 56 57 48 83 EC 40 80 3D B1 86 10 02 00 8B";
     /// `__int64 __fastcall sub_180968BB0(__int64 a1, __int64 a2, __int64 a3)`
     pub const on_add_entity_v2: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 81 C0 20";
     /// `void __fastcall sub_180C5F840(__int64 a1, __int64 a2)`
@@ -559,7 +537,7 @@ pub mod engine2 {
     /// `char __fastcall sub_180120D70(__int64 a1, __int64 a2)`
     pub const CHLTVClient_ExecuteStringCommand: &str = "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA";
     /// `char __fastcall sub_1800292B0(__int64 a1, const char *a2)`
-    pub const CNetworkGameClientBase_ForceDemoRecordingFullUpdateAfterNextDeltaPacket: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D FA 0D";
+    pub const CNetworkGameClientBase_ForceDemoRecordingFullUpdateAfterNextDeltaPacket: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D FA FD";
     /// `char __fastcall sub_18006AAF0(__int64 a1, __int64 a2)`
     pub const CNetworkGameClient_ProcessTick: &str = "48 89 5C 24 20 55 57 41 57 48 81 EC F0 00 00 00";
     /// `__int64 __fastcall sub_1800BE120(__int64 a1, __int64 a2)`
@@ -567,7 +545,7 @@ pub mod engine2 {
     /// `char __fastcall sub_18024A250(__int64 a1, __int64 a2, int a3, __int64 a4)`
     pub const CSplitScreenSlot: &str = "48 83 EC 58 4C 8B D2 45 85 C0 0F 85 ? ? ? ?";
     /// `_QWORD *__fastcall sub_1803FD270(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6)`
-    pub const Cvar_RegisterConCommand: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 89";
+    pub const Cvar_RegisterConCommand: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 39";
     /// `__int128 *__fastcall sub_1803FC080(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5)`
     pub const Cvar_RegisterConVar: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00";
     /// `void __fastcall sub_18009C1F0(__int64 a1, __int64 a2, _BYTE *a3, char *a4)`
@@ -595,7 +573,7 @@ pub mod engine2 {
     /// `char __fastcall sub_180060F80(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)`
     pub const Engine_NetworkGameClient_SetSignonState: &str = "44 89 44 24 18 89 54 24 10 55 53 56 57 41 55 41";
     /// `_QWORD *__fastcall sub_1803FD270(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6)`
-    pub const Engine_RegisterConCommand: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 89";
+    pub const Engine_RegisterConCommand: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 39";
     /// `__int128 *__fastcall sub_1803FC080(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5)`
     pub const Engine_RegisterConVar: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00";
     /// `bool sub_180076450()`
@@ -714,10 +692,6 @@ pub mod resourcesystem {
 
 pub mod scenesystem {
     pub const AllocateAttributeListFunctionPointer: &str = "40 55 48 83 EC 20 48 83 BA A8 00 00 00 00 48 8B";
-    pub const BuildSceneInfoGpu: &str = "4C 89 4C 24 20 4C 89 44 24 18 48 89 4C 24 08 55 48 8D AC 24 00 E3 FF FF";
-    pub const CSceneAnimatableObject__GeneratePrimitives: &str = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
-    pub const CSceneAnimatableObject_GeneratePrimitives: &str = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
-    pub const CSceneSkyBoxObject_DrawSkyboxArray: &str = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
     pub const CSceneSystem_CreateStaticShape: &str = "48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8";
     pub const CSceneSystem_InitGfxObjects: &str = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
     pub const CSceneSystem_RenderViewLayer_Dispatch: &str = "48 8B C4 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 B8 FE";
@@ -725,7 +699,6 @@ pub mod scenesystem {
     pub const DeleteSceneObjectFunctionPointer: &str = "48 85 D2 0F 84 ? ? ? ? 48 8B C4 48 89 50 10";
     pub const DrawAggregateSceneObjectArray: &str = "48 8B C4 48 89 50 10 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 38 F9";
     pub const DrawObject_legacy: &str = "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63";
-    pub const DrawSkyboxArray: &str = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
     pub const SceneSystem__DrawAggeregateObject: &str = "48 8B C4 4C 89 48 20 4C 89 40 18 48 89 50 10 55 53 41 57 48";
     pub const SceneSystem__DrawArrayLight: &str = "48 89 5C 24 08 48 89 6C 24 18 48 89 54 24 10 56 57 41 56 48";
     pub const SceneSystem_Thread_RenderSceneDrawList: &str = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00";
@@ -738,8 +711,6 @@ pub mod schemasystem {
 }
 
 pub mod server {
-    /// `__int64 __fastcall sub_1808A9B50(__int64 a1, __int64 a2)`
-    pub const CCSGameRules_FrameUpdatePreEntityThink: &str = "48 89 5C 24 08 57 48 83 EC 60 48 8D 05 4F 38 E2";
     /// `_BYTE *__fastcall sub_1808EFA50(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)`
     pub const CCSGameRules_TerminateRound: &str = "48 8B C4 4C 89 48 20 48 89 48 08 55 56 41 56 41";
     /// `double __fastcall sub_1808D80F0(__int64 a1)`
@@ -751,7 +722,6 @@ pub mod server {
 }
 
 pub mod soundsystem {
-    pub const CSosOperatorSystem_StartSoundEvent: &str = "40 53 55 56 48 83 EC 20 83 B9 EC 24 00 00 00 49";
     /// `_UNKNOWN **__fastcall sub_180349840(__int64 a1, __int64 a2, int a3, int a4)`
     pub const SoundSystem__PlayVSound: &str = "48 8B C4 48 89 58 08 57 48 81 EC A0 00 00 00 33";
     /// `__int64 __fastcall sub_1800B0740(__int64 a1, unsigned int a2)`

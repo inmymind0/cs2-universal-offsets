@@ -14,7 +14,7 @@
 #pragma once
 
 namespace cs2 {
-    inline constexpr unsigned int CS2_BUILD = 14158;
+    inline constexpr unsigned int CS2_BUILD = 14160;
 }
 
 // SDK macros (SCHEMA_FIELD, field_ref<T>, ...)

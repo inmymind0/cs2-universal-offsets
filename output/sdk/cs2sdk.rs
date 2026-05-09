@@ -6,6 +6,6 @@
 
 #![allow(non_upper_case_globals, non_snake_case, dead_code)]
 
-pub const CS2_BUILD: u32 = 14158;
+pub const CS2_BUILD: u32 = 14160;
 
 #[path = "../signatures/signatures.rs"] pub mod signatures;

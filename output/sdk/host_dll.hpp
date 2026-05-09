@@ -3,8 +3,8 @@
 // module:        host.dll
 // classes:       2
 // enums:         0
-// build_number:  14158
-// generated_at:  2026-05-06T17:46:00.597898500+00:00
+// build_number:  14160
+// generated_at:  2026-05-09T22:13:41.211780600+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -15,23 +15,23 @@
 
 namespace cs2::sdk::host {
 
-    inline constexpr std::uint32_t CS2_BUILD = 14158;
+    inline constexpr std::uint32_t CS2_BUILD = 14160;
 
     class EmptyTestScript;
     class CAnimScriptBase;
-
-    // CAnimScriptBase
-    //   fields: 1
-    class CAnimScriptBase {
-    public:
-        SCHEMA_FIELD(bool                            , m_bIsValid                                      , 0x8) // bool
-    };
 
     // EmptyTestScript
     //   fields: 1
     class EmptyTestScript {
     public:
         SCHEMA_FIELD(CAnimScriptParam<float32>       , m_hTest                                         , 0x10) // CAnimScriptParam<float32>
+    };
+
+    // CAnimScriptBase
+    //   fields: 1
+    class CAnimScriptBase {
+    public:
+        SCHEMA_FIELD(bool                            , m_bIsValid                                      , 0x8) // bool
     };
 
 } // namespace cs2::sdk::host

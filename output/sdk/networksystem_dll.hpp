@@ -3,8 +3,8 @@
 // module:        networksystem.dll
 // classes:       1
 // enums:         0
-// build_number:  14158
-// generated_at:  2026-05-06T17:46:00.597898500+00:00
+// build_number:  14160
+// generated_at:  2026-05-09T22:13:41.211780600+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -15,7 +15,7 @@
 
 namespace cs2::sdk::networksystem {
 
-    inline constexpr std::uint32_t CS2_BUILD = 14158;
+    inline constexpr std::uint32_t CS2_BUILD = 14160;
 
     class ChangeAccessorFieldPathIndex_t;
 

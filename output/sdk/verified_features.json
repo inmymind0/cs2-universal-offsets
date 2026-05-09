@@ -1,6 +1,6 @@
 {
   "_doc": "Hand-curated catalogue of CS2 features verified working in a live internal cheat. Cross-reference with offsets.*, signatures.* and client_dll.* for canonical addresses.",
-  "cs2_build": 14158,
+  "cs2_build": 14160,
   "feature_count": 27,
   "features": [
     {
