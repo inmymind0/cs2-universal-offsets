@@ -572,6 +572,40 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // CEconItemAttributeDefinition pointers before SetDynamicAttributeValue.
     Signature { name: "GetAttributeDefByName",                module: "client.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48 8D 05", resolve: NONE, extra_off: 0, prototype: "" },
 
+    // RegenerateWeaponSkins â€” big leaf in the local-player loadout pipeline
+    // that re-applies paint-kit / wear / seed to every weapon entity in the
+    // player's loadout. Standard hook target for skin-changers that want
+    // their visuals to survive map-load / round-restart. 1 hit @ build 14160.
+    //   40 55                  push rbp
+    //   53                     push rbx
+    //   41 57                  push r15
+    //   48 8D AC 24 00 FE FF FF lea rbp, [rsp-200h]
+    //   48 81 EC ? ? ? ?       sub rsp, imm32
+    Signature { name: "RegenerateWeaponSkins",                module: "client.dll", needle: "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // ---------------------------------------------------------------------
+    // Stealth / VAC-flag-suppression chain (cs2 internal cheat).
+    // These two patterns isolate the "untrusted-mode" cooldown machinery
+    // that ships the 20-hour competitive lockout on the next launch
+    // after a launch is flagged. Every CS2 cheat that wants to avoid
+    // the cooldown silences this chain in some form.
+    // ---------------------------------------------------------------------
+
+    // UntrustedFlag setter â€” inside sub_1801569B0. The matched bytes are:
+    //   74 26                  jz +26h
+    //   C6 05 disp32 01        mov  byte [rip+g_untrustedFlag], 1
+    //   33 C0                  xor  eax, eax
+    //   83 F8 01               cmp  eax, 1
+    // To get g_untrustedFlag itself: read disp32 at hit+4 then add hit+9.
+    Signature { name: "UntrustedFlagSetter",                  module: "client.dll", needle: "74 26 C6 05 ? ? ? ? 01 33 C0 83 F8 01", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // InsecureBlocked GC-report emitter â€” the only function that calls
+    // Game::ChatReportError(InsecureBlocked) and posts the result to the
+    // Steam Game Coordinator. Blocking / no-op'ing this fn neutralises
+    // the cooldown emission path even if the flag byte is briefly set.
+    // 1 hit @ client!0x180C4D030 on build 14160.
+    Signature { name: "InsecureEmitter",                      module: "client.dll", needle: "48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D ? ? ? ? 48 8B 01", resolve: NONE, extra_off: 0, prototype: "" },
+
     // CreateInterface â€” client.dll exported factory dispatcher
     // (DLL ordinal #2). Internals load any client interface
     // (Source2Client002, GameClientExports001, ClientToolsInfo_001,

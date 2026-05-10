@@ -377,6 +377,7 @@ pub mod client {
     pub const InitPlayerMovementTraceFilter: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF C7 41 34";
     /// `__int64 __fastcall sub_1815FC2A0(__int64 a1)`
     pub const InitTraceInfo: &str = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D AF B9 EE";
+    pub const InsecureEmitter: &str = "48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D";
     /// `__int64 __fastcall sub_180B0C300(__int64 a1)`
     pub const IsGlowing: &str = "0F B6 41 51 C3 CC CC CC CC CC CC CC CC CC CC CC";
     /// `__int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)`
@@ -495,6 +496,7 @@ pub mod client {
     pub const TraceShape_Client: &str = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
     /// `char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)`
     pub const TraceToExit: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
+    pub const UntrustedFlagSetter: &str = "74 26 C6 05 0A 3D 04 02 01 33 C0 83 F8 01 74 18";
     /// `void *__fastcall sub_180AE4730(__int64 a1, void *a2)`
     pub const UpdateGlobalVars: &str = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
     /// `void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)`

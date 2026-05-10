@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**471/517 signatures resolved across 18 module(s).**
+**474/520 signatures resolved across 18 module(s).**
 
 ## `animationsystem.dll`
 
@@ -202,6 +202,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `InitFilter` | `__int64 __fastcall sub_18032BBF0(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5)` | `raw` | `0x7FFF28F9BBF0` | `0x32BBF0` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF 24 C9 C7 41 ?` |
 | `InitPlayerMovementTraceFilter` | `__int64 __fastcall sub_180840660(__int64 a1, _DWORD *a2, __int64 a3, char a4)` | `raw` | `0x7FFF294B0000` | `0x840000` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF C7 41 ?` |
 | `InitTraceInfo` | `__int64 __fastcall sub_1815FC2A0(__int64 a1)` | `raw` | `0x7FFF2A26C520` | `0x15FC520` | `40 55 41 55 41 57 48 83 EC` |
+| `InsecureEmitter` | `` | `raw` | `0x7FFF298BD030` | `0xC4D030` | `48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D ? ? ? ? 48 8B 01` |
 | `IsGlowing` | `__int64 __fastcall sub_180B0C300(__int64 a1)` | `rel32` | `0x7FFF2977C140` | `0xB0C140` | `E8 ? ? ? ? 33 DB 84 C0 0F 84 ? ? ? ? 48 8B 4F` |
 | `KillFeedbackEmitter` | `__int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)` | `raw` | `0x7FFF294BAA60` | `0x84AA60` | `48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00 00 00 44 8B` |
 | `LevelInit` | `__int64 __fastcall sub_1808D0100(__int64 a1)` | `raw` | `0x7FFF2953FF10` | `0x8CFF10` | `40 55 56 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48` |
@@ -264,6 +265,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `TraceShape` | `bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)` | `raw` | `0x7FFF295FE8C0` | `0x98E8C0` | `48 89 5C 24 ? 48 89 4C 24 ? 55 57` |
 | `TraceShape_Client` | `bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)` | `raw` | `0x7FFF295FE8C0` | `0x98E8C0` | `48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55 41 56 48 8D AC 24 10 E0 FF FF B8 F0 20 00 00` |
 | `TraceToExit` | `char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)` | `raw` | `0x7FFF29474860` | `0x804860` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? F2 0F 10 02` |
+| `UntrustedFlagSetter` | `` | `raw` | `0x7FFF28DC6B45` | `0x156B45` | `74 26 C6 05 ? ? ? ? 01 33 C0 83 F8 01` |
 | `UpdateGlobalVars` | `void *__fastcall sub_180AE4730(__int64 a1, void *a2)` | `raw` | `0x7FFF29754570` | `0xAE4570` | `48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2` |
 | `UpdatePostProcessing` | `void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)` | `raw` | `0x7FFF29B92450` | `0xF22450` | `48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80` |
 | `UpdateSkybox` | `__int64 __fastcall sub_18025A850(__int64 a1)` | `raw` | `0x7FFF28ECA850` | `0x25A850` | `48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 E8 ? ? ? ? 48 8B 47` |

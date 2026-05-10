@@ -202,6 +202,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view InitFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF 24 C9 C7";
         inline constexpr std::string_view InitPlayerMovementTraceFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF C7 41 34";
         inline constexpr std::string_view InitTraceInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D AF B9 EE";
+        inline constexpr std::string_view InsecureEmitter = "48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D";
         inline constexpr std::string_view IsGlowing = "0F B6 41 51 C3 CC CC CC CC CC CC CC CC CC CC CC";
         inline constexpr std::string_view KillFeedbackEmitter = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00";
         inline constexpr std::string_view LevelInit = "40 55 56 41 56 48 8D 6C 24 90 48 81 EC 70 01 00";
@@ -264,6 +265,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view TraceShape = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
         inline constexpr std::string_view TraceShape_Client = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
         inline constexpr std::string_view TraceToExit = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
+        inline constexpr std::string_view UntrustedFlagSetter = "74 26 C6 05 0A 3D 04 02 01 33 C0 83 F8 01 74 18";
         inline constexpr std::string_view UpdateGlobalVars = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
         inline constexpr std::string_view UpdatePostProcessing = "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80";
         inline constexpr std::string_view UpdateSkybox = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 FE F0";
@@ -812,6 +814,7 @@ namespace cs2::fn {
         using InitPlayerMovementTraceFilter_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1815FC2A0(__int64 a1)
         using InitTraceInfo_t = void(__fastcall*)(void*, ...);
+        using InsecureEmitter_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180B0C300(__int64 a1)
         using IsGlowing_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)
@@ -930,6 +933,7 @@ namespace cs2::fn {
         using TraceShape_Client_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)
         using TraceToExit_t = void(__fastcall*)(void*, ...);
+        using UntrustedFlagSetter_t = void(__fastcall*)(void*, ...);
         // void *__fastcall sub_180AE4730(__int64 a1, void *a2)
         using UpdateGlobalVars_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)
