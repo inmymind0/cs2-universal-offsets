@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**503/549 signatures resolved across 18 module(s).**
+**505/551 signatures resolved across 18 module(s).**
 
 ## `animationsystem.dll`
 
@@ -134,6 +134,8 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CalculateInterpolation` | `int *__fastcall sub_1814C7E70(__int64 a1, int *a2)` | `rel32` | `0x7FFF2A1385A0` | `0x14C85A0` | `E8 ? ? ? ? 8B 45 ? 3B 45 60 75 04 32 D2 EB 09 BA 01 00 00 00 41 0F 4C D5 C0 EA 07 84 D2 0F 85 87` |
 | `CalculateWorldSpaceBones` | `void __fastcall sub_180A0B070(__int64 a1, unsigned int a2)` | `raw` | `0x7FFF2967AEB0` | `0xA0AEB0` | `48 89 4C 24 ? 55 53 56 57 41 54 41 55 41 56 41 57 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8D 6C 24 ? 48 8B 81` |
 | `ClearHUDWeaponIcon` | `__int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)` | `rel32` | `0x7FFF29A5E300` | `0xDEE300` | `E8 ? ? ? ? 8B F8 C6 84 24 ? ? ? ? ?` |
+| `Client::CCSGOHudVote_OnVoteResult` | `void __fastcall sub_180E14250(__int64 a1, int a2, const char *a3, int a4, __int64 a5)` | `raw` | `0x7FFF29A84250` | `0xE14250` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 90 01 00 00 65 48 8B 04 25 58 00 00 00 49 8B E8 44 8B 15 ? ? ? ? 8B FA` |
+| `Client::CCSGO_HudChat_OnSayText2` | `void __fastcall sub_1810C3D50(int a1, __int64 a2)` | `raw` | `0x7FFF29D33D50` | `0x10C3D50` | `48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 70 F3 FF FF 48 81 EC 90 0D 00 00 81 A5 DC 0C 00 00 FF FF 0F FF 33 F6 8B 5A 6C 48 8B` |
 | `ClientModeCSNormal_OnEvent` | `void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)` | `raw` | `0x7FFF298CCAB0` | `0xC5CAB0` | `40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA` |
 | `Client_DispatchSpawn` | `__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)` | `raw` | `0x7FFF2A146240` | `0x14D6240` | `4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1 48 85 ED 0F 84 72 01 00 00 49 89 5B 08 49 8D 4B` |
 | `CompositeMaterialPanoramaPanel_Init` | `__int64 __fastcall sub_180B91260(__int64 a1, __int64 a2, __int64 a3)` | `stringref` | `0x7FFF298010A0` | `0xB910A0` | `"CompositeMaterialPanoramaPanel_t::Init"` |

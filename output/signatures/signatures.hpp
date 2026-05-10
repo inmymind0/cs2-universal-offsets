@@ -134,6 +134,8 @@ namespace cs2::signatures {
         inline constexpr std::string_view CalculateInterpolation = "48 83 EC 08 4C 8B 0D ? ? ? ? 4C 8B DA 48 8B";
         inline constexpr std::string_view CalculateWorldSpaceBones = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 58 42";
         inline constexpr std::string_view ClearHUDWeaponIcon = "4C 8B DC 55 57 48 83 EC 48 48 63 41 68 48 8B F9";
+        inline constexpr std::string_view Client__CCSGOHudVote_OnVoteResult = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 90";
+        inline constexpr std::string_view Client__CCSGO_HudChat_OnSayText2 = "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 70 F3 FF FF";
         inline constexpr std::string_view ClientModeCSNormal_OnEvent = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
         inline constexpr std::string_view Client_DispatchSpawn = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
         inline constexpr std::string_view CompositeMaterialPanoramaPanel_Init = "48 8B C4 4C 89 40 18 55 56 41 56 48 8D 68 A1 48";
@@ -703,6 +705,10 @@ namespace cs2::fn {
         using CalculateWorldSpaceBones_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)
         using ClearHUDWeaponIcon_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_180E14250(__int64 a1, int a2, const char *a3, int a4, __int64 a5)
+        using Client__CCSGOHudVote_OnVoteResult_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_1810C3D50(int a1, __int64 a2)
+        using Client__CCSGO_HudChat_OnSayText2_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)
         using ClientModeCSNormal_OnEvent_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1400,6 +1400,37 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // replay rewrites). 1 hit.
     Signature { name: "Engine::CHLTVClient_SendSnapshot",     module: "engine2.dll", needle: "48 89 54 24 10 48 89 4C 24 08 55 53 56 57 41 56 41 57 48 8D 6C 24 88 48 81 EC 78 01 00 00 48 8D 05 ? ? ? ? 48 C7 45 18 7A 02 00 00", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180121FC0(__int64 a1, __int64 a2)" },
 
+    // CCSGOHudVote::OnVoteResult — client.dll!sub_180E14250 (~0x704).
+    // Single dispatch the engine calls into when a vote transitions
+    // (cast / passed / failed / active / call-vote-failed). Resolves
+    // the localized #SFUI_vote_… or #Panorama_vote_… string the chat
+    // line will display ("X is voting to kick Y", "Vote failed:
+    // VOTE_FAILED_…", etc.) and pumps the matching panorama event
+    // (`hud-vote--cast`, `hud-vote--passed`, `hud-vote--failed`,
+    // `hud-vote--active`, `hud-vote--callvotefailed`) plus the
+    // vote{kick|changelevel|surrender|pausematch|loadbackup|…} icon
+    // path. Hooking here is THE one-stop point to: see every vote in
+    // real time (including enemy-team votes you'd normally not see in
+    // chat), suppress the "Vote failed" toast, replace the displayed
+    // localization key, or auto-populate features that need to react
+    // to vote state. 1 hit.
+    Signature { name: "Client::CCSGOHudVote_OnVoteResult",    module: "client.dll",  needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 90 01 00 00 65 48 8B 04 25 58 00 00 00 49 8B E8 44 8B 15 ? ? ? ? 8B FA", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180E14250(__int64 a1, int a2, const char *a3, int a4, __int64 a5)" },
+
+    // CCSGO_HudChat::OnSayText2 — client.dll!sub_1810C3D50 (~0x808).
+    // Per-message handler for inbound CUserMessageSayText2 (every
+    // chat / radio / vote-system / death-notice line that lands in
+    // the chat HUD). Resolves the localized template, expands the
+    // `#SLOTNAME[idx]` token to the actual player name, sanitizes
+    // unicode zero-width joiners, prefixes the radio-team key
+    // (`game_radio_team_prefix_%d`), then plays `HudChat.Message` and
+    // emits the panorama line. The single canonical anchor for chat
+    // overlays / chat loggers / "show all enemy chat regardless of
+    // mute" / silently injecting fake chat into the local HUD.
+    // Sibling to the existing `HudChatPrintf` low-level Printf —
+    // this one sees the structured SayText2 envelope (slot, raw
+    // string, sanitized name) before formatting. 1 hit.
+    Signature { name: "Client::CCSGO_HudChat_OnSayText2",     module: "client.dll",  needle: "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 70 F3 FF FF 48 81 EC 90 0D 00 00 81 A5 DC 0C 00 00 FF FF 0F FF 33 F6 8B 5A 6C 48 8B", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1810C3D50(int a1, __int64 a2)" },
+
     // ==================================================================
     // Additional string-ref anchors (enhanced_signatures.h) ------------
     // ==================================================================

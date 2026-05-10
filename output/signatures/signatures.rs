@@ -237,6 +237,10 @@ pub mod client {
     pub const CalculateWorldSpaceBones: &str = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 58 42";
     /// `__int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)`
     pub const ClearHUDWeaponIcon: &str = "4C 8B DC 55 57 48 83 EC 48 48 63 41 68 48 8B F9";
+    /// `void __fastcall sub_180E14250(__int64 a1, int a2, const char *a3, int a4, __int64 a5)`
+    pub const Client__CCSGOHudVote_OnVoteResult: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 90";
+    /// `void __fastcall sub_1810C3D50(int a1, __int64 a2)`
+    pub const Client__CCSGO_HudChat_OnSayText2: &str = "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 70 F3 FF FF";
     /// `void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)`
     pub const ClientModeCSNormal_OnEvent: &str = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
     /// `__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)`
