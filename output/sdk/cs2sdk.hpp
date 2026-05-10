@@ -8,9 +8,8 @@
 //
 //     #include "cs2sdk.hpp"
 //
-// gets you typed schema classes, interface accessors, and pattern
-// strings for every resolved signature. (`netvars.hpp` is optional —
-// include it yourself if your project needs it.)
+// gets you typed schema classes, netvars, interface accessors,
+// and pattern strings for every resolved signature.
 
 #pragma once
 
