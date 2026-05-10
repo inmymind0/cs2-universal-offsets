@@ -5132,7 +5132,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_71                                        =   71; // scenesystem.dll + 0x139A00
             inline constexpr std::ptrdiff_t method_72                                        =   72; // scenesystem.dll + 0xC9440
             inline constexpr std::ptrdiff_t method_73                                        =   73; // scenesystem.dll + 0xC9240
-            inline constexpr std::ptrdiff_t method_74                                        =   74; // scenesystem.dll + 0xE1C30
+            inline constexpr std::ptrdiff_t CSceneSystem_FrameUpdate                         =   74; // scenesystem.dll + 0xE1C30
             inline constexpr std::ptrdiff_t method_75                                        =   75; // scenesystem.dll + 0xE12C0
             inline constexpr std::ptrdiff_t method_76                                        =   76; // scenesystem.dll + 0xE19A0
             inline constexpr std::ptrdiff_t method_77                                        =   77; // scenesystem.dll + 0xE1AD0

@@ -29024,7 +29024,7 @@
         {
           "index": 74,
           "module": "scenesystem.dll",
-          "name": "method_74",
+          "name": "CSceneSystem_FrameUpdate",
           "rva": "0xE1C30"
         },
         {

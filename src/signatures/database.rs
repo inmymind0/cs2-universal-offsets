@@ -851,6 +851,26 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // primitive is drawn.
     Signature { name: "CSceneSystem_InitGfxObjects",          module: "scenesystem.dll", needle: "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF FF 48 81 EC F8 02 00 00", resolve: NONE, extra_off: 0, prototype: "" },
 
+    // CSceneSystem::FrameUpdate â€” scenesystem!sub_1800E1C30. The per-tick
+    // scene driver: integrates pending object adds/removes, advances the
+    // queued light-data ring, and kicks the render-view dispatch. Refs
+    // the unique "CSceneSystem::FrameUpdate" job-name string at +0x10.
+    // Hooking here is the cleanest "once per scene tick, after gameplay
+    // but before render thread" anchor for cheats that need to mutate
+    // scene-side state (light overrides, fog params, env-map bias) in a
+    // race-free spot. 1 hit @ scenesystem!0x1800E1C30 on build 14160.
+    Signature { name: "CSceneSystem_FrameUpdate",             module: "scenesystem.dll", needle: "48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55 48 8D 68 A1 48 81 EC 98 00 00 00", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // CSceneSystem::DeleteObjectForReal â€” scenesystem!sub_1800CA530. The
+    // back-end deleter that actually frees a CSceneObject after the
+    // refcount on its CRefCountAccessor (the `lock dec [rcx+0x30CC]` at
+    // the top of the prologue) reaches zero. Distinct from the public
+    // DeleteSceneObject queueing wrapper. Hook to track / suppress
+    // teardown of specific renderable objects (e.g. keep a chams
+    // material alive past the entity's natural lifetime, or null-out
+    // a CWeaponSceneObject before its native cleanup runs). 1 hit.
+    Signature { name: "CSceneSystem_DeleteObjectForReal",     module: "scenesystem.dll", needle: "40 53 56 41 54 48 83 EC 50 0F B6 82 9B 00 00 00 45 33 E4 48 8B DA 48 8B F1 F0 FF 8C 81 CC 30 00 00", resolve: NONE, extra_off: 0, prototype: "" },
+
     // ---------- inputsystem.dll ---------------------------------------
     // CInputSystem_PollInputState Ã”Ã‡Ã¶ inputsystem!sub_180005500 (~0x459).
     // Per-frame raw input poll: pulls SDL keyboard/mouse/joystick events,

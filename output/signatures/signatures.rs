@@ -728,6 +728,8 @@ pub mod scenesystem {
     pub const CSceneAnimatableObject_GeneratePrimitives: &str = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
     pub const CSceneSkyBoxObject_DrawSkyboxArray: &str = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
     pub const CSceneSystem_CreateStaticShape: &str = "48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8";
+    pub const CSceneSystem_DeleteObjectForReal: &str = "40 53 56 41 54 48 83 EC 50 0F B6 82 9B 00 00 00";
+    pub const CSceneSystem_FrameUpdate: &str = "48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55";
     pub const CSceneSystem_InitGfxObjects: &str = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
     pub const CSceneSystem_RenderViewLayer_Dispatch: &str = "48 8B C4 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 B8 FE";
     pub const CSceneSystem_Thread_CullView: &str = "4C 89 44 24 18 48 89 54 24 10 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1";

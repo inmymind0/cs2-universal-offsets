@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**477/523 signatures resolved across 18 module(s).**
+**479/525 signatures resolved across 18 module(s).**
 
 ## `animationsystem.dll`
 
@@ -434,6 +434,8 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CSceneAnimatableObject_GeneratePrimitives` | `` | `raw` | `0x7FFF58B434A0` | `0x734A0` | `48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ?` |
 | `CSceneSkyBoxObject_DrawSkyboxArray` | `` | `raw` | `0x7FFF58C1FA70` | `0x14FA70` | `45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49 8D AB 58 FC FF FF 48 81 EC 98 04 00 00` |
 | `CSceneSystem_CreateStaticShape` | `` | `raw` | `0x7FFF58B81A70` | `0xB1A70` | `48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8 48 81 EC 10 01 00 00 4C 8B 65 50 48 8D 4D 80` |
+| `CSceneSystem_DeleteObjectForReal` | `` | `raw` | `0x7FFF58B9A530` | `0xCA530` | `40 53 56 41 54 48 83 EC 50 0F B6 82 9B 00 00 00 45 33 E4 48 8B DA 48 8B F1 F0 FF 8C 81 CC 30 00 00` |
+| `CSceneSystem_FrameUpdate` | `` | `raw` | `0x7FFF58BB1C30` | `0xE1C30` | `48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55 48 8D 68 A1 48 81 EC 98 00 00 00` |
 | `CSceneSystem_InitGfxObjects` | `` | `raw` | `0x7FFF58B83DB0` | `0xB3DB0` | `40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF FF 48 81 EC F8 02 00 00` |
 | `CSceneSystem_RenderViewLayer_Dispatch` | `` | `raw` | `0x7FFF58BBDD00` | `0xEDD00` | `48 8B C4 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 B8 FE FF FF 48 81 EC 08 02 00` |
 | `CSceneSystem_Thread_CullView` | `` | `stringref` | `0x7FFF58BB9270` | `0xE9270` | `"CSceneSystem::Thread_CullView(), C:\buildworker\csgo_rel_win64\build\src\scenesystem\scenesystem.cpp:3312"` |

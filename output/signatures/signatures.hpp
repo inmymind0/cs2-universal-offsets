@@ -404,6 +404,8 @@ namespace cs2::signatures {
         inline constexpr std::string_view CSceneAnimatableObject_GeneratePrimitives = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
         inline constexpr std::string_view CSceneSkyBoxObject_DrawSkyboxArray = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
         inline constexpr std::string_view CSceneSystem_CreateStaticShape = "48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8";
+        inline constexpr std::string_view CSceneSystem_DeleteObjectForReal = "40 53 56 41 54 48 83 EC 50 0F B6 82 9B 00 00 00";
+        inline constexpr std::string_view CSceneSystem_FrameUpdate = "48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55";
         inline constexpr std::string_view CSceneSystem_InitGfxObjects = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
         inline constexpr std::string_view CSceneSystem_RenderViewLayer_Dispatch = "48 8B C4 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 B8 FE";
         inline constexpr std::string_view CSceneSystem_Thread_CullView = "4C 89 44 24 18 48 89 54 24 10 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1";
@@ -1158,6 +1160,8 @@ namespace cs2::fn {
         using CSceneAnimatableObject_GeneratePrimitives_t = void(__fastcall*)(void*, ...);
         using CSceneSkyBoxObject_DrawSkyboxArray_t = void(__fastcall*)(void*, ...);
         using CSceneSystem_CreateStaticShape_t = void(__fastcall*)(void*, ...);
+        using CSceneSystem_DeleteObjectForReal_t = void(__fastcall*)(void*, ...);
+        using CSceneSystem_FrameUpdate_t = void(__fastcall*)(void*, ...);
         using CSceneSystem_InitGfxObjects_t = void(__fastcall*)(void*, ...);
         using CSceneSystem_RenderViewLayer_Dispatch_t = void(__fastcall*)(void*, ...);
         using CSceneSystem_Thread_CullView_t = void(__fastcall*)(void*, ...);
