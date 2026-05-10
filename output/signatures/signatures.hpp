@@ -37,6 +37,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view CCSGameRules = "4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D AB A1 21";
         inline constexpr std::string_view CCSGameRulesProxy = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 DB E7 0F";
         inline constexpr std::string_view CCSInventoryManager__EquipItemInLoadout = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 89 54 24 10 57 41 54 41 55 41 56 41 57 48 83 EC 70";
+        inline constexpr std::string_view CCSPlayer__ThirdPersonReset = "48 8B 40 08 44 38 38 75 10 44 88 7F 01 44 89 BF";
         inline constexpr std::string_view CCSPlayerController = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
         inline constexpr std::string_view CCSPlayerController_ActionTrackingServices = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
         inline constexpr std::string_view CCSPlayerController_DamageServices = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
@@ -236,6 +237,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view SetPlayerReady = "40 53 48 83 EC 20 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF";
         inline constexpr std::string_view SetSelectedIndexFunctionPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B F1 8B DA";
         inline constexpr std::string_view SetTraceData = "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 29 4C 8B F2 48 8B F9 3B 69 10 0F 85 ? ? ? ? F7 41 14 00 00 00 40 0F 85 ? ? ? ? 8B";
+        inline constexpr std::string_view SetTraceInit = "8B 01 89 02 8B 41 10 89 42 04 8B 41 20 89 42 08 48 8B C2 C3";
         inline constexpr std::string_view SetTypeKV3 = "40 53 48 83 EC 30 4C 8B 11 41 B9 16 00 00 00 49";
         inline constexpr std::string_view SetViewAngle = "85 D2 75 3D 48 63 81 50 0B 00 00 F2 41 0F 10 00";
         inline constexpr std::string_view SetupCmd = "48 83 EC 28 E8 ? ? ? ? 8B 80 10 59 00 00 48";
@@ -484,6 +486,7 @@ namespace cs2::fn {
         using CCSGameRulesProxy_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_1807C2150(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4)
         using CCSInventoryManager__EquipItemInLoadout_t = void(__fastcall*)(void*, ...);
+        using CCSPlayer__ThirdPersonReset_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)
         using CCSPlayerController_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)
@@ -876,6 +879,7 @@ namespace cs2::fn {
         using SetSelectedIndexFunctionPointer_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1807D4810(int *a1, _OWORD *a2)
         using SetTraceData_t = void(__fastcall*)(void*, ...);
+        using SetTraceInit_t = void(__fastcall*)(void*, ...);
         // unsigned __int64 *__fastcall sub_18181AEB0(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3)
         using SetTypeKV3_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180AE4CE0(__int64 a1, int a2, __int64 *a3)

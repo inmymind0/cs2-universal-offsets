@@ -54,6 +54,7 @@ pub mod client {
     pub const CCSGameRulesProxy: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 DB E7 0F";
     /// `char __fastcall sub_1807C2150(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4)`
     pub const CCSInventoryManager__EquipItemInLoadout: &str = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 89 54 24 10 57 41 54 41 55 41 56 41 57 48 83 EC 70";
+    pub const CCSPlayer__ThirdPersonReset: &str = "48 8B 40 08 44 38 38 75 10 44 88 7F 01 44 89 BF";
     /// `__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)`
     pub const CCSPlayerController: &str = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
     /// `__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)`
@@ -446,6 +447,7 @@ pub mod client {
     pub const SetSelectedIndexFunctionPointer: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B F1 8B DA";
     /// `__int64 __fastcall sub_1807D4810(int *a1, _OWORD *a2)`
     pub const SetTraceData: &str = "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 29 4C 8B F2 48 8B F9 3B 69 10 0F 85 ? ? ? ? F7 41 14 00 00 00 40 0F 85 ? ? ? ? 8B";
+    pub const SetTraceInit: &str = "8B 01 89 02 8B 41 10 89 42 04 8B 41 20 89 42 08 48 8B C2 C3";
     /// `unsigned __int64 *__fastcall sub_18181AEB0(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3)`
     pub const SetTypeKV3: &str = "40 53 48 83 EC 30 4C 8B 11 41 B9 16 00 00 00 49";
     /// `void __fastcall sub_180AE4CE0(__int64 a1, int a2, __int64 *a3)`

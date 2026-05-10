@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**461/509 signatures resolved across 18 module(s).**
+**463/509 signatures resolved across 18 module(s).**
 
 ## `animationsystem.dll`
 
@@ -37,6 +37,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CCSGameRules` | `_QWORD *sub_18007E160()` | `stringref` | `0x7FFF28CEE160` | `0x7E160` | `"CCSGameRules"` |
 | `CCSGameRulesProxy` | `__int64 sub_1806E9500()` | `stringref` | `0x7FFF29359500` | `0x6E9500` | `"CCSGameRulesProxy"` |
 | `CCSInventoryManager::EquipItemInLoadout` | `char __fastcall sub_1807C2150(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4)` | `raw` | `0x7FFF29432180` | `0x7C2180` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 89 54 24 ? 57 41 54 41 55 41 56 41 57 48 83 EC ? 0F B7 FA` |
+| `CCSPlayer::ThirdPersonReset` | `` | `raw` | `0x7FFF297385A0` | `0xAC85A0` | `48 8B 40 08 44 38 ? 75 10 44 88 ? 01` |
 | `CCSPlayerController` | `__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)` | `stringref` | `0x7FFF29455250` | `0x7E5250` | `"CCSPlayerController"` |
 | `CCSPlayerController_ActionTrackingServices` | `__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)` | `stringref` | `0x7FFF29455250` | `0x7E5250` | `"CCSPlayerController_ActionTrackingServices"` |
 | `CCSPlayerController_DamageServices` | `__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)` | `stringref` | `0x7FFF29455250` | `0x7E5250` | `"CCSPlayerController_DamageServices"` |
@@ -236,6 +237,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `SetPlayerReady` | `char __fastcall sub_180F1DD90(__int64 a1, __int64 a2)` | `raw` | `0x7FFF29B8E2C0` | `0xF1E2C0` | `40 53 48 83 EC 20 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF 15 ? ? ? ? 85 C0 75 14 BA` |
 | `SetSelectedIndexFunctionPointer` | `` | `raw` | `0x7FFF2A2F6E90` | `0x1686E90` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B F1 8B DA 48 83` |
 | `SetTraceData` | `__int64 __fastcall sub_1807D4810(int *a1, _OWORD *a2)` | `rel32` | `0x7FFF29444840` | `0x7D4840` | `E8 ? ? ? ? 8B 85 ? ? ? ? 48 8D 54 24 ? F2 0F 10 45` |
+| `SetTraceInit` | `` | `rel32` | `0x7FFF29767F60` | `0xAF7F60` | `E8 ? ? ? ? F2 0F 10 ? 4C 8D ?` |
 | `SetTypeKV3` | `unsigned __int64 *__fastcall sub_18181AEB0(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3)` | `raw` | `0x7FFF2A48B130` | `0x181B130` | `40 53 48 83 EC 30 4C 8B 11 41 B9 ? ? ? ? 49 83 CA 01 0F B6 C2 80 FA 06 48 8B D9 44 0F 45 C8` |
 | `SetViewAngle` | `void __fastcall sub_180AE4CE0(__int64 a1, int a2, __int64 *a3)` | `raw` | `0x7FFF29754B20` | `0xAE4B20` | `85 D2 75 3D 48 63 81 ? ? ? ?` |
 | `SetupCmd` | `__int64 __fastcall sub_1808BAF20(__int64 a1)` | `raw` | `0x7FFF2952AEC0` | `0x8BAEC0` | `48 83 EC 28 E8 ? ? ? ? 8B 80` |

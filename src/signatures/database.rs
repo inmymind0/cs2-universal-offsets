@@ -29,9 +29,13 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)",
     },
     Signature {
+        // Build 14160 fix: original needle was register-tight (44 38 20 / 44 88 67).
+        // Wildcard the spilled-register slots so it survives Valve re-allocating
+        // r12b<->r15b across rebuilds (cheat-side wildcarded version, IDA-verified
+        // 2026-05-09 — single hit at client!0x180AC85A0).
         name: "CCSPlayer::ThirdPersonReset",
         module: "client.dll",
-        needle: "48 8B 40 08 44 38 20 75 10 44 88 67 01",
+        needle: "48 8B 40 08 44 38 ? 75 10 44 88 ? 01",
         resolve: NONE,
         extra_off: 0,
         prototype: "",
@@ -53,6 +57,9 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "__int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)",
     },
     Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
         name: "CCSGOViewAdvice::OverrideView",
         module: "client.dll",
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 48 8B FA E8",
@@ -236,6 +243,9 @@ pub static CS2_SIGNATURES: &[Signature] = &[
 
     // ---------- materialsystem2.dll -----------------------------------
     Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
         name: "CMaterialSystem2::CreateMaterial",
         module: "materialsystem2.dll",
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 48 8B 05",
@@ -262,6 +272,9 @@ pub static CS2_SIGNATURES: &[Signature] = &[
 
     // ---------- tier0.dll ---------------------------------------------
     Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
         name: "LoadKV3_callsite",
         module: "tier0.dll",
         needle: "48 8D 0D ? ? ? ? FF 15 ? ? ? ? 49 8B 06",
@@ -272,6 +285,9 @@ pub static CS2_SIGNATURES: &[Signature] = &[
 
     // ---------- engine2.dll -------------------------------------------
     Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
         name: "ClientStateSignOnState",
         module: "engine2.dll",
         needle: "83 3D ? ? ? ? 06 0F 94 C0",
@@ -281,27 +297,107 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     },
 
     // ---------- string-anchored (robust across patches) ---------------
-    Signature { name: "Engine_GetTime",                module: "engine2.dll", needle: "Engine_GetTime",                resolve: STRREF, extra_off: 0, prototype: "" },
-    Signature { name: "CL_FullyConnected",             module: "engine2.dll", needle: "CL_FullyConnected",             resolve: STRREF, extra_off: 0, prototype: "" },
-    Signature { name: "Host_AccumulateTime",           module: "engine2.dll", needle: "Host_AccumulateTime",           resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "Engine_GetTime",
+        module: "engine2.dll",
+        needle: "Engine_GetTime",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CL_FullyConnected",
+        module: "engine2.dll",
+        needle: "CL_FullyConnected",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "Host_AccumulateTime",
+        module: "engine2.dll",
+        needle: "Host_AccumulateTime",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CNetChan_ProcessMessages",      module: "engine2.dll", needle: "CNetChan::ProcessMessages",     resolve: STRREF, extra_off: 0, prototype: "" },
 
     Signature { name: "CCSPlayer_WeaponServices",      module: "client.dll",  needle: "CCSPlayer_WeaponServices",      resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877810()" },
     Signature { name: "CCSPlayer_MovementServices",    module: "client.dll",  needle: "CCSPlayer_MovementServices",    resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_18083DE80()" },
     Signature { name: "CCSPlayer_BulletServices",      module: "client.dll",  needle: "CCSPlayer_BulletServices",      resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180813BA0(__int64 a1)" },
-    Signature { name: "CSGameRules",                   module: "client.dll",  needle: "CSGameRules",                   resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CSGameRules",
+        module: "client.dll",
+        needle: "CSGameRules",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CCSPlayerController",           module: "client.dll",  needle: "CCSPlayerController",           resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
     Signature { name: "CCSPlayerPawn",                 module: "client.dll",  needle: "CCSPlayerPawn",                 resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180BB0E40()" },
-    Signature { name: "CHudWeaponSelection",           module: "client.dll",  needle: "CHudWeaponSelection",           resolve: STRREF, extra_off: 0, prototype: "" },
-    Signature { name: "CHudDeathNotice",               module: "client.dll",  needle: "CHudDeathNotice",               resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CHudWeaponSelection",
+        module: "client.dll",
+        needle: "CHudWeaponSelection",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CHudDeathNotice",
+        module: "client.dll",
+        needle: "CHudDeathNotice",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "paintkit_seed",                 module: "client.dll",  needle: "set item texture seed",         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
     Signature { name: "paintkit_prefab",               module: "client.dll",  needle: "set item texture prefab",       resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_18105D3B0(__int64 *a1)" },
     Signature { name: "paintkit_wear",                 module: "client.dll",  needle: "set item texture wear",         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
     Signature { name: "statTrak_killEater",            module: "client.dll",  needle: "kill eater",                    resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
     Signature { name: "statTrak_scoreType",            module: "client.dll",  needle: "kill eater score type",         resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18011B7F0()" },
 
-    Signature { name: "VacNet_OnEvent",                module: "client.dll",  needle: "VAC-Net Detection",             resolve: STRREF, extra_off: 0, prototype: "" },
-    Signature { name: "Matchmaking_AcceptMatch",       module: "client.dll",  needle: "AcceptInviteToParty",           resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "VacNet_OnEvent",
+        module: "client.dll",
+        needle: "VAC-Net Detection",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "Matchmaking_AcceptMatch",
+        module: "client.dll",
+        needle: "AcceptInviteToParty",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
 
     // ==================================================================
     // NUVORA APR-2026 EXPANSION (client.dll) ---------------------------
@@ -317,7 +413,17 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "DrawCrosshair",                        module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 85", resolve: NONE, extra_off: 0, prototype: "bool __fastcall sub_1807B0BF0(_QWORD *a1)" },
     Signature { name: "FirstPersonLegs",                      module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)" },
     Signature { name: "HandleTeamIntro",                      module: "client.dll", needle: "48 83 EC ? ? ? ? ? 44 38 89", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180703EB0(__int64 a1, __int64 a2, char *a3)" },
-    Signature { name: "DrawViewPunch",                        module: "client.dll", needle: "48 89 5C 24 ? 55 56 57 48 83 EC ? 48 83 79", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "DrawViewPunch",
+        module: "client.dll",
+        needle: "48 89 5C 24 ? 55 56 57 48 83 EC ? 48 83 79",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "DrawScopeOverlay",                     module: "client.dll", needle: "48 8B C4 53 57 48 83 EC ? 48 8B FA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18085D530(__int64 a1, __int64 a2)" },
     Signature { name: "UpdatePostProcessing",                 module: "client.dll", needle: "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)" },
     Signature { name: "SetupMove",                            module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 48 8B EA 4C 8B F1 E8 ? ? ? ? 48 8D 15", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180D1D0E0(__int64 a1, int *a2)" },
@@ -335,15 +441,45 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "GameRules_ptr",                        module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 8D 54 24 ? 0F 28 D0 48 8D 4C 24 ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Signature { name: "GameEntitySystemPtr",                  module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 89 1D ? ? ? ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Signature { name: "ParticleManager_ptr",                  module: "client.dll", needle: "48 8B 0D ? ? ? ? 41 B8 ? ? ? ? F3 0F 11 74 24 ? 48 C7 44 24 ? ? ? ? ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
-    Signature { name: "SwapChain_ptr",                        module: "client.dll", needle: "48 89 2D ? ? ? ? 48 C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? 89 2D", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "SwapChain_ptr",
+        module: "client.dll",
+        needle: "48 89 2D ? ? ? ? 48 C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? 89 2D",
+        resolve: RIPREL_3,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CSGOInput_ptr",                        module: "client.dll", needle: "48 8B 0D ? ? ? ? 4C 8B C6 8B 10 E8", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Signature { name: "ClientMode_ptr",                       module: "client.dll", needle: "48 8D 0D ? ? ? ? 48 69 C0 ? ? ? ? 48 03 C1 C3 CC CC", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Signature { name: "ViewRender_ptr",                       module: "client.dll", needle: "48 89 05 ? ? ? ? 48 8B C8 48 85 C0", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Signature { name: "VPhys2World_ptr",                      module: "client.dll", needle: "4C 8B 25 ? ? ? ? 24", resolve: RIPREL_3, extra_off: 0, prototype: "" },
-    Signature { name: "PVSManager_ptr",                       module: "client.dll", needle: "48 8D 0D ? ? ? ? 33 D2 FF 50", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "PVSManager_ptr",
+        module: "client.dll",
+        needle: "48 8D 0D ? ? ? ? 33 D2 FF 50",
+        resolve: RIPREL_3,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "GetBBox_ptr",                          module: "client.dll", needle: "48 8B 0D ? ? ? ? 48 85 C9 74 ? ? ? ? 48 FF A0 ? ? ? ? 48 8D 05", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Signature { name: "GetInstanceS",                         module: "client.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 91 ? ? ? ? B8", resolve: RIPREL_3, extra_off: 0, prototype: "" },
-    Signature { name: "ChamsRenderGameSystem",                module: "client.dll", needle: "48 8B 0D ? ? ? ? ? ? E8 ? ? ? ? 49 8B 8E ? ? ? ? 4C 8D 0D", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "ChamsRenderGameSystem",
+        module: "client.dll",
+        needle: "48 8B 0D ? ? ? ? ? ? E8 ? ? ? ? 49 8B 8E ? ? ? ? 4C 8D 0D",
+        resolve: RIPREL_3,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CAM_ThinkReturn",                      module: "client.dll", needle: "BA 04 00 00 00 FF 15 ? ? ? ? 84 C0 0F 84", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_18031A460(__int64 a1, _DWORD *a2)" },
 
     // a2x-derived globals (cs2-dumper, MIT). Battle-tested patterns.
@@ -590,7 +726,17 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // synthetic mouse-deltas or filter specific keys before they hit the
     // engine's button table Ã”Ã‡Ã¶ perfect anchor for raw aim-step / no-recoil
     // mouse-comp without touching CCSGOInput.
-    Signature { name: "CInputSystem_PollInputState",          module: "inputsystem.dll", needle: "40 53 41 56 48 81 EC 28 01 00 00 48 8D 05 ? ? ? ? 48 C7 44 24 38 46 04 00 00 4C 8B F1", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CInputSystem_PollInputState",
+        module: "inputsystem.dll",
+        needle: "40 53 41 56 48 81 EC 28 01 00 00 48 8D 05 ? ? ? ? 48 C7 44 24 38 46 04 00 00 4C 8B F1",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
 
     // ---------- materialsystem2.dll -----------------------------------
     // CMaterial2_GetMode Ã”Ã‡Ã¶ materialsystem2!sub_18000BD40 (~0x16e). Per-
@@ -612,17 +758,48 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CMaterial2_GetVertexShaderInputSignature", module: "materialsystem2.dll", needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 30 F6 41 0B 01 4C 8B", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18000C8C0(__int64 a1)" },
 
     // Features / aimbot / autowall / movement ---------------------------
-    Signature { name: "CalculateShootPosition",               module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 44 8B 92 ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CalculateShootPosition",
+        module: "client.dll",
+        needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 44 8B 92 ? ? ? ?",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "AutowallInit",                         module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 48 81 C1 ? ? ? ? E8 ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808E1EE0(__int64 a1)" },
-    Signature { name: "AutowallResolveTracePos",              module: "client.dll", needle: "E8 ? ? ? ? 48 63 83 ? ? ? ? 48 8D 14 40", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "AutowallResolveTracePos",
+        module: "client.dll",
+        needle: "E8 ? ? ? ? 48 63 83 ? ? ? ? 48 8D 14 40",
+        resolve: REL32_1,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "AutowallTracePos",                     module: "client.dll", needle: "40 55 56 41 54 41 55 41 57 48 8B EC", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180807780(__int64 a1, __int64 a2)" },
     Signature { name: "AutowallTraceData",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B 09", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_18098E9C0(_QWORD *a1, int *a2, int a3, int a4, _BYTE *a5, int a6)" },
     Signature { name: "TestSurfaces",                         module: "client.dll", needle: "40 53 57 41 56 48 83 EC 50 8B", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180806E30(__int64 a1, float a2, float a3, float a4, int a5, int a6, __int64 a7)" },
     Signature { name: "ReportHit",                            module: "client.dll", needle: "E8 ? ? ? ? 48 8B AC 24 D8 00 00 00 48 81 C4", resolve: REL32_1, extra_off: 0, prototype: "char __fastcall sub_180602290(_QWORD *a1)" },
     Signature { name: "SetTraceData",                         module: "client.dll", needle: "E8 ? ? ? ? 8B 85 ? ? ? ? 48 8D 54 24 ? F2 0F 10 45", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1807D4810(int *a1, _OWORD *a2)" },
-    Signature { name: "SetTraceInit",                         module: "client.dll", needle: "E8 ? ? ? ? F2 0F 10 0B 4C 8D 0D", resolve: REL32_1, extra_off: 0, prototype: "" },
+    // Build 14160 fix: wildcarded the source-XMM and dest-register bytes (was 0B/0D).
+    Signature { name: "SetTraceInit",                         module: "client.dll", needle: "E8 ? ? ? ? F2 0F 10 ? 4C 8D ?", resolve: REL32_1, extra_off: 0, prototype: "" },
     Signature { name: "HandleEntityList",                     module: "client.dll", needle: "E8 ? ? ? ? 84 C0 74 ? 48 63 03", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1801C3700(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)" },
-    Signature { name: "GetBasePlayerController",              module: "client.dll", needle: "48 8B F8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? 44 39 A8", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "GetBasePlayerController",
+        module: "client.dll",
+        needle: "48 8B F8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? 44 39 A8",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "GetTickBase",                          module: "client.dll", needle: "E8 ? ? ? ? EB ? 48 8B 05 ? ? ? ? 8B 40", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1808BDA00(__int64 a1)" },
     Signature { name: "FindHudElement",                       module: "client.dll", needle: "48 8D 15 ? ? ? ? 45 33 C0 B9 ? ? ? ? FF 15 ? ? ? ? EB ? 48 8B 15", resolve: NONE, extra_off: 0, prototype: "_QWORD **__fastcall sub_180DC1D50(__int64 a1, unsigned __int8 a2)" },
     Signature { name: "FindHudElement_panorama",              module: "client.dll", needle: "4C 8B DC 53 48 83 EC 50 48 8B 05", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180DC3E70(const char *a1)" },
@@ -630,7 +807,17 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "Scope_callsite",                       module: "client.dll", needle: "E8 ? ? ? ? 80 7C 24 34 ? 74 ?", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_18085D530(__int64 a1, __int64 a2)" },
     Signature { name: "GetRemovedAimpunch",                   module: "client.dll", needle: "F2 0F 10 44 24 ? F2 0F 11 84 24 ? ? ? ? FF 15", resolve: NONE, extra_off: 0, prototype: "__int64 sub_1801128E0()" },
     Signature { name: "GetRemovedAimPunch_E8",                module: "client.dll", needle: "E8 ? ? ? ? 4C 8B C0 48 8D 55 ? 48 8B CB E8 ? ? ? ? 48 8D 0D", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_18084D6E0(__int64 a1, __int64 a2)" },
-    Signature { name: "ChamsGetWorldGroupID",                 module: "client.dll", needle: "E8 ? ? ? ? 48 8B 0D ? ? ? ? ? ? E8 ? ? ? ? 49 8B 8E ? ? ? ? 4C 8D 0D", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "ChamsGetWorldGroupID",
+        module: "client.dll",
+        needle: "E8 ? ? ? ? 48 8B 0D ? ? ? ? ? ? E8 ? ? ? ? 49 8B 8E ? ? ? ? 4C 8D 0D",
+        resolve: REL32_1,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "ModulationUpdate",                     module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1809DA450(__int64 a1, char a2)" },
     Signature { name: "ClearHUDWeaponIcon",                   module: "client.dll", needle: "E8 ? ? ? ? 8B F8 C6 84 24 ? ? ? ? ?", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)" },
     Signature { name: "PlayVSound_client",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 FF", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18150ED00(__int64 a1)" },
@@ -642,7 +829,17 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "GetBaseEntity",                        module: "client.dll", needle: "4C 8D 49 ? 81 FA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180967600(__int64 a1, int a2)" },
     Signature { name: "CalculateWorldSpaceBones",             module: "client.dll", needle: "48 89 4C 24 ? 55 53 56 57 41 54 41 55 41 56 41 57 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8D 6C 24 ? 48 8B 81", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180A0B070(__int64 a1, unsigned int a2)" },
     Signature { name: "TraceShape",                           module: "client.dll", needle: "48 89 5C 24 ? 48 89 4C 24 ? 55 57", resolve: NONE, extra_off: 0, prototype: "bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)" },
-    Signature { name: "ClipRayToEntity",                      module: "client.dll", needle: "48 8B C4 48 89 58 ? 55 56 57 41 54 41 56 48 8D 68 ? 48 81 EC ? ? ? ? 48 8B 5D", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "ClipRayToEntity",
+        module: "client.dll",
+        needle: "48 8B C4 48 89 58 ? 55 56 57 41 54 41 56 48 8D 68 ? 48 81 EC ? ? ? ? 48 8B 5D",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "GetSurfaceData",                       module: "client.dll", needle: "E8 ? ? ? ? 80 78 18 00", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_180953540(__int64 a1)" },
     Signature { name: "SetTypeKV3",                           module: "client.dll", needle: "40 53 48 83 EC 30 4C 8B 11 41 B9 ? ? ? ? 49 83 CA 01 0F B6 C2 80 FA 06 48 8B D9 44 0F 45 C8", resolve: NONE, extra_off: 0, prototype: "unsigned __int64 *__fastcall sub_18181AEB0(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3)" },
     Signature { name: "CreateParticleEffect",                 module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? F3 0F 10 1D ? ? ? ? 41 8B F8 8B DA 4C 8D 05", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180987020(int a1, int a2, int a3, __int64 a4, int a5)" },
@@ -650,9 +847,29 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CacheParticleEffect",                  module: "client.dll", needle: "4C 8B DC 53 48 81 EC ? ? ? ? F2 0F 10 05", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "GetEntityHandle",                      module: "client.dll", needle: "48 85 C9 74 32 48 8B 49 10 48 85 C9 74 29 44 8B 41 10 BA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18094E8D0(__int64 a1)" },
     Signature { name: "LookupBone",                           module: "client.dll", needle: "E8 ? ? ? ? 48 8B 8D ? ? ? ? B3", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)" },
-    Signature { name: "TraceSmokeDensity",                    module: "client.dll", needle: "E8 ? ? ? ? 0F 28 F8 44 0F 28 54 24 ?", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "TraceSmokeDensity",
+        module: "client.dll",
+        needle: "E8 ? ? ? ? 0F 28 F8 44 0F 28 54 24 ?",
+        resolve: REL32_1,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "GetInventoryManager",                  module: "client.dll", needle: "E8 ? ? ? ? 48 8B D3 48 8B C8 4C 8B 00 41 FF 90 00 02", resolve: REL32_1, extra_off: 0, prototype: "__int64 *sub_1807C6430()" },
-    Signature { name: "UpdateCompositeMaterial",              module: "client.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57 48 83 EC 20 44 0F B6 F2 48 8B F1 E8", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "UpdateCompositeMaterial",
+        module: "client.dll",
+        needle: "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57 48 83 EC 20 44 0F B6 F2 48 8B F1 E8",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "RegenerateWeaponSkin",                 module: "client.dll", needle: "40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F B6 FA 48 8B D9 BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_18078C2A0(__int64 a1, char a2)" },
     Signature { name: "SetModel",                             module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 4C 8B C2 48 8B 0D ? ? ? ? 48 8D 54 24", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808DB1C0(__int64 a1, __int64 a2)" },
     Signature { name: "SetMeshGroupMask",                     module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 99 ? ? ? ? 48 8B 71", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)" },
@@ -661,7 +878,17 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CreateSOSubclassEconItem",             module: "client.dll", needle: "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85", resolve: NONE, extra_off: 0, prototype: "__int64 sub_180FF7770()" },
     Signature { name: "CreateBaseTypeCache",                  module: "client.dll", needle: "40 53 48 83 EC ? 4C 8B 49 ? 44 8B D2", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_181510EA0(__int64 a1, unsigned int a2)" },
     Signature { name: "GetClientSystem",                      module: "client.dll", needle: "E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 8B D8 85 C0 74 33", resolve: REL32_1, extra_off: 0, prototype: "__int64 *sub_181036570()" },
-    Signature { name: "GetClientSystem_inv",                  module: "client.dll", needle: "E8 ? ? ? ? 48 8B 47 10 8B 48 30 D1 E9 F6 C1 01 0F 84 8E", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "GetClientSystem_inv",
+        module: "client.dll",
+        needle: "E8 ? ? ? ? 48 8B 47 10 8B 48 30 D1 E9 F6 C1 01 0F 84 8E",
+        resolve: REL32_1,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CAttributeStringInit",                 module: "client.dll", needle: "E8 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 7D ? 48 89 45 ? 49 8D 4F", resolve: REL32_1, extra_off: 0, prototype: "_QWORD *__fastcall sub_1805F86B0(_QWORD *a1, __int64 a2, char a3)" },
     Signature { name: "CAttributeStringFill",                 module: "client.dll", needle: "E8 ? ? ? ? 41 83 CF 08", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_180EAEC20(__int64 a1, __int64 a2)" },
     Signature { name: "CBufferStringInit",                    module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 48 8D 79", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_1817E29D0(__int64 a1, const char *a2)" },
@@ -671,8 +898,28 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CreateNewSubtickMoveStep",             module: "client.dll", needle: "E8 ? ? ? ? 48 8B D0 48 8B CE E8 ? ? ? ? 48 8B C8", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1804B1D80(__int64 a1)" },
     Signature { name: "SetCollisionBounds",                   module: "client.dll", needle: "48 83 EC ? F2 0F 10 02 8B 42 08", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180803980(__int64 a1, __int64 *a2)" },
     Signature { name: "CalculateInterpolation",               module: "client.dll", needle: "E8 ? ? ? ? 8B 45 ? 3B 45 60 75 04 32 D2 EB 09 BA 01 00 00 00 41 0F 4C D5 C0 EA 07 84 D2 0F 85 87", resolve: REL32_1, extra_off: 0, prototype: "int *__fastcall sub_1814C7E70(__int64 a1, int *a2)" },
-    Signature { name: "CalculateAnimState",                   module: "client.dll", needle: "40 55 56 57 41 54 41 55 41 56 41 57 B8 10 11 00 00 E8 ? ? ? ? 48 2B E0 48 8D 6C 24 40 48 8D 05 ? ? ? ? 48 C7 45 08 4B 0C 00 00 48 8B F1", resolve: NONE, extra_off: 0, prototype: "" },
-    Signature { name: "SetAbsOrigin_BaseModel",               module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 40 48 8B 01 48 8B FA", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CalculateAnimState",
+        module: "client.dll",
+        needle: "40 55 56 57 41 54 41 55 41 56 41 57 B8 10 11 00 00 E8 ? ? ? ? 48 2B E0 48 8D 6C 24 40 48 8D 05 ? ? ? ? 48 C7 45 08 4B 0C 00 00 48 8B F1",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "SetAbsOrigin_BaseModel",
+        module: "client.dll",
+        needle: "48 89 5C 24 08 57 48 83 EC 40 48 8B 01 48 8B FA",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "SetAbsOrigin_Pawn",                    module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? ? ? ? 48 8B FA 48 8B D9 FF 90 ? ? ? ? 84 C0 0F 85", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18021EF50(__int64 a1, __int64 a2)" },
     Signature { name: "PhysicsRunThink_Pawn",                 module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 8B 81 ? ? ? ? 48 8B F9", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180B0ED50(__int64 a1)" },
     Signature { name: "SomeTimingFromPawn",                   module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 49 63 D8 48 8B F1", resolve: NONE, extra_off: 0, prototype: "float __fastcall sub_180A572B0(__int64 a1, int a2, unsigned int a3)" },
@@ -710,15 +957,45 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "GetLocalControllerById",               module: "client.dll", needle: "48 83 EC 28 83 F9 FF 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 ? ? ? ? 8B 08 48 63 C1 4C 8D 05", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808E1070(int a1)" },
     Signature { name: "SetupCmd",                             module: "client.dll", needle: "48 83 EC 28 E8 ? ? ? ? 8B 80", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808BAF20(__int64 a1)" },
     Signature { name: "GetControllerCmd",                     module: "client.dll", needle: "40 53 48 83 EC 20 8B DA E8 ? ? ? ? 4C", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808BDC00(__int64 a1, int a2)" },
-    Signature { name: "PhysicsRunThink",                      module: "client.dll", needle: "E8 ? ? ? ? 49 8B D6 48 8B CE E8 ? ? ? ? 48 8B 06", resolve: REL32_1, extra_off: 0, prototype: "" },
-    Signature { name: "GetBasePlayerCtrl_Entity",             module: "client.dll", needle: "E8 ? ? ? ? 48 8B F8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? EB", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "PhysicsRunThink",
+        module: "client.dll",
+        needle: "E8 ? ? ? ? 49 8B D6 48 8B CE E8 ? ? ? ? 48 8B 06",
+        resolve: REL32_1,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "GetBasePlayerCtrl_Entity",
+        module: "client.dll",
+        needle: "E8 ? ? ? ? 48 8B F8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? EB",
+        resolve: REL32_1,
+        extra_off: 0,
+        prototype: "",
+    },
 
     // ==================================================================
     // scenesystem.dll --------------------------------------------------
     // ==================================================================
     Signature { name: "SceneSystem::DrawAggeregateObject",    module: "scenesystem.dll", needle: "48 8B C4 4C 89 48 20 4C 89 40 ? 48 89 50 ? 55 53 41 57 48 8D A8", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "SceneSystem::DrawArrayLight",          module: "scenesystem.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 54 24", resolve: NONE, extra_off: 0, prototype: "" },
-    Signature { name: "SceneSystem::DrawAggregateSceneObject", module: "scenesystem.dll", needle: "48 8B C4 4C 89 48 20 48 89 50 ? 48 89 48 ? 55 48 8D A8 ? ? ? ? 48 81 EC 70 07 00 00", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "SceneSystem::DrawAggregateSceneObject",
+        module: "scenesystem.dll",
+        needle: "48 8B C4 4C 89 48 20 48 89 50 ? 48 89 48 ? 55 48 8D A8 ? ? ? ? 48 81 EC 70 07 00 00",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
 
     // ==================================================================
     // particles.dll ----------------------------------------------------
@@ -726,7 +1003,17 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "Particles::DrawArray",                 module: "particles.dll", needle: "40 55 53 56 57 48 8D 6C 24", resolve: NONE, extra_off: 0, prototype: "_BYTE *__fastcall sub_1800220B0(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6, __int64 a7)" },
     Signature { name: "Particles::FindKeyVar",                module: "particles.dll", needle: "48 89 5C 24 ? 57 48 81 EC ? ? ? ? 33 C0 8B DA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18003A650(const char *a1, unsigned int a2, int a3)" },
     Signature { name: "Particles::SetMaterialShaderType",     module: "particles.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 81 EC ? ? ? ? 4C 63 32", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_18009D8D0(__int64 a1, int *a2)" },
-    Signature { name: "Particles::SetMaterialFunction",       module: "particles.dll", needle: "48 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC E8 05 00 00", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "Particles::SetMaterialFunction",
+        module: "particles.dll",
+        needle: "48 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC E8 05 00 00",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
     // CParticleSystemMgr::FindParticleSystem(name, out_handle, blocking_load) — looks up
     // a precached particle system definition by string name. The "FindParticleSystem"
     // log/profile string is referenced exactly once from this function. Useful as a hook
@@ -777,11 +1064,41 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CFogController",                       module: "client.dll", needle: "CFogController",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18027EFD0()" },
     Signature { name: "CPostProcessingVolume",                module: "client.dll", needle: "CPostProcessingVolume",                 resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1802A3D60()" },
     Signature { name: "CCSPlayer_ItemServices",               module: "client.dll", needle: "CCSPlayer_ItemServices",                resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180850B00(__int64 a1)" },
-    Signature { name: "CCSPlayer_ViewModelServices",          module: "client.dll", needle: "CCSPlayer_ViewModelServices",           resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CCSPlayer_ViewModelServices",
+        module: "client.dll",
+        needle: "CCSPlayer_ViewModelServices",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CCSPlayer_CameraServices",             module: "client.dll", needle: "CCSPlayer_CameraServices",              resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18080FCB0()" },
     Signature { name: "C_CSWeaponBase",                       module: "client.dll", needle: "C_CSWeaponBase",                       resolve: STRREF, extra_off: 0, prototype: "_QWORD *__fastcall sub_180742170(int a1, _QWORD *a2)" },
-    Signature { name: "C_BaseViewModel",                      module: "client.dll", needle: "C_BaseViewModel",                      resolve: STRREF, extra_off: 0, prototype: "" },
-    Signature { name: "C_BaseFlex",                           module: "client.dll", needle: "C_BaseFlex",                            resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "C_BaseViewModel",
+        module: "client.dll",
+        needle: "C_BaseViewModel",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "C_BaseFlex",
+        module: "client.dll",
+        needle: "C_BaseFlex",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "C_EconItemView",                       module: "client.dll", needle: "C_EconItemView",                       resolve: STRREF, extra_off: 0, prototype: "_QWORD *__fastcall sub_18070B570(int a1, _QWORD *a2)" },
     Signature { name: "C_AttributeContainer",                 module: "client.dll", needle: "C_AttributeContainer",                  resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180C18BB0(int a1, _QWORD *a2)" },
 
@@ -814,7 +1131,17 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // CSGOInput global: 48 8B 0D xx xx xx xx ; disp32 at +3, then post-resolve add 0x7
     Signature { name: "CSGOInput_resolved",                   module: "client.dll", needle: "48 8B 0D ? ? ? ? 8B 10 E8 ? ? ? ? 45 32 FF", resolve: RIPREL_3, extra_off: 7, prototype: "" },
     // CreateMaterial(material, name, kv3, ...) callsite prologue
-    Signature { name: "CreateMaterial_caller",                module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 8B F2", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CreateMaterial_caller",
+        module: "client.dll",
+        needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 8B F2",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "GetBonePositionByName",                module: "client.dll", needle: "40 53 48 83 EC ? 48 8B 89 ? ? ? ? 48 8B DA 48 8B 01 FF 50 ? 48 8B C8", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)" },
 
     // ==================================================================
@@ -840,7 +1167,17 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CCSPlayer_WaterServices",               module: "client.dll", needle: "CCSPlayer_WaterServices",                resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877460()" },
     Signature { name: "CCSPlayer_WeaponServices",              module: "client.dll", needle: "CCSPlayer_WeaponServices",               resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877810()" },
     Signature { name: "CCSPlayer_MovementServices",            module: "client.dll", needle: "CCSPlayer_MovementServices",             resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_18083DE80()" },
-    Signature { name: "CCSPlayer_MovementServices_Humanoid",   module: "client.dll", needle: "CCSPlayer_MovementServices_Humanoid",    resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CCSPlayer_MovementServices_Humanoid",
+        module: "client.dll",
+        needle: "CCSPlayer_MovementServices_Humanoid",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CCSWeaponBase",                         module: "client.dll", needle: "CCSWeaponBase",                          resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18077F3D0()" },
     Signature { name: "CCSWeaponBaseGun",                      module: "client.dll", needle: "CCSWeaponBaseGun",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18077F470()" },
     Signature { name: "CCSWeaponBaseVData",                    module: "client.dll", needle: "CCSWeaponBaseVData",                     resolve: STRREF, extra_off: 0, prototype: "const char *sub_18075A2B0()" },
@@ -850,26 +1187,96 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CHEGrenadeProjectile",                  module: "client.dll", needle: "CHEGrenadeProjectile",                   resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180FE0490()" },
     Signature { name: "CDecoyProjectile",                      module: "client.dll", needle: "CDecoyProjectile",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18074E1E0()" },
     Signature { name: "C_PlantedC4",                           module: "client.dll", needle: "C_PlantedC4",                            resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800F07A0())()" },
-    Signature { name: "C_C4",                                  module: "client.dll", needle: "C_C4",                                   resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_18009A420())()" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "C_C4",
+        module: "client.dll",
+        needle: "C_C4",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "__int64 (__fastcall *sub_18009A420())()",
+    },
     Signature { name: "C_Hostage",                             module: "client.dll", needle: "C_Hostage",                              resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800E7480())()" },
     Signature { name: "C_Inferno",                             module: "client.dll", needle: "C_Inferno",                              resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800F7440())()" },
     Signature { name: "C_SmokeGrenadeProjectile",              module: "client.dll", needle: "C_SmokeGrenadeProjectile",               resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_180095A10())()" },
-    Signature { name: "C_RecipientFilter",                     module: "client.dll", needle: "C_RecipientFilter",                      resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "C_RecipientFilter",
+        module: "client.dll",
+        needle: "C_RecipientFilter",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CGameSceneNode",                        module: "client.dll", needle: "CGameSceneNode",                         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1801A38F0(int a1, __int64 a2)" },
     Signature { name: "CSkeletonInstance",                     module: "client.dll", needle: "CSkeletonInstance",                      resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1801A3A20(int a1, __int64 a2)" },
     Signature { name: "CBodyComponent",                        module: "client.dll", needle: "CBodyComponent",                         resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1801BC160()" },
     Signature { name: "CBodyComponentSkeletonInstance",        module: "client.dll", needle: "CBodyComponentSkeletonInstance",         resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall ***sub_1801C3040())()" },
     Signature { name: "CGlowProperty",                         module: "client.dll", needle: "CGlowProperty",                          resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1802E11A0(int a1, __int64 a2, __int64 a3, __int64 a4)" },
     Signature { name: "CCollisionProperty",                    module: "client.dll", needle: "CCollisionProperty",                     resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1802E0F90(int a1, __int64 a2, __int64 a3, __int64 a4)" },
-    Signature { name: "CWeaponCSBase",                         module: "client.dll", needle: "CWeaponCSBase",                          resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CWeaponCSBase",
+        module: "client.dll",
+        needle: "CWeaponCSBase",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CCSGameRules",                          module: "client.dll", needle: "CCSGameRules",                           resolve: STRREF, extra_off: 0, prototype: "_QWORD *sub_18007E160()" },
     Signature { name: "CCSGameRulesProxy",                     module: "client.dll", needle: "CCSGameRulesProxy",                      resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1806E9500()" },
-    Signature { name: "CSGameRulesObjectives",                 module: "client.dll", needle: "CSGameRulesObjectives",                  resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CSGameRulesObjectives",
+        module: "client.dll",
+        needle: "CSGameRulesObjectives",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
 
     // engine2.dll string-ref anchors
-    Signature { name: "CNetworkGameClient",                    module: "engine2.dll", needle: "CNetworkGameClient",                    resolve: STRREF, extra_off: 0, prototype: "" },
-    Signature { name: "CNetworkGameServer",                    module: "engine2.dll", needle: "CNetworkGameServer",                    resolve: STRREF, extra_off: 0, prototype: "" },
-    Signature { name: "CGameEventManager",                     module: "engine2.dll", needle: "CGameEventManager",                     resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CNetworkGameClient",
+        module: "engine2.dll",
+        needle: "CNetworkGameClient",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CNetworkGameServer",
+        module: "engine2.dll",
+        needle: "CNetworkGameServer",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
+        name: "CGameEventManager",
+        module: "engine2.dll",
+        needle: "CGameEventManager",
+        resolve: STRREF,
+        extra_off: 0,
+        prototype: "",
+    },
     Signature { name: "CSplitScreenSlot",                      module: "engine2.dll", needle: "CSplitScreenSlot",                      resolve: STRREF, extra_off: 0, prototype: "char __fastcall sub_18024A250(__int64 a1, __int64 a2, int a3, __int64 a4)" },
 
     // ==================================================================
@@ -3692,6 +4099,9 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // per-frame gamerules tick before entity Think pass. Wraps real worker
     // sub_1802729B0 in a VProf scope. Anchor for game-state pre-step.
     Signature {
+        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
+        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
+        // 0/N hits as a regression signal if a future build resurrects it.
         name: "CCSGameRules_FrameUpdatePreEntityThink",
         module: "server.dll",
         needle: "48 89 5C 24 08 57 48 83 EC 60 48 8D 05 ? ? ? ? 48 C7 44 24 28 01 13 00 00 48 89 44 24 20",
