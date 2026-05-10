@@ -263,6 +263,7 @@ pub mod client {
     pub const DispatchEffect: &str = "48 89 5C 24 08 57 48 83 EC 70 48 8B F9 48 8B DA";
     /// `__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)`
     pub const DispatchSpawn_caller: &str = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
+    pub const DispatchUpdateOnRemove: &str = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 83 EC 60 48 8D B9 80 00";
     /// `bool __fastcall sub_1807B0BF0(_QWORD *a1)`
     pub const DrawCrosshair: &str = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 1E AC";
     /// `void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)`
@@ -461,6 +462,7 @@ pub mod client {
     pub const SetupMove: &str = "48 89 5C 24 18 48 89 6C 24 20 56 57 41 56 48 83 EC 20 48 8B EA 4C 8B F1";
     /// `__int64 __fastcall sub_181186C10(__int64 a1, __int64 a2, __int64 a3, __int64 a4)`
     pub const SetupMovementMoves: &str = "48 8B CE E8 ? ? ? ? 48 8B 5C 24 50 48 8B 6C 24 58 48 83";
+    pub const SharedRandomFloat: &str = "4C 8B DC 49 89 5B 08 49 89 73 10 57 48 81 EC 00";
     pub const ShowMessageBox: &str = "44 88 4C 24 20 53 41 56 41 57 48 81 EC 60 02 00";
     /// `float __fastcall sub_180A572B0(__int64 a1, int a2, unsigned int a3)`
     pub const SomeTimingFromPawn: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 63 D8 48 8B";
@@ -499,6 +501,7 @@ pub mod client {
     pub const UntrustedFlagSetter: &str = "74 26 C6 05 0A 3D 04 02 01 33 C0 83 F8 01 74 18";
     /// `void *__fastcall sub_180AE4730(__int64 a1, void *a2)`
     pub const UpdateGlobalVars: &str = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
+    pub const UpdateOnRemove: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 40 48 8B D9 C6 05";
     /// `void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)`
     pub const UpdatePostProcessing: &str = "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80";
     /// `__int64 __fastcall sub_18025A850(__int64 a1)`

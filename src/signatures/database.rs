@@ -606,6 +606,32 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // 1 hit @ client!0x180C4D030 on build 14160.
     Signature { name: "InsecureEmitter",                      module: "client.dll", needle: "48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D ? ? ? ? 48 8B 01", resolve: NONE, extra_off: 0, prototype: "" },
 
+    // ---------------------------------------------------------------------
+    // Entity-lifecycle + RNG hooks â€” classic CSGO/CS2 cheat targets
+    // that aren't strref-able through clean unique strings, so they're
+    // sigscanned here. All three IDA-verified single-match on build 14160.
+    // ---------------------------------------------------------------------
+
+    // CEntityInstance::UpdateOnRemove â€” fires for every entity right before
+    // it leaves the entity-list. Universal hook for "track entity death /
+    // bomb defuse / weapon drop" pipelines. Refs the "UpdateOnRemove"
+    // string at +0x3C. 1 hit @ client!0x1814CA280.
+    Signature { name: "UpdateOnRemove",                       module: "client.dll", needle: "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 40 48 8B D9 C6 05 ? ? ? ? 01 48 8B 49", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // CEntitySystem::DispatchUpdateOnRemove â€” the dispatcher that walks
+    // the pending-removal queue and invokes per-entity UpdateOnRemove.
+    // Hooking here gives a single chokepoint for every removal that
+    // frame, instead of per-entity. 1 hit @ client!0x1814D3CE0.
+    Signature { name: "DispatchUpdateOnRemove",               module: "client.dll", needle: "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 83 EC 60 48 8D B9 80 00 00 00 45 33 FF 4D 8B F0", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // SharedRandomFloat â€” seeded RNG used by spread / recoil / damage
+    // calculators on both client and server. Predicting / replicating
+    // its output is the basis of "no-spread" implementations and any
+    // serverside spread predictor. The matched site is the C-shim
+    // wrapper that calls the underlying CUniformRandomStream. Refs the
+    // "SharedRandomFloat" string. 1 hit @ client!0x180A2EC90.
+    Signature { name: "SharedRandomFloat",                    module: "client.dll", needle: "4C 8B DC 49 89 5B 08 49 89 73 10 57 48 81 EC 00 01 00 00 8B 05 ? ? ? ? 48 8D 54 24 40", resolve: NONE, extra_off: 0, prototype: "" },
+
     // CreateInterface â€” client.dll exported factory dispatcher
     // (DLL ordinal #2). Internals load any client interface
     // (Source2Client002, GameClientExports001, ClientToolsInfo_001,

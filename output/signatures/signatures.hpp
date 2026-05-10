@@ -144,6 +144,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view DestroyParticle = "83 FA FF 0F 84 ? ? ? ? 41 54 41 56 41 57 48";
         inline constexpr std::string_view DispatchEffect = "48 89 5C 24 08 57 48 83 EC 70 48 8B F9 48 8B DA";
         inline constexpr std::string_view DispatchSpawn_caller = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
+        inline constexpr std::string_view DispatchUpdateOnRemove = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 83 EC 60 48 8D B9 80 00";
         inline constexpr std::string_view DrawCrosshair = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 1E AC";
         inline constexpr std::string_view DrawLegs = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
         inline constexpr std::string_view DrawOverHead = "40 53 48 83 EC 20 48 8B D9 83 FA FF 75 17 48 8B";
@@ -247,6 +248,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view SetupCmd = "48 83 EC 28 E8 ? ? ? ? 8B 80 10 59 00 00 48";
         inline constexpr std::string_view SetupMove = "48 89 5C 24 18 48 89 6C 24 20 56 57 41 56 48 83 EC 20 48 8B EA 4C 8B F1";
         inline constexpr std::string_view SetupMovementMoves = "48 8B CE E8 ? ? ? ? 48 8B 5C 24 50 48 8B 6C 24 58 48 83";
+        inline constexpr std::string_view SharedRandomFloat = "4C 8B DC 49 89 5B 08 49 89 73 10 57 48 81 EC 00";
         inline constexpr std::string_view ShowMessageBox = "44 88 4C 24 20 53 41 56 41 57 48 81 EC 60 02 00";
         inline constexpr std::string_view SomeTimingFromPawn = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 63 D8 48 8B";
         inline constexpr std::string_view Spawner_PerTickOrchestrator = "48 8B C4 55 53 48 8D A8 E8 ? ? ? ? 81 EC 08";
@@ -267,6 +269,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view TraceToExit = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
         inline constexpr std::string_view UntrustedFlagSetter = "74 26 C6 05 0A 3D 04 02 01 33 C0 83 F8 01 74 18";
         inline constexpr std::string_view UpdateGlobalVars = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
+        inline constexpr std::string_view UpdateOnRemove = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 40 48 8B D9 C6 05";
         inline constexpr std::string_view UpdatePostProcessing = "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80";
         inline constexpr std::string_view UpdateSkybox = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 FE F0";
         inline constexpr std::string_view UpdateSubClass = "4C 8B DC 53 48 81 EC 90 01 00 00 48 8B 41 10 48";
@@ -700,6 +703,7 @@ namespace cs2::fn {
         using DispatchEffect_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
         using DispatchSpawn_caller_t = void(__fastcall*)(void*, ...);
+        using DispatchUpdateOnRemove_t = void(__fastcall*)(void*, ...);
         // bool __fastcall sub_1807B0BF0(_QWORD *a1)
         using DrawCrosshair_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)
@@ -898,6 +902,7 @@ namespace cs2::fn {
         using SetupMove_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_181186C10(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
         using SetupMovementMoves_t = void(__fastcall*)(void*, ...);
+        using SharedRandomFloat_t = void(__fastcall*)(void*, ...);
         using ShowMessageBox_t = void(__fastcall*)(void*, ...);
         // float __fastcall sub_180A572B0(__int64 a1, int a2, unsigned int a3)
         using SomeTimingFromPawn_t = void(__fastcall*)(void*, ...);
@@ -936,6 +941,7 @@ namespace cs2::fn {
         using UntrustedFlagSetter_t = void(__fastcall*)(void*, ...);
         // void *__fastcall sub_180AE4730(__int64 a1, void *a2)
         using UpdateGlobalVars_t = void(__fastcall*)(void*, ...);
+        using UpdateOnRemove_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)
         using UpdatePostProcessing_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18025A850(__int64 a1)

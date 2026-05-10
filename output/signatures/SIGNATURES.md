@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**474/520 signatures resolved across 18 module(s).**
+**477/523 signatures resolved across 18 module(s).**
 
 ## `animationsystem.dll`
 
@@ -144,6 +144,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `DestroyParticle` | `void __fastcall sub_1809463E0(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)` | `raw` | `0x7FFF295B6200` | `0x946200` | `83 FA ? 0F 84 ? ? ? ? 41 54` |
 | `DispatchEffect` | `__int64 __fastcall sub_18035A570(__int64 a1, __int64 a2)` | `raw` | `0x7FFF28FCA570` | `0x35A570` | `48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 48 8B DA 48 8D 4C 24` |
 | `DispatchSpawn_caller` | `__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)` | `raw` | `0x7FFF2A146240` | `0x14D6240` | `4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1 48 85 ED 0F 84 72 01 00 00` |
+| `DispatchUpdateOnRemove` | `` | `raw` | `0x7FFF2A143CE0` | `0x14D3CE0` | `48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 83 EC 60 48 8D B9 80 00 00 00 45 33 FF 4D 8B F0` |
 | `DrawCrosshair` | `bool __fastcall sub_1807B0BF0(_QWORD *a1)` | `raw` | `0x7FFF29420C20` | `0x7B0C20` | `48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 85` |
 | `DrawLegs` | `void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)` | `raw` | `0x7FFF29D60940` | `0x10F0940` | `40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42` |
 | `DrawOverHead` | `unsigned __int8 __fastcall sub_180A66CF0(__int64 a1, unsigned int a2)` | `raw` | `0x7FFF296D6B30` | `0xA66B30` | `40 53 48 83 EC ? 48 8B D9 83 FA ? 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 ? ? ? ? 8B 10` |
@@ -247,6 +248,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `SetupCmd` | `__int64 __fastcall sub_1808BAF20(__int64 a1)` | `raw` | `0x7FFF2952AEC0` | `0x8BAEC0` | `48 83 EC 28 E8 ? ? ? ? 8B 80` |
 | `SetupMove` | `__int64 __fastcall sub_180D1D0E0(__int64 a1, int *a2)` | `raw` | `0x7FFF2998D5E0` | `0xD1D5E0` | `48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 48 8B EA 4C 8B F1 E8 ? ? ? ? 48 8D 15` |
 | `SetupMovementMoves` | `__int64 __fastcall sub_181186C10(__int64 a1, __int64 a2, __int64 a3, __int64 a4)` | `raw` | `0x7FFF29DF73BF` | `0x11873BF` | `48 8B ? E8 ? ? ? ? 48 8B 5C 24 ? 48 8B 6C 24 ? 48 83 C4 30` |
+| `SharedRandomFloat` | `` | `raw` | `0x7FFF2969EC90` | `0xA2EC90` | `4C 8B DC 49 89 5B 08 49 89 73 10 57 48 81 EC 00 01 00 00 8B 05 ? ? ? ? 48 8D 54 24 40` |
 | `ShowMessageBox` | `` | `raw` | `0x7FFF299158B0` | `0xCA58B0` | `44 88 4C 24 ? 53 41 56` |
 | `SomeTimingFromPawn` | `float __fastcall sub_180A572B0(__int64 a1, int a2, unsigned int a3)` | `raw` | `0x7FFF296C70F0` | `0xA570F0` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 49 63 D8 48 8B F1` |
 | `Spawner_PerTickOrchestrator` | `char __fastcall sub_180BC3FE0(_QWORD *a1)` | `raw` | `0x7FFF29833E90` | `0xBC3E90` | `48 8B C4 55 53 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 80 B9 B1 13 00 00 00` |
@@ -267,6 +269,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `TraceToExit` | `char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)` | `raw` | `0x7FFF29474860` | `0x804860` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? F2 0F 10 02` |
 | `UntrustedFlagSetter` | `` | `raw` | `0x7FFF28DC6B45` | `0x156B45` | `74 26 C6 05 ? ? ? ? 01 33 C0 83 F8 01` |
 | `UpdateGlobalVars` | `void *__fastcall sub_180AE4730(__int64 a1, void *a2)` | `raw` | `0x7FFF29754570` | `0xAE4570` | `48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2` |
+| `UpdateOnRemove` | `` | `raw` | `0x7FFF2A13A280` | `0x14CA280` | `48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 40 48 8B D9 C6 05 ? ? ? ? 01 48 8B 49` |
 | `UpdatePostProcessing` | `void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)` | `raw` | `0x7FFF29B92450` | `0xF22450` | `48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80` |
 | `UpdateSkybox` | `__int64 __fastcall sub_18025A850(__int64 a1)` | `raw` | `0x7FFF28ECA850` | `0x25A850` | `48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 E8 ? ? ? ? 48 8B 47` |
 | `UpdateSubClass` | `void __fastcall sub_1801FA930(_QWORD *a1)` | `raw` | `0x7FFF28E6A930` | `0x1FA930` | `4C 8B DC 53 48 81 EC ? ? ? ? 48 8B 41 10 48 8B D9 8B 50 30 C1 EA 04` |
