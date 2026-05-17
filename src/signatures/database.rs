@@ -225,7 +225,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "",
     },
     Signature {
-        name: "CSceneAnimatableObject::GeneratePrimitives",
+        name: "GeneratePrimitives",
         module: "scenesystem.dll",
         needle: "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ?",
         resolve: NONE,
@@ -243,15 +243,12 @@ pub static CS2_SIGNATURES: &[Signature] = &[
 
     // ---------- materialsystem2.dll -----------------------------------
     Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
         name: "CMaterialSystem2::CreateMaterial",
         module: "materialsystem2.dll",
-        needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 48 8B 05",
+        needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 81 EC 10 01 00 00 48 8B 05 ? ? ? ? 4C 8B F2",
         resolve: NONE,
         extra_off: 0,
-        prototype: "",
+        prototype: "void* __fastcall CreateMaterial(void* a1, void** a2, const char* a3, void* a4, void* a5, char a6)",
     },
     Signature {
         name: "FindParameter",
@@ -403,8 +400,8 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // NUVORA APR-2026 EXPANSION (client.dll) ---------------------------
     // ==================================================================
     // Hooks / view / rendering -----------------------------------------
-    Signature { name: "CGameEntitySystem::OnAddEntity",       module: "client.dll", needle: "48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 81", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180968640(__int64 a1, __int64 a2, int a3)" },
-    Signature { name: "CGameEntitySystem::OnRemoveEntity",    module: "client.dll", needle: "48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 89", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180968EA0(__int64 a1, _QWORD *a2, int a3)" },
+    Signature { name: "OnAddEntity",       module: "client.dll", needle: "48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 81", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180968640(__int64 a1, __int64 a2, int a3)" },
+    Signature { name: "OnRemoveEntity",    module: "client.dll", needle: "48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 89", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180968EA0(__int64 a1, _QWORD *a2, int a3)" },
     Signature { name: "GetMatrixForView",                     module: "client.dll", needle: "40 53 48 83 EC 60 0F 29 74 24 50 0F 57 DB F3 0F 10 ? ? ? ? ? 49 8B D8", resolve: NONE, extra_off: 0, prototype: "double __fastcall sub_180169C50(__int64 a1, __int64 a2, __int64 a3)" },
     Signature { name: "IsGlowing",                            module: "client.dll", needle: "E8 ? ? ? ? 33 DB 84 C0 0F 84 ? ? ? ? 48 8B 4F", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_180B0C300(__int64 a1)" },
     Signature { name: "GetGlowColor",                         module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B F2 48 8B F9 48 8B 54 24", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180B0ABC0(__int64 a1, float *a2)" },
@@ -1235,6 +1232,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // ==================================================================
     Signature { name: "Tier0::UtlBuffer",                     module: "tier0.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 8D 7A", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "Tier0::LoadKeyValues",                 module: "tier0.dll", needle: "E8 ? ? ? ? 8B 4C 24 34 0F B6 D8", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature { name: "Tier0::LoadKV3",                       module: "tier0.dll", needle: "48 89 5C 24 08 57 48 83 EC 70 4C 8B D1 48 C7 C0 FF FF FF FF 48 FF C0 41 80 3C 00 00 75 F6", resolve: NONE, extra_off: 0, prototype: "" },
 
     // Plat_FloatTime — tier0!sub_180146AF0. Returns engine wall-clock as
     // a `double` (seconds since startup). The float-precision sibling of

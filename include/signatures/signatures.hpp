@@ -35,52 +35,53 @@ namespace sdk::sigs {
         inline constexpr std::string_view BuildBoneMergeWork = "40 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 48 8D 6C 24 50 80 A1 06";
         inline constexpr std::string_view BuildTemplateMaterialFromFile = "48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18";
         inline constexpr std::string_view BulkRegenIterator = "57 48 83 EC 40 0F B6 F9 E8 ? ? ? ? 48 85 C0";
-        inline constexpr std::string_view BulletServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 1E 89";
+        inline constexpr std::string_view BulletServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 1E BA";
         inline constexpr std::string_view CAttributeStringFill = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 33 F6 0F 57 C0 0F";
-        inline constexpr std::string_view CAttributeStringInit = "48 8B C2 48 83 C8 02 45 84 C0 48 0F 44 C2 48 89 41 08 48 8D 05 A7 A2 3A";
+        inline constexpr std::string_view CAttributeStringInit = "48 8B C2 48 83 C8 02 45 84 C0 48 0F 44 C2 48 89 41 08 48 8D 05 8F 89 3B";
         inline constexpr std::string_view CBodyComponent = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 6C 24 48 4C 89 64 24 30 4C 89 74 24 28 4C 89 7C";
-        inline constexpr std::string_view CBodyComponentSkeletonInstance = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 0D F6 04";
+        inline constexpr std::string_view CBodyComponentSkeletonInstance = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 0D F6 44";
         inline constexpr std::string_view CBufferStringInit = "48 89 5C 24 10 57 48 83 EC 30 8B 41 04 48 8D 79";
         inline constexpr std::string_view CCSGOHudVote_OnVoteResult = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 90";
         inline constexpr std::string_view CCSGO_HudChat_OnSayText2 = "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 70 F3 FF FF";
-        inline constexpr std::string_view CCSGameRules = "4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D AB A1 21";
-        inline constexpr std::string_view CCSGameRulesProxy = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 DB E7 0F";
+        inline constexpr std::string_view CCSGameRules = "4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D AB E0 21";
+        inline constexpr std::string_view CCSGameRulesProxy = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 3B F1 0F";
         inline constexpr std::string_view CCSPlayerController = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
-        inline constexpr std::string_view CCSPlayerPawn = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 5B 70 C3";
+        inline constexpr std::string_view CCSPlayerPawn = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 7B 70 C3";
         inline constexpr std::string_view CCSPlayer_MovementServices_ValidateVelocity = "4C 89 44 24 18 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C";
-        inline constexpr std::string_view CCSWeaponBase = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 DB 88 06";
-        inline constexpr std::string_view CCSWeaponBaseGun = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 3B 88 06";
+        inline constexpr std::string_view CCSWeaponBase = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 2B 92 06";
+        inline constexpr std::string_view CCSWeaponBaseGun = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 8B 91 06";
         inline constexpr std::string_view CCSWeaponBaseVData = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8B 81 88";
-        inline constexpr std::string_view CCollisionProperty = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 89 5C 24 60 48 8D 05 87 1A 81";
-        inline constexpr std::string_view CDecoyProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 CB 9A 09";
+        inline constexpr std::string_view CCollisionProperty = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 89 5C 24 60 48 8D 05 47 31 81";
+        inline constexpr std::string_view CDecoyProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 1B A4 09";
         inline constexpr std::string_view CEconItemCreateInstance = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
-        inline constexpr std::string_view CFlashbangProjectile = "56 3D 01 E8 ? ? ? ? 83 3D C0 56 3D 01 FF 75";
-        inline constexpr std::string_view CFogController = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 0B 8D 56";
+        inline constexpr std::string_view CFlashbangProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 2B 73 80";
+        inline constexpr std::string_view CFogController = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 EB A3 56";
         inline constexpr std::string_view CGameSceneNode = "41 56 48 83 EC 30 4C 8B F2 85 C9 74 25 83 F9 06 74 09 33 C0 48 83 C4 30 41 5E C3 48 8B 02 49 8B CE 48 8D 54 24 58 FF 10 48 8B 00 48 83 C4 30 41";
         inline constexpr std::string_view CGlowProperty = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 8D 05 ? ? ? ? C7 44 24 30 00 00 00 80 89 4C 24 28 4C 8D 05 ? ? ? ? 48 89 44 24 48 48 8D 4C 24";
-        inline constexpr std::string_view CHEGrenadeProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 0B 73 80";
+        inline constexpr std::string_view CHEGrenadeProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 8B 72 80";
         inline constexpr std::string_view CLegacyGameUI_Initialize = "48 89 5C 24 18 55 56 41 56 48 8B EC 48 83 EC 50";
-        inline constexpr std::string_view CMolotovProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 EB 98 09";
-        inline constexpr std::string_view CPostProcessingVolume = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 7B 3F 54";
+        inline constexpr std::string_view CMolotovProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 3B A2 09";
+        inline constexpr std::string_view CPostProcessingVolume = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 5B 56 54";
         inline constexpr std::string_view CPrediction_Update = "48 8B C4 89 50 10 48 89 48 08 55 53 57 41 56 48";
         inline constexpr std::string_view CSBaseGunFireData = "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48";
         inline constexpr std::string_view CSkeletonInstance = "40 57 48 83 EC 20 48 8B FA 85 C9 74 23 83 F9 06 74 08 33 C0 48 83 C4 20 5F C3 48 8B 02 48 8B CF 48 8D 54 24 48 FF 10 48 8B 00 48 83 C4 20 5F C3";
-        inline constexpr std::string_view CSmokeGrenadeProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 4B 98 09";
-        inline constexpr std::string_view CTonemapController2 = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 4B 00 59";
+        inline constexpr std::string_view CSmokeGrenadeProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 9B A1 09";
+        inline constexpr std::string_view CTonemapController2 = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 2B 17 59";
         inline constexpr std::string_view C_AttributeContainer = "41 56 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 C7 02";
         inline constexpr std::string_view C_BaseEntity = "48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view C_BaseEntity_CheckPredictionForceReLatch = "48 8B C4 48 89 50 10 53 55 56 48 81 EC 00 01 00";
         inline constexpr std::string_view C_BaseEntity_ProcessInterpolatedList = "4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 54 41 57";
         inline constexpr std::string_view C_BaseEntity_RestoreData = "40 55 53 56 41 54 41 57 48 8D AC 24 20 FF FF FF";
         inline constexpr std::string_view C_BaseEntity_SaveData = "48 8B C4 55 56 57 41 56 41 57 48 8D A8 E8 FD FF";
-        inline constexpr std::string_view C_BaseEntity_StartParticleSystem = "48 89 5C 24 08 55 48 8B EC 48 83 EC 40 E8 7E 5C";
-        inline constexpr std::string_view C_BaseModelEntity = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 02 7E";
+        inline constexpr std::string_view C_BaseEntity_StartParticleSystem = "48 89 5C 24 08 55 48 8B EC 48 83 EC 40 E8 6E 5C";
+        inline constexpr std::string_view C_BaseModelEntity = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 F2 7A";
         inline constexpr std::string_view C_BasePlayerPawn = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view C_BasePlayerPawn_PrePhysicsSimulate = "4C 8B DC 49 89 5B 08 49 89 6B 10 49 89 73 18 57 48 83 EC 60 49 C7 43 C0 A8 01 00 00";
+        inline constexpr std::string_view C_C4 = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view C_CSPlayerPawn = "40 56 48 83 EC 40 48 8B F2 83 F9 06 0F 87 85 01";
-        inline constexpr std::string_view C_CSPlayerPawnBase = "40 53 48 83 EC 20 65 48 8B 04 25 58 00 00 00 8B 0D 4B C5 96";
+        inline constexpr std::string_view C_CSPlayerPawnBase = "40 53 48 83 EC 20 65 48 8B 04 25 58 00 00 00 8B 0D 6B EE 96";
         inline constexpr std::string_view C_CSWeaponBase = "40 56 48 83 EC 40 48 8B F2 85 C9 74 27 83 F9 06 74 08 33 C0 48 83 C4 40 5E C3 48 8B 02 48 8B CE 48 8D 54 24 68 FF 90 70 01 00 00 48 8B 00 48 83";
-        inline constexpr std::string_view C_CSWeaponBase_GetEconWpnData = "40 53 48 83 EC 40 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 FA 52";
+        inline constexpr std::string_view C_CSWeaponBase_GetEconWpnData = "40 53 48 83 EC 40 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 EA 52";
         inline constexpr std::string_view C_DispatchEffect = "40 55 56 48 83 EC 28 44 8B 05 ? ? ? ? 48 8B";
         inline constexpr std::string_view C_EconEntity_BuildLegacyGloveSkinMaterial = "40 55 56 57 48 8D AC 24 30 FD FF FF 48 81 EC D0";
         inline constexpr std::string_view C_EconEntity_BuildLegacyWeaponSkinMaterial = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
@@ -88,22 +89,22 @@ namespace sdk::sigs {
         inline constexpr std::string_view C_EconEntity_BuildNametagOverlayMaterial = "40 55 53 56 48 8D AC 24 B0 FC FF FF 48 81 EC 50";
         inline constexpr std::string_view C_EconItemView = "40 56 48 83 EC 20 48 8B F2 85 C9 74 27 83 F9 06";
         inline constexpr std::string_view C_EconWearable_OnNewCustomMaterials = "48 89 5C 24 08 57 48 83 EC 20 8B DA 48 8B F9 E8 ? ? ? ? F6 C3 01 0F";
-        inline constexpr std::string_view C_GameRules_ctor = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 8B 15 6B F9 A3";
+        inline constexpr std::string_view C_GameRules_ctor = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 8B 15 AB 22 A4";
         inline constexpr std::string_view C_Hostage = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view C_Inferno = "48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view C_PlantedC4 = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view C_PlantedC4_ClientThink = "40 55 53 57 41 57 48 8D 6C 24 B8 48 81 EC 48 01";
         inline constexpr std::string_view C_SmokeGrenadeProjectile = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
-        inline constexpr std::string_view CacheParticleEffect = "4C 8B DC 53 48 81 EC 90 00 00 00 F2 0F 10 05 65";
+        inline constexpr std::string_view CacheParticleEffect = "4C 8B DC 53 48 81 EC 90 00 00 00 F2 0F 10 05 A5";
         inline constexpr std::string_view CalcSpread = "48 8B C4 48 89 58 08 48 89 68 18 48 89 70 20 57 41 54 41 55 41 56 41 57 48 81 EC E0";
         inline constexpr std::string_view CalcViewmodel = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
         inline constexpr std::string_view CalcViewmodelTransform_v2 = "48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 80 48 81 EC 80 01 00 00 48 8B FA 48";
         inline constexpr std::string_view CalcViewmodelView = "40 53 48 83 EC 60 48 8B 41 08 49 8B D8 8B 48 30";
         inline constexpr std::string_view CalculateInterpolation = "48 83 EC 08 4C 8B 0D ? ? ? ? 4C 8B DA 48 8B";
-        inline constexpr std::string_view CalculateWorldSpaceBones = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 58 42";
+        inline constexpr std::string_view CalculateWorldSpaceBones = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 78 42";
         inline constexpr std::string_view Caller = "41 2B C4 41 89 07 48 85 F6 74 7E 49 8B 5F 08 49";
-        inline constexpr std::string_view CameraServices = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 9B 39 D3";
-        inline constexpr std::string_view ChangeModel = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D 6D";
+        inline constexpr std::string_view CameraServices = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 BB 6A D3";
+        inline constexpr std::string_view ChangeModel = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D C5";
         inline constexpr std::string_view CheckJumpButton = "4C 89 44 24 18 55 56 41 56 48 8D AC 24 70 EC FF";
         inline constexpr std::string_view ClearHUDWeaponIcon = "4C 8B DC 55 57 48 83 EC 48 48 63 41 68 48 8B F9";
         inline constexpr std::string_view Client = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
@@ -114,11 +115,11 @@ namespace sdk::sigs {
         inline constexpr std::string_view ConvarGet = "8B D0 48 8D 0D ? ? ? ? E8 ? ? ? ? 0F 10 45 D0 83 F0";
         inline constexpr std::string_view CreateBaseTypeCache = "40 53 48 83 EC 20 4C 8B 49 18 44 8B D2 4C 63 41";
         inline constexpr std::string_view CreateEconItem = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
-        inline constexpr std::string_view CreateEntityByClassName = "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 D5 08 30";
+        inline constexpr std::string_view CreateEntityByClassName = "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 D5 10 30";
         inline constexpr std::string_view CreateInterface = "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9";
         inline constexpr std::string_view CreateMove = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
-        inline constexpr std::string_view CreateNewSubtickMoveStep = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 22 D9";
-        inline constexpr std::string_view CreateParticleEffect = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D 01";
+        inline constexpr std::string_view CreateNewSubtickMoveStep = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 E2 EF";
+        inline constexpr std::string_view CreateParticleEffect = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D E1";
         inline constexpr std::string_view CreateSOSubclassEconItem = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
         inline constexpr std::string_view Ctrl = "48 89 5C 24 20 57 48 81 EC D0 06 00 00 48 8B 01";
         inline constexpr std::string_view DamageFeedbackEmitter = "48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC";
@@ -128,7 +129,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view DispatchSpawn = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
         inline constexpr std::string_view DispatchSpawn_caller = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
         inline constexpr std::string_view DispatchUpdateOnRemove = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 83 EC 60 48 8D B9 80 00";
-        inline constexpr std::string_view DrawCrosshair = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 1E AC";
+        inline constexpr std::string_view DrawCrosshair = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 3E AD";
         inline constexpr std::string_view DrawLegs = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
         inline constexpr std::string_view DrawOverHead = "40 53 48 83 EC 20 48 8B D9 83 FA FF 75 17 48 8B";
         inline constexpr std::string_view DrawScopeOverlay = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
@@ -137,7 +138,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view EmitSoundByHandle = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
         inline constexpr std::string_view EquipItemInLoadout = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 89 54 24 10 57 41 54 41 55 41 56 41 57 48 83 EC 70";
         inline constexpr std::string_view Event = "48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 FA 41 8B F0 4C 8B F1 45 85 C0 74 79 8B 41 10 48 89 5C 24 30 8B 19 41 03 D8 4C 89 7C 24 38";
-        inline constexpr std::string_view FindHudElement = "48 8D 15 ? ? ? ? 45 33 C0 B9 01 00 00 00 FF 15 F3 26 B4";
+        inline constexpr std::string_view FindHudElement = "48 8D 15 ? ? ? ? 45 33 C0 B9 01 00 00 00 FF 15 D3 2E B4";
         inline constexpr std::string_view FindHudElement_panorama = "4C 8B DC 53 48 83 EC 50 48 8B 05 ? ? ? ? 48";
         inline constexpr std::string_view FindOrCreateByName = "48 89 5C 24 08 48 89 6C 24 18 56 57 41 56 48 81 EC 50 01 00";
         inline constexpr std::string_view FindSOCache = "48 89 5C 24 08 57 48 83 EC 30 4C 8B 52 08 48 8B";
@@ -153,7 +154,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view GetChatObject = "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8B 05 ? ? ? ? 48";
         inline constexpr std::string_view GetClientSystem = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48";
         inline constexpr std::string_view GetControllerCmd = "40 53 48 83 EC 20 8B DA E8 ? ? ? ? 4C 8B C0";
-        inline constexpr std::string_view GetCustomPaintKitIndex = "48 89 5C 24 08 57 48 83 EC 40 8B 15 ? ? ? ? 48 8B F9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 B2 05 31 01 0F 8F";
+        inline constexpr std::string_view GetCustomPaintKitIndex = "48 89 5C 24 08 57 48 83 EC 40 8B 15 ? ? ? ? 48 8B F9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 62 2E 31 01 0F 8F";
         inline constexpr std::string_view GetEconItemSystem = "48 83 EC 28 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 30 B9 50 00 00 00 48 89 74 24 40 4C 89 74 24 20 E8 ? ? ? ? 33 F6 48";
         inline constexpr std::string_view GetEntityByIndex = "4C 8D 49 10 81 FA FE 7F 00 00 77 47 8B CA C1 F9";
         inline constexpr std::string_view GetEntityHandle = "48 85 C9 74 32 48 8B 49 10 48 85 C9 74 29 44 8B";
@@ -163,37 +164,37 @@ namespace sdk::sigs {
         inline constexpr std::string_view GetInventoryManager = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 0F B6 81 6B";
         inline constexpr std::string_view GetItemInLoadout = "40 55 48 83 EC 30 49 63 E8 ? ? ? ? 87 94 01";
         inline constexpr std::string_view GetItemViewByID = "48 89 54 24 10 53 48 83 EC 50 48 8B D9 48 85 D2";
-        inline constexpr std::string_view GetLocalControllerById = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 56 96";
-        inline constexpr std::string_view GetLocalPawn = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 56 96";
-        inline constexpr std::string_view GetLocalPlayer_dispatcher = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 74 24 50 4C 89 74 24 28 4C 89 7C 24 20 E8 8E 64";
+        inline constexpr std::string_view GetLocalControllerById = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 E6 C6";
+        inline constexpr std::string_view GetLocalPawn = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 E6 C6";
+        inline constexpr std::string_view GetLocalPlayer_dispatcher = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 74 24 50 4C 89 74 24 28 4C 89 7C 24 20 E8 4E 7B";
         inline constexpr std::string_view GetMatrixForView = "40 53 48 83 EC 60 0F 29 74 24 50 0F 57 DB F3 0F";
         inline constexpr std::string_view GetPlayerByIndex_export = "48 83 EC 28 4C 8D 05 ? ? ? ? 48 8D 15 0E DF";
         inline constexpr std::string_view GetPlayerInterp = "40 53 48 83 EC 20 48 8B D9 48 8B 0D ? ? ? ? 48 83 C1 08";
-        inline constexpr std::string_view GetRemovedAimpunch = "F2 0F 10 44 24 60 F2 0F 11 84 24 88 00 00 00 FF 15 8C 30 7F";
+        inline constexpr std::string_view GetRemovedAimpunch = "F2 0F 10 44 24 60 F2 0F 11 84 24 88 00 00 00 FF 15 DC 4F 7F";
         inline constexpr std::string_view GetSurfaceData = "48 63 41 10 48 8B 0D ? ? ? ? 48 C1 E0 05 48";
         inline constexpr std::string_view GetTickBase = "8B 81 B8 06 00 00 C3 CC CC CC CC CC CC CC CC CC";
         inline constexpr std::string_view GetTraceInfo = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 48 8B E9 0F";
         inline constexpr std::string_view GetTransformsForHitboxList = "48 89 5C 24 18 55 56 57 41 55 41 57 48 81 EC A0";
-        inline constexpr std::string_view GetUserCmdManager = "41 56 41 57 48 83 EC 48 48 8D 54 24 68 E8 5E A9";
+        inline constexpr std::string_view GetUserCmdManager = "41 56 41 57 48 83 EC 48 48 8D 54 24 68 E8 EE B1";
         inline constexpr std::string_view GetViewAngles = "4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3 8B";
         inline constexpr std::string_view GetViewModelOffsets = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
-        inline constexpr std::string_view GetWeaponInAccuracyRecoveryTime = "48 89 5C 24 08 57 48 83 EC 30 48 8B D9 E8 0E 52";
+        inline constexpr std::string_view GetWeaponInAccuracyRecoveryTime = "48 89 5C 24 08 57 48 83 EC 30 48 8B D9 E8 2E 53";
         inline constexpr std::string_view GetWorldFovResolver = "40 53 48 83 EC 50 48 8B D9 E8 ? ? ? ? 48 85";
         inline constexpr std::string_view GlobalLightUpdateState = "40 57 48 81 EC C0 00 00 00 48 8B F9 BA FF FF FF";
         inline constexpr std::string_view HandleBulletPenetration = "48 8B C4 44 89 48 20 48 89 50 10 48 89 48 08 55 57 41 57 48";
         inline constexpr std::string_view HandleEntityList = "48 8B C4 4C 89 48 20 4C 89 40 18 48 89 50 10 55 56 41 57 48";
         inline constexpr std::string_view HandleTeamIntro = "48 83 EC 28 45 0F B6 08 44 38 89 04 0F 00 00 74";
-        inline constexpr std::string_view HostageServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 1E 89";
+        inline constexpr std::string_view HostageServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 1E BA";
         inline constexpr std::string_view HudChatPrintf = "4C 89 44 24 18 4C 89 4C 24 20 53 B8 40 10 00 00";
         inline constexpr std::string_view InGameMoneyServices = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
         inline constexpr std::string_view Init = "48 8B C4 4C 89 40 18 55 56 41 56 48 8D 68 A1 48";
         inline constexpr std::string_view InitFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF 24 C9 C7";
         inline constexpr std::string_view InitPlayerMovementTraceFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF C7 41 34";
-        inline constexpr std::string_view InitTraceInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D AF B9 EE";
+        inline constexpr std::string_view InitTraceInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D 5F E2 EE";
         inline constexpr std::string_view InsecureEmitter = "48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D";
         inline constexpr std::string_view InventoryServices = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
         inline constexpr std::string_view IsGlowing = "0F B6 41 51 C3 CC CC CC CC CC CC CC CC CC CC CC";
-        inline constexpr std::string_view ItemServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 C6 02";
+        inline constexpr std::string_view ItemServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 DE 33";
         inline constexpr std::string_view KillFeedbackEmitter = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00";
         inline constexpr std::string_view LevelInit = "40 55 56 41 56 48 8D 6C 24 90 48 81 EC 70 01 00";
         inline constexpr std::string_view LoadDefaultKit = "48 89 6C 24 20 56 57 41 54 41 55 41 57 48 81 EC";
@@ -201,25 +202,23 @@ namespace sdk::sigs {
         inline constexpr std::string_view LoadPath = "48 89 74 24 20 57 48 83 EC 20 44 8B 49 04 BF FF FF FF 7F 44 23 CF 48 8B F1 41 8B C8 45 85 C0 74 30 83 E9 ? ? ? ? F9 01 0F 85 ? ? ? ? 41";
         inline constexpr std::string_view LookupBone = "40 53 48 83 EC 20 48 8B 89 30 03 00 00 48 8B DA 48 8B 01 FF 50 50 48 8B";
         inline constexpr std::string_view ModulationUpdate = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84";
-        inline constexpr std::string_view MovementServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 93 39 AC 01 0F 8F D3";
-        inline constexpr std::string_view NoClipOnChange = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8B EC 48 83 EC 30 48 8D 05 AA 1A";
+        inline constexpr std::string_view MovementServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 A3 6A AC 01 0F 8F D3";
+        inline constexpr std::string_view NoClipOnChange = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8B EC 48 83 EC 30 48 8D 05 12 3A";
         inline constexpr std::string_view NoSpread1 = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
-        inline constexpr std::string_view OnAddEntity = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 0D FF 81 90";
         inline constexpr std::string_view OnBodyGroupChoiceChanged = "48 89 5C 24 08 57 48 83 EC 20 49 63 D8 49 8B F9";
         inline constexpr std::string_view OnEvent = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
-        inline constexpr std::string_view OnGlowTypeChanged = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 F2 E9";
+        inline constexpr std::string_view OnGlowTypeChanged = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 9A 12";
         inline constexpr std::string_view OnPostDataUpdate = "48 89 5C 24 08 48 89 74 24 18 55 57 41 56 48 8B EC 48 83 EC 50 45 8B F1";
-        inline constexpr std::string_view OnRemoveEntity = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 08 FF 89 90";
         inline constexpr std::string_view OnSkeletonModelChanged = "49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00";
         inline constexpr std::string_view PanelConstructorPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F1 48 8B FA B9 20 00";
         inline constexpr std::string_view ParseSubtickDuration = "40 55 48 8D AC 24 70 FD FF FF 48 81 EC 90 03 00";
         inline constexpr std::string_view ParseSubtickFraction = "40 55 48 8D AC 24 40 FE FF FF 48 81 EC C0 02 00";
-        inline constexpr std::string_view ParticleCollection = "48 89 5C 24 08 57 48 83 EC 20 0F 28 05 7F 27 2E";
+        inline constexpr std::string_view ParticleCollection = "48 89 5C 24 08 57 48 83 EC 20 0F 28 05 7F 67 2E";
         inline constexpr std::string_view Pawn = "48 89 5C 24 08 57 48 83 EC 60 48 8B 01 48 8B FA 48 8B D9 FF";
         inline constexpr std::string_view PerTick = "40 55 56 57 48 8D AC 24 30 FD FF FF 48 81 EC D0";
         inline constexpr std::string_view PerTickOrchestrator = "48 8B C4 55 53 48 8D A8 E8 ? ? ? ? 81 EC 08";
         inline constexpr std::string_view PerformBatchedInvalidatePhysicsRecursive = "40 57 48 81 EC 90 00 00 00 84 C9 74 4D BF 01 00";
-        inline constexpr std::string_view PingServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 46 11";
+        inline constexpr std::string_view PingServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 56 42";
         inline constexpr std::string_view PlayVSound_client = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 48 8D 6C 24 A9 48 81 EC 90 00 00 00";
         inline constexpr std::string_view PointerToGetInaccuracyFunction = "48 89 5C 24 10 55 56 57 48 81 EC B0 00 00 00 44";
         inline constexpr std::string_view PointerToGetSpreadFunction = "48 83 EC 38 48 63 91 B8 17 00 00 48 8B 81 88 03";
@@ -227,13 +226,13 @@ namespace sdk::sigs {
         inline constexpr std::string_view ProcessForceSubtickMoves = "40 55 53 48 8D AC 24 68 FF FF FF 48 81 EC 98 01 00 00 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01";
         inline constexpr std::string_view ProcessImpacts = "48 8B C4 53 56 41 55 48 81 EC E0 00 00 00 44 0F";
         inline constexpr std::string_view ProcessMovement = "48 8B C4 53 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 78 44";
-        inline constexpr std::string_view QueueForceSubtickMove = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 1B 14 95 01 0F 8F F4";
+        inline constexpr std::string_view QueueForceSubtickMove = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 EB 44 95 01 0F 8F F4";
         inline constexpr std::string_view QueuePostDataUpdates = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 40 80";
         inline constexpr std::string_view RegenerateWeaponSkin = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
         inline constexpr std::string_view RegenerateWeaponSkin_v2 = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
         inline constexpr std::string_view RegenerateWeaponSkins = "48 83 EC 48 E8 ? ? ? ? 48 85 C0 0F 84 7F 00";
         inline constexpr std::string_view RenderDecals = "44 88 4C 24 20 55 53 57 41 54 41 55 48 8D 6C 24";
-        inline constexpr std::string_view ReportHit = "40 53 48 83 EC 20 48 8D 05 ? ? ? ? 48 8D 59 08 48 89 01 F6 03 01 74 08 48 8B CB E8 AF FB EA";
+        inline constexpr std::string_view ReportHit = "40 53 48 83 EC 20 48 8D 05 ? ? ? ? 48 8D 59 08 48 89 01 F6 03 01 74 08 48 8B CB E8 FF FA EA";
         inline constexpr std::string_view RunCommand = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
         inline constexpr std::string_view RunCommand_processor = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
         inline constexpr std::string_view SOCreated = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B FA 48 8B F1 41 83 F9 01 75 7F 48 8B 5C 24 60 48 85 DB 74 75 48 85 D2 74 70 49 8B C8 E8 AE 48";
@@ -243,11 +242,11 @@ namespace sdk::sigs {
         inline constexpr std::string_view SetBodyGroup_inv = "85 D2 0F 88 ? ? ? ? 53 55 48 83 EC 38 48 63";
         inline constexpr std::string_view SetBodygroup = "85 D2 0F 88 ? ? ? ? 55 53 56 41 56 48 8B EC";
         inline constexpr std::string_view SetCollisionBounds = "48 83 EC 38 F2 0F 10 02 8B 42 08 48 8D 54 24 20";
-        inline constexpr std::string_view SetDynamicAttributeValue = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? B7 12 01";
-        inline constexpr std::string_view SetDynamicAttributeValue_raw = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? B7 12 01";
+        inline constexpr std::string_view SetDynamicAttributeValue = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? DF 12 01";
+        inline constexpr std::string_view SetDynamicAttributeValue_raw = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? DF 12 01";
         inline constexpr std::string_view SetMaterialGroup = "3B 91 C4 03 00 00 74 24 89 91 C4 03 00 00 48 8B";
         inline constexpr std::string_view SetMeshGroupMask = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 99 50 01";
-        inline constexpr std::string_view SetModel = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D 6D";
+        inline constexpr std::string_view SetModel = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D C5";
         inline constexpr std::string_view SetPlayerReady = "40 53 48 83 EC 20 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF";
         inline constexpr std::string_view SetSelectedIndexFunctionPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B F1 8B DA";
         inline constexpr std::string_view SetTraceData = "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 29 4C 8B F2 48 8B F9 3B 69 10 0F 85 ? ? ? ? F7 41 14 00 00 00 40 0F 85 ? ? ? ? 8B";
@@ -266,7 +265,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view StartHierarchicalAttachment = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 30 48 8B F9 8B";
         inline constexpr std::string_view TakeDamageOld = "40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20";
         inline constexpr std::string_view TestSurfaces = "40 53 57 41 56 48 83 EC 50 8B 84 24 90 00 00 00";
-        inline constexpr std::string_view ThinkReturn = "BA 04 00 00 00 FF 15 E6 A1 5E 01 84 C0 0F 84 C2";
+        inline constexpr std::string_view ThinkReturn = "BA 04 00 00 00 FF 15 26 C1 5E 01 84 C0 0F 84 C2";
         inline constexpr std::string_view ThirdPersonOffHandler = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 83 7C 24 30 00 75 69";
         inline constexpr std::string_view ThirdPersonOnHandler = "48 83 EC 38 48 8B 0D ? ? ? ? 48 8D 54 24 40";
         inline constexpr std::string_view ThirdPersonReset = "48 8B 40 08 44 38 38 75 10 44 88 7F 01 44 89 BF";
@@ -275,24 +274,24 @@ namespace sdk::sigs {
         inline constexpr std::string_view TraceHandleBulletPen = "48 8B C4 44 89 48 20 48 89 50 10 48 89 48 08 55 57 41 57 48";
         inline constexpr std::string_view TraceInitData = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 79 08 33";
         inline constexpr std::string_view TraceInitFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF 24 C9 C7";
-        inline constexpr std::string_view TraceInitInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D AF B9 EE";
+        inline constexpr std::string_view TraceInitInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D 5F E2 EE";
         inline constexpr std::string_view TracePlayerBBox = "48 89 5C 24 18 55 57 41 54 41 55 41 56 48 8D 6C";
         inline constexpr std::string_view TraceShape = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
         inline constexpr std::string_view TraceToExit = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
-        inline constexpr std::string_view TypeManager = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 02 68";
+        inline constexpr std::string_view TypeManager = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 F2 4F";
         inline constexpr std::string_view UnserializeEvent = "48 8B C4 48 89 50 10 55 41 54 41 55 41 56 48 8D";
-        inline constexpr std::string_view UntrustedFlagSetter = "74 26 C6 05 0A 3D 04 02 01 33 C0 83 F8 01 74 18";
+        inline constexpr std::string_view UntrustedFlagSetter = "74 26 C6 05 CA 7C 04 02 01 33 C0 83 F8 01 74 18";
         inline constexpr std::string_view UpdateGlobalVars = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
         inline constexpr std::string_view UpdateOnRemove = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 40 48 8B D9 C6 05";
         inline constexpr std::string_view UpdatePostProcessing = "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80";
-        inline constexpr std::string_view UpdateSkybox = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 FE F0";
+        inline constexpr std::string_view UpdateSkybox = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 BE FF";
         inline constexpr std::string_view UpdateSubClass = "4C 8B DC 53 48 81 EC 90 01 00 00 48 8B 41 10 48";
         inline constexpr std::string_view UpdateTurningInAccuracy = "40 56 48 81 EC 80 00 00 00 48 8B F1 BA FF FF FF";
         inline constexpr std::string_view Use = "40 55 53 56 48 8D AC 24 C0 FE FF FF 48 81 EC 40";
-        inline constexpr std::string_view UseServices = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 7B 19 CC";
-        inline constexpr std::string_view ViewModelHideZoomed = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 36 F1";
-        inline constexpr std::string_view WaterServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 8B C9 A8 01 0F 8F 43";
-        inline constexpr std::string_view WeaponServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 83 DB A8 01 0F 8F C4";
+        inline constexpr std::string_view UseServices = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 BB 4A CC";
+        inline constexpr std::string_view ViewModelHideZoomed = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 B6 22";
+        inline constexpr std::string_view WaterServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 CB FA A8 01 0F 8F 43";
+        inline constexpr std::string_view WeaponServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 C3 0C A9 01 0F 8F C4";
         inline constexpr std::string_view WriteSubtickFromEntry = "48 89 5C 24 18 55 57 41 56 48 8D 6C 24 C9 48 81";
         inline constexpr std::string_view create_move_v2 = "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18 89";
         inline constexpr std::string_view draw_smoke_array = "40 55 41 54 41 55 48 8D AC 24 20 F9 FF FF 48 81";
@@ -304,8 +303,8 @@ namespace sdk::sigs {
         inline constexpr std::string_view get_view_model = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
         inline constexpr std::string_view is_demo_or_hltv = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8B 01 FF 90 50 01 00 00 84 C0 75 0D";
         inline constexpr std::string_view level_init_v2 = "40 55 56 41 56 48 8D 6C 24 B9 48 81 EC E0 00 00 00 48 8B 0D";
-        inline constexpr std::string_view level_shutdown = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 15 26 C6";
-        inline constexpr std::string_view mark_interp_latch_flags_dirty = "40 53 56 57 48 83 EC 40 80 3D B1 86 10 02 00 8B";
+        inline constexpr std::string_view level_shutdown = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 15 1E D1";
+        inline constexpr std::string_view mark_interp_latch_flags_dirty = "40 53 56 57 48 83 EC 40 80 3D E1 C6 10 02 00 8B";
         inline constexpr std::string_view on_add_entity_v2 = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 81 C0 20";
         inline constexpr std::string_view override_view_short = "40 57 48 83 EC 60 48 8B FA E8 ? ? ? ? BA FF";
         inline constexpr std::string_view paintkit_prefab = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 48 83 EC 30 48 8B D9 48 81 C1 80 11";
@@ -336,8 +335,8 @@ namespace sdk::sigs {
         inline constexpr std::string_view DisablePvsAccessor = "48 8D 0D ? ? ? ? 33 D2 FF 50 30 48 8B CF C7";
         inline constexpr std::string_view Engine_Disconnect_main = "48 89 5C 24 20 55 57 41 54 48 8B EC 48 83 EC 70";
         inline constexpr std::string_view ExecuteStringCommand = "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA";
-        inline constexpr std::string_view ForceDemoRecordingFullUpdateAfterNextDeltaPacket = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D FA FD";
-        inline constexpr std::string_view GetScreenAspectRatio = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D 0D";
+        inline constexpr std::string_view ForceDemoRecordingFullUpdateAfterNextDeltaPacket = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D CA 0E";
+        inline constexpr std::string_view GetScreenAspectRatio = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D CD";
         inline constexpr std::string_view Host_FilterTime = "48 89 5C 24 10 48 89 74 24 18 48 89 4C 24 08 57 48 81 EC A0";
         inline constexpr std::string_view IsInGame = "48 8B 05 ? ? ? ? 48 85 C0 74 15 80 B8 1F 14";
         inline constexpr std::string_view LoadGameInfo = "40 55 56 41 56 48 8D 6C 24 F0 48 81 EC 10 01 00";
@@ -346,7 +345,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view OnSvCheatsChange = "40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30";
         inline constexpr std::string_view ProcessTick = "48 89 5C 24 20 55 57 41 57 48 81 EC F0 00 00 00";
         inline constexpr std::string_view QueueNewRequest = "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 30 48 8B EA 48";
-        inline constexpr std::string_view RegisterConCommand = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 39";
+        inline constexpr std::string_view RegisterConCommand = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 19";
         inline constexpr std::string_view RegisterConVar = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00";
         inline constexpr std::string_view RunPrediction = "40 55 41 56 48 83 EC 68 80 B9 00 01 00 00 00 8B";
         inline constexpr std::string_view SetSignonState = "44 89 44 24 18 89 54 24 10 55 53 56 57 41 55 41";
@@ -366,6 +365,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view CacheGate = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 57 48 83";
         inline constexpr std::string_view ComputeWorkItemsToSetupStaticCombosForMode = "48 8B CF 88 44 24 20 49 8B D2 E8 ? ? ? ? 84";
         inline constexpr std::string_view CreateCommandBuffer = "4C 8B DC 45 89 4B 20 45 89 43 18 49 89 53 10 49";
+        inline constexpr std::string_view CreateMaterial = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 81 EC 10 01 00 00 48 8B 05 ? ? ? ? 4C 8B F2 BA";
         inline constexpr std::string_view DynamicShaderCompile = "48 89 54 24 10 55 41 55 48 8D 6C 24 F8 48 81 EC";
         inline constexpr std::string_view FindOrCreateStaticComboDataInCache = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 54 41 55 41 56 41 57 48 83 EC 20 33 ED 4C 8B";
         inline constexpr std::string_view FindOrLoadStaticComboData = "4C 89 4C 24 20 48 89 54 24 10 48 89 4C 24 08 55";
@@ -433,7 +433,6 @@ namespace sdk::sigs {
         inline constexpr std::string_view DrawObject_legacy = "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63";
         inline constexpr std::string_view DrawSkyboxArray = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
         inline constexpr std::string_view FrameUpdate = "48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55";
-        inline constexpr std::string_view GeneratePrimitives = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
         inline constexpr std::string_view InitGfxObjects = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
         inline constexpr std::string_view RenderSceneDrawList = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00";
     }
@@ -455,6 +454,7 @@ namespace sdk::sigs {
     }
     namespace tier0 {
         inline constexpr std::string_view CreateInterface = "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9";
+        inline constexpr std::string_view LoadKV3 = "48 89 5C 24 08 57 48 83 EC 70 4C 8B D1 48 C7 C0";
         inline constexpr std::string_view LoadKeyValues = "48 89 5C 24 10 48 89 6C 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 40 45 33 E4";
         inline constexpr std::string_view Plat_FloatTime = "48 83 EC 28 48 83 3D 04 FE 28 00 00 75 05 E8 5D";
         inline constexpr std::string_view Plat_GetTime = "48 83 EC 28 48 8D 4C 24 30 E8 ? ? ? ? 48 8B";
@@ -466,313 +466,309 @@ namespace sdk::sigs {
 namespace sdk::sigs_fn {
     namespace animationsystem {
         // PROTOTYPE: void __fastcall FrameUpdate(__int64 a1) (placeholder — verify in IDA)
-        using FrameUpdate_t = void (__fastcall*)(__int64 a1);
+        using FrameUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ShouldUpdateSequences(__int64 a1, __int64 a2, __int64 a3) (placeholder — verify in IDA)
-        using ShouldUpdateSequences_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 a3);
+        using ShouldUpdateSequences_t = void(__fastcall*)(void*, ...);
     }
     namespace client {
         // PROTOTYPE: __int64 __fastcall ActionTrackingServices(int a1, _QWORD *a2) (placeholder — verify in IDA)
-        using ActionTrackingServices_t = __int64 (__fastcall*)(int a1, _QWORD *a2);
+        using ActionTrackingServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall AddListener(__int64 a1, __int64 a2, const char *a3, unsigned __int8 a4) (placeholder — verify in IDA)
-        using AddListener_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, const char *a3, unsigned __int8 a4);
+        using AddListener_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall AddNametagEntity(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using AddNametagEntity_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using AddNametagEntity_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall AddStattrakEntity(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
-        using AddStattrakEntity_t = void (__fastcall*)(__int64 a1, unsigned int a2);
+        using AddStattrakEntity_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall AddToTail(int *a1, __int64 a2) (placeholder — verify in IDA)
-        using AddToTail_t = __int64 (__fastcall*)(int *a1, __int64 a2);
+        using AddToTail_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall AnimGraphRebuild(__int64 a1, char a2) (placeholder — verify in IDA)
-        using AnimGraphRebuild_t = __int64 (__fastcall*)(__int64 a1, char a2);
+        using AnimGraphRebuild_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ApplyEconCustomization(__int64 a1, char a2) (placeholder — verify in IDA)
-        using ApplyEconCustomization_t = __int64 (__fastcall*)(__int64 a1, char a2);
+        using ApplyEconCustomization_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall AutowallInit(__int64 a1) (placeholder — verify in IDA)
-        using AutowallInit_t = __int64 (__fastcall*)(__int64 a1);
+        using AutowallInit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall AutowallTraceData(_QWORD *a1, int *a2, int a3, int a4, _BYTE *a5, int a6) (placeholder — verify in IDA)
-        using AutowallTraceData_t = char (__fastcall*)(_QWORD *a1, int *a2, int a3, int a4, _BYTE *a5, int a6);
+        using AutowallTraceData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall AutowallTracePos(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using AutowallTracePos_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using AutowallTracePos_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall BuildBoneMergeWork(__int64 a1, _QWORD *a2, char a3) (placeholder — verify in IDA)
-        using BuildBoneMergeWork_t = char (__fastcall*)(__int64 a1, _QWORD *a2, char a3);
+        using BuildBoneMergeWork_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: CKeyValues_Data *__fastcall BuildTemplateMaterialFromFile(__int64 a1, const char *a2) (placeholder — verify in IDA)
-        using BuildTemplateMaterialFromFile_t = CKeyValues_Data *__fastcall (*)(__int64 a1, const char *a2);
+        using BuildTemplateMaterialFromFile_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall BulkRegenIterator(char a1) (placeholder — verify in IDA)
-        using BulkRegenIterator_t = __int64 (__fastcall*)(char a1);
+        using BulkRegenIterator_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void *__fastcall BulletServices(__int64 a1) (placeholder — verify in IDA)
-        using BulletServices_t = void *__fastcall (*)(__int64 a1);
+        using BulletServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CAttributeStringFill(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using CAttributeStringFill_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using CAttributeStringFill_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _QWORD *__fastcall CAttributeStringInit(_QWORD *a1, __int64 a2, char a3) (placeholder — verify in IDA)
-        using CAttributeStringInit_t = _QWORD *__fastcall (*)(_QWORD *a1, __int64 a2, char a3);
+        using CAttributeStringInit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CBodyComponent() (placeholder — verify in IDA)
-        using CBodyComponent_t = __int64 (*)(void);
+        using CBodyComponent_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 (__fastcall ***CBodyComponentSkeletonInstance())() (placeholder — verify in IDA)
-        using CBodyComponentSkeletonInstance_t = void (*)(__fastcall ***CBodyComponentSkeletonInstance())();
+        using CBodyComponentSkeletonInstance_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall CBufferStringInit(__int64 a1, const char *a2) (placeholder — verify in IDA)
-        using CBufferStringInit_t = char (__fastcall*)(__int64 a1, const char *a2);
+        using CBufferStringInit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CCollisionProperty(int a1, __int64 a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using CCollisionProperty_t = __int64 (__fastcall*)(int a1, __int64 a2, __int64 a3, __int64 a4);
+        using CCollisionProperty_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CDecoyProjectile() (placeholder — verify in IDA)
-        using CDecoyProjectile_t = __int64 (*)(void);
+        using CDecoyProjectile_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: uintptr_t __cdecl CEconItemCreateInstance() (placeholder — verify in IDA)
-        using CEconItemCreateInstance_t = uintptr_t (__cdecl*)(void);
+        using CEconItemCreateInstance_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CFlashbangProjectile() (placeholder — verify in IDA)
-        using CFlashbangProjectile_t = __int64 (*)(void);
+        using CFlashbangProjectile_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CFogController() (placeholder — verify in IDA)
-        using CFogController_t = __int64 (*)(void);
+        using CFogController_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CGlowProperty(int a1, __int64 a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using CGlowProperty_t = __int64 (__fastcall*)(int a1, __int64 a2, __int64 a3, __int64 a4);
+        using CGlowProperty_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CHEGrenadeProjectile() (placeholder — verify in IDA)
-        using CHEGrenadeProjectile_t = __int64 (*)(void);
+        using CHEGrenadeProjectile_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CLegacyGameUI_Initialize(__int64 thisptr) (placeholder — verify in IDA)
-        using CLegacyGameUI_Initialize_t = __int64 (__fastcall*)(__int64 thisptr);
+        using CLegacyGameUI_Initialize_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CMolotovProjectile() (placeholder — verify in IDA)
-        using CMolotovProjectile_t = __int64 (*)(void);
+        using CMolotovProjectile_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CPostProcessingVolume() (placeholder — verify in IDA)
-        using CPostProcessingVolume_t = __int64 (*)(void);
+        using CPostProcessingVolume_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CPrediction_Update(__int64 thisptr, int reason) (placeholder — verify in IDA)
-        using CPrediction_Update_t = __int64 (__fastcall*)(__int64 thisptr, int reason);
+        using CPrediction_Update_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall CSBaseGunFireData(__int64 a1) (placeholder — verify in IDA)
-        using CSBaseGunFireData_t = void (__fastcall*)(__int64 a1);
+        using CSBaseGunFireData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CSkeletonInstance(int a1, __int64 a2) (placeholder — verify in IDA)
-        using CSkeletonInstance_t = __int64 (__fastcall*)(int a1, __int64 a2);
+        using CSkeletonInstance_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CSmokeGrenadeProjectile() (placeholder — verify in IDA)
-        using CSmokeGrenadeProjectile_t = __int64 (*)(void);
+        using CSmokeGrenadeProjectile_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CTonemapController2() (placeholder — verify in IDA)
-        using CTonemapController2_t = __int64 (*)(void);
+        using CTonemapController2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using CacheParticleEffect_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using CalcSpread_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall CalcViewmodel(__int64 a1, float *a2, float *a3) (placeholder — verify in IDA)
-        using CalcViewmodel_t = void (__fastcall*)(__int64 a1, float *a2, float *a3);
+        using CalcViewmodel_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CalcViewmodelTransform_v2(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using CalcViewmodelTransform_v2_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using CalcViewmodelTransform_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CalcViewmodelView(__int64 a1, __int64 a2, _DWORD *a3) (placeholder — verify in IDA)
-        using CalcViewmodelView_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, _DWORD *a3);
+        using CalcViewmodelView_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: int *__fastcall CalculateInterpolation(__int64 a1, int *a2) (placeholder — verify in IDA)
-        using CalculateInterpolation_t = int *__fastcall (*)(__int64 a1, int *a2);
+        using CalculateInterpolation_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall CalculateWorldSpaceBones(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
-        using CalculateWorldSpaceBones_t = void (__fastcall*)(__int64 a1, unsigned int a2);
+        using CalculateWorldSpaceBones_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Caller(__int64 a1, const char *a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using Caller_t = __int64 (__fastcall*)(__int64 a1, const char *a2, __int64 a3, __int64 a4);
+        using Caller_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CameraServices() (placeholder — verify in IDA)
-        using CameraServices_t = __int64 (*)(void);
+        using CameraServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ChangeModel(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using ChangeModel_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using ChangeModel_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall CheckJumpButton(__int64 a1, __int64 a2, __int64 a3) (placeholder — verify in IDA)
-        using CheckJumpButton_t = void (__fastcall*)(__int64 a1, __int64 a2, __int64 a3);
+        using CheckJumpButton_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ClearHUDWeaponIcon(__int64 a1, int a2, __int64 a3) (placeholder — verify in IDA)
-        using ClearHUDWeaponIcon_t = __int64 (__fastcall*)(__int64 a1, int a2, __int64 a3);
+        using ClearHUDWeaponIcon_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: bool __fastcall Client(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6) (placeholder — verify in IDA)
-        using Client_t = bool (__fastcall*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6);
+        using Client_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ComputeRandomSeed(__int64 a1, __int64 a2, int a3) (placeholder — verify in IDA)
-        using ComputeRandomSeed_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, int a3);
+        using ComputeRandomSeed_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 ConCommand_firstperson() (placeholder — verify in IDA)
-        using ConCommand_firstperson_t = __int64 (*)(void);
+        using ConCommand_firstperson_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 ConCommand_thirdperson() (placeholder — verify in IDA)
-        using ConCommand_thirdperson_t = __int64 (*)(void);
+        using ConCommand_thirdperson_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall Context(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using Context_t = void (__fastcall*)(__int64 a1, __int64 a2);
+        using Context_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall ConvarGet(__int64 a1, unsigned int *a2) (placeholder — verify in IDA)
-        using ConvarGet_t = void (__fastcall*)(__int64 a1, unsigned int *a2);
+        using ConvarGet_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using CreateBaseTypeCache_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using CreateEconItem_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CreateEntityByClassName(__int64 a1, int a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using CreateEntityByClassName_t = __int64 (__fastcall*)(__int64 a1, int a2, __int64 a3, __int64 a4);
+        using CreateEntityByClassName_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2) (placeholder — verify in IDA)
-        using CreateInterface_t = __int64 (__fastcall*)(__int64 a1, _DWORD *a2);
+        using CreateInterface_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: bool __fastcall CreateMove(void* pthis, int nSlot, float flInputSampleTime, bool bActive) (placeholder — verify in IDA)
-        using CreateMove_t = bool (__fastcall*)(void* pthis, int nSlot, float flInputSampleTime, bool bActive);
+        using CreateMove_t = bool(__fastcall*)(void* pthis, int nSlot, float flInputSampleTime, bool bActive);
         // PROTOTYPE: __int64 __fastcall CreateNewSubtickMoveStep(__int64 a1) (placeholder — verify in IDA)
-        using CreateNewSubtickMoveStep_t = __int64 (__fastcall*)(__int64 a1);
+        using CreateNewSubtickMoveStep_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CreateParticleEffect(int a1, int a2, int a3, __int64 a4, int a5) (placeholder — verify in IDA)
-        using CreateParticleEffect_t = __int64 (__fastcall*)(int a1, int a2, int a3, __int64 a4, int a5);
+        using CreateParticleEffect_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CreateSOSubclassEconItem() (placeholder — verify in IDA)
-        using CreateSOSubclassEconItem_t = __int64 (*)(void);
+        using CreateSOSubclassEconItem_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Ctrl(__int64 a1) (placeholder — verify in IDA)
-        using Ctrl_t = __int64 (__fastcall*)(__int64 a1);
+        using Ctrl_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall DamageFeedbackEmitter(__int64 a1, _QWORD *a2, __int64 a3) (placeholder — verify in IDA)
-        using DamageFeedbackEmitter_t = void (__fastcall*)(__int64 a1, _QWORD *a2, __int64 a3);
+        using DamageFeedbackEmitter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DamageServices(int a1, _QWORD *a2) (placeholder — verify in IDA)
-        using DamageServices_t = __int64 (__fastcall*)(int a1, _QWORD *a2);
+        using DamageServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall DestroyParticle(__int64 a1, __int64 a2, unsigned __int8 a3, char a4) (placeholder — verify in IDA)
-        using DestroyParticle_t = void (__fastcall*)(__int64 a1, __int64 a2, unsigned __int8 a3, char a4);
+        using DestroyParticle_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DispatchEffect(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using DispatchEffect_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using DispatchEffect_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DispatchSpawn(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using DispatchSpawn_t = __int64 (__fastcall*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4);
+        using DispatchSpawn_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DispatchSpawn_caller(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using DispatchSpawn_caller_t = __int64 (__fastcall*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4);
+        using DispatchSpawn_caller_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using DispatchUpdateOnRemove_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: bool __fastcall DrawCrosshair(_QWORD *a1) (placeholder — verify in IDA)
-        using DrawCrosshair_t = bool (__fastcall*)(_QWORD *a1);
+        using DrawCrosshair_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall DrawLegs(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5) (placeholder — verify in IDA)
-        using DrawLegs_t = void (__fastcall*)(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5);
+        using DrawLegs_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: unsigned __int8 __fastcall DrawOverHead(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
-        using DrawOverHead_t = unsigned __int8 (__fastcall*)(__int64 a1, unsigned int a2);
+        using DrawOverHead_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DrawScopeOverlay(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using DrawScopeOverlay_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using DrawScopeOverlay_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DrawSmokeVertex(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6) (placeholder — verify in IDA)
-        using DrawSmokeVertex_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6);
+        using DrawSmokeVertex_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall E8(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using E8_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using E8_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall EmitSoundByHandle(__int64 a1, int a2, int a3, __int64 a4) (placeholder — verify in IDA)
-        using EmitSoundByHandle_t = __int64 (__fastcall*)(__int64 a1, int a2, int a3, __int64 a4);
+        using EmitSoundByHandle_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall EquipItemInLoadout(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4) (placeholder — verify in IDA)
-        using EquipItemInLoadout_t = char (__fastcall*)(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4);
+        using EquipItemInLoadout_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Event(__int64 a1, unsigned int a2, int a3) (placeholder — verify in IDA)
-        using Event_t = __int64 (__fastcall*)(__int64 a1, unsigned int a2, int a3);
+        using Event_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _QWORD **__fastcall FindHudElement(__int64 a1, unsigned __int8 a2) (placeholder — verify in IDA)
-        using FindHudElement_t = _QWORD **__fastcall (*)(__int64 a1, unsigned __int8 a2);
+        using FindHudElement_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall FindHudElement_panorama(const char *a1) (placeholder — verify in IDA)
-        using FindHudElement_panorama_t = __int64 (__fastcall*)(const char *a1);
+        using FindHudElement_panorama_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall FindOrCreateByName(__int64 a1, __int64 a2, char *a3, __int64 a4) (placeholder — verify in IDA)
-        using FindOrCreateByName_t = char (__fastcall*)(__int64 a1, __int64 a2, char *a3, __int64 a4);
+        using FindOrCreateByName_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall FindSOCache(__int64 a1, int *a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using FindSOCache_t = __int64 (__fastcall*)(__int64 a1, int *a2, __int64 a3, __int64 a4);
+        using FindSOCache_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void FireBullets(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...) (placeholder — verify in IDA)
-        using FireBullets_t = void (*)(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...);
+        using FireBullets_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall FirstPersonLegs(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5) (placeholder — verify in IDA)
-        using FirstPersonLegs_t = void (__fastcall*)(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5);
+        using FirstPersonLegs_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall FlashOverlay(__int64 a1, int a2) (placeholder — verify in IDA)
-        using FlashOverlay_t = void (__fastcall*)(__int64 a1, int a2);
+        using FlashOverlay_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall ForceButtonsDown(_QWORD *a1, __int64 a2) (placeholder — verify in IDA)
-        using ForceButtonsDown_t = void (__fastcall*)(_QWORD *a1, __int64 a2);
+        using ForceButtonsDown_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using GetAttributeDefByName_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetAttributeDefinitionByName(__int64 a1, unsigned __int8 *a2) (placeholder — verify in IDA)
-        using GetAttributeDefinitionByName_t = __int64 (__fastcall*)(__int64 a1, unsigned __int8 *a2);
+        using GetAttributeDefinitionByName_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetBaseEntity(__int64 a1, int a2) (placeholder — verify in IDA)
-        using GetBaseEntity_t = __int64 (__fastcall*)(__int64 a1, int a2);
+        using GetBaseEntity_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetBonePositionByName(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using GetBonePositionByName_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using GetBonePositionByName_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using GetCSInvMgr_call_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 GetChatObject() (placeholder — verify in IDA)
-        using GetChatObject_t = __int64 (*)(void);
+        using GetChatObject_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *GetClientSystem() (placeholder — verify in IDA)
-        using GetClientSystem_t = __int64 (*)(void);
+        using GetClientSystem_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetControllerCmd(__int64 a1, int a2) (placeholder — verify in IDA)
-        using GetControllerCmd_t = __int64 (__fastcall*)(__int64 a1, int a2);
+        using GetControllerCmd_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetCustomPaintKitIndex(__int64 *a1) (placeholder — verify in IDA)
-        using GetCustomPaintKitIndex_t = __int64 (__fastcall*)(__int64 *a1);
+        using GetCustomPaintKitIndex_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 GetEconItemSystem() (placeholder — verify in IDA)
-        using GetEconItemSystem_t = __int64 (*)(void);
+        using GetEconItemSystem_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetEntityByIndex(__int64 a1, int a2) (placeholder — verify in IDA)
-        using GetEntityByIndex_t = __int64 (__fastcall*)(__int64 a1, int a2);
+        using GetEntityByIndex_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetEntityHandle(__int64 a1) (placeholder — verify in IDA)
-        using GetEntityHandle_t = __int64 (__fastcall*)(__int64 a1);
+        using GetEntityHandle_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall GetGlowColor(__int64 a1, float *a2) (placeholder — verify in IDA)
-        using GetGlowColor_t = void (__fastcall*)(__int64 a1, float *a2);
+        using GetGlowColor_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetHitGroup(__int64 a1) (placeholder — verify in IDA)
-        using GetHitGroup_t = __int64 (__fastcall*)(__int64 a1);
+        using GetHitGroup_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 GetInstance() (placeholder — verify in IDA)
-        using GetInstance_t = __int64 (*)(void);
+        using GetInstance_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *GetInventoryManager() (placeholder — verify in IDA)
-        using GetInventoryManager_t = __int64 (*)(void);
+        using GetInventoryManager_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *__fastcall GetItemInLoadout(__int64 a1, unsigned int a2, unsigned int a3) (placeholder — verify in IDA)
-        using GetItemInLoadout_t = __int64 *__fastcall (*)(__int64 a1, unsigned int a2, unsigned int a3);
+        using GetItemInLoadout_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: uintptr_t __fastcall GetItemViewByID(uintptr_t, uint64_t) (placeholder — verify in IDA)
-        using GetItemViewByID_t = uintptr_t (__fastcall*)(uintptr_t, uint64_t);
+        using GetItemViewByID_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetLocalControllerById(int a1) (placeholder — verify in IDA)
-        using GetLocalControllerById_t = __int64 (__fastcall*)(int a1);
+        using GetLocalControllerById_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetLocalPawn(int a1) (placeholder — verify in IDA)
-        using GetLocalPawn_t = __int64 (__fastcall*)(int a1);
+        using GetLocalPawn_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 GetLocalPlayer_dispatcher() (placeholder — verify in IDA)
-        using GetLocalPlayer_dispatcher_t = __int64 (*)(void);
+        using GetLocalPlayer_dispatcher_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: double __fastcall GetMatrixForView(__int64 a1, __int64 a2, __int64 a3) (placeholder — verify in IDA)
-        using GetMatrixForView_t = double (__fastcall*)(__int64 a1, __int64 a2, __int64 a3);
+        using GetMatrixForView_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 GetPlayerByIndex_export() (placeholder — verify in IDA)
-        using GetPlayerByIndex_export_t = __int64 (*)(void);
+        using GetPlayerByIndex_export_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float __fastcall GetPlayerInterp(__int64 a1) (placeholder — verify in IDA)
-        using GetPlayerInterp_t = float (__fastcall*)(__int64 a1);
+        using GetPlayerInterp_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 GetRemovedAimpunch() (placeholder — verify in IDA)
-        using GetRemovedAimpunch_t = __int64 (*)(void);
+        using GetRemovedAimpunch_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetSurfaceData(__int64 a1) (placeholder — verify in IDA)
-        using GetSurfaceData_t = __int64 (__fastcall*)(__int64 a1);
+        using GetSurfaceData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetTickBase(__int64 a1) (placeholder — verify in IDA)
-        using GetTickBase_t = __int64 (__fastcall*)(__int64 a1);
+        using GetTickBase_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetTraceInfo(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4) (placeholder — verify in IDA)
-        using GetTraceInfo_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4);
+        using GetTraceInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall GetTransformsForHitboxList(__int64 a1, __int64 a2, int *a3) (placeholder — verify in IDA)
-        using GetTransformsForHitboxList_t = char (__fastcall*)(__int64 a1, __int64 a2, int *a3);
+        using GetTransformsForHitboxList_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetUserCmdManager(__int64 a1) (placeholder — verify in IDA)
-        using GetUserCmdManager_t = __int64 (__fastcall*)(__int64 a1);
+        using GetUserCmdManager_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *__fastcall GetViewAngles(__int64 a1, int a2) (placeholder — verify in IDA)
-        using GetViewAngles_t = __int64 *__fastcall (*)(__int64 a1, int a2);
+        using GetViewAngles_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall GetViewModelOffsets(__int64 viewmodel, float *outOffsets, float *outFov) (placeholder — verify in IDA)
-        using GetViewModelOffsets_t = void (__fastcall*)(__int64 viewmodel, float *outOffsets, float *outFov);
+        using GetViewModelOffsets_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __m128 __fastcall GetWeaponInAccuracyRecoveryTime(__int64 a1) (placeholder — verify in IDA)
-        using GetWeaponInAccuracyRecoveryTime_t = __m128 (__fastcall*)(__int64 a1);
+        using GetWeaponInAccuracyRecoveryTime_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float __fastcall GetWorldFovResolver(__int64 a1) (placeholder — verify in IDA)
-        using GetWorldFovResolver_t = float (__fastcall*)(__int64 a1);
+        using GetWorldFovResolver_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _BYTE *__fastcall GlobalLightUpdateState(__int64 a1) (placeholder — verify in IDA)
-        using GlobalLightUpdateState_t = _BYTE *__fastcall (*)(__int64 a1);
+        using GlobalLightUpdateState_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall HandleBulletPenetration(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5) (placeholder — verify in IDA)
-        using HandleBulletPenetration_t = char (__fastcall*)(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5);
+        using HandleBulletPenetration_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall HandleEntityList(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7) (placeholder — verify in IDA)
-        using HandleEntityList_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7);
+        using HandleEntityList_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall HandleTeamIntro(__int64 a1, __int64 a2, char *a3) (placeholder — verify in IDA)
-        using HandleTeamIntro_t = void (__fastcall*)(__int64 a1, __int64 a2, char *a3);
+        using HandleTeamIntro_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void *__fastcall HostageServices(__int64 a1) (placeholder — verify in IDA)
-        using HostageServices_t = void *__fastcall (*)(__int64 a1);
+        using HostageServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 HudChatPrintf(__int64 a1, unsigned int a2, __int64 a3, ...) (placeholder — verify in IDA)
-        using HudChatPrintf_t = __int64 (*)(__int64 a1, unsigned int a2, __int64 a3, ...);
+        using HudChatPrintf_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InGameMoneyServices(int a1, _QWORD *a2) (placeholder — verify in IDA)
-        using InGameMoneyServices_t = __int64 (__fastcall*)(int a1, _QWORD *a2);
+        using InGameMoneyServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Init(__int64 a1, __int64 a2, __int64 a3) (placeholder — verify in IDA)
-        using Init_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 a3);
+        using Init_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InitFilter(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5) (placeholder — verify in IDA)
-        using InitFilter_t = __int64 (__fastcall*)(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5);
+        using InitFilter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InitPlayerMovementTraceFilter(__int64 a1, _DWORD *a2, __int64 a3, char a4) (placeholder — verify in IDA)
-        using InitPlayerMovementTraceFilter_t = __int64 (__fastcall*)(__int64 a1, _DWORD *a2, __int64 a3, char a4);
+        using InitPlayerMovementTraceFilter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InitTraceInfo(__int64 a1) (placeholder — verify in IDA)
-        using InitTraceInfo_t = __int64 (__fastcall*)(__int64 a1);
+        using InitTraceInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using InsecureEmitter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InventoryServices(int a1, _QWORD *a2) (placeholder — verify in IDA)
-        using InventoryServices_t = __int64 (__fastcall*)(int a1, _QWORD *a2);
+        using InventoryServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall IsGlowing(__int64 a1) (placeholder — verify in IDA)
-        using IsGlowing_t = __int64 (__fastcall*)(__int64 a1);
+        using IsGlowing_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void *__fastcall ItemServices(__int64 a1) (placeholder — verify in IDA)
-        using ItemServices_t = void *__fastcall (*)(__int64 a1);
+        using ItemServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall KillFeedbackEmitter(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using KillFeedbackEmitter_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using KillFeedbackEmitter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall LevelInit(__int64 a1) (placeholder — verify in IDA)
-        using LevelInit_t = __int64 (__fastcall*)(__int64 a1);
+        using LevelInit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall LoadDefaultKit(__int64 a1, KeyValues *a2, _DWORD *a3) (placeholder — verify in IDA)
-        using LoadDefaultKit_t = char (__fastcall*)(__int64 a1, KeyValues *a2, _DWORD *a3);
+        using LoadDefaultKit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall LoadFileForMe(__int64 a1) (placeholder — verify in IDA)
-        using LoadFileForMe_t = void (__fastcall*)(__int64 a1);
+        using LoadFileForMe_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall LoadPath(signed int *a1, signed int a2, unsigned int a3) (placeholder — verify in IDA)
-        using LoadPath_t = void (__fastcall*)(signed int *a1, signed int a2, unsigned int a3);
+        using LoadPath_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall LookupBone(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using LookupBone_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using LookupBone_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ModulationUpdate(__int64 a1, char a2) (placeholder — verify in IDA)
-        using ModulationUpdate_t = __int64 (__fastcall*)(__int64 a1, char a2);
+        using ModulationUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *MovementServices() (placeholder — verify in IDA)
-        using MovementServices_t = __int64 (*)(void);
+        using MovementServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall NoClipOnChange(__int64 a1) (placeholder — verify in IDA)
-        using NoClipOnChange_t = __int64 (__fastcall*)(__int64 a1);
+        using NoClipOnChange_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall NoSpread1(__int64 a1, __int64 a2, int a3) (placeholder — verify in IDA)
-        using NoSpread1_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, int a3);
-        // PROTOTYPE: __int64 __fastcall OnAddEntity(__int64 a1, __int64 a2, int a3) (placeholder — verify in IDA)
-        using OnAddEntity_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, int a3);
+        using NoSpread1_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall OnBodyGroupChoiceChanged(__int64 a1, __int64 a2, int a3, _DWORD *a4) (placeholder — verify in IDA)
-        using OnBodyGroupChoiceChanged_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, int a3, _DWORD *a4);
+        using OnBodyGroupChoiceChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall OnEvent(__int64 a1, KeyValues *a2) (placeholder — verify in IDA)
-        using OnEvent_t = void (__fastcall*)(__int64 a1, KeyValues *a2);
+        using OnEvent_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall OnGlowTypeChanged(__int64 a1) (placeholder — verify in IDA)
-        using OnGlowTypeChanged_t = __int64 (__fastcall*)(__int64 a1);
+        using OnGlowTypeChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using OnPostDataUpdate_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: __int64 __fastcall OnRemoveEntity(__int64 a1, _QWORD *a2, int a3) (placeholder — verify in IDA)
-        using OnRemoveEntity_t = __int64 (__fastcall*)(__int64 a1, _QWORD *a2, int a3);
         // PROTOTYPE: __int64 __fastcall OnSkeletonModelChanged(__int64 a1, __int64 a2, __int64 *a3) (placeholder — verify in IDA)
-        using OnSkeletonModelChanged_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 *a3);
+        using OnSkeletonModelChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using PanelConstructorPointer_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -780,331 +776,333 @@ namespace sdk::sigs_fn {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using ParseSubtickFraction_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ParticleCollection(__int64 a1) (placeholder — verify in IDA)
-        using ParticleCollection_t = __int64 (__fastcall*)(__int64 a1);
+        using ParticleCollection_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Pawn(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using Pawn_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using Pawn_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall PerTick(int *a1) (placeholder — verify in IDA)
-        using PerTick_t = void (__fastcall*)(int *a1);
+        using PerTick_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall PerTickOrchestrator(_QWORD *a1) (placeholder — verify in IDA)
-        using PerTickOrchestrator_t = char (__fastcall*)(_QWORD *a1);
+        using PerTickOrchestrator_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall PerformBatchedInvalidatePhysicsRecursive(char a1) (placeholder — verify in IDA)
-        using PerformBatchedInvalidatePhysicsRecursive_t = void (__fastcall*)(char a1);
+        using PerformBatchedInvalidatePhysicsRecursive_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void *__fastcall PingServices(__int64 a1) (placeholder — verify in IDA)
-        using PingServices_t = void *__fastcall (*)(__int64 a1);
+        using PingServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall PlayVSound_client(__int64 a1) (placeholder — verify in IDA)
-        using PlayVSound_client_t = __int64 (__fastcall*)(__int64 a1);
+        using PlayVSound_client_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using PointerToGetInaccuracyFunction_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using PointerToGetSpreadFunction_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall PostDataUpdate(__int64 a1, __int64 a2, __int64 a3) (placeholder — verify in IDA)
-        using PostDataUpdate_t = char (__fastcall*)(__int64 a1, __int64 a2, __int64 a3);
+        using PostDataUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using ProcessForceSubtickMoves_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ProcessImpacts(_QWORD *a1, __int64 a2, __int64 a3) (placeholder — verify in IDA)
-        using ProcessImpacts_t = __int64 (__fastcall*)(_QWORD *a1, __int64 a2, __int64 a3);
+        using ProcessImpacts_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ProcessMovement(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using ProcessMovement_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using ProcessMovement_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using QueueForceSubtickMove_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using QueuePostDataUpdates_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall RegenerateWeaponSkin(__int64 a1, char a2) (placeholder — verify in IDA)
-        using RegenerateWeaponSkin_t = void (__fastcall*)(__int64 a1, char a2);
+        using RegenerateWeaponSkin_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall RegenerateWeaponSkin_v2(__int64 a1, char a2) (placeholder — verify in IDA)
-        using RegenerateWeaponSkin_v2_t = void (__fastcall*)(__int64 a1, char a2);
+        using RegenerateWeaponSkin_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 RegenerateWeaponSkins() (placeholder — verify in IDA)
-        using RegenerateWeaponSkins_t = __int64 (*)(void);
+        using RegenerateWeaponSkins_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _BYTE *__fastcall RenderDecals(__int64 a1, __int64 **a2, char a3, char a4) (placeholder — verify in IDA)
-        using RenderDecals_t = _BYTE *__fastcall (*)(__int64 a1, __int64 **a2, char a3, char a4);
+        using RenderDecals_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall ReportHit(_QWORD *a1) (placeholder — verify in IDA)
-        using ReportHit_t = char (__fastcall*)(_QWORD *a1);
+        using ReportHit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall RunCommand(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using RunCommand_t = void (__fastcall*)(__int64 a1, __int64 a2);
+        using RunCommand_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall RunCommand_processor(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using RunCommand_processor_t = void (__fastcall*)(__int64 a1, __int64 a2);
+        using RunCommand_processor_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall SOCreated(uintptr_t, uint64_t, uintptr_t, int) (placeholder — verify in IDA)
-        using SOCreated_t = void (__fastcall*)(uintptr_t, uint64_t, uintptr_t, int);
+        using SOCreated_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Scope_callsite(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using Scope_callsite_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using Scope_callsite_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 SendChatMessage(__int64 a1, unsigned int a2, __int64 a3, ...) (placeholder — verify in IDA)
-        using SendChatMessage_t = __int64 (*)(__int64 a1, unsigned int a2, __int64 a3, ...);
+        using SendChatMessage_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using SetBodyGroup_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall SetBodyGroup_inv(__int64 a1, int a2, const char *a3) (placeholder — verify in IDA)
-        using SetBodyGroup_inv_t = void (__fastcall*)(__int64 a1, int a2, const char *a3);
+        using SetBodyGroup_inv_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall SetBodygroup(__int64 a1, int a2, int a3) (placeholder — verify in IDA)
-        using SetBodygroup_t = void (__fastcall*)(__int64 a1, int a2, int a3);
+        using SetBodygroup_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetCollisionBounds(__int64 a1, __int64 *a2) (placeholder — verify in IDA)
-        using SetCollisionBounds_t = __int64 (__fastcall*)(__int64 a1, __int64 *a2);
+        using SetCollisionBounds_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetDynamicAttributeValue(__int64 a1, __int64 a2, _DWORD *a3) (placeholder — verify in IDA)
-        using SetDynamicAttributeValue_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, _DWORD *a3);
+        using SetDynamicAttributeValue_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetDynamicAttributeValue_raw(__int64 a1, __int64 a2, _DWORD *a3) (placeholder — verify in IDA)
-        using SetDynamicAttributeValue_raw_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, _DWORD *a3);
+        using SetDynamicAttributeValue_raw_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall SetMaterialGroup(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
-        using SetMaterialGroup_t = void (__fastcall*)(__int64 a1, unsigned int a2);
+        using SetMaterialGroup_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetMeshGroupMask(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using SetMeshGroupMask_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using SetMeshGroupMask_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetModel(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using SetModel_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using SetModel_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall SetPlayerReady(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using SetPlayerReady_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using SetPlayerReady_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using SetSelectedIndexFunctionPointer_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetTraceData(int *a1, _OWORD *a2) (placeholder — verify in IDA)
-        using SetTraceData_t = __int64 (__fastcall*)(int *a1, _OWORD *a2);
+        using SetTraceData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using SetTraceInit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: unsigned __int64 *__fastcall SetTypeKV3(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3) (placeholder — verify in IDA)
-        using SetTypeKV3_t = unsigned __int64 *__fastcall (*)(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3);
+        using SetTypeKV3_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall SetViewAngle(__int64 a1, int a2, __int64 *a3) (placeholder — verify in IDA)
-        using SetViewAngle_t = void (__fastcall*)(__int64 a1, int a2, __int64 *a3);
+        using SetViewAngle_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetupCmd(__int64 a1) (placeholder — verify in IDA)
-        using SetupCmd_t = __int64 (__fastcall*)(__int64 a1);
+        using SetupCmd_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetupMove(__int64 a1, int *a2) (placeholder — verify in IDA)
-        using SetupMove_t = __int64 (__fastcall*)(__int64 a1, int *a2);
+        using SetupMove_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetupMovementMoves(__int64 a1, __int64 a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using SetupMovementMoves_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4);
+        using SetupMovementMoves_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using SharedRandomFloat_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using ShowMessageBox_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 Shutdown() (placeholder — verify in IDA)
-        using Shutdown_t = __int64 (*)(void);
+        using Shutdown_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float __fastcall SomeTimingFromPawn(__int64 a1, int a2, unsigned int a3) (placeholder — verify in IDA)
-        using SomeTimingFromPawn_t = float (__fastcall*)(__int64 a1, int a2, unsigned int a3);
+        using SomeTimingFromPawn_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SpectatorInput(_DWORD *a1, __int64 a2, unsigned int a3) (placeholder — verify in IDA)
-        using SpectatorInput_t = __int64 (__fastcall*)(_DWORD *a1, __int64 a2, unsigned int a3);
+        using SpectatorInput_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SpreadSeedGen(__int64 a1, __int64 a2, int a3) (placeholder — verify in IDA)
-        using SpreadSeedGen_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, int a3);
+        using SpreadSeedGen_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall StartHierarchicalAttachment(__int64 a1) (placeholder — verify in IDA)
-        using StartHierarchicalAttachment_t = char (__fastcall*)(__int64 a1);
+        using StartHierarchicalAttachment_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: unsigned __int64 __fastcall TakeDamageOld(__int64 a1, __int64 a2, __int64 **a3) (placeholder — verify in IDA)
-        using TakeDamageOld_t = unsigned __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 **a3);
+        using TakeDamageOld_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall TestSurfaces(__int64 a1, float a2, float a3, float a4, int a5, int a6, __int64 a7) (placeholder — verify in IDA)
-        using TestSurfaces_t = void (__fastcall*)(__int64 a1, float a2, float a3, float a4, int a5, int a6, __int64 a7);
+        using TestSurfaces_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall ThinkReturn(__int64 a1, _DWORD *a2) (placeholder — verify in IDA)
-        using ThinkReturn_t = char (__fastcall*)(__int64 a1, _DWORD *a2);
+        using ThinkReturn_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 ThirdPersonOffHandler() (placeholder — verify in IDA)
-        using ThirdPersonOffHandler_t = __int64 (*)(void);
+        using ThirdPersonOffHandler_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 ThirdPersonOnHandler() (placeholder — verify in IDA)
-        using ThirdPersonOnHandler_t = __int64 (*)(void);
+        using ThirdPersonOnHandler_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using ThirdPersonReset_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall TraceCreate(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6) (placeholder — verify in IDA)
-        using TraceCreate_t = char (__fastcall*)(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6);
+        using TraceCreate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall TraceGetInfo(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4) (placeholder — verify in IDA)
-        using TraceGetInfo_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4);
+        using TraceGetInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall TraceHandleBulletPen(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5) (placeholder — verify in IDA)
-        using TraceHandleBulletPen_t = char (__fastcall*)(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5);
+        using TraceHandleBulletPen_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall TraceInitData(__int64 a1) (placeholder — verify in IDA)
-        using TraceInitData_t = __int64 (__fastcall*)(__int64 a1);
+        using TraceInitData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall TraceInitFilter(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5) (placeholder — verify in IDA)
-        using TraceInitFilter_t = __int64 (__fastcall*)(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5);
+        using TraceInitFilter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall TraceInitInfo(__int64 a1) (placeholder — verify in IDA)
-        using TraceInitInfo_t = __int64 (__fastcall*)(__int64 a1);
+        using TraceInitInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall TracePlayerBBox(__int64 a1, __int64 *a2, __int64 *a3) (placeholder — verify in IDA)
-        using TracePlayerBBox_t = __int64 (__fastcall*)(__int64 a1, __int64 *a2, __int64 *a3);
+        using TracePlayerBBox_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: bool __fastcall TraceShape(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6) (placeholder — verify in IDA)
-        using TraceShape_t = bool (__fastcall*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6);
+        using TraceShape_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall TraceToExit(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6) (placeholder — verify in IDA)
-        using TraceToExit_t = char (__fastcall*)(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6);
+        using TraceToExit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall TypeManager(int a1, __int64 a2) (placeholder — verify in IDA)
-        using TypeManager_t = __int64 (__fastcall*)(int a1, __int64 a2);
+        using TypeManager_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall UnserializeEvent(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using UnserializeEvent_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using UnserializeEvent_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using UntrustedFlagSetter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void *__fastcall UpdateGlobalVars(__int64 a1, void *a2) (placeholder — verify in IDA)
-        using UpdateGlobalVars_t = void *__fastcall (*)(__int64 a1, void *a2);
+        using UpdateGlobalVars_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using UpdateOnRemove_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall UpdatePostProcessing(__int64 a1, _BYTE *a2) (placeholder — verify in IDA)
-        using UpdatePostProcessing_t = void (__fastcall*)(__int64 a1, _BYTE *a2);
+        using UpdatePostProcessing_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall UpdateSkybox(__int64 a1) (placeholder — verify in IDA)
-        using UpdateSkybox_t = __int64 (__fastcall*)(__int64 a1);
+        using UpdateSkybox_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall UpdateSubClass(_QWORD *a1) (placeholder — verify in IDA)
-        using UpdateSubClass_t = void (__fastcall*)(_QWORD *a1);
+        using UpdateSubClass_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float *__fastcall UpdateTurningInAccuracy(float *a1) (placeholder — verify in IDA)
-        using UpdateTurningInAccuracy_t = float *__fastcall (*)(float *a1);
+        using UpdateTurningInAccuracy_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using Use_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 UseServices() (placeholder — verify in IDA)
-        using UseServices_t = __int64 (*)(void);
+        using UseServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ViewModelHideZoomed(__int64 a1, __int64 a2, __int64 **a3) (placeholder — verify in IDA)
-        using ViewModelHideZoomed_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 **a3);
+        using ViewModelHideZoomed_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *WaterServices() (placeholder — verify in IDA)
-        using WaterServices_t = __int64 (*)(void);
+        using WaterServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *WeaponServices() (placeholder — verify in IDA)
-        using WeaponServices_t = __int64 (*)(void);
+        using WeaponServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using WriteSubtickFromEntry_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall create_move_v2(__int64 *a1, int a2, char a3) (placeholder — verify in IDA)
-        using create_move_v2_t = void (__fastcall*)(__int64 *a1, int a2, char a3);
+        using create_move_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall draw_smoke_array(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6) (placeholder — verify in IDA)
-        using draw_smoke_array_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6);
+        using draw_smoke_array_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float *__fastcall draw_view_punch_v2(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6) (placeholder — verify in IDA)
-        using draw_view_punch_v2_t = float *__fastcall (*)(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6);
+        using draw_view_punch_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall frame_stage_notify(__int64 a1, int a2) (placeholder — verify in IDA)
-        using frame_stage_notify_t = __int64 (__fastcall*)(__int64 a1, int a2);
+        using frame_stage_notify_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float *__fastcall get_fov(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6) (placeholder — verify in IDA)
-        using get_fov_t = float *__fastcall (*)(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6);
+        using get_fov_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 get_map_name() (placeholder — verify in IDA)
-        using get_map_name_t = __int64 (*)(void);
+        using get_map_name_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall get_view_angles_v2(__int64 a1, int a2, __int64 a3) (placeholder — verify in IDA)
-        using get_view_angles_v2_t = void (__fastcall*)(__int64 a1, int a2, __int64 a3);
+        using get_view_angles_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall get_view_model(__int64 a1, float *a2, float *a3) (placeholder — verify in IDA)
-        using get_view_model_t = void (__fastcall*)(__int64 a1, float *a2, float *a3);
+        using get_view_model_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char is_demo_or_hltv() (placeholder — verify in IDA)
-        using is_demo_or_hltv_t = char (*)(void);
+        using is_demo_or_hltv_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall level_init_v2(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using level_init_v2_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using level_init_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 level_shutdown() (placeholder — verify in IDA)
-        using level_shutdown_t = __int64 (*)(void);
+        using level_shutdown_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall mark_interp_latch_flags_dirty(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
-        using mark_interp_latch_flags_dirty_t = void (__fastcall*)(__int64 a1, unsigned int a2);
+        using mark_interp_latch_flags_dirty_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall on_add_entity_v2(__int64 a1, __int64 a2, __int64 a3) (placeholder — verify in IDA)
-        using on_add_entity_v2_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 a3);
+        using on_add_entity_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall override_view_short(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using override_view_short_t = void (__fastcall*)(__int64 a1, __int64 a2);
+        using override_view_short_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall paintkit_prefab(__int64 *a1) (placeholder — verify in IDA)
-        using paintkit_prefab_t = __int64 (__fastcall*)(__int64 *a1);
+        using paintkit_prefab_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall paintkit_seed(__int64 a1) (placeholder — verify in IDA)
-        using paintkit_seed_t = __int64 (__fastcall*)(__int64 a1);
+        using paintkit_seed_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall paintkit_wear(__int64 a1) (placeholder — verify in IDA)
-        using paintkit_wear_t = __int64 (__fastcall*)(__int64 a1);
+        using paintkit_wear_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall remove_legs(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5) (placeholder — verify in IDA)
-        using remove_legs_t = void (__fastcall*)(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5);
+        using remove_legs_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall statTrak_killEater(__int64 a1) (placeholder — verify in IDA)
-        using statTrak_killEater_t = __int64 (__fastcall*)(__int64 a1);
+        using statTrak_killEater_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 statTrak_scoreType() (placeholder — verify in IDA)
-        using statTrak_scoreType_t = __int64 (*)(void);
+        using statTrak_scoreType_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall unlock_inventory(__int64 a1) (placeholder — verify in IDA)
-        using unlock_inventory_t = char (__fastcall*)(__int64 a1);
+        using unlock_inventory_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void *__fastcall update_global_vars(__int64 a1, void *a2) (placeholder — verify in IDA)
-        using update_global_vars_t = void *__fastcall (*)(__int64 a1, void *a2);
+        using update_global_vars_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall update_post_processing_v2(__int64 a1) (placeholder — verify in IDA)
-        using update_post_processing_v2_t = void (__fastcall*)(__int64 a1);
+        using update_post_processing_v2_t = void(__fastcall*)(void*, ...);
     }
     namespace engine2 {
         // PROTOTYPE: char __fastcall CClient_SendMovePacket(__int64 a1) (placeholder — verify in IDA)
-        using CClient_SendMovePacket_t = char (__fastcall*)(__int64 a1);
+        using CClient_SendMovePacket_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall CHLTVClient_SendSnapshot(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using CHLTVClient_SendSnapshot_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using CHLTVClient_SendSnapshot_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall CHLTVClient_SetSignonState(__int64 a1, int a2, __int64 a3, int a4) (placeholder — verify in IDA)
-        using CHLTVClient_SetSignonState_t = char (__fastcall*)(__int64 a1, int a2, __int64 a3, int a4);
+        using CHLTVClient_SetSignonState_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall CHostStateMgr_HostStateRequest_Start(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using CHostStateMgr_HostStateRequest_Start_t = void (__fastcall*)(__int64 a1, __int64 a2);
+        using CHostStateMgr_HostStateRequest_Start_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall CInputService_ProcessConVar(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using CInputService_ProcessConVar_t = void (__fastcall*)(__int64 a1, __int64 a2);
+        using CInputService_ProcessConVar_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall CNetworkGameClient_InternalProcessPacketEntities(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using CNetworkGameClient_InternalProcessPacketEntities_t = void (__fastcall*)(__int64 a1, __int64 a2);
+        using CNetworkGameClient_InternalProcessPacketEntities_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall CNetworkGameClient_ProcessServerInfo(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using CNetworkGameClient_ProcessServerInfo_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using CNetworkGameClient_ProcessServerInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CNetworkStringTableContainer_CreateStringTable(__int64 a1, const char *a2, __int64 a3) (placeholder — verify in IDA)
-        using CNetworkStringTableContainer_CreateStringTable_t = __int64 (__fastcall*)(__int64 a1, const char *a2, __int64 a3);
+        using CNetworkStringTableContainer_CreateStringTable_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CNetworkStringTableContainer_WriteUpdateMessageAtTick(__int64 a1, __int64 a2, int a3, int a4, int a5) (placeholder — verify in IDA)
-        using CNetworkStringTableContainer_WriteUpdateMessageAtTick_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, int a3, int a4, int a5);
+        using CNetworkStringTableContainer_WriteUpdateMessageAtTick_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall CServerSideClient_ProcessServerInfo(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using CServerSideClient_ProcessServerInfo_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using CServerSideClient_ProcessServerInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall CSplitScreenSlot(__int64 a1, __int64 a2, int a3, __int64 a4) (placeholder — verify in IDA)
-        using CSplitScreenSlot_t = char (__fastcall*)(__int64 a1, __int64 a2, int a3, __int64 a4);
+        using CSplitScreenSlot_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char ClientCommand(__int64 a1, int a2, __int64 a3, ...) (placeholder — verify in IDA)
-        using ClientCommand_t = char (*)(__int64 a1, int a2, __int64 a3, ...);
+        using ClientCommand_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall Connect(__int64 a1, int a2, unsigned int a3, __int64 a4, unsigned int a5, char a6) (placeholder — verify in IDA)
-        using Connect_t = void (__fastcall*)(__int64 a1, int a2, unsigned int a3, __int64 a4, unsigned int a5, char a6);
+        using Connect_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DisablePvsAccessor(_DWORD *a1, __int64 a2, int a3, char a4) (placeholder — verify in IDA)
-        using DisablePvsAccessor_t = __int64 (__fastcall*)(_DWORD *a1, __int64 a2, int a3, char a4);
+        using DisablePvsAccessor_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *Engine_Disconnect_main() (placeholder — verify in IDA)
-        using Engine_Disconnect_main_t = __int64 (*)(void);
+        using Engine_Disconnect_main_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall ExecuteStringCommand(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using ExecuteStringCommand_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using ExecuteStringCommand_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall ForceDemoRecordingFullUpdateAfterNextDeltaPacket(__int64 a1, const char *a2) (placeholder — verify in IDA)
-        using ForceDemoRecordingFullUpdateAfterNextDeltaPacket_t = char (__fastcall*)(__int64 a1, const char *a2);
+        using ForceDemoRecordingFullUpdateAfterNextDeltaPacket_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float __fastcall GetScreenAspectRatio(__int64 a1, int a2, int a3) (placeholder — verify in IDA)
-        using GetScreenAspectRatio_t = float (__fastcall*)(__int64 a1, int a2, int a3);
+        using GetScreenAspectRatio_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: bool __fastcall Host_FilterTime(__int64 a1, float *a2) (placeholder — verify in IDA)
-        using Host_FilterTime_t = bool (__fastcall*)(__int64 a1, float *a2);
+        using Host_FilterTime_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: bool IsInGame() (placeholder — verify in IDA)
-        using IsInGame_t = bool (*)(void);
+        using IsInGame_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall LoadGameInfo(__int64 a1, const char *a2) (placeholder — verify in IDA)
-        using LoadGameInfo_t = char (__fastcall*)(__int64 a1, const char *a2);
+        using LoadGameInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall MountAddon(__int64 a1, const char *a2, char a3) (placeholder — verify in IDA)
-        using MountAddon_t = void (__fastcall*)(__int64 a1, const char *a2, char a3);
+        using MountAddon_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall NetTimeoutDisconnect(__int64 a1, unsigned int a2, __int64 a3) (placeholder — verify in IDA)
-        using NetTimeoutDisconnect_t = __int64 (__fastcall*)(__int64 a1, unsigned int a2, __int64 a3);
+        using NetTimeoutDisconnect_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall OnSvCheatsChange(__int64 a1, __int64 a2, _BYTE *a3, char *a4) (placeholder — verify in IDA)
-        using OnSvCheatsChange_t = void (__fastcall*)(__int64 a1, __int64 a2, _BYTE *a3, char *a4);
+        using OnSvCheatsChange_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall ProcessTick(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using ProcessTick_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using ProcessTick_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall QueueNewRequest(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using QueueNewRequest_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using QueueNewRequest_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _QWORD *__fastcall RegisterConCommand(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6) (placeholder — verify in IDA)
-        using RegisterConCommand_t = _QWORD *__fastcall (*)(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6);
+        using RegisterConCommand_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int128 *__fastcall RegisterConVar(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5) (placeholder — verify in IDA)
-        using RegisterConVar_t = __int128 *__fastcall (*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5);
+        using RegisterConVar_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall RunPrediction(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
-        using RunPrediction_t = void (__fastcall*)(__int64 a1, unsigned int a2);
+        using RunPrediction_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall SetSignonState(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4) (placeholder — verify in IDA)
-        using SetSignonState_t = char (__fastcall*)(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4);
+        using SetSignonState_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using Tokenize_t = void(__fastcall*)(void*, ...);
     }
     namespace inputsystem {
         // PROTOTYPE: int __fastcall AttachToWindow(__int64 a1, HWND a2) (placeholder — verify in IDA)
-        using AttachToWindow_t = int (__fastcall*)(__int64 a1, HWND a2);
+        using AttachToWindow_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall SDL_EventHandler(__int64 a1, SDL_Event* event) (placeholder — verify in IDA)
-        using EventHandler_t = void (__fastcall*)(__int64 a1, SDL_Event* event);
+        using EventHandler_t = void(__fastcall*)(void*, ...);
     }
     namespace matchmaking {
         // PROTOTYPE: char __fastcall InitializeGameSettings(__int64 a1) (placeholder — verify in IDA)
-        using InitializeGameSettings_t = char (__fastcall*)(__int64 a1);
+        using InitializeGameSettings_t = void(__fastcall*)(void*, ...);
     }
     namespace materialsystem2 {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using ApplyMaterialVarsForBatch_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall BindIdentityInstanceIDBufferAndSetRenderState(__int64 *a1, __int64 a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
-        using BindIdentityInstanceIDBufferAndSetRenderState_t = char (__fastcall*)(__int64 *a1, __int64 a2, __int64 a3, __int64 a4);
+        using BindIdentityInstanceIDBufferAndSetRenderState_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: int __fastcall BuildPassCommandData(__int64 a1, int a2, __int64 a3) (placeholder — verify in IDA)
-        using BuildPassCommandData_t = int (__fastcall*)(__int64 a1, int a2, __int64 a3);
+        using BuildPassCommandData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CacheGate(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5, int a6, char a7) (placeholder — verify in IDA)
-        using CacheGate_t = __int64 (__fastcall*)(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5, int a6, char a7);
+        using CacheGate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall ComputeWorkItemsToSetupStaticCombosForMode(unsigned __int16 *a1, unsigned int a2, int *a3) (placeholder — verify in IDA)
-        using ComputeWorkItemsToSetupStaticCombosForMode_t = char (__fastcall*)(unsigned __int16 *a1, unsigned int a2, int *a3);
+        using ComputeWorkItemsToSetupStaticCombosForMode_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CreateCommandBuffer(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5) (placeholder — verify in IDA)
-        using CreateCommandBuffer_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5);
+        using CreateCommandBuffer_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: void* __fastcall CreateMaterial(void* a1, void** a2, const char* a3, void* a4, void* a5, char a6) (placeholder — verify in IDA)
+        using CreateMaterial_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall DynamicShaderCompile(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using DynamicShaderCompile_t = char (__fastcall*)(__int64 a1, __int64 a2);
+        using DynamicShaderCompile_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall FindOrCreateStaticComboDataInCache(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using FindOrCreateStaticComboDataInCache_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using FindOrCreateStaticComboDataInCache_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall FindOrLoadStaticComboData(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5) (placeholder — verify in IDA)
-        using FindOrLoadStaticComboData_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5);
+        using FindOrLoadStaticComboData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall FindParameter(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using FindParameter_t = __int64 (__fastcall*)(__int64 a1, __int64 a2);
+        using FindParameter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall FrameUpdate(__int64 *a1) (placeholder — verify in IDA)
-        using FrameUpdate_t = __int64 (__fastcall*)(__int64 *a1);
+        using FrameUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetErrorMaterial(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5) (placeholder — verify in IDA)
-        using GetErrorMaterial_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5);
+        using GetErrorMaterial_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetMode(__int64 a1, unsigned int *a2) (placeholder — verify in IDA)
-        using GetMode_t = __int64 (__fastcall*)(__int64 a1, unsigned int *a2);
+        using GetMode_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetVertexShaderInputSignature(__int64 a1) (placeholder — verify in IDA)
-        using GetVertexShaderInputSignature_t = __int64 (__fastcall*)(__int64 a1);
+        using GetVertexShaderInputSignature_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Init(__int64 a1) (placeholder — verify in IDA)
-        using Init_t = __int64 (__fastcall*)(__int64 a1);
+        using Init_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall LoadShadersAndSetupModes(__int64 a1, __int64 a2, unsigned int a3) (placeholder — verify in IDA)
-        using LoadShadersAndSetupModes_t = __int64 (__fastcall*)(__int64 a1, __int64 a2, unsigned int a3);
+        using LoadShadersAndSetupModes_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float __fastcall PrepareSceneMaterial(__int64 a1, __int64 a2, float a3) (placeholder — verify in IDA)
-        using PrepareSceneMaterial_t = float (__fastcall*)(__int64 a1, __int64 a2, float a3);
+        using PrepareSceneMaterial_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall ProcessQueue(__int64 a1) (placeholder — verify in IDA)
-        using ProcessQueue_t = void (__fastcall*)(__int64 a1);
+        using ProcessQueue_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void ReloadAndSync() (placeholder — verify in IDA)
-        using ReloadAndSync_t = void (*)(void);
+        using ReloadAndSync_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using SetVariableAndRenderState_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall UnloadAllMaterials(__int64 a1) (placeholder — verify in IDA)
-        using UnloadAllMaterials_t = __int64 (__fastcall*)(__int64 a1);
+        using UnloadAllMaterials_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _QWORD *__fastcall UpdateParameter(__int64 a1) (placeholder — verify in IDA)
-        using UpdateParameter_t = _QWORD *__fastcall (*)(__int64 a1);
+        using UpdateParameter_t = void(__fastcall*)(void*, ...);
     }
     namespace networksystem {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -1118,7 +1116,7 @@ namespace sdk::sigs_fn {
     }
     namespace panorama {
         // PROTOTYPE: void __fastcall DispatchEvent(int *a1, unsigned __int8 a2, __int64 a3) (placeholder — verify in IDA)
-        using DispatchEvent_t = void (__fastcall*)(int *a1, unsigned __int8 a2, __int64 a3);
+        using DispatchEvent_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using GetPanelPointerFunctionPointer_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -1128,21 +1126,21 @@ namespace sdk::sigs_fn {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using RegisterEventHandlerFunctionPointer_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall RunFrame(_QWORD *a1) (placeholder — verify in IDA)
-        using RunFrame_t = __int64 (__fastcall*)(_QWORD *a1);
+        using RunFrame_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using RunScriptFunctionPointer_t = void(__fastcall*)(void*, ...);
     }
     namespace particles {
         // PROTOTYPE: __int64 __fastcall CParticleSystemMgr_CreateParticleCollection(__int64 a1, const char *a2, __int64 a3, __int64 a4, char a5, int a6, int a7) (placeholder — verify in IDA)
-        using CParticleSystemMgr_CreateParticleCollection_t = __int64 (__fastcall*)(__int64 a1, const char *a2, __int64 a3, __int64 a4, char a5, int a6, int a7);
+        using CParticleSystemMgr_CreateParticleCollection_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *__fastcall CParticleSystemMgr_FindParticleSystem(__int64 a1, __int64 *a2, const char *a3, char a4) (placeholder — verify in IDA)
-        using CParticleSystemMgr_FindParticleSystem_t = __int64 *__fastcall (*)(__int64 a1, __int64 *a2, const char *a3, char a4);
+        using CParticleSystemMgr_FindParticleSystem_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _BYTE *__fastcall DrawArray(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6, __int64 a7) (placeholder — verify in IDA)
-        using DrawArray_t = _BYTE *__fastcall (*)(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6, __int64 a7);
+        using DrawArray_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall FindKeyVar(const char *a1, unsigned int a2, int a3) (placeholder — verify in IDA)
-        using FindKeyVar_t = __int64 (__fastcall*)(const char *a1, unsigned int a2, int a3);
+        using FindKeyVar_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall SetMaterialShaderType(__int64 a1, int *a2) (placeholder — verify in IDA)
-        using SetMaterialShaderType_t = void (__fastcall*)(__int64 a1, int *a2);
+        using SetMaterialShaderType_t = void(__fastcall*)(void*, ...);
     }
     namespace rendersystemdx11 {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -1196,8 +1194,6 @@ namespace sdk::sigs_fn {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using FrameUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using GeneratePrimitives_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
         using InitGfxObjects_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using RenderSceneDrawList_t = void(__fastcall*)(void*, ...);
@@ -1212,34 +1208,38 @@ namespace sdk::sigs_fn {
     }
     namespace server {
         // PROTOTYPE: __int64 __fastcall GiveNamedItem(__int64 a1, const char *a2, int a3, __int64 a4, char a5, unsigned __int64 *a6) (placeholder — verify in IDA)
-        using GiveNamedItem_t = __int64 (__fastcall*)(__int64 a1, const char *a2, int a3, __int64 a4, char a5, unsigned __int64 *a6);
+        using GiveNamedItem_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SwitchTeam(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
-        using SwitchTeam_t = __int64 (__fastcall*)(__int64 a1, unsigned int a2);
+        using SwitchTeam_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _BYTE *__fastcall TerminateRound(__int64 a1, __int64 a2, unsigned int a3, __int64 a4) (placeholder — verify in IDA)
-        using TerminateRound_t = _BYTE *__fastcall (*)(__int64 a1, __int64 a2, unsigned int a3, __int64 a4);
+        using TerminateRound_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: double __fastcall Think(__int64 a1) (placeholder — verify in IDA)
-        using Think_t = double (__fastcall*)(__int64 a1);
+        using Think_t = void(__fastcall*)(void*, ...);
     }
     namespace soundsystem {
         // PROTOTYPE: _UNKNOWN **__fastcall PlayVSound(__int64 a1, __int64 a2, int a3, int a4) (placeholder — verify in IDA)
-        using PlayVSound_t = _UNKNOWN **__fastcall (*)(__int64 a1, __int64 a2, int a3, int a4);
+        using PlayVSound_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SomeUtlSymbolFunc(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
-        using SomeUtlSymbolFunc_t = __int64 (__fastcall*)(__int64 a1, unsigned int a2);
+        using SomeUtlSymbolFunc_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using StartSoundEvent_t = void(__fastcall*)(void*, ...);
     }
     namespace tier0 {
         // PROTOTYPE: void *__fastcall CreateInterface(const char *pName, int *pReturnCode) (placeholder — verify in IDA)
-        using CreateInterface_t = void *__fastcall (*)(const char *pName, int *pReturnCode);
+        using CreateInterface_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using LoadKV3_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using LoadKeyValues_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: double __fastcall Plat_FloatTime() (placeholder — verify in IDA)
-        using Plat_FloatTime_t = double (__fastcall*)(void);
+        using Plat_FloatTime_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: unsigned __int64 __fastcall Plat_GetTime() (placeholder — verify in IDA)
-        using Plat_GetTime_t = unsigned __int64 (__fastcall*)(void);
+        using Plat_GetTime_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: unsigned __int64 __fastcall Plat_MSTime() (placeholder — verify in IDA)
-        using Plat_MSTime_t = unsigned __int64 (__fastcall*)(void);
+        using Plat_MSTime_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using UtlBuffer_t = void(__fastcall*)(void*, ...);
     }
 }
+
+#include "signatures_custom.hpp"

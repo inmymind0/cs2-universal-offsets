@@ -196,144 +196,6 @@ fn render_module_namespace_body(
         writeln!(s, "    }};\n").ok();
     }
 
-    let class_names: BTreeSet<String> = classes.iter().map(|c| sanitize_class_name(&c.name)).collect();
-    let mut emitted_enums: BTreeSet<String> = BTreeSet::new();
-
-    for e in enums {
-        let has_negative = e.members.iter().any(|m| (m.value as i64) < 0);
-        let underlying = match e.alignment {
-            1 => if has_negative { "std::int8_t" } else { "std::uint8_t" },
-            2 => if has_negative { "std::int16_t" } else { "std::uint16_t" },
-            4 => if has_negative { "std::int32_t" } else { "std::uint32_t" },
-            8 => if has_negative { "std::int64_t" } else { "std::uint64_t" },
-            _ => continue,
-        };
-
-        let enum_name = type_ident(&e.name);
-        let mut final_enum_name = if class_names.contains(&enum_name) {
-            format!("{}_e", enum_name)
-        } else {
-            enum_name.clone()
-        };
-
-        let mut counter = 2;
-        while emitted_enums.contains(&final_enum_name) {
-            final_enum_name = if class_names.contains(&enum_name) {
-                format!("{}_e{}", enum_name, counter)
-            } else {
-                format!("{}_{}", enum_name, counter)
-            };
-            counter += 1;
-        }
-
-        emitted_enums.insert(final_enum_name.clone());
-        writeln!(s, "    enum class {} : {} {{", final_enum_name, underlying).ok();
-        for m in &e.members {
-            let value = m.value as i64;
-            if value < 0 {
-                writeln!(s, "        {} = {},", sanitize_enum_member(&m.name), value).ok();
-            } else {
-                writeln!(s, "        {} = {:#X},", sanitize_enum_member(&m.name), m.value as u64).ok();
-            }
-        }
-        writeln!(s, "    }};\n").ok();
-    }
-
-    let sorted_classes = topological_sort_classes(classes);
-    for c in &sorted_classes {
-        let sanitized_name = sanitize_class_name(&c.name);
-
-        // Avoid re-emitting a small set of canonical server-owned base
-        // types here — we emit minimal complete definitions for them in
-        // `cs2sdk_macros.hpp` to break cross-module ordering problems.
-        // If this is the server module and the class name is in the
-        // predefined set, skip full emission here to prevent
-        // duplicate-definition diagnostics.
-        if ns == "server" {
-            let predefined = [
-                "CBaseAnimGraph",
-                "CBaseFilter",
-                "CEntityComponent",
-                "CLogicalEntity",
-                "CBaseProp",
-                "CAttributeManager",
-                "CSkeletonAnimationController",
-                "CBaseAnimGraphVariationUserData",
-                "CBaseAnimGraphDestructibleParts_GraphController",
-            ];
-            if predefined.iter().any(|p| p == &sanitized_name) {
-                // Still emit documentation comment so the header is readable
-                write_class_doc(&mut s, c);
-                continue;
-            }
-        }
-
-        write_class_doc(&mut s, c);
-
-        let parent = match &c.parent_name {
-            Some(raw_parent) => {
-                let sanitized_parent = sanitize_class_name(raw_parent);
-                if let Some(owner_ns) = type_namespace_map.get(&sanitized_parent) {
-                    if owner_ns != &ns {
-                        format!(" : public ::sdk::{}::{}", owner_ns, sanitized_parent)
-                    } else {
-                        format!(" : public {}", sanitized_parent)
-                    }
-                } else {
-                    format!(" : public {}", sanitized_parent)
-                }
-            }
-            None => String::new(),
-        };
-
-        writeln!(s, "    class {}{} {{", sanitized_name, parent).ok();
-        writeln!(s, "    public:").ok();
-
-        let mut alias_counter = 0;
-        let mut field_aliases: Vec<(usize, String)> = Vec::new();
-        for (idx, f) in c.fields.iter().enumerate() {
-            let cpp_ty = map_schema_type(&f.type_name, &ns, type_namespace_map);
-            if cpp_ty.contains(',') {
-                let alias_name = format!("_Type{}", alias_counter);
-                writeln!(s, "        using {} = {};", alias_name, cpp_ty).ok();
-                field_aliases.push((idx, alias_name));
-                alias_counter += 1;
-            }
-        }
-
-        for (idx, f) in c.fields.iter().enumerate() {
-            let cpp_ty = map_schema_type(&f.type_name, &ns, type_namespace_map);
-            if f.type_name.starts_with("bitfield:") {
-                writeln!(s, "        // SKIPPED: {} (bitfield type not supported)", f.name).ok();
-                continue;
-            }
-            let safe_ty = field_aliases.iter().find(|(i, _)| *i == idx).map(|(_, alias)| alias.clone()).unwrap_or(cpp_ty.clone());
-            writeln!(s, "        SCHEMA_FIELD({:<32}, {:<48}, {:#X}) // {}", safe_ty, f.name, f.offset, f.type_name).ok();
-        }
-        writeln!(s, "    }};\n").ok();
-    }
-
-    // Add manual CEconItem class for server.dll (not in schema)
-    if slugify(module.trim_end_matches(".dll")) == "server" {
-        writeln!(s, "    // CEconItem").ok();
-        writeln!(s, "    //   Manual addition - server-side inventory item").ok();
-        writeln!(s, "    //   fields: 11").ok();
-        writeln!(s, "    class CEconItem {{").ok();
-        writeln!(s, "    public:").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint64_t                   , m_ulID                                          , 0x10) // uint64").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint64_t                   , m_ulOriginalID                                  , 0x18) // uint64").ok();
-        writeln!(s, "        SCHEMA_FIELD(void*                           , m_pCustomData                                   , 0x20) // void*").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint32_t                   , m_unAccountID                                   , 0x28) // uint32").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint32_t                   , m_unInventory                                   , 0x2C) // uint32").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_unDefIndex                                    , 0x30) // uint16").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_nQuality                                      , 0x32) // uint16").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_nRarity                                       , 0x32) // uint16").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_iItemSet                                      , 0x34) // uint16").ok();
-        writeln!(s, "        SCHEMA_FIELD(bool                            , m_bSOUpdateFrame                                , 0x38) // bool").ok();
-        writeln!(s, "        SCHEMA_FIELD(std::uint32_t                   , m_unFlags                                       , 0x3C) // uint32").ok();
-        writeln!(s, "    }};\n").ok();
-    }
-
     writeln!(s, "}} // namespace sdk::{}", ns).ok();
     s
 }
@@ -2246,6 +2108,52 @@ fn render_one_module(
         writeln!(s, "        SCHEMA_FIELD(std::uint16_t                   , m_iItemSet                                      , 0x34) // uint16").ok();
         writeln!(s, "        SCHEMA_FIELD(bool                            , m_bSOUpdateFrame                                , 0x38) // bool").ok();
         writeln!(s, "        SCHEMA_FIELD(std::uint32_t                   , m_unFlags                                       , 0x3C) // uint32").ok();
+        writeln!(s, "    }};\n").ok();
+    }
+
+    // Manual c_mesh_draw_primitive / c_mesh_primitive_output_buffer for scenesystem.dll
+    // (not in schema — internal render primitives from GeneratePrimitives)
+    if ns == "scenesystem" {
+        writeln!(s, "    // c_mesh_draw_primitive — per-element mesh draw primitive (0x68 bytes)").ok();
+        writeln!(s, "    struct c_mesh_draw_primitive {{").ok();
+        writeln!(s, "        std::byte _pad0[0x20];").ok();
+        writeln!(s, "        void* m_material;          // +0x20").ok();
+        writeln!(s, "        void* m_material2;         // +0x28").ok();
+        writeln!(s, "        std::byte _pad1[0x40 - 0x30];").ok();
+        writeln!(s, "        void* m_scene_object;      // +0x40 — points to pSceneObject + 0x30").ok();
+        writeln!(s, "        std::byte _pad2[0x50 - 0x48];").ok();
+        writeln!(s, "        std::uint32_t m_tint_color;   // +0x50 — packed RGBA uint32 (0xAABBGGRR)").ok();
+        writeln!(s, "        float m_alpha_scale;       // +0x54 — alpha scale (default 1.0f)").ok();
+        writeln!(s, "        std::byte _pad3[0x68 - 0x58];").ok();
+        writeln!(s).ok();
+        writeln!(s, "        template <typename T>").ok();
+        writeln!(s, "        T* get_scene_object() noexcept {{").ok();
+        writeln!(s, "            return static_cast<T*>(m_scene_object);").ok();
+        writeln!(s, "        }}").ok();
+        writeln!(s, "    }};\n").ok();
+
+        writeln!(s, "    // c_mesh_primitive_output_buffer — output buffer passed to GeneratePrimitives").ok();
+        writeln!(s, "    struct c_mesh_primitive_output_buffer {{").ok();
+        writeln!(s, "        c_mesh_draw_primitive* m_out;              // +0x00").ok();
+        writeln!(s, "        int m_max_output_primitives;               // +0x08").ok();
+        writeln!(s, "        int m_start_primitive;                     // +0x0C").ok();
+        writeln!(s, "    }};\n").ok();
+
+// CSceneAnimatableObject — the `this` parameter of GeneratePrimitives
+        writeln!(s, "    // CSceneAnimatableObject — owner of a scene object hierarchy").ok();
+        writeln!(s, "    struct CSceneAnimatableObject {{").ok();
+        writeln!(s, "        std::byte _pad0[0xC0];                    // +0x00 padding").ok();
+        writeln!(s, "        CEntityHandle m_hOwner;                    // +0xC0 entity handle").ok();
+        writeln!(s, "    }};\n").ok();
+    }
+
+    // Manual types for materialsystem2.dll - not in schema, internal material system types
+    if ns == "materialsystem2" {
+        writeln!(s, "    // KV3 ID type - used for material system KV3 loading").ok();
+        writeln!(s, "    struct kv3_id_t {{").ok();
+        writeln!(s, "        const char* m_pString;").ok();
+        writeln!(s, "        std::uint64_t m_hash1;").ok();
+        writeln!(s, "        std::uint64_t m_hash2;").ok();
         writeln!(s, "    }};\n").ok();
     }
 
