@@ -3,7 +3,7 @@
 // module:        vphysics2.dll
 // classes:       110
 // enums:         5
-// generated_at:  2026-05-22T22:57:36.764293900+00:00
+// generated_at:  2026-05-23T16:44:12.352719800+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -163,147 +163,26 @@ namespace sdk::vphysics2 {
         GENERIC_SHAPE_HULL = 0x4,
     };
 
-    // FeWeightedNode_t
+    // IPhysicsJoint
+    //   fields: 0
+    class IPhysicsJoint {
+    public:
+    };
+
+    // FeSoftParent_t
     //   fields: 2
-    class FeWeightedNode_t {
+    class FeSoftParent_t {
     public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nWeight                                         , 0x2) // uint16
+        SCHEMA_FIELD(std::int32_t                    , nParent                                         , 0x0) // int32
+        SCHEMA_FIELD(float                           , flAlpha                                         , 0x4) // float32
     };
 
-    // FeBoxRigid_t
-    //   fields: 6
-    class FeBoxRigid_t {
-    public:
-        SCHEMA_FIELD(CTransform                      , tmFrame2                                        , 0x0) // CTransform
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x20) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x22) // uint16
-        SCHEMA_FIELD(::Vector                        , vSize                                           , 0x24) // Vector
-        SCHEMA_FIELD(std::uint16_t                   , nVertexMapIndex                                 , 0x30) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nFlags                                          , 0x32) // uint16
-    };
-
-    // FeCtrlOffset_t
-    //   fields: 3
-    class FeCtrlOffset_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , vOffset                                         , 0x0) // Vector
-        SCHEMA_FIELD(std::uint16_t                   , nCtrlParent                                     , 0xC) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nCtrlChild                                      , 0xE) // uint16
-    };
-
-    // FeSimdNodeBase_t
-    //   fields: 7
-    class FeSimdNodeBase_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4]
-        SCHEMA_FIELD(std::uint16_t                   , nNodeX0                                         , 0x8) // uint16[4]
-        SCHEMA_FIELD(std::uint16_t                   , nNodeX1                                         , 0x10) // uint16[4]
-        SCHEMA_FIELD(std::uint16_t                   , nNodeY0                                         , 0x18) // uint16[4]
-        SCHEMA_FIELD(std::uint16_t                   , nNodeY1                                         , 0x20) // uint16[4]
-        SCHEMA_FIELD(std::uint16_t                   , nDummy                                          , 0x28) // uint16[4]
-        SCHEMA_FIELD(::sdk::resourcesystem::FourQuaternions, qAdjust                                         , 0x30) // FourQuaternions
-    };
-
-    // CFeMorphLayer
-    //   fields: 7
-    class CFeMorphLayer {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_Name                                          , 0x0) // CUtlString
-        SCHEMA_FIELD(std::uint32_t                   , m_nNameHash                                     , 0x8) // uint32
-        SCHEMA_FIELD(CUtlVector<uint16>              , m_Nodes                                         , 0x10) // CUtlVector<uint16>
-        SCHEMA_FIELD(CUtlVector<Vector>              , m_InitPos                                       , 0x28) // CUtlVector<Vector>
-        SCHEMA_FIELD(CUtlVector<float32>             , m_Gravity                                       , 0x40) // CUtlVector<float32>
-        SCHEMA_FIELD(CUtlVector<float32>             , m_GoalStrength                                  , 0x58) // CUtlVector<float32>
-        SCHEMA_FIELD(CUtlVector<float32>             , m_GoalDamping                                   , 0x70) // CUtlVector<float32>
-    };
-
-    // FeNodeIntegrator_t
-    //   fields: 4
-    class FeNodeIntegrator_t {
-    public:
-        SCHEMA_FIELD(float                           , flPointDamping                                  , 0x0) // float32
-        SCHEMA_FIELD(float                           , flAnimationForceAttraction                      , 0x4) // float32
-        SCHEMA_FIELD(float                           , flAnimationVertexAttraction                     , 0x8) // float32
-        SCHEMA_FIELD(float                           , flGravity                                       , 0xC) // float32
-    };
-
-    // RnCapsule_t
+    // FeAntiTunnelGroupBuild_t
     //   fields: 2
-    class RnCapsule_t {
+    class FeAntiTunnelGroupBuild_t {
     public:
-        SCHEMA_FIELD(::Vector                        , m_vCenter                                       , 0x0) // Vector[2]
-        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x18) // float32
-    };
-
-    // VertexPositionNormal_t
-    //   fields: 2
-    class VertexPositionNormal_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vPosition                                     , 0x0) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vNormal                                       , 0xC) // Vector
-    };
-
-    // FeEffectDesc_t
-    //   fields: 4
-    class FeEffectDesc_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , sName                                           , 0x0) // CUtlString
-        SCHEMA_FIELD(std::uint32_t                   , nNameHash                                       , 0x8) // uint32
-        SCHEMA_FIELD(std::int32_t                    , nType                                           , 0xC) // int32
-        SCHEMA_FIELD(KeyValues3                      , m_Params                                        , 0x10) // KeyValues3
-    };
-
-    // RnBodyDesc_t
-    //   fields: 36
-    class RnBodyDesc_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_sDebugName                                    , 0x0) // CUtlString
-        SCHEMA_FIELD(::Vector                        , m_vPosition                                     , 0x8) // Vector
-        SCHEMA_FIELD(QuaternionStorage               , m_qOrientation                                  , 0x14) // QuaternionStorage
-        SCHEMA_FIELD(::Vector                        , m_vLinearVelocity                               , 0x24) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vAngularVelocity                              , 0x30) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vLocalMassCenter                              , 0x3C) // Vector
-        SCHEMA_FIELD(::Vector                        , m_LocalInertiaInv                               , 0x48) // Vector[3]
-        SCHEMA_FIELD(float                           , m_flMassInv                                     , 0x6C) // float32
-        SCHEMA_FIELD(float                           , m_flGameMass                                    , 0x70) // float32
-        SCHEMA_FIELD(float                           , m_flMassScaleInv                                , 0x74) // float32
-        SCHEMA_FIELD(float                           , m_flInertiaScaleInv                             , 0x78) // float32
-        SCHEMA_FIELD(float                           , m_flLinearDamping                               , 0x7C) // float32
-        SCHEMA_FIELD(float                           , m_flAngularDamping                              , 0x80) // float32
-        SCHEMA_FIELD(float                           , m_flLinearDragScale                             , 0x84) // float32
-        SCHEMA_FIELD(float                           , m_flAngularDragScale                            , 0x88) // float32
-        SCHEMA_FIELD(float                           , m_flLinearFluidDragScale                        , 0x8C) // float32
-        SCHEMA_FIELD(float                           , m_flAngularFluidDragScale                       , 0x90) // float32
-        SCHEMA_FIELD(::Vector                        , m_vLastAwakeForceAccum                          , 0x94) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vLastAwakeTorqueAccum                         , 0xA0) // Vector
-        SCHEMA_FIELD(float                           , m_flBuoyancyScale                               , 0xAC) // float32
-        SCHEMA_FIELD(float                           , m_flGravityScale                                , 0xB0) // float32
-        SCHEMA_FIELD(float                           , m_flTimeScale                                   , 0xB4) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_nBodyType                                     , 0xB8) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_nGameIndex                                    , 0xBC) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nGameFlags                                    , 0xC0) // uint32
-        SCHEMA_FIELD(std::int8_t                     , m_nMinVelocityIterations                        , 0xC4) // int8
-        SCHEMA_FIELD(std::int8_t                     , m_nMinPositionIterations                        , 0xC5) // int8
-        SCHEMA_FIELD(std::int8_t                     , m_nMassPriority                                 , 0xC6) // int8
-        SCHEMA_FIELD(bool                            , m_bEnabled                                      , 0xC7) // bool
-        SCHEMA_FIELD(bool                            , m_bSleeping                                     , 0xC8) // bool
-        SCHEMA_FIELD(bool                            , m_bIsContinuousEnabled                          , 0xC9) // bool
-        SCHEMA_FIELD(bool                            , m_bDragEnabled                                  , 0xCA) // bool
-        SCHEMA_FIELD(::Vector                        , m_vGravity                                      , 0xCC) // Vector
-        SCHEMA_FIELD(bool                            , m_bSpeculativeEnabled                           , 0xD8) // bool
-        SCHEMA_FIELD(bool                            , m_bHasShadowController                          , 0xD9) // bool
-        SCHEMA_FIELD(DynamicContinuousContactBehavior_t, m_nDynamicContinuousContactBehavior             , 0xDA) // DynamicContinuousContactBehavior_t
-    };
-
-    // FeStiffHingeBuild_t
-    //   fields: 4
-    class FeStiffHingeBuild_t {
-    public:
-        SCHEMA_FIELD(float                           , flMaxAngle                                      , 0x0) // float32
-        SCHEMA_FIELD(float                           , flStrength                                      , 0x4) // float32
-        SCHEMA_FIELD(float                           , flMotionBias                                    , 0x8) // float32[3]
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x14) // uint16[3]
+        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x0) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nCollisionMask                                , 0x4) // uint32
     };
 
     // FeNodeBase_t
@@ -319,44 +198,52 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(QuaternionStorage               , qAdjust                                         , 0x10) // QuaternionStorage
     };
 
-    // FourVectors2D
-    //   fields: 2
-    class FourVectors2D {
+    // FeSimdRodConstraint_t
+    //   fields: 5
+    class FeSimdRodConstraint_t {
     public:
-        SCHEMA_FIELD(fltx4                           , x                                               , 0x0) // fltx4
-        SCHEMA_FIELD(fltx4                           , y                                               , 0x10) // fltx4
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4][2]
+        SCHEMA_FIELD(fltx4                           , f4MaxDist                                       , 0x10) // fltx4
+        SCHEMA_FIELD(fltx4                           , f4MinDist                                       , 0x20) // fltx4
+        SCHEMA_FIELD(fltx4                           , f4Weight0                                       , 0x30) // fltx4
+        SCHEMA_FIELD(fltx4                           , f4RelaxationFactor                              , 0x40) // fltx4
     };
 
-    // FeAntiTunnelGroupBuild_t
-    //   fields: 2
-    class FeAntiTunnelGroupBuild_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x0) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nCollisionMask                                , 0x4) // uint32
-    };
-
-    // IPhysAggregateInstance
-    //   fields: 2
-    class IPhysAggregateInstance {
-    public:
-        SCHEMA_FIELD(void*                           , m_pSkeleton                                     , 0x8) // void*
-        SCHEMA_FIELD(bool                            , m_bIsAxisAligned                                , 0x10) // bool
-    };
-
-    // constraint_hingeparams_t
+    // FeTaperedCapsuleStretch_t
     //   fields: 4
-    class constraint_hingeparams_t {
+    class FeTaperedCapsuleStretch_t {
     public:
-        SCHEMA_FIELD(::Vector                        , worldPosition                                   , 0x0) // Vector
-        SCHEMA_FIELD(::Vector                        , worldAxisDirection                              , 0xC) // Vector
-        SCHEMA_FIELD(constraint_axislimit_t          , hingeAxis                                       , 0x18) // constraint_axislimit_t
-        SCHEMA_FIELD(constraint_breakableparams_t    , constraint                                      , 0x28) // constraint_breakableparams_t
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[2]
+        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x4) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nDummy                                          , 0x6) // uint16
+        SCHEMA_FIELD(float                           , flRadius                                        , 0x8) // float32[2]
     };
 
-    // IPhysicsRagdollControl
+    // IPhysicsParticleRope
     //   fields: 0
-    class IPhysicsRagdollControl {
+    class IPhysicsParticleRope {
     public:
+    };
+
+    // RnWing_t
+    //   fields: 1
+    class RnWing_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nIndex                                        , 0x0) // int32[3]
+    };
+
+    // RnBlendVertex_t
+    //   fields: 8
+    class RnBlendVertex_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , m_nWeight0                                      , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nIndex0                                       , 0x2) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nWeight1                                      , 0x4) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nIndex1                                       , 0x6) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nWeight2                                      , 0x8) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nIndex2                                       , 0xA) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nFlags                                        , 0xC) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nTargetIndex                                  , 0xE) // uint16
     };
 
     // CastSphereSATParams_t
@@ -371,52 +258,86 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(RnHull_t*                       , m_pHull                                         , 0x28) // RnHull_t*
     };
 
-    // PhysicsParticleId_t
-    //   fields: 1
-    class PhysicsParticleId_t {
+    // FeRigidColliderIndices_t
+    //   fields: 5
+    class FeRigidColliderIndices_t {
     public:
-        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
+        SCHEMA_FIELD(std::uint16_t                   , m_nTaperedCapsuleRigidIndex                     , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nSphereRigidIndex                             , 0x2) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nBoxRigidIndex                                , 0x4) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nSDFRigidIndex                                , 0x6) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nCollisionPlaneIndex                          , 0x8) // uint16
     };
 
-    // RnFace_t
-    //   fields: 1
-    class RnFace_t {
+    // FeVertexMapBuild_t
+    //   fields: 6
+    class FeVertexMapBuild_t {
     public:
-        SCHEMA_FIELD(std::uint8_t                    , m_nEdge                                         , 0x0) // uint8
+        SCHEMA_FIELD(::CUtlString                    , m_VertexMapName                                 , 0x0) // CUtlString
+        SCHEMA_FIELD(std::uint32_t                   , m_nNameHash                                     , 0x8) // uint32
+        SCHEMA_FIELD(::Color                         , m_Color                                         , 0xC) // Color
+        SCHEMA_FIELD(float                           , m_flVolumetricSolveStrength                     , 0x10) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_nScaleSourceNode                              , 0x14) // int32
+        SCHEMA_FIELD(CUtlVector<float32>             , m_Weights                                       , 0x18) // CUtlVector<float32>
     };
 
-    // FeTwistConstraint_t
+    // OldFeEdge_t
+    //   fields: 12
+    class OldFeEdge_t {
+    public:
+        SCHEMA_FIELD(float                           , m_flK                                           , 0x0) // float32[3]
+        SCHEMA_FIELD(float                           , invA                                            , 0xC) // float32
+        SCHEMA_FIELD(float                           , t                                               , 0x10) // float32
+        SCHEMA_FIELD(float                           , flThetaRelaxed                                  , 0x14) // float32
+        SCHEMA_FIELD(float                           , flThetaFactor                                   , 0x18) // float32
+        SCHEMA_FIELD(float                           , c01                                             , 0x1C) // float32
+        SCHEMA_FIELD(float                           , c02                                             , 0x20) // float32
+        SCHEMA_FIELD(float                           , c03                                             , 0x24) // float32
+        SCHEMA_FIELD(float                           , c04                                             , 0x28) // float32
+        SCHEMA_FIELD(float                           , flAxialModelDist                                , 0x2C) // float32
+        SCHEMA_FIELD(float                           , flAxialModelWeights                             , 0x30) // float32[4]
+        SCHEMA_FIELD(std::uint16_t                   , m_nNode                                         , 0x40) // uint16[4]
+    };
+
+    // RnNode_t
     //   fields: 4
-    class FeTwistConstraint_t {
+    class RnNode_t {
     public:
-        SCHEMA_FIELD(std::uint16_t                   , nNodeOrient                                     , 0x0) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nNodeEnd                                        , 0x2) // uint16
-        SCHEMA_FIELD(float                           , flTwistRelax                                    , 0x4) // float32
-        SCHEMA_FIELD(float                           , flSwingRelax                                    , 0x8) // float32
+        SCHEMA_FIELD(::Vector                        , m_vMin                                          , 0x0) // Vector
+        SCHEMA_FIELD(std::uint32_t                   , m_nChildren                                     , 0xC) // uint32
+        SCHEMA_FIELD(::Vector                        , m_vMax                                          , 0x10) // Vector
+        SCHEMA_FIELD(std::uint32_t                   , m_nTriangleOffset                               , 0x1C) // uint32
     };
 
-    // FourCovMatrices3
-    //   fields: 4
-    class FourCovMatrices3 {
-    public:
-        SCHEMA_FIELD(FourVectors                     , m_vDiag                                         , 0x0) // FourVectors
-        SCHEMA_FIELD(fltx4                           , m_flXY                                          , 0x30) // fltx4
-        SCHEMA_FIELD(fltx4                           , m_flXZ                                          , 0x40) // fltx4
-        SCHEMA_FIELD(fltx4                           , m_flYZ                                          , 0x50) // fltx4
-    };
-
-    // CFeIndexedJiggleBone
+    // FeBuildBoxRigid_t
     //   fields: 3
-    class CFeIndexedJiggleBone {
+    class FeBuildBoxRigid_t {
     public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nNode                                         , 0x0) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nJiggleParent                                 , 0x4) // uint32
-        SCHEMA_FIELD(CFeJiggleBone                   , m_jiggleBone                                    , 0x8) // CFeJiggleBone
+        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x40) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x44) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nAntitunnelGroupBits                          , 0x48) // uint32
     };
 
-    // FeMorphLayerDepr_t
-    //   fields: 8
-    class FeMorphLayerDepr_t {
+    // FeSimdAnimStrayRadius_t
+    //   fields: 3
+    class FeSimdAnimStrayRadius_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4][2]
+        SCHEMA_FIELD(fltx4                           , flMaxDist                                       , 0x10) // fltx4
+        SCHEMA_FIELD(fltx4                           , flRelaxationFactor                              , 0x20) // fltx4
+    };
+
+    // FeProxyVertexMap_t
+    //   fields: 2
+    class FeProxyVertexMap_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_Name                                          , 0x0) // CUtlString
+        SCHEMA_FIELD(float                           , m_flWeight                                      , 0x8) // float32
+    };
+
+    // CFeMorphLayer
+    //   fields: 7
+    class CFeMorphLayer {
     public:
         SCHEMA_FIELD(::CUtlString                    , m_Name                                          , 0x0) // CUtlString
         SCHEMA_FIELD(std::uint32_t                   , m_nNameHash                                     , 0x8) // uint32
@@ -425,79 +346,6 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(CUtlVector<float32>             , m_Gravity                                       , 0x40) // CUtlVector<float32>
         SCHEMA_FIELD(CUtlVector<float32>             , m_GoalStrength                                  , 0x58) // CUtlVector<float32>
         SCHEMA_FIELD(CUtlVector<float32>             , m_GoalDamping                                   , 0x70) // CUtlVector<float32>
-        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0x88) // uint32
-    };
-
-    // FeBuildTaperedCapsuleRigid_t
-    //   fields: 3
-    class FeBuildTaperedCapsuleRigid_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x30) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x34) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nAntitunnelGroupBits                          , 0x38) // uint32
-    };
-
-    // FeModelSelfCollisionLayer_t
-    //   fields: 5
-    class FeModelSelfCollisionLayer_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_Name                                          , 0x0) // CUtlString
-        SCHEMA_FIELD(CUtlVector<uint16>              , m_Nodes                                         , 0x8) // CUtlVector<uint16>
-        SCHEMA_FIELD(float                           , m_flParentReaction                              , 0x20) // float32
-        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0x24) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nEndIdx                                       , 0x28) // uint32[4]
-    };
-
-    // FeTreeChildren_t
-    //   fields: 1
-    class FeTreeChildren_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nChild                                          , 0x0) // uint16[2]
-    };
-
-    // FeTaperedCapsuleRigid_t
-    //   fields: 5
-    class FeTaperedCapsuleRigid_t {
-    public:
-        SCHEMA_FIELD(fltx4                           , vSphere                                         , 0x0) // fltx4[2]
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x20) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x22) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nVertexMapIndex                                 , 0x24) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nFlags                                          , 0x26) // uint16
-    };
-
-    // RnWing_t
-    //   fields: 1
-    class RnWing_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nIndex                                        , 0x0) // int32[3]
-    };
-
-    // RnHalfEdge_t
-    //   fields: 4
-    class RnHalfEdge_t {
-    public:
-        SCHEMA_FIELD(std::uint8_t                    , m_nNext                                         , 0x0) // uint8
-        SCHEMA_FIELD(std::uint8_t                    , m_nTwin                                         , 0x1) // uint8
-        SCHEMA_FIELD(std::uint8_t                    , m_nOrigin                                       , 0x2) // uint8
-        SCHEMA_FIELD(std::uint8_t                    , m_nFace                                         , 0x3) // uint8
-    };
-
-    // VertexPositionColor_t
-    //   fields: 1
-    class VertexPositionColor_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vPosition                                     , 0x0) // Vector
-    };
-
-    // FeNodeStrayBox_t
-    //   fields: 4
-    class FeNodeStrayBox_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , vMin                                            , 0x0) // Vector
-        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0xC) // uint32
-        SCHEMA_FIELD(::Vector                        , vMax                                            , 0x10) // Vector
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x1C) // uint16[2]
     };
 
     // RnSoftbodyCapsule_t
@@ -509,161 +357,25 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(std::uint16_t                   , m_nParticle                                     , 0x1C) // uint16[2]
     };
 
-    // FeKelagerBend2_t
-    //   fields: 4
-    class FeKelagerBend2_t {
-    public:
-        SCHEMA_FIELD(float                           , flWeight                                        , 0x0) // float32[3]
-        SCHEMA_FIELD(float                           , flHeight0                                       , 0xC) // float32
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x10) // uint16[3]
-        SCHEMA_FIELD(std::uint16_t                   , nReserved                                       , 0x16) // uint16
-    };
-
-    // FeSoftParent_t
+    // IPhysAggregateInstance
     //   fields: 2
-    class FeSoftParent_t {
+    class IPhysAggregateInstance {
     public:
-        SCHEMA_FIELD(std::int32_t                    , nParent                                         , 0x0) // int32
-        SCHEMA_FIELD(float                           , flAlpha                                         , 0x4) // float32
+        SCHEMA_FIELD(void*                           , m_pSkeleton                                     , 0x8) // void*
+        SCHEMA_FIELD(bool                            , m_bIsAxisAligned                                , 0x10) // bool
     };
 
-    // FeHingeLimit_t
-    //   fields: 6
-    class FeHingeLimit_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[6]
-        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0xC) // uint32
-        SCHEMA_FIELD(float                           , flWeight4                                       , 0x10) // float32
-        SCHEMA_FIELD(float                           , flWeight5                                       , 0x14) // float32
-        SCHEMA_FIELD(float                           , flAngleCenter                                   , 0x18) // float32
-        SCHEMA_FIELD(float                           , flAngleExtents                                  , 0x1C) // float32
-    };
-
-    // FeVertexMapDesc_t
-    //   fields: 12
-    class FeVertexMapDesc_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , sName                                           , 0x0) // CUtlString
-        SCHEMA_FIELD(std::uint32_t                   , nNameHash                                       , 0x8) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , nColor                                          , 0xC) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0x10) // uint32
-        SCHEMA_FIELD(std::uint16_t                   , nVertexBase                                     , 0x14) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nVertexCount                                    , 0x16) // uint16
-        SCHEMA_FIELD(std::uint32_t                   , nMapOffset                                      , 0x18) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , nNodeListOffset                                 , 0x1C) // uint32
-        SCHEMA_FIELD(::Vector                        , vCenterOfMass                                   , 0x20) // Vector
-        SCHEMA_FIELD(float                           , flVolumetricSolveStrength                       , 0x2C) // float32
-        SCHEMA_FIELD(std::int16_t                    , nScaleSourceNode                                , 0x30) // int16
-        SCHEMA_FIELD(std::uint16_t                   , nNodeListCount                                  , 0x32) // uint16
-    };
-
-    // FeTri_t
-    //   fields: 5
-    class FeTri_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[3]
-        SCHEMA_FIELD(float                           , w1                                              , 0x8) // float32
-        SCHEMA_FIELD(float                           , w2                                              , 0xC) // float32
-        SCHEMA_FIELD(float                           , v1x                                             , 0x10) // float32
-        SCHEMA_FIELD(::Vector2D                      , v2                                              , 0x14) // Vector2D
-    };
-
-    // FeRodConstraint_t
-    //   fields: 5
-    class FeRodConstraint_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[2]
-        SCHEMA_FIELD(float                           , flMaxDist                                       , 0x4) // float32
-        SCHEMA_FIELD(float                           , flMinDist                                       , 0x8) // float32
-        SCHEMA_FIELD(float                           , flWeight0                                       , 0xC) // float32
-        SCHEMA_FIELD(float                           , flRelaxationFactor                              , 0x10) // float32
-    };
-
-    // FeFitWeight_t
-    //   fields: 3
-    class FeFitWeight_t {
+    // FeAntiTunnelProbeBuild_t
+    //   fields: 7
+    class FeAntiTunnelProbeBuild_t {
     public:
         SCHEMA_FIELD(float                           , flWeight                                        , 0x0) // float32
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x4) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nDummy                                          , 0x6) // uint16
-    };
-
-    // RnHullDesc_t
-    //   fields: 1
-    class RnHullDesc_t {
-    public:
-        SCHEMA_FIELD(RnHull_t                        , m_Hull                                          , 0x18) // RnHull_t
-    };
-
-    // RnSoftbodySpring_t
-    //   fields: 2
-    class RnSoftbodySpring_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , m_nParticle                                     , 0x0) // uint16[2]
-        SCHEMA_FIELD(float                           , m_flLength                                      , 0x4) // float32
-    };
-
-    // FeFitInfluence_t
-    //   fields: 3
-    class FeFitInfluence_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , nVertexNode                                     , 0x0) // uint32
-        SCHEMA_FIELD(float                           , flWeight                                        , 0x4) // float32
-        SCHEMA_FIELD(std::uint32_t                   , nMatrixNode                                     , 0x8) // uint32
-    };
-
-    // FeDynKinLink_t
-    //   fields: 2
-    class FeDynKinLink_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , m_nParent                                       , 0x0) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nChild                                        , 0x2) // uint16
-    };
-
-    // FeAnimStrayRadius_t
-    //   fields: 3
-    class FeAnimStrayRadius_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[2]
-        SCHEMA_FIELD(float                           , flMaxDist                                       , 0x4) // float32
-        SCHEMA_FIELD(float                           , flRelaxationFactor                              , 0x8) // float32
-    };
-
-    // RnVertex_t
-    //   fields: 1
-    class RnVertex_t {
-    public:
-        SCHEMA_FIELD(std::uint8_t                    , m_nEdge                                         , 0x0) // uint8
-    };
-
-    // IPhysicsMotionController
-    //   fields: 0
-    class IPhysicsMotionController {
-    public:
-    };
-
-    // CRegionSVM
-    //   fields: 2
-    class CRegionSVM {
-    public:
-        SCHEMA_FIELD(CUtlVector<RnPlane_t>           , m_Planes                                        , 0x0) // CUtlVector<RnPlane_t>
-        SCHEMA_FIELD(CUtlVector<uint32>              , m_Nodes                                         , 0x18) // CUtlVector<uint32>
-    };
-
-    // CGenericShapeProxy
-    //   fields: 1
-    class CGenericShapeProxy {
-    public:
-        using _Type0 = CUtlLeanVectorFixedGrowable<Vector,8>;
-        SCHEMA_FIELD(_Type0                          , m_verts                                         , 0x30) // CUtlLeanVectorFixedGrowable<Vector,8>
-    };
-
-    // CollisionDetailLayerInfo_t::Name_t
-    //   fields: 2
-    class CollisionDetailLayerInfo_t_Name_t {
-    public:
-        SCHEMA_FIELD(CUtlStringToken                 , m_nNameToken                                    , 0x0) // CUtlStringToken
-        SCHEMA_FIELD(::CUtlString                    , m_sNameString                                   , 0x8) // CUtlString
+        SCHEMA_FIELD(float                           , flActivationDistance                            , 0x4) // float32
+        SCHEMA_FIELD(float                           , flBias                                          , 0x8) // float32
+        SCHEMA_FIELD(float                           , flCurvature                                     , 0xC) // float32
+        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0x10) // uint32
+        SCHEMA_FIELD(std::uint16_t                   , nProbeNode                                      , 0x14) // uint16
+        SCHEMA_FIELD(CUtlVector<uint16>              , targetNodes                                     , 0x18) // CUtlVector<uint16>
     };
 
     // FeNodeReverseOffset_t
@@ -675,31 +387,21 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(std::uint16_t                   , nTargetNode                                     , 0xE) // uint16
     };
 
-    // FeHingeLimitBuild_t
-    //   fields: 4
-    class FeHingeLimitBuild_t {
+    // FeSDFRigid_t
+    //   fields: 11
+    class FeSDFRigid_t {
     public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[6]
-        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0xC) // uint32
-        SCHEMA_FIELD(float                           , flLimitCW                                       , 0x10) // float32
-        SCHEMA_FIELD(float                           , flLimitCCW                                      , 0x14) // float32
-    };
-
-    // FeTaperedCapsuleStretch_t
-    //   fields: 4
-    class FeTaperedCapsuleStretch_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[2]
-        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x4) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nDummy                                          , 0x6) // uint16
-        SCHEMA_FIELD(float                           , flRadius                                        , 0x8) // float32[2]
-    };
-
-    // FeSourceEdge_t
-    //   fields: 1
-    class FeSourceEdge_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[2]
+        SCHEMA_FIELD(::Vector                        , vLocalMin                                       , 0x0) // Vector
+        SCHEMA_FIELD(::Vector                        , vLocalMax                                       , 0xC) // Vector
+        SCHEMA_FIELD(float                           , flBounciness                                    , 0x18) // float32
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x1C) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x1E) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nVertexMapIndex                                 , 0x20) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nFlags                                          , 0x22) // uint16
+        SCHEMA_FIELD(CUtlVector<float32>             , m_Distances                                     , 0x28) // CUtlVector<float32>
+        SCHEMA_FIELD(std::int32_t                    , m_nWidth                                        , 0x40) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nHeight                                       , 0x44) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nDepth                                        , 0x48) // int32
     };
 
     // FeSimdQuad_t
@@ -712,23 +414,301 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(fltx4                           , f4Weights                                       , 0xF0) // fltx4[4]
     };
 
-    // CFeNamedJiggleBone
-    //   fields: 4
-    class CFeNamedJiggleBone {
+    // FourVectors2D
+    //   fields: 2
+    class FourVectors2D {
     public:
-        SCHEMA_FIELD(::CUtlString                    , m_strParentBone                                 , 0x0) // CUtlString
-        SCHEMA_FIELD(CTransform                      , m_transform                                     , 0x10) // CTransform
-        SCHEMA_FIELD(std::uint32_t                   , m_nJiggleParent                                 , 0x30) // uint32
-        SCHEMA_FIELD(CFeJiggleBone                   , m_jiggleBone                                    , 0x34) // CFeJiggleBone
+        SCHEMA_FIELD(fltx4                           , x                                               , 0x0) // fltx4
+        SCHEMA_FIELD(fltx4                           , y                                               , 0x10) // fltx4
     };
 
-    // FeFollowNode_t
-    //   fields: 3
-    class FeFollowNode_t {
+    // FeSimdNodeBase_t
+    //   fields: 7
+    class FeSimdNodeBase_t {
     public:
-        SCHEMA_FIELD(std::uint16_t                   , nParentNode                                     , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4]
+        SCHEMA_FIELD(std::uint16_t                   , nNodeX0                                         , 0x8) // uint16[4]
+        SCHEMA_FIELD(std::uint16_t                   , nNodeX1                                         , 0x10) // uint16[4]
+        SCHEMA_FIELD(std::uint16_t                   , nNodeY0                                         , 0x18) // uint16[4]
+        SCHEMA_FIELD(std::uint16_t                   , nNodeY1                                         , 0x20) // uint16[4]
+        SCHEMA_FIELD(std::uint16_t                   , nDummy                                          , 0x28) // uint16[4]
+        SCHEMA_FIELD(::sdk::resourcesystem::FourQuaternions, qAdjust                                         , 0x30) // FourQuaternions
+    };
+
+    // CollisionDetailLayerInfo_t
+    //   fields: 6
+    class CollisionDetailLayerInfo_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_sDescription                                  , 0x0) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_sFriendlyName                                 , 0x8) // CUtlString
+        SCHEMA_FIELD(bool                            , m_bIsQueryOnly                                  , 0x10) // bool
+        SCHEMA_FIELD(::CUtlString                    , m_sParentDetailLayer                            , 0x18) // CUtlString
+        SCHEMA_FIELD(CUtlVector<CollisionDetailLayerInfo_t_Name_t>, m_vecSubtreeDetailLayers                        , 0x20) // CUtlVector<CollisionDetailLayerInfo_t::Name_t>
+        SCHEMA_FIELD(bool                            , m_bNotPickable                                  , 0x38) // bool
+    };
+
+    // FeDynKinLink_t
+    //   fields: 2
+    class FeDynKinLink_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , m_nParent                                       , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nChild                                        , 0x2) // uint16
+    };
+
+    // RnPlane_t
+    //   fields: 2
+    class RnPlane_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vNormal                                       , 0x0) // Vector
+        SCHEMA_FIELD(float                           , m_flOffset                                      , 0xC) // float32
+    };
+
+    // FeSourceEdge_t
+    //   fields: 1
+    class FeSourceEdge_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[2]
+    };
+
+    // FeNodeWindBase_t
+    //   fields: 4
+    class FeNodeWindBase_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNodeX0                                         , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nNodeX1                                         , 0x2) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nNodeY0                                         , 0x4) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nNodeY1                                         , 0x6) // uint16
+    };
+
+    // RnCapsule_t
+    //   fields: 2
+    class RnCapsule_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vCenter                                       , 0x0) // Vector[2]
+        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x18) // float32
+    };
+
+    // FeCollisionPlane_t
+    //   fields: 4
+    class FeCollisionPlane_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nCtrlParent                                     , 0x0) // uint16
         SCHEMA_FIELD(std::uint16_t                   , nChildNode                                      , 0x2) // uint16
-        SCHEMA_FIELD(float                           , flWeight                                        , 0x4) // float32
+        SCHEMA_FIELD(RnPlane_t                       , m_Plane                                         , 0x4) // RnPlane_t
+        SCHEMA_FIELD(float                           , flStrength                                      , 0x14) // float32
+    };
+
+    // RnShapeDesc_t
+    //   fields: 6
+    class RnShapeDesc_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nCollisionAttributeIndex                      , 0x0) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nSurfacePropertyIndex                         , 0x4) // uint32
+        SCHEMA_FIELD(::CUtlString                    , m_UserFriendlyName                              , 0x8) // CUtlString
+        SCHEMA_FIELD(bool                            , m_bUserFriendlyNameSealed                       , 0x10) // bool
+        SCHEMA_FIELD(bool                            , m_bUserFriendlyNameLong                         , 0x11) // bool
+        SCHEMA_FIELD(std::uint32_t                   , m_nToolMaterialHash                             , 0x14) // uint32
+    };
+
+    // FeTreeChildren_t
+    //   fields: 1
+    class FeTreeChildren_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nChild                                          , 0x0) // uint16[2]
+    };
+
+    // FeBuildSphereRigid_t
+    //   fields: 3
+    class FeBuildSphereRigid_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x20) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x24) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nAntitunnelGroupBits                          , 0x28) // uint32
+    };
+
+    // FeFitWeight_t
+    //   fields: 3
+    class FeFitWeight_t {
+    public:
+        SCHEMA_FIELD(float                           , flWeight                                        , 0x0) // float32
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x4) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nDummy                                          , 0x6) // uint16
+    };
+
+    // FeNodeIntegrator_t
+    //   fields: 4
+    class FeNodeIntegrator_t {
+    public:
+        SCHEMA_FIELD(float                           , flPointDamping                                  , 0x0) // float32
+        SCHEMA_FIELD(float                           , flAnimationForceAttraction                      , 0x4) // float32
+        SCHEMA_FIELD(float                           , flAnimationVertexAttraction                     , 0x8) // float32
+        SCHEMA_FIELD(float                           , flGravity                                       , 0xC) // float32
+    };
+
+    // RnHalfEdge_t
+    //   fields: 4
+    class RnHalfEdge_t {
+    public:
+        SCHEMA_FIELD(std::uint8_t                    , m_nNext                                         , 0x0) // uint8
+        SCHEMA_FIELD(std::uint8_t                    , m_nTwin                                         , 0x1) // uint8
+        SCHEMA_FIELD(std::uint8_t                    , m_nOrigin                                       , 0x2) // uint8
+        SCHEMA_FIELD(std::uint8_t                    , m_nFace                                         , 0x3) // uint8
+    };
+
+    // CGenericShapeProxy
+    //   fields: 1
+    class CGenericShapeProxy {
+    public:
+        using _Type0 = CUtlLeanVectorFixedGrowable<Vector,8>;
+        SCHEMA_FIELD(_Type0                          , m_verts                                         , 0x30) // CUtlLeanVectorFixedGrowable<Vector,8>
+    };
+
+    // VertexPositionColor_t
+    //   fields: 1
+    class VertexPositionColor_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vPosition                                     , 0x0) // Vector
+    };
+
+    // FeHingeLimitBuild_t
+    //   fields: 4
+    class FeHingeLimitBuild_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[6]
+        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0xC) // uint32
+        SCHEMA_FIELD(float                           , flLimitCW                                       , 0x10) // float32
+        SCHEMA_FIELD(float                           , flLimitCCW                                      , 0x14) // float32
+    };
+
+    // FeAntiTunnelProbe_t
+    //   fields: 8
+    class FeAntiTunnelProbe_t {
+    public:
+        SCHEMA_FIELD(float                           , flWeight                                        , 0x0) // float32
+        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0x4) // uint32
+        SCHEMA_FIELD(std::uint16_t                   , nProbeNode                                      , 0x8) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nCount                                          , 0xA) // uint16
+        SCHEMA_FIELD(std::uint32_t                   , nBegin                                          , 0xC) // uint32
+        SCHEMA_FIELD(float                           , flActivationDistance                            , 0x10) // float32
+        SCHEMA_FIELD(float                           , flCurvatureRadius                               , 0x14) // float32
+        SCHEMA_FIELD(float                           , flBias                                          , 0x18) // float32
+    };
+
+    // FeCtrlSoftOffset_t
+    //   fields: 4
+    class FeCtrlSoftOffset_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nCtrlParent                                     , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nCtrlChild                                      , 0x2) // uint16
+        SCHEMA_FIELD(::Vector                        , vOffset                                         , 0x4) // Vector
+        SCHEMA_FIELD(float                           , flAlpha                                         , 0x10) // float32
+    };
+
+    // CFeJiggleBone
+    //   fields: 35
+    class CFeJiggleBone {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0x0) // uint32
+        SCHEMA_FIELD(float                           , m_flLength                                      , 0x4) // float32
+        SCHEMA_FIELD(float                           , m_flTipMass                                     , 0x8) // float32
+        SCHEMA_FIELD(float                           , m_flYawStiffness                                , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flYawDamping                                  , 0x10) // float32
+        SCHEMA_FIELD(float                           , m_flPitchStiffness                              , 0x14) // float32
+        SCHEMA_FIELD(float                           , m_flPitchDamping                                , 0x18) // float32
+        SCHEMA_FIELD(float                           , m_flAlongStiffness                              , 0x1C) // float32
+        SCHEMA_FIELD(float                           , m_flAlongDamping                                , 0x20) // float32
+        SCHEMA_FIELD(float                           , m_flAngleLimit                                  , 0x24) // float32
+        SCHEMA_FIELD(float                           , m_flMinYaw                                      , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_flMaxYaw                                      , 0x2C) // float32
+        SCHEMA_FIELD(float                           , m_flYawFriction                                 , 0x30) // float32
+        SCHEMA_FIELD(float                           , m_flYawBounce                                   , 0x34) // float32
+        SCHEMA_FIELD(float                           , m_flMinPitch                                    , 0x38) // float32
+        SCHEMA_FIELD(float                           , m_flMaxPitch                                    , 0x3C) // float32
+        SCHEMA_FIELD(float                           , m_flPitchFriction                               , 0x40) // float32
+        SCHEMA_FIELD(float                           , m_flPitchBounce                                 , 0x44) // float32
+        SCHEMA_FIELD(float                           , m_flBaseMass                                    , 0x48) // float32
+        SCHEMA_FIELD(float                           , m_flBaseStiffness                               , 0x4C) // float32
+        SCHEMA_FIELD(float                           , m_flBaseDamping                                 , 0x50) // float32
+        SCHEMA_FIELD(float                           , m_flBaseMinLeft                                 , 0x54) // float32
+        SCHEMA_FIELD(float                           , m_flBaseMaxLeft                                 , 0x58) // float32
+        SCHEMA_FIELD(float                           , m_flBaseLeftFriction                            , 0x5C) // float32
+        SCHEMA_FIELD(float                           , m_flBaseMinUp                                   , 0x60) // float32
+        SCHEMA_FIELD(float                           , m_flBaseMaxUp                                   , 0x64) // float32
+        SCHEMA_FIELD(float                           , m_flBaseUpFriction                              , 0x68) // float32
+        SCHEMA_FIELD(float                           , m_flBaseMinForward                              , 0x6C) // float32
+        SCHEMA_FIELD(float                           , m_flBaseMaxForward                              , 0x70) // float32
+        SCHEMA_FIELD(float                           , m_flBaseForwardFriction                         , 0x74) // float32
+        SCHEMA_FIELD(float                           , m_flRadius0                                     , 0x78) // float32
+        SCHEMA_FIELD(float                           , m_flRadius1                                     , 0x7C) // float32
+        SCHEMA_FIELD(::Vector                        , m_vPoint0                                       , 0x80) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vPoint1                                       , 0x8C) // Vector
+        SCHEMA_FIELD(std::uint16_t                   , m_nCollisionMask                                , 0x98) // uint16
+    };
+
+    // constraint_axislimit_t
+    //   fields: 4
+    class constraint_axislimit_t {
+    public:
+        SCHEMA_FIELD(float                           , flMinRotation                                   , 0x0) // float32
+        SCHEMA_FIELD(float                           , flMaxRotation                                   , 0x4) // float32
+        SCHEMA_FIELD(float                           , flMotorTargetAngSpeed                           , 0x8) // float32
+        SCHEMA_FIELD(float                           , flMotorMaxTorque                                , 0xC) // float32
+    };
+
+    // CFeIndexedJiggleBone
+    //   fields: 3
+    class CFeIndexedJiggleBone {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nNode                                         , 0x0) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nJiggleParent                                 , 0x4) // uint32
+        SCHEMA_FIELD(CFeJiggleBone                   , m_jiggleBone                                    , 0x8) // CFeJiggleBone
+    };
+
+    // VertexPositionNormal_t
+    //   fields: 2
+    class VertexPositionNormal_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vPosition                                     , 0x0) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vNormal                                       , 0xC) // Vector
+    };
+
+    // FeAnimStrayRadius_t
+    //   fields: 3
+    class FeAnimStrayRadius_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[2]
+        SCHEMA_FIELD(float                           , flMaxDist                                       , 0x4) // float32
+        SCHEMA_FIELD(float                           , flRelaxationFactor                              , 0x8) // float32
+    };
+
+    // FourCovMatrices3
+    //   fields: 4
+    class FourCovMatrices3 {
+    public:
+        SCHEMA_FIELD(FourVectors                     , m_vDiag                                         , 0x0) // FourVectors
+        SCHEMA_FIELD(fltx4                           , m_flXY                                          , 0x30) // fltx4
+        SCHEMA_FIELD(fltx4                           , m_flXZ                                          , 0x40) // fltx4
+        SCHEMA_FIELD(fltx4                           , m_flYZ                                          , 0x50) // fltx4
+    };
+
+    // constraint_breakableparams_t
+    //   fields: 5
+    class constraint_breakableparams_t {
+    public:
+        SCHEMA_FIELD(float                           , strength                                        , 0x0) // float32
+        SCHEMA_FIELD(float                           , forceLimit                                      , 0x4) // float32
+        SCHEMA_FIELD(float                           , torqueLimit                                     , 0x8) // float32
+        SCHEMA_FIELD(float                           , bodyMassScale                                   , 0xC) // float32[2]
+        SCHEMA_FIELD(bool                            , isActive                                        , 0x14) // bool
+    };
+
+    // FeEdgeDesc_t
+    //   fields: 3
+    class FeEdgeDesc_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nEdge                                           , 0x0) // uint16[2]
+        SCHEMA_FIELD(std::uint16_t                   , nSide                                           , 0x4) // uint16[2][2]
+        SCHEMA_FIELD(std::uint16_t                   , nVirtElem                                       , 0xC) // uint16[2]
     };
 
     // PhysFeModelDesc_t
@@ -847,22 +827,109 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(std::uint16_t                   , m_nQuadVelocitySmoothIterations                 , 0x6DE) // uint16
     };
 
-    // RnCapsuleDesc_t
-    //   fields: 1
-    class RnCapsuleDesc_t {
+    // FeSphereRigid_t
+    //   fields: 5
+    class FeSphereRigid_t {
     public:
-        SCHEMA_FIELD(RnCapsule_t                     , m_Capsule                                       , 0x18) // RnCapsule_t
+        SCHEMA_FIELD(fltx4                           , vSphere                                         , 0x0) // fltx4
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x10) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x12) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nVertexMapIndex                                 , 0x14) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nFlags                                          , 0x16) // uint16
     };
 
-    // FeSimdRodConstraint_t
-    //   fields: 5
-    class FeSimdRodConstraint_t {
+    // IPhysicsRagdollControl
+    //   fields: 0
+    class IPhysicsRagdollControl {
     public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4][2]
-        SCHEMA_FIELD(fltx4                           , f4MaxDist                                       , 0x10) // fltx4
-        SCHEMA_FIELD(fltx4                           , f4MinDist                                       , 0x20) // fltx4
-        SCHEMA_FIELD(fltx4                           , f4Weight0                                       , 0x30) // fltx4
-        SCHEMA_FIELD(fltx4                           , f4RelaxationFactor                              , 0x40) // fltx4
+    };
+
+    // FeSimdTri_t
+    //   fields: 5
+    class FeSimdTri_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , nNode                                           , 0x0) // uint32[4][3]
+        SCHEMA_FIELD(fltx4                           , w1                                              , 0x30) // fltx4
+        SCHEMA_FIELD(fltx4                           , w2                                              , 0x40) // fltx4
+        SCHEMA_FIELD(fltx4                           , v1x                                             , 0x50) // fltx4
+        SCHEMA_FIELD(FourVectors2D                   , v2                                              , 0x60) // FourVectors2D
+    };
+
+    // FeHingeLimit_t
+    //   fields: 6
+    class FeHingeLimit_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[6]
+        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0xC) // uint32
+        SCHEMA_FIELD(float                           , flWeight4                                       , 0x10) // float32
+        SCHEMA_FIELD(float                           , flWeight5                                       , 0x14) // float32
+        SCHEMA_FIELD(float                           , flAngleCenter                                   , 0x18) // float32
+        SCHEMA_FIELD(float                           , flAngleExtents                                  , 0x1C) // float32
+    };
+
+    // RnBodyDesc_t
+    //   fields: 36
+    class RnBodyDesc_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_sDebugName                                    , 0x0) // CUtlString
+        SCHEMA_FIELD(::Vector                        , m_vPosition                                     , 0x8) // Vector
+        SCHEMA_FIELD(QuaternionStorage               , m_qOrientation                                  , 0x14) // QuaternionStorage
+        SCHEMA_FIELD(::Vector                        , m_vLinearVelocity                               , 0x24) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vAngularVelocity                              , 0x30) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vLocalMassCenter                              , 0x3C) // Vector
+        SCHEMA_FIELD(::Vector                        , m_LocalInertiaInv                               , 0x48) // Vector[3]
+        SCHEMA_FIELD(float                           , m_flMassInv                                     , 0x6C) // float32
+        SCHEMA_FIELD(float                           , m_flGameMass                                    , 0x70) // float32
+        SCHEMA_FIELD(float                           , m_flMassScaleInv                                , 0x74) // float32
+        SCHEMA_FIELD(float                           , m_flInertiaScaleInv                             , 0x78) // float32
+        SCHEMA_FIELD(float                           , m_flLinearDamping                               , 0x7C) // float32
+        SCHEMA_FIELD(float                           , m_flAngularDamping                              , 0x80) // float32
+        SCHEMA_FIELD(float                           , m_flLinearDragScale                             , 0x84) // float32
+        SCHEMA_FIELD(float                           , m_flAngularDragScale                            , 0x88) // float32
+        SCHEMA_FIELD(float                           , m_flLinearFluidDragScale                        , 0x8C) // float32
+        SCHEMA_FIELD(float                           , m_flAngularFluidDragScale                       , 0x90) // float32
+        SCHEMA_FIELD(::Vector                        , m_vLastAwakeForceAccum                          , 0x94) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vLastAwakeTorqueAccum                         , 0xA0) // Vector
+        SCHEMA_FIELD(float                           , m_flBuoyancyScale                               , 0xAC) // float32
+        SCHEMA_FIELD(float                           , m_flGravityScale                                , 0xB0) // float32
+        SCHEMA_FIELD(float                           , m_flTimeScale                                   , 0xB4) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_nBodyType                                     , 0xB8) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_nGameIndex                                    , 0xBC) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nGameFlags                                    , 0xC0) // uint32
+        SCHEMA_FIELD(std::int8_t                     , m_nMinVelocityIterations                        , 0xC4) // int8
+        SCHEMA_FIELD(std::int8_t                     , m_nMinPositionIterations                        , 0xC5) // int8
+        SCHEMA_FIELD(std::int8_t                     , m_nMassPriority                                 , 0xC6) // int8
+        SCHEMA_FIELD(bool                            , m_bEnabled                                      , 0xC7) // bool
+        SCHEMA_FIELD(bool                            , m_bSleeping                                     , 0xC8) // bool
+        SCHEMA_FIELD(bool                            , m_bIsContinuousEnabled                          , 0xC9) // bool
+        SCHEMA_FIELD(bool                            , m_bDragEnabled                                  , 0xCA) // bool
+        SCHEMA_FIELD(::Vector                        , m_vGravity                                      , 0xCC) // Vector
+        SCHEMA_FIELD(bool                            , m_bSpeculativeEnabled                           , 0xD8) // bool
+        SCHEMA_FIELD(bool                            , m_bHasShadowController                          , 0xD9) // bool
+        SCHEMA_FIELD(DynamicContinuousContactBehavior_t, m_nDynamicContinuousContactBehavior             , 0xDA) // DynamicContinuousContactBehavior_t
+    };
+
+    // IPhysicsBody
+    //   fields: 0
+    class IPhysicsBody {
+    public:
+    };
+
+    // FeEffectDesc_t
+    //   fields: 4
+    class FeEffectDesc_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , sName                                           , 0x0) // CUtlString
+        SCHEMA_FIELD(std::uint32_t                   , nNameHash                                       , 0x8) // uint32
+        SCHEMA_FIELD(std::int32_t                    , nType                                           , 0xC) // int32
+        SCHEMA_FIELD(KeyValues3                      , m_Params                                        , 0x10) // KeyValues3
+    };
+
+    // RnSphereDesc_t
+    //   fields: 1
+    class RnSphereDesc_t {
+    public:
+        SCHEMA_FIELD(SphereBase_t<float32>           , m_Sphere                                        , 0x18) // SphereBase_t<float32>
     };
 
     // FeFitMatrix_t
@@ -876,114 +943,80 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(std::uint16_t                   , nBeginDynamic                                   , 0x30) // uint16
     };
 
-    // FeAxialEdgeBend_t
-    //   fields: 5
-    class FeAxialEdgeBend_t {
-    public:
-        SCHEMA_FIELD(float                           , te                                              , 0x0) // float32
-        SCHEMA_FIELD(float                           , tv                                              , 0x4) // float32
-        SCHEMA_FIELD(float                           , flDist                                          , 0x8) // float32
-        SCHEMA_FIELD(float                           , flWeight                                        , 0xC) // float32[4]
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x1C) // uint16[6]
-    };
-
-    // FeProxyVertexMap_t
-    //   fields: 2
-    class FeProxyVertexMap_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_Name                                          , 0x0) // CUtlString
-        SCHEMA_FIELD(float                           , m_flWeight                                      , 0x8) // float32
-    };
-
-    // FeCtrlSoftOffset_t
-    //   fields: 4
-    class FeCtrlSoftOffset_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nCtrlParent                                     , 0x0) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nCtrlChild                                      , 0x2) // uint16
-        SCHEMA_FIELD(::Vector                        , vOffset                                         , 0x4) // Vector
-        SCHEMA_FIELD(float                           , flAlpha                                         , 0x10) // float32
-    };
-
-    // FeNodeWindBase_t
-    //   fields: 4
-    class FeNodeWindBase_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNodeX0                                         , 0x0) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nNodeX1                                         , 0x2) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nNodeY0                                         , 0x4) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nNodeY1                                         , 0x6) // uint16
-    };
-
-    // RnBlendVertex_t
-    //   fields: 8
-    class RnBlendVertex_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , m_nWeight0                                      , 0x0) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nIndex0                                       , 0x2) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nWeight1                                      , 0x4) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nIndex1                                       , 0x6) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nWeight2                                      , 0x8) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nIndex2                                       , 0xA) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nFlags                                        , 0xC) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nTargetIndex                                  , 0xE) // uint16
-    };
-
-    // FeSDFRigid_t
-    //   fields: 11
-    class FeSDFRigid_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , vLocalMin                                       , 0x0) // Vector
-        SCHEMA_FIELD(::Vector                        , vLocalMax                                       , 0xC) // Vector
-        SCHEMA_FIELD(float                           , flBounciness                                    , 0x18) // float32
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x1C) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x1E) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nVertexMapIndex                                 , 0x20) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nFlags                                          , 0x22) // uint16
-        SCHEMA_FIELD(CUtlVector<float32>             , m_Distances                                     , 0x28) // CUtlVector<float32>
-        SCHEMA_FIELD(std::int32_t                    , m_nWidth                                        , 0x40) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nHeight                                       , 0x44) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nDepth                                        , 0x48) // int32
-    };
-
-    // FeBandBendLimit_t
-    //   fields: 3
-    class FeBandBendLimit_t {
-    public:
-        SCHEMA_FIELD(float                           , flDistMin                                       , 0x0) // float32
-        SCHEMA_FIELD(float                           , flDistMax                                       , 0x4) // float32
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x8) // uint16[6]
-    };
-
-    // OldFeEdge_t
+    // FeVertexMapDesc_t
     //   fields: 12
-    class OldFeEdge_t {
+    class FeVertexMapDesc_t {
     public:
-        SCHEMA_FIELD(float                           , m_flK                                           , 0x0) // float32[3]
-        SCHEMA_FIELD(float                           , invA                                            , 0xC) // float32
-        SCHEMA_FIELD(float                           , t                                               , 0x10) // float32
-        SCHEMA_FIELD(float                           , flThetaRelaxed                                  , 0x14) // float32
-        SCHEMA_FIELD(float                           , flThetaFactor                                   , 0x18) // float32
-        SCHEMA_FIELD(float                           , c01                                             , 0x1C) // float32
-        SCHEMA_FIELD(float                           , c02                                             , 0x20) // float32
-        SCHEMA_FIELD(float                           , c03                                             , 0x24) // float32
-        SCHEMA_FIELD(float                           , c04                                             , 0x28) // float32
-        SCHEMA_FIELD(float                           , flAxialModelDist                                , 0x2C) // float32
-        SCHEMA_FIELD(float                           , flAxialModelWeights                             , 0x30) // float32[4]
-        SCHEMA_FIELD(std::uint16_t                   , m_nNode                                         , 0x40) // uint16[4]
+        SCHEMA_FIELD(::CUtlString                    , sName                                           , 0x0) // CUtlString
+        SCHEMA_FIELD(std::uint32_t                   , nNameHash                                       , 0x8) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , nColor                                          , 0xC) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0x10) // uint32
+        SCHEMA_FIELD(std::uint16_t                   , nVertexBase                                     , 0x14) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nVertexCount                                    , 0x16) // uint16
+        SCHEMA_FIELD(std::uint32_t                   , nMapOffset                                      , 0x18) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , nNodeListOffset                                 , 0x1C) // uint32
+        SCHEMA_FIELD(::Vector                        , vCenterOfMass                                   , 0x20) // Vector
+        SCHEMA_FIELD(float                           , flVolumetricSolveStrength                       , 0x2C) // float32
+        SCHEMA_FIELD(std::int16_t                    , nScaleSourceNode                                , 0x30) // int16
+        SCHEMA_FIELD(std::uint16_t                   , nNodeListCount                                  , 0x32) // uint16
     };
 
-    // RnSphereDesc_t
+    // FeTri_t
+    //   fields: 5
+    class FeTri_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[3]
+        SCHEMA_FIELD(float                           , w1                                              , 0x8) // float32
+        SCHEMA_FIELD(float                           , w2                                              , 0xC) // float32
+        SCHEMA_FIELD(float                           , v1x                                             , 0x10) // float32
+        SCHEMA_FIELD(::Vector2D                      , v2                                              , 0x14) // Vector2D
+    };
+
+    // RnVertex_t
     //   fields: 1
-    class RnSphereDesc_t {
+    class RnVertex_t {
     public:
-        SCHEMA_FIELD(SphereBase_t<float32>           , m_Sphere                                        , 0x18) // SphereBase_t<float32>
+        SCHEMA_FIELD(std::uint8_t                    , m_nEdge                                         , 0x0) // uint8
     };
 
-    // IPhysicsPlayerController
-    //   fields: 0
-    class IPhysicsPlayerController {
+    // FeStiffHingeBuild_t
+    //   fields: 4
+    class FeStiffHingeBuild_t {
     public:
+        SCHEMA_FIELD(float                           , flMaxAngle                                      , 0x0) // float32
+        SCHEMA_FIELD(float                           , flStrength                                      , 0x4) // float32
+        SCHEMA_FIELD(float                           , flMotionBias                                    , 0x8) // float32[3]
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x14) // uint16[3]
+    };
+
+    // FeFollowNode_t
+    //   fields: 3
+    class FeFollowNode_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nParentNode                                     , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nChildNode                                      , 0x2) // uint16
+        SCHEMA_FIELD(float                           , flWeight                                        , 0x4) // float32
+    };
+
+    // constraint_hingeparams_t
+    //   fields: 4
+    class constraint_hingeparams_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , worldPosition                                   , 0x0) // Vector
+        SCHEMA_FIELD(::Vector                        , worldAxisDirection                              , 0xC) // Vector
+        SCHEMA_FIELD(constraint_axislimit_t          , hingeAxis                                       , 0x18) // constraint_axislimit_t
+        SCHEMA_FIELD(constraint_breakableparams_t    , constraint                                      , 0x28) // constraint_breakableparams_t
+    };
+
+    // FeTaperedCapsuleRigid_t
+    //   fields: 5
+    class FeTaperedCapsuleRigid_t {
+    public:
+        SCHEMA_FIELD(fltx4                           , vSphere                                         , 0x0) // fltx4[2]
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x20) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x22) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nVertexMapIndex                                 , 0x24) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nFlags                                          , 0x26) // uint16
     };
 
     // RnTriangle_t
@@ -993,18 +1026,6 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(std::int32_t                    , m_nIndex                                        , 0x0) // int32[3]
     };
 
-    // FeVertexMapBuild_t
-    //   fields: 6
-    class FeVertexMapBuild_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_VertexMapName                                 , 0x0) // CUtlString
-        SCHEMA_FIELD(std::uint32_t                   , m_nNameHash                                     , 0x8) // uint32
-        SCHEMA_FIELD(::Color                         , m_Color                                         , 0xC) // Color
-        SCHEMA_FIELD(float                           , m_flVolumetricSolveStrength                     , 0x10) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_nScaleSourceNode                              , 0x14) // int32
-        SCHEMA_FIELD(CUtlVector<float32>             , m_Weights                                       , 0x18) // CUtlVector<float32>
-    };
-
     // RnMeshDesc_t
     //   fields: 1
     class RnMeshDesc_t {
@@ -1012,20 +1033,88 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(RnMesh_t                        , m_Mesh                                          , 0x18) // RnMesh_t
     };
 
-    // FeQuad_t
-    //   fields: 3
-    class FeQuad_t {
+    // RnCapsuleDesc_t
+    //   fields: 1
+    class RnCapsuleDesc_t {
     public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4]
-        SCHEMA_FIELD(float                           , flSlack                                         , 0x8) // float32
-        SCHEMA_FIELD(::Vector4D                      , vShape                                          , 0xC) // Vector4D[4]
+        SCHEMA_FIELD(RnCapsule_t                     , m_Capsule                                       , 0x18) // RnCapsule_t
     };
 
-    // CFeVertexMapBuildArray
-    //   fields: 1
-    class CFeVertexMapBuildArray {
+    // FeSimdRodConstraintAnim_t
+    //   fields: 3
+    class FeSimdRodConstraintAnim_t {
     public:
-        SCHEMA_FIELD(CUtlVector<FeVertexMapBuild_t*> , m_Array                                         , 0x0) // CUtlVector<FeVertexMapBuild_t*>
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4][2]
+        SCHEMA_FIELD(fltx4                           , f4Weight0                                       , 0x10) // fltx4
+        SCHEMA_FIELD(fltx4                           , f4RelaxationFactor                              , 0x20) // fltx4
+    };
+
+    // vphysics_save_cphysicsbody_t
+    //   fields: 1
+    class vphysics_save_cphysicsbody_t {
+    public:
+        SCHEMA_FIELD(std::uint64_t                   , m_nOldPointer                                   , 0xE0) // uint64
+    };
+
+    // RnMesh_t
+    //   fields: 11
+    class RnMesh_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vMin                                          , 0x0) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vMax                                          , 0xC) // Vector
+        SCHEMA_FIELD(CUtlVector<RnNode_t>            , m_Nodes                                         , 0x18) // CUtlVector<RnNode_t>
+        SCHEMA_FIELD(CUtlVectorSIMDPaddedVector      , m_Vertices                                      , 0x30) // CUtlVectorSIMDPaddedVector
+        SCHEMA_FIELD(CUtlVector<RnTriangle_t>        , m_Triangles                                     , 0x48) // CUtlVector<RnTriangle_t>
+        SCHEMA_FIELD(CUtlVector<RnWing_t>            , m_Wings                                         , 0x60) // CUtlVector<RnWing_t>
+        SCHEMA_FIELD(CUtlVector<uint8>               , m_TriangleEdgeFlags                             , 0x78) // CUtlVector<uint8>
+        SCHEMA_FIELD(CUtlVector<uint8>               , m_Materials                                     , 0x90) // CUtlVector<uint8>
+        SCHEMA_FIELD(::Vector                        , m_vOrthographicAreas                            , 0xA8) // Vector
+        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0xB4) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nDebugFlags                                   , 0xB8) // uint32
+    };
+
+    // FeNodeStrayBox_t
+    //   fields: 4
+    class FeNodeStrayBox_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , vMin                                            , 0x0) // Vector
+        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0xC) // uint32
+        SCHEMA_FIELD(::Vector                        , vMax                                            , 0x10) // Vector
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x1C) // uint16[2]
+    };
+
+    // CRegionSVM
+    //   fields: 2
+    class CRegionSVM {
+    public:
+        SCHEMA_FIELD(CUtlVector<RnPlane_t>           , m_Planes                                        , 0x0) // CUtlVector<RnPlane_t>
+        SCHEMA_FIELD(CUtlVector<uint32>              , m_Nodes                                         , 0x18) // CUtlVector<uint32>
+    };
+
+    // FeWorldCollisionParams_t
+    //   fields: 4
+    class FeWorldCollisionParams_t {
+    public:
+        SCHEMA_FIELD(float                           , flWorldFriction                                 , 0x0) // float32
+        SCHEMA_FIELD(float                           , flGroundFriction                                , 0x4) // float32
+        SCHEMA_FIELD(std::uint16_t                   , nListBegin                                      , 0x8) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nListEnd                                        , 0xA) // uint16
+    };
+
+    // RnSoftbodySpring_t
+    //   fields: 2
+    class RnSoftbodySpring_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , m_nParticle                                     , 0x0) // uint16[2]
+        SCHEMA_FIELD(float                           , m_flLength                                      , 0x4) // float32
+    };
+
+    // FeWeightedNode_t
+    //   fields: 2
+    class FeWeightedNode_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nWeight                                         , 0x2) // uint16
     };
 
     // RnHull_t
@@ -1048,31 +1137,111 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(CRegionSVM*                     , m_pRegionSVM                                    , 0xF0) // CRegionSVM*
     };
 
+    // FeSimdSpringIntegrator_t
+    //   fields: 5
+    class FeSimdSpringIntegrator_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4][2]
+        SCHEMA_FIELD(fltx4                           , flSpringRestLength                              , 0x10) // fltx4
+        SCHEMA_FIELD(fltx4                           , flSpringConstant                                , 0x20) // fltx4
+        SCHEMA_FIELD(fltx4                           , flSpringDamping                                 , 0x30) // fltx4
+        SCHEMA_FIELD(fltx4                           , flNodeWeight0                                   , 0x40) // fltx4
+    };
+
+    // FeMorphLayerDepr_t
+    //   fields: 8
+    class FeMorphLayerDepr_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_Name                                          , 0x0) // CUtlString
+        SCHEMA_FIELD(std::uint32_t                   , m_nNameHash                                     , 0x8) // uint32
+        SCHEMA_FIELD(CUtlVector<uint16>              , m_Nodes                                         , 0x10) // CUtlVector<uint16>
+        SCHEMA_FIELD(CUtlVector<Vector>              , m_InitPos                                       , 0x28) // CUtlVector<Vector>
+        SCHEMA_FIELD(CUtlVector<float32>             , m_Gravity                                       , 0x40) // CUtlVector<float32>
+        SCHEMA_FIELD(CUtlVector<float32>             , m_GoalStrength                                  , 0x58) // CUtlVector<float32>
+        SCHEMA_FIELD(CUtlVector<float32>             , m_GoalDamping                                   , 0x70) // CUtlVector<float32>
+        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0x88) // uint32
+    };
+
+    // FeKelagerBend2_t
+    //   fields: 4
+    class FeKelagerBend2_t {
+    public:
+        SCHEMA_FIELD(float                           , flWeight                                        , 0x0) // float32[3]
+        SCHEMA_FIELD(float                           , flHeight0                                       , 0xC) // float32
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x10) // uint16[3]
+        SCHEMA_FIELD(std::uint16_t                   , nReserved                                       , 0x16) // uint16
+    };
+
+    // IPhysicsPlayerController
+    //   fields: 0
+    class IPhysicsPlayerController {
+    public:
+    };
+
+    // CFeVertexMapBuildArray
+    //   fields: 1
+    class CFeVertexMapBuildArray {
+    public:
+        SCHEMA_FIELD(CUtlVector<FeVertexMapBuild_t*> , m_Array                                         , 0x0) // CUtlVector<FeVertexMapBuild_t*>
+    };
+
+    // FeCtrlOffset_t
+    //   fields: 3
+    class FeCtrlOffset_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , vOffset                                         , 0x0) // Vector
+        SCHEMA_FIELD(std::uint16_t                   , nCtrlParent                                     , 0xC) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nCtrlChild                                      , 0xE) // uint16
+    };
+
+    // CovMatrix3
+    //   fields: 4
+    class CovMatrix3 {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vDiag                                         , 0x0) // Vector
+        SCHEMA_FIELD(float                           , m_flXY                                          , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flXZ                                          , 0x10) // float32
+        SCHEMA_FIELD(float                           , m_flYZ                                          , 0x14) // float32
+    };
+
+    // PhysicsParticleId_t
+    //   fields: 1
+    class PhysicsParticleId_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
+    };
+
+    // FeModelSelfCollisionLayer_t
+    //   fields: 5
+    class FeModelSelfCollisionLayer_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_Name                                          , 0x0) // CUtlString
+        SCHEMA_FIELD(CUtlVector<uint16>              , m_Nodes                                         , 0x8) // CUtlVector<uint16>
+        SCHEMA_FIELD(float                           , m_flParentReaction                              , 0x20) // float32
+        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0x24) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nEndIdx                                       , 0x28) // uint32[4]
+    };
+
+    // IPhysicsMotionController
+    //   fields: 0
+    class IPhysicsMotionController {
+    public:
+    };
+
+    // FeBandBendLimit_t
+    //   fields: 3
+    class FeBandBendLimit_t {
+    public:
+        SCHEMA_FIELD(float                           , flDistMin                                       , 0x0) // float32
+        SCHEMA_FIELD(float                           , flDistMax                                       , 0x4) // float32
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x8) // uint16[6]
+    };
+
     // Dop26_t
     //   fields: 1
     class Dop26_t {
     public:
         SCHEMA_FIELD(float                           , m_flSupport                                     , 0x0) // float32[26]
-    };
-
-    // FeSphereRigid_t
-    //   fields: 5
-    class FeSphereRigid_t {
-    public:
-        SCHEMA_FIELD(fltx4                           , vSphere                                         , 0x0) // fltx4
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x10) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x12) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nVertexMapIndex                                 , 0x14) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nFlags                                          , 0x16) // uint16
-    };
-
-    // FeSimdRodConstraintAnim_t
-    //   fields: 3
-    class FeSimdRodConstraintAnim_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4][2]
-        SCHEMA_FIELD(fltx4                           , f4Weight0                                       , 0x10) // fltx4
-        SCHEMA_FIELD(fltx4                           , f4RelaxationFactor                              , 0x20) // fltx4
     };
 
     // RnSoftbodyParticle_t
@@ -1082,10 +1251,13 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(float                           , m_flMassInv                                     , 0x0) // float32
     };
 
-    // IPhysicsJoint
-    //   fields: 0
-    class IPhysicsJoint {
+    // FeQuad_t
+    //   fields: 3
+    class FeQuad_t {
     public:
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4]
+        SCHEMA_FIELD(float                           , flSlack                                         , 0x8) // float32
+        SCHEMA_FIELD(::Vector4D                      , vShape                                          , 0xC) // Vector4D[4]
     };
 
     // FeSpringIntegrator_t
@@ -1099,55 +1271,21 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(float                           , flNodeWeight0                                   , 0x10) // float32
     };
 
-    // FeBuildSDFRigid_t
-    //   fields: 3
-    class FeBuildSDFRigid_t {
+    // FeAxialEdgeBend_t
+    //   fields: 5
+    class FeAxialEdgeBend_t {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x50) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x54) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nAntitunnelGroupBits                          , 0x58) // uint32
+        SCHEMA_FIELD(float                           , te                                              , 0x0) // float32
+        SCHEMA_FIELD(float                           , tv                                              , 0x4) // float32
+        SCHEMA_FIELD(float                           , flDist                                          , 0x8) // float32
+        SCHEMA_FIELD(float                           , flWeight                                        , 0xC) // float32[4]
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x1C) // uint16[6]
     };
 
-    // FeAntiTunnelProbe_t
-    //   fields: 8
-    class FeAntiTunnelProbe_t {
-    public:
-        SCHEMA_FIELD(float                           , flWeight                                        , 0x0) // float32
-        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0x4) // uint32
-        SCHEMA_FIELD(std::uint16_t                   , nProbeNode                                      , 0x8) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nCount                                          , 0xA) // uint16
-        SCHEMA_FIELD(std::uint32_t                   , nBegin                                          , 0xC) // uint32
-        SCHEMA_FIELD(float                           , flActivationDistance                            , 0x10) // float32
-        SCHEMA_FIELD(float                           , flCurvatureRadius                               , 0x14) // float32
-        SCHEMA_FIELD(float                           , flBias                                          , 0x18) // float32
-    };
-
-    // IPhysicsParticleRope
+    // IPhysicsBodyList
     //   fields: 0
-    class IPhysicsParticleRope {
+    class IPhysicsBodyList {
     public:
-    };
-
-    // FeWorldCollisionParams_t
-    //   fields: 4
-    class FeWorldCollisionParams_t {
-    public:
-        SCHEMA_FIELD(float                           , flWorldFriction                                 , 0x0) // float32
-        SCHEMA_FIELD(float                           , flGroundFriction                                , 0x4) // float32
-        SCHEMA_FIELD(std::uint16_t                   , nListBegin                                      , 0x8) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nListEnd                                        , 0xA) // uint16
-    };
-
-    // CollisionDetailLayerInfo_t
-    //   fields: 6
-    class CollisionDetailLayerInfo_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_sDescription                                  , 0x0) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_sFriendlyName                                 , 0x8) // CUtlString
-        SCHEMA_FIELD(bool                            , m_bIsQueryOnly                                  , 0x10) // bool
-        SCHEMA_FIELD(::CUtlString                    , m_sParentDetailLayer                            , 0x18) // CUtlString
-        SCHEMA_FIELD(CUtlVector<CollisionDetailLayerInfo_t_Name_t>, m_vecSubtreeDetailLayers                        , 0x20) // CUtlVector<CollisionDetailLayerInfo_t::Name_t>
-        SCHEMA_FIELD(bool                            , m_bNotPickable                                  , 0x38) // bool
     };
 
     // vphysics_save_ragdoll_control_t
@@ -1166,109 +1304,6 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(std::int32_t                    , m_nBodyCount                                    , 0x34) // int32
     };
 
-    // FeRigidColliderIndices_t
-    //   fields: 5
-    class FeRigidColliderIndices_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , m_nTaperedCapsuleRigidIndex                     , 0x0) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nSphereRigidIndex                             , 0x2) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nBoxRigidIndex                                , 0x4) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nSDFRigidIndex                                , 0x6) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nCollisionPlaneIndex                          , 0x8) // uint16
-    };
-
-    // CovMatrix3
-    //   fields: 4
-    class CovMatrix3 {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vDiag                                         , 0x0) // Vector
-        SCHEMA_FIELD(float                           , m_flXY                                          , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flXZ                                          , 0x10) // float32
-        SCHEMA_FIELD(float                           , m_flYZ                                          , 0x14) // float32
-    };
-
-    // constraint_axislimit_t
-    //   fields: 4
-    class constraint_axislimit_t {
-    public:
-        SCHEMA_FIELD(float                           , flMinRotation                                   , 0x0) // float32
-        SCHEMA_FIELD(float                           , flMaxRotation                                   , 0x4) // float32
-        SCHEMA_FIELD(float                           , flMotorTargetAngSpeed                           , 0x8) // float32
-        SCHEMA_FIELD(float                           , flMotorMaxTorque                                , 0xC) // float32
-    };
-
-    // FeBuildSphereRigid_t
-    //   fields: 3
-    class FeBuildSphereRigid_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x20) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x24) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nAntitunnelGroupBits                          , 0x28) // uint32
-    };
-
-    // RnMesh_t
-    //   fields: 11
-    class RnMesh_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vMin                                          , 0x0) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vMax                                          , 0xC) // Vector
-        SCHEMA_FIELD(CUtlVector<RnNode_t>            , m_Nodes                                         , 0x18) // CUtlVector<RnNode_t>
-        SCHEMA_FIELD(CUtlVectorSIMDPaddedVector      , m_Vertices                                      , 0x30) // CUtlVectorSIMDPaddedVector
-        SCHEMA_FIELD(CUtlVector<RnTriangle_t>        , m_Triangles                                     , 0x48) // CUtlVector<RnTriangle_t>
-        SCHEMA_FIELD(CUtlVector<RnWing_t>            , m_Wings                                         , 0x60) // CUtlVector<RnWing_t>
-        SCHEMA_FIELD(CUtlVector<uint8>               , m_TriangleEdgeFlags                             , 0x78) // CUtlVector<uint8>
-        SCHEMA_FIELD(CUtlVector<uint8>               , m_Materials                                     , 0x90) // CUtlVector<uint8>
-        SCHEMA_FIELD(::Vector                        , m_vOrthographicAreas                            , 0xA8) // Vector
-        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0xB4) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nDebugFlags                                   , 0xB8) // uint32
-    };
-
-    // RnPlane_t
-    //   fields: 2
-    class RnPlane_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vNormal                                       , 0x0) // Vector
-        SCHEMA_FIELD(float                           , m_flOffset                                      , 0xC) // float32
-    };
-
-    // RnShapeDesc_t
-    //   fields: 6
-    class RnShapeDesc_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nCollisionAttributeIndex                      , 0x0) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nSurfacePropertyIndex                         , 0x4) // uint32
-        SCHEMA_FIELD(::CUtlString                    , m_UserFriendlyName                              , 0x8) // CUtlString
-        SCHEMA_FIELD(bool                            , m_bUserFriendlyNameSealed                       , 0x10) // bool
-        SCHEMA_FIELD(bool                            , m_bUserFriendlyNameLong                         , 0x11) // bool
-        SCHEMA_FIELD(std::uint32_t                   , m_nToolMaterialHash                             , 0x14) // uint32
-    };
-
-    // FeSimdAnimStrayRadius_t
-    //   fields: 3
-    class FeSimdAnimStrayRadius_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4][2]
-        SCHEMA_FIELD(fltx4                           , flMaxDist                                       , 0x10) // fltx4
-        SCHEMA_FIELD(fltx4                           , flRelaxationFactor                              , 0x20) // fltx4
-    };
-
-    // constraint_breakableparams_t
-    //   fields: 5
-    class constraint_breakableparams_t {
-    public:
-        SCHEMA_FIELD(float                           , strength                                        , 0x0) // float32
-        SCHEMA_FIELD(float                           , forceLimit                                      , 0x4) // float32
-        SCHEMA_FIELD(float                           , torqueLimit                                     , 0x8) // float32
-        SCHEMA_FIELD(float                           , bodyMassScale                                   , 0xC) // float32[2]
-        SCHEMA_FIELD(bool                            , isActive                                        , 0x14) // bool
-    };
-
-    // IPhysicsBodyList
-    //   fields: 0
-    class IPhysicsBodyList {
-    public:
-    };
-
     // FeCtrlOsOffset_t
     //   fields: 2
     class FeCtrlOsOffset_t {
@@ -1277,131 +1312,96 @@ namespace sdk::vphysics2 {
         SCHEMA_FIELD(std::uint16_t                   , nCtrlChild                                      , 0x2) // uint16
     };
 
-    // RnNode_t
+    // CollisionDetailLayerInfo_t::Name_t
+    //   fields: 2
+    class CollisionDetailLayerInfo_t_Name_t {
+    public:
+        SCHEMA_FIELD(CUtlStringToken                 , m_nNameToken                                    , 0x0) // CUtlStringToken
+        SCHEMA_FIELD(::CUtlString                    , m_sNameString                                   , 0x8) // CUtlString
+    };
+
+    // FeBuildTaperedCapsuleRigid_t
+    //   fields: 3
+    class FeBuildTaperedCapsuleRigid_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x30) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x34) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nAntitunnelGroupBits                          , 0x38) // uint32
+    };
+
+    // FeFitInfluence_t
+    //   fields: 3
+    class FeFitInfluence_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , nVertexNode                                     , 0x0) // uint32
+        SCHEMA_FIELD(float                           , flWeight                                        , 0x4) // float32
+        SCHEMA_FIELD(std::uint32_t                   , nMatrixNode                                     , 0x8) // uint32
+    };
+
+    // FeTwistConstraint_t
     //   fields: 4
-    class RnNode_t {
+    class FeTwistConstraint_t {
     public:
-        SCHEMA_FIELD(::Vector                        , m_vMin                                          , 0x0) // Vector
-        SCHEMA_FIELD(std::uint32_t                   , m_nChildren                                     , 0xC) // uint32
-        SCHEMA_FIELD(::Vector                        , m_vMax                                          , 0x10) // Vector
-        SCHEMA_FIELD(std::uint32_t                   , m_nTriangleOffset                               , 0x1C) // uint32
+        SCHEMA_FIELD(std::uint16_t                   , nNodeOrient                                     , 0x0) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nNodeEnd                                        , 0x2) // uint16
+        SCHEMA_FIELD(float                           , flTwistRelax                                    , 0x4) // float32
+        SCHEMA_FIELD(float                           , flSwingRelax                                    , 0x8) // float32
     };
 
-    // FeSimdSpringIntegrator_t
-    //   fields: 5
-    class FeSimdSpringIntegrator_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[4][2]
-        SCHEMA_FIELD(fltx4                           , flSpringRestLength                              , 0x10) // fltx4
-        SCHEMA_FIELD(fltx4                           , flSpringConstant                                , 0x20) // fltx4
-        SCHEMA_FIELD(fltx4                           , flSpringDamping                                 , 0x30) // fltx4
-        SCHEMA_FIELD(fltx4                           , flNodeWeight0                                   , 0x40) // fltx4
-    };
-
-    // FeCollisionPlane_t
-    //   fields: 4
-    class FeCollisionPlane_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , nCtrlParent                                     , 0x0) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , nChildNode                                      , 0x2) // uint16
-        SCHEMA_FIELD(RnPlane_t                       , m_Plane                                         , 0x4) // RnPlane_t
-        SCHEMA_FIELD(float                           , flStrength                                      , 0x14) // float32
-    };
-
-    // CFeJiggleBone
-    //   fields: 35
-    class CFeJiggleBone {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0x0) // uint32
-        SCHEMA_FIELD(float                           , m_flLength                                      , 0x4) // float32
-        SCHEMA_FIELD(float                           , m_flTipMass                                     , 0x8) // float32
-        SCHEMA_FIELD(float                           , m_flYawStiffness                                , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flYawDamping                                  , 0x10) // float32
-        SCHEMA_FIELD(float                           , m_flPitchStiffness                              , 0x14) // float32
-        SCHEMA_FIELD(float                           , m_flPitchDamping                                , 0x18) // float32
-        SCHEMA_FIELD(float                           , m_flAlongStiffness                              , 0x1C) // float32
-        SCHEMA_FIELD(float                           , m_flAlongDamping                                , 0x20) // float32
-        SCHEMA_FIELD(float                           , m_flAngleLimit                                  , 0x24) // float32
-        SCHEMA_FIELD(float                           , m_flMinYaw                                      , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_flMaxYaw                                      , 0x2C) // float32
-        SCHEMA_FIELD(float                           , m_flYawFriction                                 , 0x30) // float32
-        SCHEMA_FIELD(float                           , m_flYawBounce                                   , 0x34) // float32
-        SCHEMA_FIELD(float                           , m_flMinPitch                                    , 0x38) // float32
-        SCHEMA_FIELD(float                           , m_flMaxPitch                                    , 0x3C) // float32
-        SCHEMA_FIELD(float                           , m_flPitchFriction                               , 0x40) // float32
-        SCHEMA_FIELD(float                           , m_flPitchBounce                                 , 0x44) // float32
-        SCHEMA_FIELD(float                           , m_flBaseMass                                    , 0x48) // float32
-        SCHEMA_FIELD(float                           , m_flBaseStiffness                               , 0x4C) // float32
-        SCHEMA_FIELD(float                           , m_flBaseDamping                                 , 0x50) // float32
-        SCHEMA_FIELD(float                           , m_flBaseMinLeft                                 , 0x54) // float32
-        SCHEMA_FIELD(float                           , m_flBaseMaxLeft                                 , 0x58) // float32
-        SCHEMA_FIELD(float                           , m_flBaseLeftFriction                            , 0x5C) // float32
-        SCHEMA_FIELD(float                           , m_flBaseMinUp                                   , 0x60) // float32
-        SCHEMA_FIELD(float                           , m_flBaseMaxUp                                   , 0x64) // float32
-        SCHEMA_FIELD(float                           , m_flBaseUpFriction                              , 0x68) // float32
-        SCHEMA_FIELD(float                           , m_flBaseMinForward                              , 0x6C) // float32
-        SCHEMA_FIELD(float                           , m_flBaseMaxForward                              , 0x70) // float32
-        SCHEMA_FIELD(float                           , m_flBaseForwardFriction                         , 0x74) // float32
-        SCHEMA_FIELD(float                           , m_flRadius0                                     , 0x78) // float32
-        SCHEMA_FIELD(float                           , m_flRadius1                                     , 0x7C) // float32
-        SCHEMA_FIELD(::Vector                        , m_vPoint0                                       , 0x80) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vPoint1                                       , 0x8C) // Vector
-        SCHEMA_FIELD(std::uint16_t                   , m_nCollisionMask                                , 0x98) // uint16
-    };
-
-    // FeAntiTunnelProbeBuild_t
-    //   fields: 7
-    class FeAntiTunnelProbeBuild_t {
-    public:
-        SCHEMA_FIELD(float                           , flWeight                                        , 0x0) // float32
-        SCHEMA_FIELD(float                           , flActivationDistance                            , 0x4) // float32
-        SCHEMA_FIELD(float                           , flBias                                          , 0x8) // float32
-        SCHEMA_FIELD(float                           , flCurvature                                     , 0xC) // float32
-        SCHEMA_FIELD(std::uint32_t                   , nFlags                                          , 0x10) // uint32
-        SCHEMA_FIELD(std::uint16_t                   , nProbeNode                                      , 0x14) // uint16
-        SCHEMA_FIELD(CUtlVector<uint16>              , targetNodes                                     , 0x18) // CUtlVector<uint16>
-    };
-
-    // FeSimdTri_t
-    //   fields: 5
-    class FeSimdTri_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , nNode                                           , 0x0) // uint32[4][3]
-        SCHEMA_FIELD(fltx4                           , w1                                              , 0x30) // fltx4
-        SCHEMA_FIELD(fltx4                           , w2                                              , 0x40) // fltx4
-        SCHEMA_FIELD(fltx4                           , v1x                                             , 0x50) // fltx4
-        SCHEMA_FIELD(FourVectors2D                   , v2                                              , 0x60) // FourVectors2D
-    };
-
-    // IPhysicsBody
-    //   fields: 0
-    class IPhysicsBody {
-    public:
-    };
-
-    // vphysics_save_cphysicsbody_t
+    // RnFace_t
     //   fields: 1
-    class vphysics_save_cphysicsbody_t {
+    class RnFace_t {
     public:
-        SCHEMA_FIELD(std::uint64_t                   , m_nOldPointer                                   , 0xE0) // uint64
+        SCHEMA_FIELD(std::uint8_t                    , m_nEdge                                         , 0x0) // uint8
     };
 
-    // FeEdgeDesc_t
-    //   fields: 3
-    class FeEdgeDesc_t {
+    // FeRodConstraint_t
+    //   fields: 5
+    class FeRodConstraint_t {
     public:
-        SCHEMA_FIELD(std::uint16_t                   , nEdge                                           , 0x0) // uint16[2]
-        SCHEMA_FIELD(std::uint16_t                   , nSide                                           , 0x4) // uint16[2][2]
-        SCHEMA_FIELD(std::uint16_t                   , nVirtElem                                       , 0xC) // uint16[2]
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x0) // uint16[2]
+        SCHEMA_FIELD(float                           , flMaxDist                                       , 0x4) // float32
+        SCHEMA_FIELD(float                           , flMinDist                                       , 0x8) // float32
+        SCHEMA_FIELD(float                           , flWeight0                                       , 0xC) // float32
+        SCHEMA_FIELD(float                           , flRelaxationFactor                              , 0x10) // float32
     };
 
-    // FeBuildBoxRigid_t
+    // FeBuildSDFRigid_t
     //   fields: 3
-    class FeBuildBoxRigid_t {
+    class FeBuildSDFRigid_t {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x40) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x44) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nAntitunnelGroupBits                          , 0x48) // uint32
+        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x50) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_nVertexMapHash                                , 0x54) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nAntitunnelGroupBits                          , 0x58) // uint32
+    };
+
+    // RnHullDesc_t
+    //   fields: 1
+    class RnHullDesc_t {
+    public:
+        SCHEMA_FIELD(RnHull_t                        , m_Hull                                          , 0x18) // RnHull_t
+    };
+
+    // CFeNamedJiggleBone
+    //   fields: 4
+    class CFeNamedJiggleBone {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_strParentBone                                 , 0x0) // CUtlString
+        SCHEMA_FIELD(CTransform                      , m_transform                                     , 0x10) // CTransform
+        SCHEMA_FIELD(std::uint32_t                   , m_nJiggleParent                                 , 0x30) // uint32
+        SCHEMA_FIELD(CFeJiggleBone                   , m_jiggleBone                                    , 0x34) // CFeJiggleBone
+    };
+
+    // FeBoxRigid_t
+    //   fields: 6
+    class FeBoxRigid_t {
+    public:
+        SCHEMA_FIELD(CTransform                      , tmFrame2                                        , 0x0) // CTransform
+        SCHEMA_FIELD(std::uint16_t                   , nNode                                           , 0x20) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nCollisionMask                                  , 0x22) // uint16
+        SCHEMA_FIELD(::Vector                        , vSize                                           , 0x24) // Vector
+        SCHEMA_FIELD(std::uint16_t                   , nVertexMapIndex                                 , 0x30) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , nFlags                                          , 0x32) // uint16
     };
 
 } // namespace sdk::vphysics2

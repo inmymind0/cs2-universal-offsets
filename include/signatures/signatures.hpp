@@ -129,7 +129,6 @@ namespace sdk::sigs {
         inline constexpr std::string_view DrawCrosshair = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 5E BA";
         inline constexpr std::string_view DrawLegs = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
         inline constexpr std::string_view DrawOverHead = "40 53 48 83 EC 20 48 8B D9 83 FA FF 75 17 48 8B";
-        inline constexpr std::string_view DrawScopeOverlay = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
         inline constexpr std::string_view DrawSmokeVertex = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B 9C 24 88 00 00 00 4D 8B F8 48 8B FA 48 8B";
         inline constexpr std::string_view DrawTeamIntro = "48 83 EC 28 45 0F B6 08 44 38 89 04 0F 00 00 74";
         inline constexpr std::string_view E8 = "40 53 48 83 EC 20 48 8B 89 90 14 00 00 48 8B DA";
@@ -203,6 +202,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view LoadFileForMe = "40 55 57 41 56 48 83 EC 20 4C 63 71 18 33 FF 48";
         inline constexpr std::string_view LoadPath = "48 89 74 24 20 57 48 83 EC 20 44 8B 49 04 BF FF FF FF 7F 44 23 CF 48 8B F1 41 8B C8 45 85 C0 74 30 83 E9 ? ? ? ? F9 01 0F 85 ? ? ? ? 41";
         inline constexpr std::string_view LookupBone = "40 53 48 83 EC 20 48 8B 89 30 03 00 00 48 8B DA 48 8B 01 FF 50 50 48 8B";
+        inline constexpr std::string_view MatchFoundHandler = "48 85 D2 0F 84 ? ? ? ? 48 8B C4 55 53 56 57";
         inline constexpr std::string_view ModulationUpdate = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84";
         inline constexpr std::string_view MovementServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 D3 41 AD 01 0F 8F D3";
         inline constexpr std::string_view NoClipOnChange = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8B EC 48 83 EC 30 48 8D 05 3A 18";
@@ -214,6 +214,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view OnRemoveEntity = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 08 FF 89 90";
         inline constexpr std::string_view OnSkeletonModelChanged = "49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00";
         inline constexpr std::string_view PanelConstructorPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F1 48 8B FA B9 20 00";
+        inline constexpr std::string_view PanoramaEvent = "40 56 57 41 57 48 83 EC 40 48 8B 3D ? ? ? ?";
         inline constexpr std::string_view ParseSubtickDuration = "40 55 48 8D AC 24 70 FD FF FF 48 81 EC 90 03 00";
         inline constexpr std::string_view ParseSubtickFraction = "40 55 48 8D AC 24 40 FE FF FF 48 81 EC C0 02 00";
         inline constexpr std::string_view ParticleCollection = "48 89 5C 24 08 57 48 83 EC 20 0F 28 05 DF 5A 2F";
@@ -238,7 +239,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view RunCommand = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
         inline constexpr std::string_view RunCommand_processor = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
         inline constexpr std::string_view SOCreated = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B FA 48 8B F1 41 83 F9 01 75 7F 48 8B 5C 24 60 48 85 DB 74 75 48 85 D2 74 70 49 8B C8 E8 AE 48";
-        inline constexpr std::string_view Scope_callsite = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
+        inline constexpr std::string_view Scope_callsite = "E9 ? ? ? ? 48 83 EC 68 48 8B FA 44 0F 29 40";
         inline constexpr std::string_view SendChatMessage = "4C 89 44 24 18 4C 89 4C 24 20 53 B8 40 10 00 00";
         inline constexpr std::string_view SetBodyGroup = "85 D2 0F 88 ? ? ? ? 55 53 56 41 56 48 8B EC";
         inline constexpr std::string_view SetBodyGroup_inv = "85 D2 0F 88 ? ? ? ? 53 55 48 83 EC 38 48 63";
@@ -679,8 +680,6 @@ namespace sdk::sigs_fn {
         using DrawLegs_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: unsigned __int8 __fastcall DrawOverHead(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
         using DrawOverHead_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: __int64 __fastcall DrawScopeOverlay(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using DrawScopeOverlay_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DrawSmokeVertex(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6) (placeholder — verify in IDA)
         using DrawSmokeVertex_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -827,6 +826,8 @@ namespace sdk::sigs_fn {
         using LoadPath_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall LookupBone(__int64 a1, __int64 a2) (placeholder — verify in IDA)
         using LookupBone_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: void __fastcall MatchFoundHandler(__int64 thisptr, __int64 *kv) (placeholder — verify in IDA)
+        using MatchFoundHandler_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ModulationUpdate(__int64 a1, char a2) (placeholder — verify in IDA)
         using ModulationUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *MovementServices() (placeholder — verify in IDA)
@@ -849,6 +850,8 @@ namespace sdk::sigs_fn {
         using OnSkeletonModelChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using PanelConstructorPointer_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using PanoramaEvent_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using ParseSubtickDuration_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)

@@ -3,7 +3,7 @@
 // module:        rendersystemdx11.dll
 // classes:       8
 // enums:         7
-// generated_at:  2026-05-22T22:57:36.764293900+00:00
+// generated_at:  2026-05-23T16:44:12.352719800+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -98,6 +98,26 @@ namespace sdk::rendersystemdx11 {
         SCHEMA_FIELD(float                           , m_flSlopeScaledDepthBias                        , 0xC) // float32
     };
 
+    // VsInputSignature_t
+    //   fields: 2
+    class VsInputSignature_t {
+    public:
+        SCHEMA_FIELD(CUtlVector<VsInputSignatureElement_t>, m_elems                                         , 0x0) // CUtlVector<VsInputSignatureElement_t>
+        SCHEMA_FIELD(CUtlVector<VsInputSignatureElement_t>, m_depth_elems                                   , 0x18) // CUtlVector<VsInputSignatureElement_t>
+    };
+
+    // RenderInputLayoutField_t
+    //   fields: 6
+    class RenderInputLayoutField_t {
+    public:
+        SCHEMA_FIELD(char                            , m_pSemanticName                                 , 0x0) // char[32]
+        SCHEMA_FIELD(std::int8_t                     , m_nSemanticIndex                                , 0x20) // int8
+        SCHEMA_FIELD(std::int16_t                    , m_nOffset                                       , 0x28) // int16
+        SCHEMA_FIELD(std::int8_t                     , m_nSlot                                         , 0x2A) // int8
+        SCHEMA_FIELD(RenderSlotType_t                , m_nSlotType                                     , 0x2B) // RenderSlotType_t
+        SCHEMA_FIELD(char                            , m_szShaderSemantic                              , 0x2C) // char[32]
+    };
+
     // RsDepthStencilStateDesc_t
     //   fields: 4
     class RsDepthStencilStateDesc_t {
@@ -116,21 +136,6 @@ namespace sdk::rendersystemdx11 {
         SCHEMA_FIELD(char                            , m_pSemantic                                     , 0x40) // char[64]
         SCHEMA_FIELD(char                            , m_pD3DSemanticName                              , 0x80) // char[64]
         SCHEMA_FIELD(std::int32_t                    , m_nD3DSemanticIndex                             , 0xC0) // int32
-    };
-
-    // SheetSequenceIntegerId_t
-    //   fields: 1
-    class SheetSequenceIntegerId_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
-    };
-
-    // VsInputSignature_t
-    //   fields: 2
-    class VsInputSignature_t {
-    public:
-        SCHEMA_FIELD(CUtlVector<VsInputSignatureElement_t>, m_elems                                         , 0x0) // CUtlVector<VsInputSignatureElement_t>
-        SCHEMA_FIELD(CUtlVector<VsInputSignatureElement_t>, m_depth_elems                                   , 0x18) // CUtlVector<VsInputSignatureElement_t>
     };
 
     // RsBlendStateDesc_t
@@ -167,16 +172,11 @@ namespace sdk::rendersystemdx11 {
         SCHEMA_FIELD(std::uint8_t                    , m_nStencilWriteMask                             , 0x5) // uint8
     };
 
-    // RenderInputLayoutField_t
-    //   fields: 6
-    class RenderInputLayoutField_t {
+    // SheetSequenceIntegerId_t
+    //   fields: 1
+    class SheetSequenceIntegerId_t {
     public:
-        SCHEMA_FIELD(char                            , m_pSemanticName                                 , 0x0) // char[32]
-        SCHEMA_FIELD(std::int8_t                     , m_nSemanticIndex                                , 0x20) // int8
-        SCHEMA_FIELD(std::int16_t                    , m_nOffset                                       , 0x28) // int16
-        SCHEMA_FIELD(std::int8_t                     , m_nSlot                                         , 0x2A) // int8
-        SCHEMA_FIELD(RenderSlotType_t                , m_nSlotType                                     , 0x2B) // RenderSlotType_t
-        SCHEMA_FIELD(char                            , m_szShaderSemantic                              , 0x2C) // char[32]
+        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
     };
 
 } // namespace sdk::rendersystemdx11
