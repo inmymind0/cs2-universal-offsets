@@ -438,9 +438,9 @@ fn scan_pattern(mc: &ModuleCache, sig: &Signature) -> SignatureHit {
         Err(e) => return SignatureHit::fail(sig, &format!("bad pattern: {}", e)),
     };
 
-    // .text first; .rdata fallback for globals.
-    // We always count *all* matches in the primary section so callers can
-    // detect ambiguous patterns and tighten them.
+    // .text first; .rdata fallback for globals; full-image last resort so
+    // patterns in non-standard sections (e.g. client.dll's .PAGE) are found
+    // the same way the cheat's own memory::FindPattern (SizeOfImage scan) does.
     let text_hits = find_all_pattern(mc.text(), &bytes, &mask);
     let mut matches: u32 = text_hits.len() as u32;
     let mut off: Option<u32> = text_hits.first().map(|o| mc.text_rva + *o as u32);
@@ -451,6 +451,13 @@ fn scan_pattern(mc: &ModuleCache, sig: &Signature) -> SignatureHit {
     {
         off = Some(mc.rdata_rva + o as u32);
         matches = 1;
+    }
+
+    if off.is_none() {
+        if let Some(o) = find_pattern(&mc.image, &bytes, &mask) {
+            off = Some(o as u32);
+            matches = 1;
+        }
     }
 
     let Some(match_rva) = off else {
