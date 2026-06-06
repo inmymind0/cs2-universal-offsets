@@ -3194,7 +3194,7 @@
       "fields": {
         "econ_item": { "offset": 24, "number": 1, "has_bit": -1, "type": 11, "label": 1 },
         "team": { "offset": 48, "number": 2, "has_bit": 0, "type": 5, "label": 1 },
-        "slot": { "offset": 4294967295, "number": 3, "has_bit": 2219002144, "type": 5, "label": 1 }
+        "slot": { "offset": 4294967295, "number": 3, "has_bit": 2516207904, "type": 5, "label": 1 }
       }
     },
     "MLDict": {
@@ -8614,7 +8614,7 @@
       "fields": {
         "path": { "offset": 16, "number": 1, "has_bit": -1, "type": 5, "label": 3 },
         "source_file": { "offset": 0, "number": 2, "has_bit": -1, "type": 9, "label": 1 },
-        "begin": { "offset": 2219002144, "number": 3, "has_bit": -1, "type": 5, "label": 1 },
+        "begin": { "offset": 2516207904, "number": 3, "has_bit": -1, "type": 5, "label": 1 },
         "end": { "offset": 32765, "number": 4, "has_bit": -1, "type": 5, "label": 1 }
       }
     }
@@ -8907,7 +8907,7 @@
       "fields": {
         "path": { "offset": 16, "number": 1, "has_bit": -1, "type": 5, "label": 3 },
         "source_file": { "offset": 0, "number": 2, "has_bit": -1, "type": 9, "label": 1 },
-        "begin": { "offset": 3064189264, "number": 3, "has_bit": -1, "type": 5, "label": 1 },
+        "begin": { "offset": 3359232336, "number": 3, "has_bit": -1, "type": 5, "label": 1 },
         "end": { "offset": 32765, "number": 4, "has_bit": -1, "type": 5, "label": 1 }
       }
     },
@@ -10796,7 +10796,7 @@
       "fields": {
         "path": { "offset": 16, "number": 1, "has_bit": -1, "type": 5, "label": 3 },
         "source_file": { "offset": 0, "number": 2, "has_bit": -1, "type": 9, "label": 1 },
-        "begin": { "offset": 3015227888, "number": 3, "has_bit": -1, "type": 5, "label": 1 },
+        "begin": { "offset": 3265640944, "number": 3, "has_bit": -1, "type": 5, "label": 1 },
         "end": { "offset": 32765, "number": 4, "has_bit": -1, "type": 5, "label": 1 }
       }
     },
@@ -19990,7 +19990,7 @@
       "fields": {
         "path": { "offset": 16, "number": 1, "has_bit": -1, "type": 5, "label": 3 },
         "source_file": { "offset": 0, "number": 2, "has_bit": -1, "type": 9, "label": 1 },
-        "begin": { "offset": 2258374736, "number": 3, "has_bit": -1, "type": 5, "label": 1 },
+        "begin": { "offset": 2555580496, "number": 3, "has_bit": -1, "type": 5, "label": 1 },
         "end": { "offset": 32765, "number": 4, "has_bit": -1, "type": 5, "label": 1 }
       }
     }

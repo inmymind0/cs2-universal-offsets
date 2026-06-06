@@ -941,6 +941,41 @@ pub static CS2_PATTERNS: &[Pattern] = &[
         prototype: "",
     },
 
+    // --- cspatterns.dev additions (verified 07/06/2026) -----------------------
+    Pattern { name: "OverrideView",                                  module: "client.dll", needle: "40 57 48 83 EC ? 48 8B FA E8 ? ? ? ? BA", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "PopupEventHandle",                              module: "client.dll", needle: "40 56 57 41 57 48 83 EC ? 48 8B 3D ? ? ? ? 4D 85 C0", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "InitTraceInfo",                                 module: "client.dll", needle: "40 55 41 55 41 57 48 83 EC", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTraceInfo_v2",                               module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 0F 29 74 24", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "HandleBulletPenetration_v2",                    module: "client.dll", needle: "48 8B C4 44 89 48 ? 48 89 50 ? 48 89 48 ? 55 57", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetMapBspName",                                 module: "client.dll", needle: "48 8B 0D ? ? ? ? ? ? ? 48 FF A0 ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 48 89 5C 24 ? 57", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetPlayerModel",                                module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B CA FF 15 ? ? ? ? 48 8B 1D ? ? ? ? 48 8B F0 8B 5B ? 85 DB 74 ? 33 FF 0F 1F 44 00 ? 8B CF E8 ? ? ? ? 48 85 C0 74 ? 8B 88 ? ? ? ? C1 E9 ? F6 C1 ? 74 ? 48 63 C7 EB ? 48 8B C8 E8 ? ? ? ? 48 3B C6 74 ? FF C7 3B FB 75 ? BF ? ? ? ? 8B CF E8 ? ? ? ? 48 8B D8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? 48 85 C0 48 0F 45 D8 48 8B CB E8 ? ? ? ? 0F B7 D8 E8 ? ? ? ? 8B D3 45 33 C0 48 8B C8 E8 ? ? ? ? 48 8B D8", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "IsLatched",                                     module: "client.dll", needle: "0F B6 81 ? ? ? ? C3 ? ? ? ? ? ? ? ? 48 83 EC ? 33 C9", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "SetAttribute",                                  module: "client.dll", needle: "48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 66 0F 6E CA 49 8B F0 66 0F 70 C9 00 8B EA 48 8B F9 45 33 C9 48 8B C1", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "HasOngoingMatch",                               module: "client.dll", needle: "0F B6 05 ? ? ? ? 24", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "ActionReconnectToOngoingMatch",                 module: "client.dll", needle: "48 83 EC ? F6 05 ? ? ? ? ? 74 ? 48 8B 0D", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "ActionAbandonOngoingMatch",                     module: "client.dll", needle: "40 57 48 83 EC ? 33 FF", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "ActionMatchmaking",                             module: "client.dll", needle: "48 89 5C 24 ? 55 57 41 56 48 81 EC ? ? ? ? 48 8B 0D", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetCooldownSecondsRemaining",                   module: "client.dll", needle: "48 83 EC ? 8B 05 ? ? ? ? C1 E8 ? A8 ? 74 ? 48 8D 4C 24", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetCooldownType",                               module: "client.dll", needle: "8B 15 ? ? ? ? 8D 42 ? 83 F8", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "CooldownIsPermanent",                           module: "client.dll", needle: "8B 0D ? ? ? ? 8D 41 ? A9", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetCooldownReason",                             module: "client.dll", needle: "8B 05 ? ? ? ? 48 8D 15 ? ? ? ? FF C8", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "ActionAcknowledgePenalty",                      module: "client.dll", needle: "E9 ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 48 89 5C 24 ? 48 89 74 24 ? 57 48 81 EC ? ? ? ? 41 8B D9", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "ShowFairPlayGuidelinesForCooldown",             module: "client.dll", needle: "8B 05 ? ? ? ? 32 D2", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentTeamCount",                        module: "client.dll", needle: "40 53 48 83 EC ? 8B 05 ? ? ? ? 33 DB C1 E8 ? A8 ? 74 ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 85 C0 48 0F 45 C8 8B 41 ? ? ? A8 ? 74 ? 48 8B 49 ? 48 83 E1 ? 48 83 79 ? ? 76 ? ? ? ? ? ? 74 ? FF 15 ? ? ? ? 85 C0 0F 44 1D ? ? ? ? 8B C3 48 83 C4 ? 5B C3 48 89 5C 24", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentTeamNameByIndex",                  module: "client.dll", needle: "40 53 48 83 EC ? 8B 05 ? ? ? ? C1 E8 ? 49 63 D8 A8 ? 74 ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 85 C0 48 0F 45 C8 8B 41 ? ? ? A8 ? 74 ? 48 8B 49 ? 48 83 E1 ? 48 83 79 ? ? 76 ? ? ? ? ? ? 00 74 ? FF 15 ? ? ? ? 85 C0 75 ? 85 DB 78 ? 3B 1D ? ? ? ? 7D ? 48 8B 05 ? ? ? ? 48 8B 54 D8 ? 8B 42 ? C1 E8 ? A8 ? 74 ? 48 8B 42 ? 48 83 E0 ? 48 83 78 ? ? 76 ? ? ? ? 48 83 C4 ? 5B C3 48 8D 05 ? ? ? ? 48 83 C4 ? 5B C3 ? ? ? ? 48 89 5C 24", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentTeamTagByIndex",                   module: "client.dll", needle: "40 53 48 83 EC ? 8B 05 ? ? ? ? C1 E8 ? 49 63 D8 A8 ? 74 ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 85 C0 48 0F 45 C8 8B 41 ? ? ? A8 ? 74 ? 48 8B 49 ? 48 83 E1 ? 48 83 79 ? ? 76 ? ? ? ? ? ? 00 74 ? FF 15 ? ? ? ? 85 C0 75 ? 85 DB 78 ? 3B 1D ? ? ? ? 7D ? 48 8B 05 ? ? ? ? 48 8B 44 D8", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentTeamFlagByIndex",                  module: "client.dll", needle: "40 53 48 83 EC ? 8B 05 ? ? ? ? C1 E8 ? 49 63 D8 A8 ? 74 ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 85 C0 48 0F 45 C8 8B 41 ? ? ? A8 ? 74 ? 48 8B 49 ? 48 83 E1 ? 48 83 79 ? ? 76 ? ? ? ? ? ? 00 74 ? FF 15 ? ? ? ? 85 C0 75 ? 85 DB 78 ? 3B 1D ? ? ? ? 7D ? 48 8B 05 ? ? ? ? 48 8B 54 D8 ? 8B 42 ? ? ? A8", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentTeamNameByID",                     module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 05 ? ? ? ? 33 DB C1 E8 ? 41 8B F8 A8 ? 0F 84 ? ? ? ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 85 C0 48 0F 45 C8 8B 41 ? ? ? A8 ? 74 ? 48 8B 49 ? 48 83 E1 ? 48 83 79 ? ? 76 ? ? ? ? ? ? 74 ? FF 15 ? ? ? ? 85 C0 75 ? 48 63 05 ? ? ? ? 85 C0 7E ? 4C 8B 15 ? ? ? ? 4C 8B C8 48 8B CB 49 8D 52 ? 66 0F 1F 44 00 ? ? ? ? 41 8B 40 ? C1 E8", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentTeamTagByID",                      module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 05 ? ? ? ? 33 DB C1 E8 ? 41 8B F8 A8 ? 74", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentTeamFlagByID",                     module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 05 ? ? ? ? 33 DB C1 E8 ? 41 8B F8 A8 ? 0F 84 ? ? ? ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 85 C0 48 0F 45 C8 8B 41 ? ? ? A8 ? 74 ? 48 8B 49 ? 48 83 E1 ? 48 83 79 ? ? 76 ? ? ? ? ? ? 74 ? FF 15 ? ? ? ? 85 C0 75 ? 48 63 05 ? ? ? ? 85 C0 7E ? 4C 8B 15 ? ? ? ? 4C 8B C8 48 8B CB 49 8D 52 ? 66 0F 1F 44 00 ? ? ? ? 41 8B 40 ? ? ? A8", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentStageCount",                       module: "client.dll", needle: "40 53 48 83 EC ? 8B 05 ? ? ? ? 33 DB C1 E8 ? A8 ? 74 ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 85 C0 48 0F 45 C8 8B 41 ? ? ? A8 ? 74 ? 48 8B 49 ? 48 83 E1 ? 48 83 79 ? ? 76 ? ? ? ? ? ? 74 ? FF 15 ? ? ? ? 85 C0 0F 44 1D ? ? ? ? 8B C3 48 83 C4 ? 5B C3 40 53", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetTournamentStageNameByIndex",                 module: "client.dll", needle: "40 53 48 83 EC ? 8B 05 ? ? ? ? C1 E8 ? 49 63 D8 A8 ? 74 ? 48 8B 05 ? ? ? ? 48 8D 0D ? ? ? ? 48 85 C0 48 0F 45 C8 8B 41 ? ? ? A8 ? 74 ? 48 8B 49 ? 48 83 E1 ? 48 83 79 ? ? 76 ? ? ? ? ? ? 00 74 ? FF 15 ? ? ? ? 85 C0 75 ? 85 DB 78 ? 3B 1D ? ? ? ? 7D ? 48 8B 05 ? ? ? ? 48 8B 54 D8 ? 8B 42 ? C1 E8 ? A8 ? 74 ? 48 8B 42 ? 48 83 E0 ? 48 83 78 ? ? 76 ? ? ? ? 48 83 C4 ? 5B C3 48 8D 05 ? ? ? ? 48 83 C4 ? 5B C3 ? ? ? ? 40 53", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetDirectChallengeCode",                        module: "client.dll", needle: "48 83 EC ? F7 05", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetDirectChallengeCodeForClan",                 module: "client.dll", needle: "48 81 EC ? ? ? ? 85 D2", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GenerateDirectChallengeCode",                   module: "client.dll", needle: "48 83 EC ? E8 ? ? ? ? 48 8B 05", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "ValidateDirectChallengeCode",                   module: "client.dll", needle: "40 53 41 56 48 83 EC ? 4D 8B F0", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "GetRotatingOfficialMapGroupCurrentState",       module: "client.dll", needle: "48 81 EC ? ? ? ? 48 8B CA 48 8D 15", resolve: NONE, extra_off: 0, prototype: "" },
+
     // ============================================================================
     // engine2.dll
     // ============================================================================
@@ -1411,6 +1446,10 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern { name: "ToneMapUpdate", module: "scenesystem.dll", needle: "40 53 48 83 EC ? 48 8B D9 0F 29 74 24", resolve: NONE, extra_off: 0, prototype: "" },
     Pattern { name: "UpdateLightObject",                     module: "scenesystem.dll", needle: "48 89 54 24 ? 55 57 41 56 48 83 EC", resolve: NONE, extra_off: 0, prototype: "" },
 
+    // --- cspatterns.dev additions (verified 07/06/2026) -----------------------
+    Pattern { name: "DrawLightScene",  module: "scenesystem.dll", needle: "? ? ? ? F2 0F 10 42 ? F2 0F 11 41 ? 8B 42 ? 89 41 ? F2 0F 10 42 ? F2 0F 11 41 ? 8B 42 ? 89 41 ? 8B 42 ? 89 41 ? 8B 42", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "SkyboxDrawArray", module: "scenesystem.dll", needle: "45 85 C9 0F 8E ? ? ? ? 4C 8B DC", resolve: NONE, extra_off: 0, prototype: "" },
+
     // ============================================================================
     // schemasystem.dll
     // ============================================================================
@@ -1525,6 +1564,9 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern { name: "pSoundChannels", module: "soundsystem.dll", needle: "8B 3D ? ? ? ? 48 89 58", resolve: ResolveKind::RipRel { rel_off: 2 }, extra_off: 0, prototype: "" },
     Pattern { name: "pSoundSystem",                      module: "soundsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 15", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "SomeUtlSymbolFunc",       module: "soundsystem.dll", needle: "48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9 3B 71 30", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1800B0740(__int64 a1, unsigned int a2)" },
+
+    // --- cspatterns.dev additions (verified 07/06/2026) -----------------------
+    Pattern { name: "PlayVSnd", module: "soundsystem.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 F6 C7 45 ? ? ? ? ? 4C 8B C1", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ============================================================================
     // tier0.dll
