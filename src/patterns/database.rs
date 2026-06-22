@@ -224,6 +224,8 @@ pub static CS2_PATTERNS: &[Pattern] = &[
         prototype: "__int64 *__fastcall sub_1807C3D70(__int64 a1, unsigned int a2, unsigned int a3)",
     },
     Pattern { name: "CCSWeaponBase_GetInaccuracy", module: "client.dll", needle: "48 89 5C 24 ? 55 56 57 48 81 EC ? ? ? ? 44", resolve: NONE, extra_off: 0, prototype: "" },
+    // No-spread helper used by the cs2-internal no-spread feature (sibling of GetInaccuracy/CalcSpread).
+    Pattern { name: "NoSpread1",                   module: "client.dll", needle: "48 89 5C 24 08 57 48 81 EC F0 00", resolve: NONE, extra_off: 0, prototype: "" },
     Pattern {
         name: "CEconItemCreateInstance",
         module: "client.dll",
@@ -755,7 +757,7 @@ pub static CS2_PATTERNS: &[Pattern] = &[
         prototype: "__int64 sub_1807B0D40()",
     },
     Pattern { name: "RemoveLegs",                          module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)" },
-    Pattern { name: "RenderDecals",                         module: "client.dll", needle: "44 88 4C 24 ? 55 53", resolve: NONE, extra_off: 0, prototype: "_BYTE *__fastcall sub_1810ECA50(__int64 a1, __int64 **a2, char a3, char a4)" },
+    Pattern { name: "RenderDecals",                         module: "client.dll", needle: "44 88 4C 24 ? 55 53 57 41 54 41 55 48 8D 6C 24 ? 48 81 EC ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "_BYTE *__fastcall sub_1810ECA50(__int64 a1, __int64 **a2, char a3, char a4)" },
     Pattern { name: "RepeatedPtrField_AddAllocatedForParse", module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 48 8B D9 48 8B FA 48 8B 49 ? 48 85 C9 74 ? 8B 01", resolve: NONE, extra_off: 0, prototype: "" },
     Pattern { name: "ReportHit",                            module: "client.dll", needle: "E8 ? ? ? ? 48 8B AC 24 D8 00 00 00 48 81 C4", resolve: REL32_1, extra_off: 0, prototype: "char __fastcall sub_180602290(_QWORD *a1)" },
     Pattern { name: "SendChatMessage",                      module: "client.dll", needle: "E8 ? ? ? ? 49 8B 4E 20 BA ? ? ? ?", resolve: REL32_1, extra_off: 0, prototype: "__int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)" },
@@ -943,7 +945,7 @@ pub static CS2_PATTERNS: &[Pattern] = &[
 
     // --- cspatterns.dev additions (verified 07/06/2026) -----------------------
     Pattern { name: "OverrideView",                                  module: "client.dll", needle: "40 57 48 83 EC ? 48 8B FA E8 ? ? ? ? BA", resolve: NONE, extra_off: 0, prototype: "" },
-    Pattern { name: "PopupEventHandle",                              module: "client.dll", needle: "40 56 57 41 57 48 83 EC ? 48 8B 3D ? ? ? ? 4D 85 C0", resolve: NONE, extra_off: 0, prototype: "" },
+    // PopupEventHandle removed: alias of PanoramaEvent (same address, identical needle).
     Pattern { name: "InitTraceInfo",                                 module: "client.dll", needle: "40 55 41 55 41 57 48 83 EC", resolve: NONE, extra_off: 0, prototype: "" },
     Pattern { name: "GetTraceInfo_v2",                               module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 0F 29 74 24", resolve: NONE, extra_off: 0, prototype: "" },
     Pattern { name: "HandleBulletPenetration_v2",                    module: "client.dll", needle: "48 8B C4 44 89 48 ? 48 89 50 ? 48 89 48 ? 55 57", resolve: NONE, extra_off: 0, prototype: "" },
@@ -1448,7 +1450,7 @@ pub static CS2_PATTERNS: &[Pattern] = &[
 
     // --- cspatterns.dev additions (verified 07/06/2026) -----------------------
     Pattern { name: "DrawLightScene",  module: "scenesystem.dll", needle: "? ? ? ? F2 0F 10 42 ? F2 0F 11 41 ? 8B 42 ? 89 41 ? F2 0F 10 42 ? F2 0F 11 41 ? 8B 42 ? 89 41 ? 8B 42 ? 89 41 ? 8B 42", resolve: NONE, extra_off: 0, prototype: "" },
-    Pattern { name: "SkyboxDrawArray", module: "scenesystem.dll", needle: "45 85 C9 0F 8E ? ? ? ? 4C 8B DC", resolve: NONE, extra_off: 0, prototype: "" },
+    // SkyboxDrawArray removed: alias of DrawSkyboxArray (same address, identical needle).
 
     // ============================================================================
     // schemasystem.dll
