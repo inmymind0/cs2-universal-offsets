@@ -511,7 +511,7 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern { name: "FindHudElement",                       module: "client.dll", needle: "48 8D 15 ? ? ? ? 45 33 C0 B9 ? ? ? ? FF 15 ? ? ? ? EB ? 48 8B 15", resolve: NONE, extra_off: 0, prototype: "_QWORD **__fastcall sub_180DC1D50(__int64 a1, unsigned __int8 a2)" },
     Pattern { name: "FindSOCache",                          module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 30 4C 8B 52 08 48 8B D9 8B 0A", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18181F080(__int64 a1, int *a2, __int64 a3, __int64 a4)" },
     Pattern { name: "FirstPersonLegs",                      module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)" },
-    Pattern { name: "FlashOverlay",                         module: "client.dll", needle: "85 D2 0F 88 ? ? ? ? 48 89 4C 24", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180DAB2C0(__int64 a1, int a2)" },
+    Pattern { name: "FlashOverlay",                         module: "client.dll", needle: "85 D2 0F 88 ? ? ? ? 48 89 4C 24 08 55 56", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_181104B90(__int64 a1, int a2)" },
     Pattern { name: "ForceButtonsDown",                     module: "client.dll", needle: "40 53 57 41 56 48 81 EC ? ? ? ? 48 83 79", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1809D0130(_QWORD *a1, __int64 a2)" },
     Pattern { name: "FrameStageNotify",        module: "client.dll",  needle: "48 89 5C 24 ? 48 89 6C 24 ? 57 48 83 EC ? 48 8B F9 33 ED", resolve: NONE, extra_off: 0, prototype: "" },
     Pattern {
@@ -551,10 +551,11 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern {
         name: "GetEconItemSystem",
         module: "client.dll",
-        needle: "48 83 EC 28 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24",
+        // needle: "48 83 EC 28 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24",
+        needle: "48 83 EC 28 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 ? B9 10 00 00 00 48 89 7C 24 ? E8 ? ? ? ? 33 FF 48 8B D8 48 85 C0 74 ? 48 8D 05 ? ? ? ? 48 89 7B ? B9 A0 09 00 00 48 89 03 E8 ? ? ? ? 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? 48 8B F8 48 8D 05 ? ? ? ? 48 89 7B ? 48 89 03 48 8B C7",
         resolve: NONE,
         extra_off: 0,
-        prototype: "__int64 sub_180379830()",
+        prototype: "__int64 GetEconItemSystem()",
     },
     Pattern {
         name: "GetEntityByIndex",
@@ -709,6 +710,7 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern { name: "pGameRules",                        module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 8D 54 24 ? 0F 28 D0 48 8D 4C 24 ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "pGameTraceManager",                 module: "client.dll", needle: "48 8B 0D ? ? ? ? 48 8B D0 C7 44 24 ? 04 00 00 00 48 C7 44 24 ? 01 30 1C 00", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "pGetBBox",                          module: "client.dll", needle: "48 8B 0D ? ? ? ? 48 85 C9 74 ? ? ? ? 48 FF A0 ? ? ? ? 48 8D 05", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Pattern { name: "pGetRenderFov",                    module: "client.dll", needle: "E8 ? ? ? ? F3 0F 11 06 48 8B 5C 24 58", resolve: REL32_1, extra_off: 0, prototype: "" },
     Pattern { name: "pGlobalVariables",                  module: "client.dll", needle: "48 89 15 ? ? ? ? 48 89 42", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "pGlowManager",                      module: "client.dll", needle: "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 41", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "pHudPanel", module: "client.dll", needle: "48 89 35 ? ? ? ? E8 ? ? ? ? 48 85", resolve: ResolveKind::RipRel { rel_off: 3 }, extra_off: 0, prototype: "" },
@@ -1581,4 +1583,10 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern { name: "Plat_GetTime",                  module: "tier0.dll", needle: "48 83 EC 28 48 8D 4C 24 30 E8 ? ? ? ? 48 8B 44 24 30 48 83 C4 28 C3", resolve: NONE, extra_off: 0, prototype: "unsigned __int64 __fastcall Plat_GetTime()" },
     Pattern { name: "Plat_MSTime",                   module: "tier0.dll", needle: "40 53 48 83 EC 20 48 8B 1D ? ? ? ? 48 85 DB 75 0C E8 ? ? ? ? 48 8B 1D ? ? ? ? 48 8D 4C 24 30 FF 15 ? ? ? ? 48 8B 44 24 30 48 8B 0D ? ? ? ? 48 3B C1 73 05 48 8B C1 EB 07 48 89 05 ? ? ? ? 48 2B 05 ? ? ? ? 33 D2 48 F7 F3 48 8B C8 48 69 C2 E8 03 00 00 69 C9 E8 03 00 00", resolve: NONE, extra_off: 0, prototype: "unsigned __int64 __fastcall Plat_MSTime()" },
     Pattern { name: "UtlBuffer",                     module: "tier0.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 8D 7A", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // ============================================================================
+    // resourcesystem.dll
+    // ============================================================================
+    Pattern { name: "CreateInterface",                     module: "resourcesystem.dll", needle: "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "Precache",                            module: "resourcesystem.dll", needle: "40 53 55 57 48 81 EC 80 00 00 00 48 8B 01 49 8B E8 48 8B FA", resolve: NONE, extra_off: 0, prototype: "" },
 ];
