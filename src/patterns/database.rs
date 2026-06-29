@@ -1,4 +1,4 @@
-﻿//! CS2 Pattern database (ported + deduplicated from
+//! CS2 Pattern database (ported + deduplicated from
 //! `Pattern-dumper/cs2sign/CS2EnhancedSignatures.h`).
 //!
 //! Every entry is module-scoped to its DLL (.text first, .rdata fallback)
@@ -716,6 +716,7 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern { name: "pHudPanel", module: "client.dll", needle: "48 89 35 ? ? ? ? E8 ? ? ? ? 48 85", resolve: ResolveKind::RipRel { rel_off: 3 }, extra_off: 0, prototype: "" },
     Pattern { name: "PhysicsRunThink_Ctrl",                 module: "client.dll", needle: "48 89 5C 24 ? 57 48 81 EC ? ? ? ? ? ? ? 48 8B F9 FF 90", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808D7310(__int64 a1)" },
     Pattern { name: "PhysicsRunThink_Pawn",                 module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 8B 81 ? ? ? ? 48 8B F9", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180B0ED50(__int64 a1)" },
+    Pattern { name: "PlayParticleEffect",                   module: "client.dll", needle: "48 89 5C 24 ? 48 89 7C 24 ? 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B D9", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1809AD410(__int64 a1, int a2, __int64 a3, char a4, int a5, char a6, unsigned int a7, __int64 a8, unsigned __int8 a9)" },
     Pattern { name: "PlayVSound_client",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 FF", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18150ED00(__int64 a1)" },
     Pattern { name: "pLocalPlayerController",            module: "client.dll", needle: "48 8B 05 ? ? ? ? 41 89 BE", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "pMainMenuPanel", module: "client.dll", needle: "EC ? 48 8B 05 ? ? ? ? 48 8D 15 ? ? ? ? 48", resolve: ResolveKind::RipRel { rel_off: 5 }, extra_off: 0, prototype: "" },
