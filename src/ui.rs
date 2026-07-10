@@ -231,3 +231,11 @@ pub fn not_found(name: &str, reason: &str) {
 pub fn divider() {
     println!("  {DIM}{FG_GRAY}{}{RESET}", HLINE.repeat(66));
 }
+
+pub fn pause() {
+    println!();
+    print!("  {FG_GRAY}Press Enter to exit…{RESET} ");
+    let _ = io::stdout().flush();
+    let mut buf = String::new();
+    let _ = io::stdin().read_line(&mut buf);
+}

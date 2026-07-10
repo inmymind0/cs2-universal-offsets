@@ -344,10 +344,12 @@ fn main() -> Result<()> {
     if all_ok {
         ui::sound(ui::Cue::Success);
         ui::step("All stages completed successfully.");
+        ui::pause();
         Ok(())
     } else {
         ui::sound(ui::Cue::Failure);
         ui::err("One or more stages failed — see cs2-sdk.log.");
+        ui::pause();
         std::process::exit(1);
     }
 }

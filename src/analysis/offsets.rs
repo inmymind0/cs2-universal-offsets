@@ -88,7 +88,7 @@ pattern_map! {
         "dwGlobalVars" => pattern!("488915${'} 488942") => None,
         "dwGlowManager" => pattern!("488b05${'} c3 cccccccccccccccc 8b41") => None,
         "dwLocalPlayerController" => pattern!("488b05${'} 4189be") => None,
-        "dwPlantedC4" => pattern!("488b15${'} 41ffc0 488d4c24? 448905[4]") => None,
+        "dwPlantedC4" => pattern!("488b1d${'} 4532f6 4885db") => None,
         "dwPrediction" => pattern!("488d05${'} c3 cccccccccccccccc 405356 4154") => Some(|view, map, rva| {
             let mut save = [0; 2];
 
@@ -96,18 +96,20 @@ pattern_map! {
                 map.insert("dwLocalPlayerPawn".to_string(), rva + save[1]);
             }
         }),
-        "dwSensitivity" => pattern!("488d0d${[8]'} 660f6ecd") => None,
-        "dwSensitivity_sensitivity" => pattern!("488d7eu1 480fbae0? 72? 85d2 490f4fff") => None,
+        "dwSensitivity" => pattern!("488d0d${'} 660f6ecd") => Some(|_, map, _| {
+            map.insert("dwSensitivity_sensitivity".to_string(), 0x00);
+        }),
         "dwViewMatrix" => pattern!("488d0d${'} 48c1e006") => None,
         "dwViewRender" => pattern!("488905${'} 488bc8 4885c0") => None,
         "dwWeaponC4" => pattern!("488b15${'} 488b5c24? ffc0 8905${} 488bc6 488934ea 80be") => None,
     },
     engine2 => {
         "dwBuildNumber" => pattern!("8905${'} 488d0d${} ff15${} 488b0d") => None,
-        "dwNetworkGameClient" => pattern!("48893d${'} ff87") => None,
+        "dwNetworkGameClient" => pattern!("48893d${'} ff87") => Some(|_, map, _| {
+            map.insert("dwNetworkGameClient_isBackgroundMap".to_string(), 0x280);
+        }),
         "dwNetworkGameClient_clientTickCount" => pattern!("8b81u4 c3 cccccccccccccccccc 8b81${} c3 cccccccccccccccccc 83b9") => None,
         "dwNetworkGameClient_deltaTick" => pattern!("4c8db7u4 4c897c24") => None,
-        "dwNetworkGameClient_isBackgroundMap" => pattern!("0fb681u4 c3 cccccccccccccccc 0fb681${} c3 cccccccccccccccc 4053") => None,
         "dwNetworkGameClient_localPlayer" => pattern!("428b94d3u4 5b 49ffe3 32c0 5b c3 cccccccccccccccc 4053") => None,
         "dwNetworkGameClient_maxClients" => pattern!("8b81u4 c3????????? 8b81[4] c3????????? 8b81") => None,
         "dwNetworkGameClient_serverTickCount" => pattern!("8b81u4 c3 cccccccccccccccccc 83b9") => None,
@@ -119,10 +121,11 @@ pattern_map! {
         "dwInputSystem" => pattern!("488905${'} 33c0") => None,
     },
     matchmaking => {
-        "dwGameTypes" => pattern!("488d0d${'} ff90") => None,
+        "dwGameTypes" => pattern!("488d0d${'} ff90") => Some(|_, map, _| {
+            map.insert("dwSoundSystem".to_string(), 0x512360);
+        }),
     },
     soundsystem => {
-        "dwSoundSystem" => pattern!("488d05${'} c3 cccccccccccccccc 488915") => None,
         "dwSoundSystem_engineViewData" => pattern!("0f1147u1 0f104e? 0f118f") => None,
     },
 }
