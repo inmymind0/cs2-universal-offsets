@@ -14,6 +14,9 @@ use log::{error, info};
 use memflow::prelude::v1::*;
 
 mod buttons;
+pub mod convars;
+pub mod entities;
+pub mod gameevents;
 mod interfaces;
 pub mod manual_iface;
 mod offsets;
@@ -21,6 +24,7 @@ mod protobufs;
 pub mod rtti;
 mod schemas;
 mod vtables;
+pub mod weapons;
 
 pub use buttons::*;
 pub use interfaces::*;

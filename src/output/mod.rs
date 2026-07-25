@@ -10,13 +10,19 @@ use crate::analysis::*;
 mod buttons;
 
 pub mod amalgamation;
+pub mod convars;
+pub mod engine_structs;
+pub mod entities;
 pub mod entity_system;
+pub mod gameevents;
 pub mod ident;
 pub mod interface_classes;
 pub mod netvars;
 pub mod protobufs;
 pub mod sdk_classes;
 pub mod verified;
+pub mod vtables;
+pub mod weapons;
 
 /// Emit the C++ SDK outputs:
 ///   <out>/macros.hpp                  SCHEMA_FIELD macros
@@ -192,6 +198,13 @@ pub fn dump_sdk_extras(
             }
         }
 
+        // 2b. structured schema JSON (classes/enums with size/offsets/metadata)
+        //     for the site's class browser and machine consumers.
+        fs::write(
+            schemas_dir.join("schemas.json"),
+            sdk_classes::render_schemas_json(&result.schemas),
+        )?;
+
         // 3. netvars (split from schema). Only emit if non-empty.
         let nvs = netvars::extract(&result.schemas);
         if !nvs.is_empty() {
@@ -223,6 +236,21 @@ pub fn dump_sdk_extras(
             out_dir.join("verified_features.json"),
             verified::render_json(build_number),
         )?;
+
+        // 7. engine (non-schema) struct layouts — engine/engine_structs.json
+        //    plus a drop-in .h per struct (CCSGOInput, CUserCmd, CViewSetup).
+        let engine_dir = out_dir.join("engine");
+        fs::create_dir_all(&engine_dir)?;
+        fs::write(
+            engine_dir.join("engine_structs.json"),
+            engine_structs::render_json(build_number),
+        )?;
+        for s in engine_structs::ENGINE_STRUCTS {
+            fs::write(
+                engine_dir.join(format!("{}.h", s.name.to_ascii_lowercase())),
+                engine_structs::render_header(s, build_number),
+            )?;
+        }
 
     Ok(())
 }

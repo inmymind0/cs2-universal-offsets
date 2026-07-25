@@ -229,6 +229,101 @@ fn main() -> Result<()> {
                 }
 
 
+                // ConVars / ConCommands — read-only walk of the tier0 CCvar
+                // registry, anchored on the `pCvarRegistry` global. Emits a
+                // structured catalogue for the site + a reference header.
+                if let Some(hit) = report.hits.iter().find(|h| h.name == "pCvarRegistry" && h.found)
+                    && let Some(va) = hit.va
+                {
+                    match analysis::convars::walk(&mut process, va) {
+                        Ok(dump) => {
+                            let cv_dir = out_dir.join("convars");
+                            if let Err(e) = fs::create_dir_all(&cv_dir) {
+                                ui::warn(&format!("convars dir create failed: {}", e));
+                            } else {
+                                let _ = fs::write(
+                                    cv_dir.join("convars.json"),
+                                    output::convars::render_json(&dump, build_number),
+                                );
+                                let _ = fs::write(
+                                    cv_dir.join("convars.hpp"),
+                                    output::convars::render_hpp(&dump, build_number),
+                                );
+                                ui::ok(&format!(
+                                    "convars emitted ({} convars, {} commands)",
+                                    dump.convars.len(),
+                                    dump.commands.len()
+                                ));
+                            }
+                        }
+                        Err(e) => ui::warn(&format!("convars walk failed: {}", e)),
+                    }
+                }
+
+                // Weapon VData — walk the entity list for weapon entities and
+                // read each one's CCSWeaponBaseVData values. Anchored on the
+                // `pEntitySystem` global. Coverage = weapons present in-session.
+                if let Some(hit) = report.hits.iter().find(|h| h.name == "pEntitySystem" && h.found)
+                    && let Some(va) = hit.va
+                {
+                    match analysis::weapons::walk(&mut process, va) {
+                        Ok(weapons) if !weapons.is_empty() => {
+                            let wp_dir = out_dir.join("weapons");
+                            if fs::create_dir_all(&wp_dir).is_ok() {
+                                let _ = fs::write(
+                                    wp_dir.join("weapons.json"),
+                                    output::weapons::render_json(&weapons, build_number),
+                                );
+                                ui::ok(&format!("weapons emitted ({} weapons)", weapons.len()));
+                            }
+                        }
+                        Ok(_) => ui::warn("weapons: no weapon entities found (run the dump in a match for coverage)"),
+                        Err(e) => ui::warn(&format!("weapons walk failed: {}", e)),
+                    }
+                }
+
+                // Game Events — walk the CGameEventManager registry for every
+                // registered event's name/id/typed field schema.
+                if let Some(hit) = report.hits.iter().find(|h| h.name == "pGameEventManager" && h.found)
+                    && let Some(va) = hit.va
+                {
+                    match analysis::gameevents::walk(&mut process, va) {
+                        Ok(events) if !events.is_empty() => {
+                            let ge_dir = out_dir.join("gameevents");
+                            if fs::create_dir_all(&ge_dir).is_ok() {
+                                let _ = fs::write(
+                                    ge_dir.join("gameevents.json"),
+                                    output::gameevents::render_json(&events, build_number),
+                                );
+                                ui::ok(&format!("game events emitted ({} events)", events.len()));
+                            }
+                        }
+                        Ok(_) => ui::warn("game events: registry empty"),
+                        Err(e) => ui::warn(&format!("game events walk failed: {}", e)),
+                    }
+                }
+
+                // Live entity snapshot — decode every entity in the world at
+                // dump time (reuses the `pEntitySystem` anchor).
+                if let Some(hit) = report.hits.iter().find(|h| h.name == "pEntitySystem" && h.found)
+                    && let Some(va) = hit.va
+                {
+                    match analysis::entities::walk(&mut process, va) {
+                        Ok(ents) if !ents.is_empty() => {
+                            let en_dir = out_dir.join("entities");
+                            if fs::create_dir_all(&en_dir).is_ok() {
+                                let _ = fs::write(
+                                    en_dir.join("entities.json"),
+                                    output::entities::render_json(&ents, build_number),
+                                );
+                                ui::ok(&format!("entity snapshot emitted ({} entities)", ents.len()));
+                            }
+                        }
+                        Ok(_) => ui::warn("entities: none found (run the dump in-game)"),
+                        Err(e) => ui::warn(&format!("entity snapshot failed: {}", e)),
+                    }
+                }
+
                 sig_report = Some(report);
             }
             Err(e) => {
@@ -238,9 +333,37 @@ fn main() -> Result<()> {
         }
     }
 
-    // --- stage 3: combined interfaces.hpp (accessors + class wrappers)
-    if let Some(result) = analysis_result.as_ref() {
+    // --- stage 3: combined interfaces.hpp/vtables.json (accessors + class wrappers)
+    if let Some(result) = analysis_result.as_mut() {
+        if let Some(sig) = sig_report.as_ref() {
+            analysis::recover_names(&mut result.vtables, &sig.hits);
+        }
+
         if !result.vtables.is_empty() {
+            match output::vtables::render_json(&result.vtables) {
+                Ok(j) => {
+                    let _ = fs::write(ifc_dir.join("vtables.json"), j);
+                    let total_methods: usize = result
+                        .vtables
+                        .values()
+                        .flat_map(|m| m.values())
+                        .map(|i| i.methods.len())
+                        .sum();
+                    let total_named: usize = result
+                        .vtables
+                        .values()
+                        .flat_map(|m| m.values())
+                        .flat_map(|i| i.methods.iter())
+                        .filter(|m| m.name.is_some())
+                        .count();
+                    ui::ok(&format!(
+                        "wrote interfaces/vtables.json ({} methods, {} names recovered)",
+                        total_methods, total_named
+                    ));
+                }
+                Err(e) => ui::warn(&format!("vtables.json emit failed: {}", e)),
+            }
+
             // Registered interfaces — discovered via CreateInterface walk in analysis.
             let mut classes: Vec<output::interface_classes::IfaceClass> = result
                 .vtables
@@ -248,7 +371,7 @@ fn main() -> Result<()> {
                 .flat_map(|(module, ifaces)| {
                     ifaces.iter().map(move |(iface, info)| {
                         let methods = info.methods.iter().enumerate()
-                            .map(|(idx, _)| output::interface_classes::Method { index: idx })
+                            .map(|(idx, m)| output::interface_classes::Method { index: idx, name: m.name.clone() })
                             .collect();
                         output::interface_classes::IfaceClass {
                             module: module.clone(),
@@ -344,12 +467,10 @@ fn main() -> Result<()> {
     if all_ok {
         ui::sound(ui::Cue::Success);
         ui::step("All stages completed successfully.");
-        ui::pause();
         Ok(())
     } else {
         ui::sound(ui::Cue::Failure);
         ui::err("One or more stages failed — see cs2-sdk.log.");
-        ui::pause();
         std::process::exit(1);
     }
 }
