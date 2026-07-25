@@ -1575,6 +1575,12 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern { name: "PlayVSnd", module: "soundsystem.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 F6 C7 45 ? ? ? ? ? 4C 8B C1", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ============================================================================
+    // resourcesystem.dll
+    // ============================================================================
+    Pattern { name: "CreateInterface",                     module: "resourcesystem.dll", needle: "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9", resolve: NONE, extra_off: 0, prototype: "" },
+    Pattern { name: "Precache",                            module: "resourcesystem.dll", needle: "40 53 55 57 48 81 EC 80 00 00 00 48 8B 01 49 8B E8 48 8B FA", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // ============================================================================
     // tier0.dll
     // ============================================================================
     Pattern { name: "CreateInterface",               module: "tier0.dll", needle: "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 2E 49 8B 41 08 4D 8B C3 4C 2B C0", resolve: NONE, extra_off: 0, prototype: "void *__fastcall CreateInterface(const char *pName, int *pReturnCode)" },
